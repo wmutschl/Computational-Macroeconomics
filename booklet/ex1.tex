@@ -1,0 +1,32 @@
+\input{common_header.tex}
+\Newassociation{solution}{Solution}{ans_ex1}
+\newif\ifDisplaySolutions %\DisplaySolutionstrue
+
+\begin{document}
+\title{Computational Macroeconomics\\Exercises\\~\\Week 1}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: \today}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{ans_ex1}[ans_ex1]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\include{exercises/computational_macroeconomics_scope.tex}
+\include{exercises/dsge_models.tex}
+\include{exercises/programming_language.tex}
+\include{exercises/matlab_quick_tour.tex}
+%\include{exercises/matrix_algebra.tex}
+%\include{exercises/law_of_large_numbers.tex}
+\include{exercises/arma_dynare.tex}
+
+\printbibliography
+\Closesolutionfile{ans_ex1}
+\ifDisplaySolutions
+\newpage
+\appendix
+\section{Solutions}
+\input{ans_ex1}
+\fi
+\end{document}
