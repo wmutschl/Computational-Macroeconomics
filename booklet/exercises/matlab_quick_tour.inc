@@ -5,10 +5,12 @@ Install the most recent version of MATLAB with the following Toolboxes:
 	Optimization Toolbox,
 	Parallel Computing Toolbox,
 	Statistics and Machine Learning Toolbox,
-	Symbolic Math Toolbox. Open a new script and do the following:\footnote{If you don't have any previous programming experience, I would highly recommend to go through
-\textcite[Appendix A]{Brandimarte_2006_NumericalMethodsFinance},
-\textcite[Appendix B]{Miranda.Fackler_2002_AppliedComputationalEconomics}, and \textcite{Pfeifer_2017_MATLABHandout}.}
-
+	Symbolic Math Toolbox. Open a new script and do the following:
+\footnote{If you don't have any previous programming experience,
+  I would highly recommend to go through
+  \textcite[Appendix A]{Brandimarte_2006_NumericalMethodsFinance},
+  \textcite[Appendix B]{Miranda.Fackler_2002_AppliedComputationalEconomics},
+  and \textcite{Pfeifer_2017_MATLABHandout}.}
 
 \begin{enumerate}
 	\item Define the column vectors
@@ -31,8 +33,10 @@ Install the most recent version of MATLAB with the following Toolboxes:
 	\item Compute $\ln (x)$ and $e^x$.
 	\item Use \texttt{any} to check if the vector $x$ contains elements	satisfying $\sqrt{x}\geq 2$.
 	\item Compute
-	$a =\sum_{i=1}^{10}x_{i}$ and $b =\sum_{i=1}^{10}y_{i}^{2}$. Omit the nan in $y$ when computing the sum.
-	\item Compute $\sum_{i=1}^{10}x_{i}y_{i}^{2}$. Omit the nan in $y$ when computing the sum.
+	$a =\sum_{i=1}^{10}x_{i}$ and $b =\sum_{i=1}^{10}y_{i}^{2}$.
+	Omit the nan in $y$ when computing the sum.
+	\item Compute $\sum_{i=1}^{10}x_{i}y_{i}^{2}$.
+	Omit the nan in $y$ when computing the sum.
 	\item Count the number of elements of $x>0$.
 	\item Predict what the following commands will return:
 	\begin{verbatim}x.^y  	x.^(1/y)  	log(exp(y))  	y*[-1,1]  	x+[-1,0,1]   sum(y*[-1,1],1,'omitnan') \end{verbatim} 	
@@ -41,10 +45,12 @@ Install the most recent version of MATLAB with the following Toolboxes:
  	1 & 4 & 7 \\ 
  	2 & 5 & 8 \\ 
  	3 & 6 & 9
- 	\end{pmatrix}$. Print the transpose, dimensions and determinant of $X$.
+ 	\end{pmatrix}$.
+	Print the transpose, dimensions and determinant of $X$.
 	\item Compute the trace of $X$ (i.e. the sum of its diagonal elements).
 	\item Change the diagonal elements of $X$ to [7,8,9].
-	\item Compute the eigenvalues of (the new) $X$. Display a message if $X$ is positive or negative definite.
+	\item Compute the eigenvalues of (the new) $X$.
+	Display a message if $X$ is positive or negative definite.
 	\item Invert $X$ and compute the eigenvalues of $X^{-1}$.
 	\item Define the column vector $a=(1,3,2)'$ and compute \texttt{a'*X}, \texttt{a'.*X}, and \texttt{X*a}.
 	\item Compute the quadratic form $a^{\prime }Xa$.
@@ -157,15 +163,15 @@ Install the most recent version of MATLAB with the following Toolboxes:
 
 \paragraph{Readings}
 \begin{itemize}
-	\item \textcite{Brandimarte_2006_NumericalMethodsFinance}.
-	\item \textcite{Miranda.Fackler_2002_AppliedComputationalEconomics}.
+	\item \textcite[Appendix A]{Brandimarte_2006_NumericalMethodsFinance}.
+	\item \textcite[Appendix B]{Miranda.Fackler_2002_AppliedComputationalEconomics}.
 	\item \textcite{Pfeifer_2017_MATLABHandout}
 \end{itemize}
 
 \begin{solution}\textbf{Solution to \nameref{ex:QuickTourMATLAB}}
 \ifDisplaySolutions
-
-
+\\\texttt{quick\_tour\_matlab.m}:
+\lstinputlisting{progs/quick_tour_matlab.m}
 \fi
 \newpage
 \end{solution}
