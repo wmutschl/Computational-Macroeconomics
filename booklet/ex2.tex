@@ -1,0 +1,30 @@
+\input{common_header.inc}
+\Newassociation{solution}{Solution}{ans_ex2}
+\newif\ifDisplaySolutions %\DisplaySolutionstrue
+
+\begin{document}
+\title{Computational Macroeconomics\\Exercises\\~\\Week 2}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: \today}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{ans_ex2}[ans_ex2]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/rbc_preprocess_steady_dynare.inc}\newpage
+\input{exercises/baxter_king_preprocess_steady.inc}\newpage
+\input{exercises/matrix_algebra.inc}\newpage
+\input{exercises/law_of_large_numbers.inc}\newpage
+
+
+\printbibliography
+\Closesolutionfile{ans_ex2}
+\ifDisplaySolutions
+\newpage
+\appendix
+\section{Solutions}
+\input{ans_ex2}
+\fi
+\end{document}

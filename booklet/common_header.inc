@@ -65,6 +65,7 @@
 %\makeatletter
 %\newcommand*{\currentname}{\@currentlabelname}
 %\makeatother
+\renewcommand{\contentsname}{Overview}
 
 \usepackage[
 	%nosolutionfiles
