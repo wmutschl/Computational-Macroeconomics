@@ -43,3 +43,7 @@ booklet/ex2.log
 booklet/ex2.out
 
 booklet/ex2.toc
+
+booklet/progs/dynare/Baxter_King/Output/Baxter_King_results.mat
+
+booklet/progs/dynare/Baxter_King.log
