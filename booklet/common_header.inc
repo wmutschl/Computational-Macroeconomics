@@ -53,7 +53,7 @@
 	%morekeywords=[3]{FindESS, homework_example},
 	%
 	morecomment=[l][\color{Blue}]{...},     % Line continuation (...) like blue comment
-	numbers=left,                           % Line numbers on left
+	%numbers=left,                           % Line numbers on left
 	firstnumber=1,                          % Line numbers start with line 1
 	numberstyle=\tiny\color{Blue},          % Line numbers are blue
 	stepnumber=5                            % Line numbers go in steps of 5
@@ -61,6 +61,7 @@
 \usepackage[backend=biber,style=authoryear]{biblatex}
 \addbibresource{bib_computational_macroeconomics.bib}
 \usepackage[stable]{footmisc}
+\usepackage{booktabs,longtable}
 \usepackage{nameref}
 %\makeatletter
 %\newcommand*{\currentname}{\@currentlabelname}

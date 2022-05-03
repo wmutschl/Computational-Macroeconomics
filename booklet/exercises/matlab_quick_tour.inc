@@ -92,7 +92,7 @@ Install the most recent version of MATLAB with the following Toolboxes:
  		x_{5} =\left( 1980,1985,1990,\ldots ,2010\right) ,&&
  		x_{6} =\left( 0,0.01,0.02,\ldots ,0.99,1\right)
 	\end{align*}
-	using sequence operators \texttt{:} or \texttt{repmat}.
+	using sequence operator \texttt{:} or \texttt{repmat}.
 	\item Generate a grid of $n=500$ equidistant points on the interval $[-\pi,\pi ]$ using \texttt{linspace}.
 	\item Compare \texttt{1:10+1}, \texttt{(1:10)+1} and \texttt{1:(10+1)}.	
 	\item Define the following column vectors
@@ -154,10 +154,10 @@ Install the most recent version of MATLAB with the following Toolboxes:
 	\texttt{M(:,M(1,:)<=5)},
 	\texttt{M(M(:,2)>6,:)},
 	\texttt{M(M(:,2)>6,4:6)}
-	\item Print all rows where column 5 is at least three times larger than column 6.
+	\item Print all rows of $M$ where column 5 is at least three times larger than column 6.
 	\item Count the number of elements of $M$ that are larger than 7.
-	\item Count the number of elements in row 2 that are smaller than their neighbors in row 1.
-	\item Count the number of elements of M that are larger than their left neighbor.
+	\item Count the number of elements of $M$ in row 2 that are smaller than their neighbors in row 1.
+	\item Count the number of elements of $M$ that are larger than their left neighbor.
 \end{enumerate}
 
 
@@ -171,7 +171,7 @@ Install the most recent version of MATLAB with the following Toolboxes:
 \begin{solution}\textbf{Solution to \nameref{ex:QuickTourMATLAB}}
 \ifDisplaySolutions
 \\\texttt{quick\_tour\_matlab.m}:
-\lstinputlisting{progs/quick_tour_matlab.m}
+\lstinputlisting{progs/matlab/quick_tour_matlab.m}
 \fi
 \newpage
 \end{solution}
