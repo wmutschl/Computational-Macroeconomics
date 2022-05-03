@@ -1,0 +1,217 @@
+\section[Symbolic Math Toolbox in MATLAB]{Symbolic Math Toolbox in MATLAB\label{ex:MatlabSymbolicToolbox}}
+MATLAB's Symbolic Math Toolbox provides a set of functions for solving, plotting, and manipulating symbolic math equations.
+It enables you to perform symbolic computations by defining a special data type — symbolic objects.
+Functions are called using the familiar MATLAB syntax
+  and are available for integration, differentiation, simplification, equation solving, and other mathematical tasks.
+
+\subsection*{Creating symbolic numbers, matrices, and variables}
+Symbolic numbers are exact representations (like we do on paper).
+  Calculations on symbolic numbers and variables are exact,
+  unlike floating-point numbers which are only accurate to machine precision.
+\footnote{Granted MATLAB also offers variable-precision floating-point arithmetic (VPA).}
+
+In MATLAB you can create symbolic objects by using either \texttt{syms} or \texttt{sym}.
+The \texttt{syms} command is actually shorthand for the \texttt{sym} syntax,
+  but the two functions handle assumptions differently.
+For example \texttt{syms x} creates a symbolic variable x in the MATLAB workspace with the value x,
+  whereas \texttt{z = sym('y')} creates a symbolic variable z with the value y.
+
+\begin{enumerate}
+\item Create the symbolic number $sym(1/3)$ and compare it to the floating number $1/3$.
+  How does MATLAB display these numbers in the terminal?
+\item Demonstrate the exactness of symbolic numbers by computing $\sin(\pi)$ symbolically and numerically.
+\item You can create multiple variables in one command with \texttt{syms x y z}.
+  Create the variables x, y, and z.
+\item If you want to create an array of numbered symbolic variables, the \texttt{syms} syntax is inconvenient.
+  Use \texttt{sym('a',[1 20])} instead to create a row vector containing the symbolic variables
+    $a_1,...,a_20$ and assign it to the MATLAB variable $A$.
+\item By combining \texttt{sym} and \texttt{syms}, you can create many symbolic variables
+    with corresponding variables name in the MATLAB workspace.
+  Clear the workspace. Create the symbolic variables $a_1,...,a_10$
+    and assign them the MATLAB variable names $a_1,...,a_10$, respectively,
+    by running \texttt{syms(sym('a', [1 10]))}.
+  Have a look in the workspace which variables are created.
+\item Create the following symbolic matrix
+    $$A = \begin{pmatrix} a & b & c\\c & a & b\\b & c & a \end{pmatrix}$$
+  Check if the sum of the elements of the first row equals the sum of the elements of the second column.
+\item The \texttt{sym} function also lets you define a symbolic matrix or vector without having to define its elements in advance.
+  In this case, the \texttt{sym} function generates the elements of a symbolic matrix at the same time that it creates a matrix.
+  The function presents all generated elements using the same form:
+    the base (which must be a valid variable name), a row index, and a column index.
+  Run the following code
+  \begin{lstlisting}
+  clearvars
+  A = sym('a', [2 4])
+  B = sym('b_%d_%d', [2 4])
+  \end{lstlisting}
+  and confirm that you understood the syntax by looking at the created variables.
+\end{enumerate}
+
+\subsection*{Perform symbolic computations}
+With the Symbolic Math Toolbox software, you can also perform symbolic computations like derivatives, integrals or solving equations.
+
+\begin{enumerate}[resume]
+\item Have a look at the output of the following commands:
+  \begin{lstlisting}
+  clearvars
+  syms a b c x;
+  f = a*x^2 + b*x + c
+  g(x) = a*x^2 + b*x + c
+  g(4)
+  solve(g)
+  solve(f==2,a)
+  \end{lstlisting}
+  What does \texttt{solve(g)} and \texttt{solve(f,a)} do?
+\item To differentiate a symbolic expression, use the \texttt{diff} or \texttt{jacobian} commands.
+  Take the first derivative of $f$ with respect to $x$ and $a$, respectively:
+  \begin{lstlisting}
+  clearvars
+  syms a b c x;
+  f = a*x^2 + b*x + c
+  diff(f,x)
+  diff(f,a)
+  diff(f,b)
+  diff(f,c)
+  diff(f,x,a)
+  jacobian(f,[a;b;c;x])
+  \end{lstlisting}
+\item To compute the integral use the \texttt{int} function.
+  Compute $\int_{-\infty}^\infty a x^2 + b x + c dx$ and $\int_{-2}^1 a x^2 + b x + c dx$.
+\end{enumerate}
+
+\subsection*{Symbolic simplifications}
+The Symbolic Math Toolbox provides a set of simplification functions allowing you to manipulate the output of a symbolic expression, e.g.
+  \texttt{simplify}, \texttt{expand}, \texttt{factor}, \texttt{horner} or \texttt{subs}.
+  Symbolic simplification is not always straightforward as different problems require different forms of the same mathematical expression.
+    
+\begin{enumerate}[resume]
+  \item Define the following polynomial of the golden ratio:
+  \begin{lstlisting}
+  phi = (1 + sqrt(sym(5)))/2;
+  golden_ratio = phi^2 - phi - 1
+  \end{lstlisting}
+  Now run \texttt{simplify(golden\_ratio)}.
+  \item To show the order of a polynomial or to symbolically differentiate or integrate a polynomial
+    the standard polynomial form with all the parentheses multiplied out and all the similar terms summed up is useful.
+  You can do this by using \texttt{expand}:
+  \begin{lstlisting}
+  clearvars
+  syms x
+  f = (x^2-1)*(x^4+x^3+x^2+x+1)*(x^4-x^3+x^2-x+1);
+  disp(f);
+  expand(f)
+  \end{lstlisting}
+  \item To show the polynomial roots a factor simplification is useful:
+  \begin{lstlisting}
+  clearvars
+  syms x
+  g = x^3 + 6*x^2 + 11*x + 6;
+  disp(g)
+  factor(g)      
+  \end{lstlisting}
+  \item The nested (Horner) representation of a polynomial is often most efficient for numerical evaluations:
+  \begin{lstlisting}
+  clearvars
+  syms x
+  h = x^5 + x^4 + x^3 + x^2 + x;
+  disp(h)
+  horner(h)
+  \end{lstlisting}
+  \item You can substitute a symbolic variable with another symbolic variable or a numeric value by using the subs function.
+  When your expression contains more than one variable, you can specify the variable for which you want to make the substitution. 
+  For example:
+  \begin{lstlisting}
+  clearvars
+  syms x y
+  f = x^2*log(y) + 5*x*sqrt(y);
+  disp(f)
+  subs(f, x, 3)
+  subs(f, x, y)    
+  \end{lstlisting}
+  You can also substitute a set of elements in a symbolic matrix:
+  \begin{lstlisting}
+  syms a b c
+  alpha = sym('alpha');
+  beta = sym('beta');
+  A = [a b c; c a b; b c a];
+  disp(A);
+  A(2,1) = beta;
+  subs(A,b,alpha);
+  B = subs(A,b,alpha);
+  disp(A);
+  disp(B)       
+  \end{lstlisting}
+\end{enumerate}
+
+\subsection*{Writing out symbolic expressions to script files for numerical evaluation}
+Often we want to do some symbolic manipulations and then evaluate those expressions numerically.
+Evaluating symbolic variables, however, is computationally expensive in terms of memory allocation and speed of numerical evaluation.
+One can write out the symbolic expressions to script files and evaluate these,
+  because evaluating functions is computationally very cheap and fast.
+Consider the following example, where we want to compute the Jacobian of $f$:
+\begin{lstlisting}
+  clearvars
+  var_names = ["x";"y"];
+  param_names = ["ALPHA";"BETA"];
+  syms(sym(var_names));
+  syms(sym(param_names));
+  f(1,1) = x^ALPHA*log(y) + BETA*x*sqrt(y);
+  f(2,1) = x^2-y + BETA/ALPHA*sqrt(x^3)*(y/2);
+  f(3,1) = x^ALPHA + BETA*x;
+  f(4,1) = log(y) + BETA*sqrt(y);
+  df = jacobian(f,[x;y]);
+\end{lstlisting}
+\begin{enumerate}[resume]
+  \item Have a look at the help file and the examples for \texttt{fprintf} which is able to print formatted data to a text file.
+  \item Run the following commands:
+  \begin{lstlisting}
+    NameOfFunction = 'num_df';
+    NameOfFile = strcat(NameOfFunction,'.m');
+    NameOfOutput = 'df';
+    if exist(NameOfFile,'file') > 0
+        delete(NameOfFile);
+    end
+    fileID = fopen(NameOfFile,'w');
+    fprintf(fileID,'function %s = %s(%s)\n',...
+              NameOfOutput,NameOfFunction,strjoin([var_names;param_names],','));    
+    fprintf(fileID,'%s = zeros(%d, %d);\n',NameOfOutput,size(df,1),size(df,2));
+    [nonzero_row,nonzero_col,nonzero_vals] = find(df);
+    for j = 1:size(nonzero_vals,1)
+        fprintf(fileID,'%s(%d,%d) = %s;\n',... 
+             NameOfOutput,nonzero_row(j),nonzero_col(j),char(nonzero_vals(j)));
+    end
+    fprintf(fileID,'\nend %% function end \n');
+    fclose(fileID);
+  \end{lstlisting}
+  Note that a new file called \texttt{num\_df.m} is created in your working directory.
+  Open it and try to understand what the commands actually do.
+  \item Now let's compare the runtime of computing $df$ a 100 times for random data by
+  (i) substituting the symbolic expressions or (ii) evaluating the script files:
+  \begin{lstlisting}
+  rng(123); % get same random numbers by setting seed
+  tic;
+  for j=1:100
+      num_df(randn(),randn(),rand(),rand());
+  end
+  toc
+    
+  rng(123); % get same random numbers by setting seed
+  tic;
+  for j=1:100
+      double(subs(df,[x y ALPHA BETA],[randn(),randn(),rand(),rand()]));
+  end
+  toc
+  \end{lstlisting}
+\end{enumerate}
+
+\paragraph{Readings}
+\begin{itemize}
+  \item \url{https://mathworks.com/help/symbolic/getting-started-with-symbolic-math-toolbox.html}
+  \item \url{https://mathworks.com/help/symbolic/symbolic-computations-in-matlab.html}
+\end{itemize}
+
+
+\begin{solution}\textbf{Solution to \nameref{ex:MatlabSymbolicToolbox}}
+\ifDisplaySolutions
+\lstinputlisting{progs/matlab/symbolic_toolbox_illustation.m}
+\end{solution}
