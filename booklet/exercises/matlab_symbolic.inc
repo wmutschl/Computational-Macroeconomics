@@ -39,11 +39,11 @@ For example \texttt{syms x} creates a symbolic variable x in the MATLAB workspac
   The function presents all generated elements using the same form:
     the base (which must be a valid variable name), a row index, and a column index.
   Run the following code
-  \begin{lstlisting}
-  clearvars
-  A = sym('a', [2 4])
-  B = sym('b_%d_%d', [2 4])
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+A = sym('a', [2 4])
+B = sym('b_%d_%d', [2 4])
+\end{lstlisting}
   and confirm that you understood the syntax by looking at the created variables.
 \end{enumerate}
 
@@ -52,29 +52,29 @@ With the Symbolic Math Toolbox software, you can also perform symbolic computati
 
 \begin{enumerate}[resume]
 \item Have a look at the output of the following commands:
-  \begin{lstlisting}
-  clearvars
-  syms a b c x;
-  f = a*x^2 + b*x + c
-  g(x) = a*x^2 + b*x + c
-  g(4)
-  solve(g)
-  solve(f==2,a)
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+syms a b c x;
+f = a*x^2 + b*x + c
+g(x) = a*x^2 + b*x + c
+g(4)
+solve(g)
+solve(f==2,a)
+\end{lstlisting}
   What does \texttt{solve(g)} and \texttt{solve(f,a)} do?
 \item To differentiate a symbolic expression, use the \texttt{diff} or \texttt{jacobian} commands.
   Take the first derivative of $f$ with respect to $x$ and $a$, respectively:
-  \begin{lstlisting}
-  clearvars
-  syms a b c x;
-  f = a*x^2 + b*x + c
-  diff(f,x)
-  diff(f,a)
-  diff(f,b)
-  diff(f,c)
-  diff(f,x,a)
-  jacobian(f,[a;b;c;x])
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+syms a b c x;
+f = a*x^2 + b*x + c
+diff(f,x)
+diff(f,a)
+diff(f,b)
+diff(f,c)
+diff(f,x,a)
+jacobian(f,[a;b;c;x])
+\end{lstlisting}
 \item To compute the integral use the \texttt{int} function.
   Compute $\int_{-\infty}^\infty a x^2 + b x + c dx$ and $\int_{-2}^1 a x^2 + b x + c dx$.
 \end{enumerate}
@@ -86,61 +86,61 @@ The Symbolic Math Toolbox provides a set of simplification functions allowing yo
     
 \begin{enumerate}[resume]
   \item Define the following polynomial of the golden ratio:
-  \begin{lstlisting}
-  phi = (1 + sqrt(sym(5)))/2;
-  golden_ratio = phi^2 - phi - 1
-  \end{lstlisting}
+\begin{lstlisting}
+phi = (1 + sqrt(sym(5)))/2;
+golden_ratio = phi^2 - phi - 1
+\end{lstlisting}
   Now run \texttt{simplify(golden\_ratio)}.
   \item To show the order of a polynomial or to symbolically differentiate or integrate a polynomial
     the standard polynomial form with all the parentheses multiplied out and all the similar terms summed up is useful.
   You can do this by using \texttt{expand}:
-  \begin{lstlisting}
-  clearvars
-  syms x
-  f = (x^2-1)*(x^4+x^3+x^2+x+1)*(x^4-x^3+x^2-x+1);
-  disp(f);
-  expand(f)
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+syms x
+f = (x^2-1)*(x^4+x^3+x^2+x+1)*(x^4-x^3+x^2-x+1);
+disp(f);
+expand(f)
+\end{lstlisting}
   \item To show the polynomial roots a factor simplification is useful:
-  \begin{lstlisting}
-  clearvars
-  syms x
-  g = x^3 + 6*x^2 + 11*x + 6;
-  disp(g)
-  factor(g)      
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+syms x
+g = x^3 + 6*x^2 + 11*x + 6;
+disp(g)
+factor(g)      
+\end{lstlisting}
   \item The nested (Horner) representation of a polynomial is often most efficient for numerical evaluations:
-  \begin{lstlisting}
-  clearvars
-  syms x
-  h = x^5 + x^4 + x^3 + x^2 + x;
-  disp(h)
-  horner(h)
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+syms x
+h = x^5 + x^4 + x^3 + x^2 + x;
+disp(h)
+horner(h)
+\end{lstlisting}
   \item You can substitute a symbolic variable with another symbolic variable or a numeric value by using the subs function.
   When your expression contains more than one variable, you can specify the variable for which you want to make the substitution. 
   For example:
-  \begin{lstlisting}
-  clearvars
-  syms x y
-  f = x^2*log(y) + 5*x*sqrt(y);
-  disp(f)
-  subs(f, x, 3)
-  subs(f, x, y)    
-  \end{lstlisting}
+\begin{lstlisting}
+clearvars
+syms x y
+f = x^2*log(y) + 5*x*sqrt(y);
+disp(f)
+subs(f, x, 3)
+subs(f, x, y)    
+\end{lstlisting}
   You can also substitute a set of elements in a symbolic matrix:
-  \begin{lstlisting}
-  syms a b c
-  alpha = sym('alpha');
-  beta = sym('beta');
-  A = [a b c; c a b; b c a];
-  disp(A);
-  A(2,1) = beta;
-  subs(A,b,alpha);
-  B = subs(A,b,alpha);
-  disp(A);
-  disp(B)       
-  \end{lstlisting}
+\begin{lstlisting}
+syms a b c
+alpha = sym('alpha');
+beta = sym('beta');
+A = [a b c; c a b; b c a];
+disp(A);
+A(2,1) = beta;
+subs(A,b,alpha);
+B = subs(A,b,alpha);
+disp(A);
+disp(B)       
+\end{lstlisting}
 \end{enumerate}
 
 \subsection*{Writing out symbolic expressions to script files for numerical evaluation}
@@ -150,58 +150,58 @@ One can write out the symbolic expressions to script files and evaluate these,
   because evaluating functions is computationally very cheap and fast.
 Consider the following example, where we want to compute the Jacobian of $f$:
 \begin{lstlisting}
-  clearvars
-  var_names = ["x";"y"];
-  param_names = ["ALPHA";"BETA"];
-  syms(sym(var_names));
-  syms(sym(param_names));
-  f(1,1) = x^ALPHA*log(y) + BETA*x*sqrt(y);
-  f(2,1) = x^2-y + BETA/ALPHA*sqrt(x^3)*(y/2);
-  f(3,1) = x^ALPHA + BETA*x;
-  f(4,1) = log(y) + BETA*sqrt(y);
-  df = jacobian(f,[x;y]);
+clearvars
+var_names = ["x";"y"];
+param_names = ["ALPHA";"BETA"];
+syms(sym(var_names));
+syms(sym(param_names));
+f(1,1) = x^ALPHA*log(y) + BETA*x*sqrt(y);
+f(2,1) = x^2-y + BETA/ALPHA*sqrt(x^3)*(y/2);
+f(3,1) = x^ALPHA + BETA*x;
+f(4,1) = log(y) + BETA*sqrt(y);
+df = jacobian(f,[x;y]);
 \end{lstlisting}
 \begin{enumerate}[resume]
   \item Have a look at the help file and the examples for \texttt{fprintf} which is able to print formatted data to a text file.
   \item Run the following commands:
-  \begin{lstlisting}
-    NameOfFunction = 'num_df';
-    NameOfFile = strcat(NameOfFunction,'.m');
-    NameOfOutput = 'df';
-    if exist(NameOfFile,'file') > 0
-        delete(NameOfFile);
-    end
-    fileID = fopen(NameOfFile,'w');
-    fprintf(fileID,'function %s = %s(%s)\n',...
-              NameOfOutput,NameOfFunction,strjoin([var_names;param_names],','));    
-    fprintf(fileID,'%s = zeros(%d, %d);\n',NameOfOutput,size(df,1),size(df,2));
-    [nonzero_row,nonzero_col,nonzero_vals] = find(df);
-    for j = 1:size(nonzero_vals,1)
-        fprintf(fileID,'%s(%d,%d) = %s;\n',... 
-             NameOfOutput,nonzero_row(j),nonzero_col(j),char(nonzero_vals(j)));
-    end
-    fprintf(fileID,'\nend %% function end \n');
-    fclose(fileID);
-  \end{lstlisting}
+\begin{lstlisting}
+NameOfFunction = 'num_df';
+NameOfFile = strcat(NameOfFunction,'.m');
+NameOfOutput = 'df';
+if exist(NameOfFile,'file') > 0
+    delete(NameOfFile);
+end
+fileID = fopen(NameOfFile,'w');
+fprintf(fileID,'function %s = %s(%s)\n',...
+          NameOfOutput,NameOfFunction,strjoin([var_names;param_names],','));    
+fprintf(fileID,'%s = zeros(%d, %d);\n',NameOfOutput,size(df,1),size(df,2));
+[nonzero_row,nonzero_col,nonzero_vals] = find(df);
+for j = 1:size(nonzero_vals,1)
+    fprintf(fileID,'%s(%d,%d) = %s;\n',... 
+          NameOfOutput,nonzero_row(j),nonzero_col(j),char(nonzero_vals(j)));
+end
+fprintf(fileID,'\nend %% function end \n');
+fclose(fileID);
+\end{lstlisting}
   Note that a new file called \texttt{num\_df.m} is created in your working directory.
   Open it and try to understand what the commands actually do.
   \item Now let's compare the runtime of computing $df$ a 100 times for random data by
   (i) substituting the symbolic expressions or (ii) evaluating the script files:
-  \begin{lstlisting}
-  rng(123); % get same random numbers by setting seed
-  tic;
-  for j=1:100
-      num_df(randn(),randn(),rand(),rand());
-  end
-  toc
-    
-  rng(123); % get same random numbers by setting seed
-  tic;
-  for j=1:100
-      double(subs(df,[x y ALPHA BETA],[randn(),randn(),rand(),rand()]));
-  end
-  toc
-  \end{lstlisting}
+\begin{lstlisting}
+rng(123); % get same random numbers by setting seed
+tic;
+for j=1:100
+    num_df(randn(),randn(),rand(),rand());
+end
+toc
+  
+rng(123); % get same random numbers by setting seed
+tic;
+for j=1:100
+    double(subs(df,[x y ALPHA BETA],[randn(),randn(),rand(),rand()]));
+end
+toc
+\end{lstlisting}
 \end{enumerate}
 
 \paragraph{Readings}
