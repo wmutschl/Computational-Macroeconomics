@@ -30,7 +30,6 @@ write_latex_parameter_table;
 write_latex_original_model;
 write_latex_steady_state_model;
 collect_latex_files;
-collect_latex_files;
 
 path_to_pdflatex = '';
 %path_to_pdflatex = '/usr/local/bin/'; % sometimes you need to adjust the path where pdflatex is, depending on your operating system

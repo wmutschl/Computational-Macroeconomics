@@ -1,4 +1,4 @@
-\section[RBC model: preprocessing and steady-state in Dynare]{RBC model: preprocessing and steady-state in Dynare\label{ex:RBCModelPreprocessSteady}}
+\section[RBC model: preprocessing and steady-state in Dynare]{RBC model: preprocessing and steady-state in Dynare\label{ex:RBCModelPreprocessSteadyDynare}}
 Consider the basic Real Business Cycle (RBC) model with leisure.
 The representative household maximizes present as well as expected future utility
 \begin{align*}
@@ -100,7 +100,7 @@ Y_t = C_t + I_t
 
 
 
-\begin{solution}\textbf{Solution to \nameref{ex:RBCModelPreprocessSteady}}
+\begin{solution}\textbf{Solution to \nameref{ex:RBCModelPreprocessSteadyDynare}}
 \ifDisplaySolutions
 \begin{enumerate}
 	\item The transversality condition for an infinite horizon dynamic optimization problem is the boundary condition
