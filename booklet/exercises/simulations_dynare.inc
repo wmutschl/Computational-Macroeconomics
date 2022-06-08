@@ -1,0 +1,50 @@
+\section[Deterministic vs. stochastic simulations in Dynare]{Deterministic vs stochastic simulations in Dynare\label{ex:SimulationsDynare}}
+What is the difference between deterministic and stochastic simulations in Dynare?
+In other words, what is the difference between using \texttt{perfect\_foresight\_solver} or \texttt{stoch\_simul}?
+
+\begin{solution}\textbf{Solution to \nameref{ex:SimulationsDynare}}
+\ifDisplaySolutions
+The key difference between stochastic and deterministic models stems from the role of uncertainty.
+  In a deterministic world we have perfect knowledge about all future events including policy actions.
+Given some initial data we can derive optimal trajectories leading to a steady state which generates the highest outcome, e.g. total utility flows.
+Contrary to that, in a stochastic setting there is always some randomness involved.
+That is, the agents do not know if or when a shock will hit the economy.
+They do, however, build (mathematical) expectations because the probability distribution of those shocks is known to the agents.
+\begin{itemize}
+\item     
+  Consequentially deterministic models can be used if an occurrence of an innovation in the future is completely certain and predictable,
+    independent of the duration the shock takes place.
+  The corresponding so-called \emph{deterministic} simulation provides us with a good impression about the propagation of this shock.
+  The \emph{unknowns} that we search for are the trajectories of the variables given the model equations,
+    not a recursive decision role aka policy function.
+  We typically use deterministic simulations to study changes in taxes
+    or the introduction of a new currency, etc.
+  Also, when studying transition dynamics from one steady-state to another one deterministic simulations are typically used.
+  Particularly, when we want to take all non-linearities of the model into account,
+    as we do not approximate a policy function or a decision rule.
+  Now given the nature of perfect foresight,
+    there is no uncertainty in the model except when a shock hits on impact (in period 0).
+  This is important to keep in mind when studying the effects of news shocks or anticipated shocks,
+    i.e. shocks that are announced on impact, but materialize later.
+  Only the announcement is a surprise,
+    everything else is known with certainty.
+
+\item  
+  Stochastic simulations rely on the probability distribution of the shocks,
+    i.e. the exact value and timing of shocks is not known,
+    but that they \emph{might} happen and agents do form expectations about that knowing only the distribution of the shocks.
+  Such models are in a sense more realistic as the future is uncertain
+    and agents make probability statements about their decision.
+  Stochastic simulations are useful to study transmission mechanisms of stochastic shocks (impulse-response analysis),
+    how important is the variability of shocks for the variance of the variables (variance decomposition),
+    and also to estimate model parameters with data.
+  The unknowns that we search for are the so-called \emph{policy functions or decision rules} of the agents,
+    that describe optimal recursive behavior given the current state of the economy and the current realization of shocks.
+  There is a downside to use stochastic simulations
+    as we need to find the policy function or approximate it numerically.
+
+\end{itemize}
+
+\fi
+\newpage
+\end{solution}

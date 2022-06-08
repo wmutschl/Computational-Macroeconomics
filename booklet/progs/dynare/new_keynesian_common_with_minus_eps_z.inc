@@ -135,7 +135,7 @@ R = r*pie(+1);
 R=steady_state(R)*(pie/PIESTAR)^PHI_PIE*(y/steady_state(y))^PHI_Y*exp(nu);
 
 [name='preference shifter']
-log(z) = RHO_Z*log(z(-1)) + eps_z;
+log(z) = RHO_Z*log(z(-1)) - eps_z;
 
 [name='technology process']
 log(a) = RHO_A*log(a(-1)) + eps_a;
