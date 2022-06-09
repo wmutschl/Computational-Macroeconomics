@@ -369,7 +369,7 @@ The preference shock $\varepsilon_{z,t}$, the productivity shock $\varepsilon_{a
 	
 	\paragraph{First-order condition with respect to $c_t$}
 	\begin{align}
-		\lambda_t = \frac{\partial U(c_t,n_t^s,z_t)}{\partial c_t} = z_t c_t^{-\sigma}
+		\lambda_t = \frac{\partial U(c_t,n_t^s,z_t)}{\partial c_t} = z_t c_t^{-\sigma} \label{eq:MarginalUtility}
 	\end{align}
 	This is the marginal utility function,
       i.e. the shadow price of an additional unit of revenue (e.g. dividends or labor income) in the budget constraint.
@@ -545,10 +545,19 @@ The preference shock $\varepsilon_{z,t}$, the productivity shock $\varepsilon_{a
     \theta\beta E_t\frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon} \underbrace{E_t\sum^{\infty}_{j=0}\theta^{j} \Lambda_{t+1,t+1+j} \left(\frac{P_{t+j+1}}{P_{t+1}}\right)^{\epsilon+1} y_{t+j+1} mc_{t+j+1}}_{=S_{2,t+1}}
     \end{align*}
     To sum up:
-    \begin{align}
+    \begin{align*}
+	\widetilde{p}_t &\cdot S_{1,t} = \frac{\epsilon}{\epsilon-1} \cdot S_{2,t}\\
     S_{1,t} &= y_t + \theta \beta E_t \frac{\lambda_{t+1}}{\lambda_{t}} \Pi_{t+1}^{\epsilon-1} S_{1,t+1}\\
     S_{2,t} &= y_t mc_t + \theta \beta E_t \frac{\lambda_{t+1}}{\lambda_{t}} \Pi_{t+1}^{\epsilon} S_{2,t+1}
-    \end{align}
+    \end{align*}
+	Now, let us make note of equation \eqref{eq:MarginalUtility} and define lower-case variables as $s_{1,t}=\lambda_t S_{1,t}$ and $s_{2,t}=\lambda_t S_{2,t}$,
+	  then we can re-write this as:
+	\begin{align*}
+		\widetilde{p}_t &\cdot s_{1,t} = \frac{\epsilon}{\epsilon-1} \cdot s_{2,t}\\
+		s_{1,t} &= y_t \frac{\partial U(c_t,n_t^s,z_t)}{\partial c_t} + \theta \beta E_t \Pi_{t+1}^{\epsilon-1} s_{1,t+1}\\
+		s_{2,t} &= y_t mc_t \frac{\partial U(c_t,n_t^s,z_t)}{\partial c_t} + \theta \beta E_t \Pi_{t+1}^{\epsilon} s_{2,t+1}
+	\end{align*}
+		
 \item The law of motion for $\widetilde{p}_t=\frac{\widetilde{P}_t}{P_t}$ is given
       by the aggregate price index \eqref{eq:Firms_DS_Pricing} which can be re-arranged to
 	\begin{align}
