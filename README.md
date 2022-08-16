@@ -49,21 +49,233 @@ Alternatively, if the closed-source mentality of MATLAB is an irreconcilable iss
 
 ## Schedule
 
-| Week      | Topic |
-| ----------- | ----------- |
-| 1 | Introduction to course, Dynare and MATLAB |
-| 2 | RBC Model Theory and Preprocessing in Dynare |
-| 3 | Basic New Keynesian Model Theory and Preprocessing in MATLAB |
-| 4 | Solution concepts, perfect foresight vs. policy functions in Dynare |
-| 5 | Perfect foresight simulations in Dynare and MATLAB |
-| 6 | Stochastic simulations - 1st order perturbation Theory |
-| 7 | Stochastic simulations - 1st order perturbation Implementation in Dynare and MATLAB |
-| 8 | MIDTERM EXAM |
-| 9 | Stochastic Simulations: Higher-order perturbation Theory |
-| 10 | Stochastic Simulations: Higher-order perturbation Implementation in Dynare and MATLAB |
-| 11 | Projection Method Theory and Implementation in MATLAB |
-| 12 | Occasionally-binding constraints under perfect foresight |
-| 13 | Occasionally-binding constraints in stochastic setting |
-| 14 | Applications and recent developments, Master thesis opportunities |
-| 15 | ENDTERM EXAM |
+### Week I: Introductions
+**Goals**
+- understand the organization of the course
+- understand the scope and research topics of *Computational Macroeconomics*
+
+**To Do**
+- read the general information
+- watch the introductory videos
+	- introduction to the course
+	- introduction to MATLAB
+	- introduction to Dynare
+- do exercise sheet 1
+- write down all your questions
+- participate in the Q&A session
+- [schedule a meeting](https://schedule.mutschler.eu)
+	- put *I am interested in this course* under *What is the meeting about?*
+	- check your emails and cancel the meeting again using the link in the email
+	- now you know how easy it is to schedule a meeting with me :-)
+
+
+### Week II: DSGE models with Dynare, basic programming practice with MATLAB
+**Goals**
+- get familiar with the RBC model
+- practice Dynare
+- start programming with MATLAB
+
+**To Do**
+- watch the introductory videos
+	- RBC Model: Derivation and Preprocessing
+	- RBC Model: Steady-State
+	- RBC Model: Calibration
+- review the solutions from exercise sheet 1.
+- TRY (!!!) to do exercise sheet 2
+- bring all your questions and concerns to the Q&A sessions
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week III: Symbolic Math Toolbox, Algebra of New Keynesian Models
+
+**Goals**
+- get familiar with the Symbolic Math Toolbox of MATLAB
+- get familiar with the math behind a basic New Keynesian model
+- practice Dynare
+- understand preprocessing and steady-state computations
+
+**To Do**
+- watch the videos
+	- Algebra of New Keynesian Models with Calvo price rigidities
+	- Steady-state of basic New Keynesian Model with Calvo price rigidities
+	- slides and notes
+- review the solutions from exercise sheet 2
+- TRY (!!!) to do exercise sheet 3 (the solutions are already available)
+- bring all your questions and concerns to the in-person meetings
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week IV: Preprocessing and steady-state in MATLAB, numerical optimization
+
+**Goals**
+- get familiar with the Symbolic Math Toolbox of MATLAB
+- get familiar with the preprocessing and steady-state computations with MATLAB
+- understand and start using numerical optimizers
+
+**To Do**
+- watch the (very short) videos:
+	- Introduction to Optimization: What is Optimization
+	- Introduction To Optimization: Objective Functions and Decision Variables
+	- Introduction To Optimization: Gradients, Constraints, Continuous and Discrete Variables
+	- Introduction To Optimization: Gradient Based Algorithms
+	- Introduction To Optimization: Gradient Free Algorithms (1/2) - Genetic - Particle Swarm
+	- Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead
+	- Introduction to Optimization: Calculating Derivatives
+	- Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)
+Visually Explained: Newton's Method in Optimization
+- review the solutions from exercise sheet 3
+- do exercise sheet 4
+- bring all your questions and concerns to the Q&A meetings
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week V: Stochastic and deterministic simulations in Dynare
+
+**Goals**
+- get familiar with the concepts of stochastic and deterministic simulations
+- run stochastic simulations in Dynare using stoch_simul
+- run deterministic simulations in Dynare using perfect_foresight_setup and perfect_foresight_solver
+- create own plots for impulse response functions from Dynare outputs with MATLAB commands
+- understand the concept of a impulse-response function with examples to technology, monetary and fiscal policy shocks
+
+**To Do**
+- watch the video:
+	- RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations
+- review the solutions from exercise sheet 4.
+- do exercise 1 and 2 on sheet 5, we will do exercise 3 together
+- bring all your questions and concerns to the Q&A meetings
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week VI: Perturbation Theory
+
+**Goals**
+- get the basic idea of the perturbation approach
+- understand
+	- Dynare's general model framework
+	- different typology of variables
+	- different orderings of variables
+	- decision rules / policy function
+	- Jacobian matrices
+	- notation used for perturbation approximations
+
+**To Do**
+- follow the presentation
+- review the solutions from exercise sheet 5
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week VII: Perturbation Implementation
+
+**Goals**
+- understand the implementation of the perturbation approach in Dynare and MATLAB
+
+**To Do**
+- follow the presentation
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week VIII: Midterm Exam
+
+**Goals**
+- get a good grade
+
+**To Do**
+- read the instructions on the exam
+- hand in your solutions before DAY, MONTH DD TIME
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week IX: Discussion of Midterm Exam and Higher-order perturbation
+
+**Goals**
+- understand the solutions to the midterm exam
+- get the basic idea of higher-order perturbation approach
+- understand the notation and implementation
+
+**To Do**
+- try to follow the VERY LONG video presentation
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week X: Why higher-order approximation are important: Asset Pricing and Rare Disaster Risk
+
+**Goals**
+- understand the Jermann (1998) and the Isore and Szczerbowicz (2017) models
+- understand the Dynare implementation (and some hints on where to get them from the web)
+- understand the impact on the risk premium from a first, second, and third-order perturbation approximation
+- understand the impact of a rare disaster risk shock on the economy from a first, second, and third-order perturbation approximation
+
+**To Do**
+- read the papers & get the replication files
+- we will discuss the papers and codes in class
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week XI: Deterministic Simulations
+
+**Goals**
+- understand the objective, approach and algorithm of perfect foresight simulations
+- appreciate the flexibility of deterministic simulations
+- understand the implementation in Dynare
+- include the zero-lower-bound in a New Keynesian model
+
+**To Do**
+- go through the deterministic simulation slides
+- bring your questions to the Q&A session
+- prepare the exercise
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week XII: Stochastic Simulations with Occassionaly Binding Constraints (occbin)
+
+**Goals**
+- understand the objective, approach and algorithm of occbin
+- understand the limitations of occbin
+- understand the implementation in Dynare
+- include the zero-lower-bound in a stochastic New Keynesian model
+
+**To Do**
+- read Guerrieri, Iacoviello (2015) - OccBin: A toolkit for solving dynamic models with occasionally binding constraints easily
+- read section 4.14. Occasionally binding constraints (OCCBIN) of Dynare's manual
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week XIII: Stochastic Simulations with Occassionaly Binding Constraints (occbin)
+
+**Goals**
+- understand the algorithm of occbin
+- practice for the endterm
+
+**To Do**
+- run and understand the illustration files
+- replicate figures 3 and 5 of the Guerrieri and Iacoviello (2015) paper with Dynare
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+### Week XIV: Global Solution Methods Overview
+
+**Goals**
+- understand the difference between local and global solution methods
+- understand the curse of dimensionality
+- have a birds-eye-view on recent developments
+
+**To Do**
+- go through the projection codes that illustrate the approach for a simple RBC model
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
+
+
+### Week XV-XVI: Endterm Exam
+
+**Goals**
+- get a good grade
+
+**To Do**
+- download the files
+- read the instructions on the exam
+- hand in your solutions before MONTH DAY, TIMEpm
+- each day check the version number of the exam and the changelog
+- for immediate help: [schedule a meeting](https://schedule.mutschler.eu)
+
 
