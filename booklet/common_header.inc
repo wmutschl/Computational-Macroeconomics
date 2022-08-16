@@ -64,7 +64,7 @@
 	title=\lstname,                         % show the filename of files included with \lstinputlisting; also try caption instead of title  
 }
 \usepackage[backend=biber,style=authoryear]{biblatex}
-\addbibresource{bib_computational_macroeconomics.bib}
+\addbibresource{Computational_Macroeconomics.bib}
 \usepackage[stable]{footmisc}
 \usepackage{booktabs,longtable}
 \usepackage{nameref}
