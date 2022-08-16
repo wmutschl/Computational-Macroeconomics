@@ -1,0 +1,26 @@
+\input{common_header.inc}
+\Newassociation{solution}{Solution}{ans_ex6}
+\newif\ifDisplaySolutions\DisplaySolutionstrue
+
+\begin{document}
+\title{Computational Macroeconomics\\Exercises\\~\\Week 6}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: \today}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{ans_ex6}[ans_ex6]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/BrockMirman.inc}\newpage
+\input{exercises/AnScho_identif_bk.inc}\newpage
+\printbibliography
+\Closesolutionfile{ans_ex6}
+\ifDisplaySolutions
+\newpage
+\appendix
+\section{Solutions}
+\input{ans_ex6}
+\fi
+\end{document}
