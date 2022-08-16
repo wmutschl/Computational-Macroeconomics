@@ -41,8 +41,7 @@ where $\varepsilon_t \sim N(0,1)$.
   $x - \theta x = 0 \Leftrightarrow x = 0$,
   where $x$ denotes the non-stochastic steady-state
   (we drop the time subscript in the original equation when computing the steady-state).
-\item \texttt{arma\_1\_1\_dynare.mod}
-\lstinputlisting{progs/dynare/arma_1_1_dynare.mod}
+\item \lstinputlisting{../progs/dynare/arma_1_1_dynare.mod}
 Some notes:
 	\begin{itemize}
 		\item we used MATLAB codes for plotting.
@@ -54,8 +53,7 @@ Some notes:
 		  this is due to the fact that this parameter combination provides a non-stationary process,
 		  i.e. the process explodes and does not return to the equilibrium/steady-state.
 	\end{itemize}
-\item \texttt{arma\_1\_1\_matlab.m}
-	\lstinputlisting{progs/matlab/arma_1_1_matlab.m}
+\item \lstinputlisting{../progs/matlab/arma_1_1_matlab.m}
 \end{enumerate}
 \fi
 \newpage

@@ -29,8 +29,7 @@ Also create two vectors \texttt{LB} and \texttt{UB} with a lower and upper bound
 
 \begin{solution}\textbf{Solution to \nameref{ex:RBCModelPreprocessMATLAB}}
 \ifDisplaySolutions
-\texttt{matlab\_rbc\_nonlinear\_steadystate.m}:
-\lstinputlisting{progs/matlab/matlab_rbc_nonlinear_steadystate.m}
+\lstinputlisting{../progs/matlab/matlab_rbc_nonlinear_steadystate.m}
 \fi
 \newpage
 \end{solution}

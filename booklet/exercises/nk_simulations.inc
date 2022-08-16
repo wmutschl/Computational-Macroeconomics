@@ -1,7 +1,7 @@
 \section[Basic New Keynesian Model: Simulations in Dynare]{New Keynesian Model: Simulations in Dynare\label{ex:NewKeynesianModelSimulationsDynare}}
 Consider the basic New Keynesian (NK) model without capital and a linear production function
   which is given in the following Dynare file called \texttt{new\_keynesian\_common.inc:}\\
-\lstinputlisting[basicstyle=\tiny]{progs/dynare/new_keynesian_common.inc}
+\lstinputlisting[basicstyle=\tiny]{../progs/dynare/new_keynesian_common.inc}
 
 \noindent Assume that the parameters have the following values:
 \begin{longtable}{cc}
@@ -54,7 +54,7 @@ Consider the basic New Keynesian (NK) model without capital and a linear product
   log(z) = RHO_Z*log(z(-1)) - eps_z;
   \end{lstlisting}
   Then we can include the model equations in the following mod file called \texttt{new\_keynesian\_irfs\_stoch.mod:}
-  \lstinputlisting{progs/dynare/new_keynesian_irfs_stoch.mod}
+  \lstinputlisting{../progs/dynare/new_keynesian_irfs_stoch.mod}
 
   Before we dive in, keep in mind that all variables are simultaneously determined;
     any description of the transmission channels can only be a cursory way to provide intuition,
@@ -185,10 +185,10 @@ Consider the basic New Keynesian (NK) model without capital and a linear product
   \end{itemize}
 
 \item Consider the following mod file called \texttt{new\_keynesian\_irfs\_det.mod:}
-\lstinputlisting{progs/dynare/new_keynesian_irfs_det.mod}
+\lstinputlisting{../progs/dynare/new_keynesian_irfs_det.mod}
 
 \noindent The helper plotting function is given by \texttt{new\_keynesian\_irfs\_do\_plots.mod:}
-\lstinputlisting{progs/dynare/new_keynesian_irfs_do_plots.m}
+\lstinputlisting{../progs/dynare/new_keynesian_irfs_do_plots.m}
 
 \begin{figure}[H]
     \centering 

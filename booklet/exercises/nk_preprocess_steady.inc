@@ -133,10 +133,9 @@ c = y,\qquad
 \end{align*}
 Lastly, all hat variables have a steady-state of 0 by definition.
 
-\texttt{new\_keynesian\_common.inc:}\\
-\lstinputlisting{progs/dynare/new_keynesian_common.inc}
-\texttt{new\_keynesian\_steady.mod:}\\
-\lstinputlisting{progs/dynare/new_keynesian_steady.mod}
+\lstinputlisting{../progs/dynare/new_keynesian_common.inc}
+
+\lstinputlisting{../progs/dynare/new_keynesian_steady.mod}
 Run the mod file.
 
 \fi

@@ -213,5 +213,5 @@ toc
 
 \begin{solution}\textbf{Solution to \nameref{ex:MatlabSymbolicToolbox}}
 \ifDisplaySolutions
-\lstinputlisting{progs/matlab/symbolic_toolbox_illustation.m}
+\lstinputlisting{../progs/matlab/symbolic_toolbox_illustation.m}
 \end{solution}

@@ -96,8 +96,7 @@ ylabel('y')
 \end{enumerate}
 
 \item[5./6.]
-\texttt{numerical\_optimization\_examples.m}:
-\lstinputlisting{progs/matlab/numerical_optimization_examples.m}
+\lstinputlisting{../progs/matlab/numerical_optimization_examples.m}
 
 \fi
 \newpage

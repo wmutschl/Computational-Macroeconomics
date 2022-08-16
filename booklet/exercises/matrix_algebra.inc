@@ -33,7 +33,7 @@ Let
 \begin{solution}\textbf{Solution to \nameref{ex:MatrixAlgebra}}  
 \ifDisplaySolutions
 \begin{enumerate}
-	\item \lstinputlisting{progs/matlab/MatrixAlgebra_Eigenvalues.m}
+	\item \lstinputlisting{../progs/matlab/MatrixAlgebra_Eigenvalues.m}
 	In the univariate AR(1) model we would check whether the autocorrelation coefficient is between -1 and 1, 
 	i.e. $|A|<1$, such that $\sum_{j=0}^\infty (AL)^j=1/(1-AL)$ where $L$ is the lag operator.
 	In the multivariate case, we want the same thing, i.e. $\sum_{j=0}^\infty (AL)^j=(1-AL)^{-1}$.
@@ -50,7 +50,7 @@ Let
  			\underbrace{\begin{pmatrix} 1\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}&3\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}&2\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}\\1\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}&0\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}&0\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}\\1\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}&2\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}&2\cdot\begin{pmatrix}0&5\\5&0\\1&1 \end{pmatrix}  \end{pmatrix}}_{9\times6}
  		\end{align*}
 		 Using this definition, we can show that $vec(DEF) = (F' \otimes D) vec(E)$ using e.g. a symbolic toolbox:
-		 \lstinputlisting{progs/matlab/MatrixAlgebra_KroneckerFormula.m}
+		 \lstinputlisting{../progs/matlab/MatrixAlgebra_KroneckerFormula.m}
 		 Of course you can do this on paper as well:		 
  		\begin{align*}
  		DEF &= D \begin{pmatrix} e_1 & e_2 & \dots & e_p \end{pmatrix}
@@ -76,12 +76,12 @@ Let
 			  \end{align*}
 		 with $(\cos(\phi))^2 + (\sin(\phi))^2 = 1$ (so-called trigonometric Pythagoras).
 		 
-		 \lstinputlisting{progs/matlab/MatrixAlgebra_Rotation.m}
+		 \lstinputlisting{../progs/matlab/MatrixAlgebra_Rotation.m}
 		 
 		 Why rotation matrix? A rotation matrix rotates vectors or objects in the Euclidian space without stretching or shrinking it.
 		 \begin{center}  \includegraphics[width=.5\textwidth]{graphs/Rotation.png} \end{center}
 		 In this example the matrix R rotates the vector counter-clockwise given angle $\phi$. An active rotation means that the vector is multiplied by the rotation matrix and this rotates the vector counterclockwise $x' = Rx$. A passive rotation means that the coordinate system is rotated and therefore the vector is also rotated: $x' = R^{-1} x$. Later on we will need rotation matrices for identification of structural shocks!
-	\item \lstinputlisting{progs/matlab/MatrixAlgebra_Cholesky.m}
+	\item \lstinputlisting{../progs/matlab/MatrixAlgebra_Cholesky.m}
 		\begin{align*}
 	 		\underbrace{\begin{pmatrix}1&0&0\\0&1&0\\0&0.5&1\end{pmatrix}}_W \underbrace{\begin{pmatrix}2.25&0&0\\0&1&0\\0&0&0.49\end{pmatrix}}_{\Sigma_\varepsilon} \underbrace{\begin{pmatrix}1&0&0\\0&1&0.5\\0&0&1\end{pmatrix}}_{W'} = \underbrace{\begin{pmatrix}2.25&0&0\\0&1&0.5\\0&0.5&0.74\end{pmatrix}}_{\Sigma}
 		\end{align*}
@@ -94,10 +94,10 @@ Let
 				vec(\Sigma_y) &= (I-A\otimes A)^{-1}vec(\Sigma_u)
 			\end{align*}
 		\item Doubling algorithm:
-		\lstinputlisting{progs/matlab/dlyapdoubling.m}
+		\lstinputlisting{../progs/matlab/dlyapdoubling.m}
 		The basic idea of the doubling algorithm is to start at some $\Sigma_{y,0}$ and find new values for $\Sigma_{y,i+1}$ using the equation $A \Sigma_{y,i} A' + \Sigma_u$ until the difference $\Sigma_{y,i+1} - \Sigma_{y,i}$ becomes very small or a certain number of iterations is reached. The doubling algorithm, however, allows one to pass in one iteration from $\Sigma_{y,i}$ to $\Sigma_{y,2i}$ rather than $\Sigma_{y,i+1}$, provided that one updates three other matrices. There are also other (generalized) algorithms to solve such matrix Lyapunov (or Sylvester) equations.
 		\item Comparison:
-		\lstinputlisting{progs/matlab/MatrixAlgebra_Lyapunov.m}
+		\lstinputlisting{../progs/matlab/MatrixAlgebra_Lyapunov.m}
 	\end{enumerate}
 		
 \end{enumerate}

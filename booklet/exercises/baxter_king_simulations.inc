@@ -1,7 +1,7 @@
 \section[Fiscal Policy in General Equilibrium: Simulations in Dynare]{Fiscal Policy in General Equilibrium: Simulations in Dynare\label{ex:BaxterKingSimulationsDynare}}
 Consider a version of the \textcite{Baxter.King_1993_FiscalPolicyGeneral} model
   which is given in the following Dynare file called \texttt{Baxter\_King\_common.inc:}\\
-\lstinputlisting[basicstyle=\tiny]{progs/dynare/Baxter_King_common.inc}
+\lstinputlisting[basicstyle=\tiny]{../progs/dynare/Baxter_King_common.inc}
 
 \begin{enumerate}
   \item Use stochastic simulations (i.e. the \texttt{stoch\_simul(order=1,irf=30)} command) for the \emph{obs} variables to study the effects
@@ -57,7 +57,7 @@ Consider a version of the \textcite{Baxter.King_1993_FiscalPolicyGeneral} model
 \begin{enumerate}
 \item The following code can be used to compare the impulse response functions with respect to
   government spending and investment shocks.\\\texttt{Baxter\_King\_irfs.mod:}\\
-  \lstinputlisting[basicstyle=\tiny]{progs/dynare/Baxter_King_irfs.mod}
+  \lstinputlisting[basicstyle=\tiny]{../progs/dynare/Baxter_King_irfs.mod}
   
   \textbf{Comparison government spending vs government investment shock}\\
   \begin{figure}[h]
@@ -104,7 +104,7 @@ Consider a version of the \textcite{Baxter.King_1993_FiscalPolicyGeneral} model
 
 \item The following code can be used to compare the impulse response functions with respect to
   investment shocks for different values of $\eta$.\\\texttt{Baxter\_King\_irfs\_eta.mod:}\\
-  \lstinputlisting[basicstyle=\tiny]{progs/dynare/Baxter_King_irfs_eta.mod}
+  \lstinputlisting[basicstyle=\tiny]{../progs/dynare/Baxter_King_irfs_eta.mod}
   \textbf{Comparison productivity of government investment}\\
   \begin{figure}[h]
     \centering 

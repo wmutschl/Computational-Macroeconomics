@@ -19,7 +19,7 @@ The law of motion for capital $K_t$ at the end of period $t$ is given by
 \begin{align*}
 K_{t} = (1-\delta)K_{t-1} + I_t
 \end{align*}
-and $\delta$ is controling depreciations.
+and $\delta$ is controlling depreciations.
 \footnote{Note that we use the end-of-period timing for capital, i.e. $K_t$ instead of $K_{t+1}$,
   because the investment decision is done in period $t$ and hence capital is also determined in $t$.
 In older papers you will often find beginning-of-period timing for capital,
@@ -270,13 +270,12 @@ Y_t = C_t + I_t
 		Another way would be to try different values for $\sigma_A$
 		  and then try to match the shape of e.g. impulse-response-functions to corresponding (S)VAR models.
 	\end{itemize}
-	\item \texttt{rbc\_logutil\_ss.m}:
-	\lstinputlisting{progs/matlab/rbc_logutil_ss.m}
+	\item \lstinputlisting{../progs/matlab/rbc_logutil_ss.m}
 	You can try it out with the following parametrization (same as in the Dynare mod file):
-	\\\texttt{rbc\_logutil\_ss\_test.m}:
-	\lstinputlisting{progs/matlab/rbc_logutil_ss_test.m}
+	\\
+	\lstinputlisting{../progs/matlab/rbc_logutil_ss_test.m}
 	\item The mod file might look like this:
-	\lstinputlisting{progs/dynare/rbc_logutil.mod}
+	\lstinputlisting{../progs/dynare/rbc_logutil.mod}
 	Obviously, the results are the same.
 	\item
 	\begin{enumerate}
@@ -292,13 +291,13 @@ Y_t = C_t + I_t
 	 	This cannot be solved for $L$ in closed-form.
 		Rather, we need to condition on the values of the parameters and use an numerical optimizer to solve for $L$.
 	 	\item The function might look like this:
-	 	\lstinputlisting{progs/matlab/rbc_ss.m}
+	 	\lstinputlisting{../progs/matlab/rbc_ss.m}
 	 	You can try it out with the following parametrization (same as in the Dynare mod file):
-	 	\lstinputlisting{progs/matlab/rbc_ss_test.m}
+	 	\lstinputlisting{../progs/matlab/rbc_ss_test.m}
 	 	\item In Dynare we could use the following mod file:
-	 	\lstinputlisting{progs/dynare/rbc_ces.mod}
+	 	\lstinputlisting{../progs/dynare/rbc_ces.mod}
 	 	and the following helper function:
-	 	\lstinputlisting{progs/dynare/rbc_ces_helper_function.m}		
+	 	\lstinputlisting{../progs/dynare/rbc_ces_helper_function.m}		
 		Obviously, the results are (numerically) the same.
 	\end{enumerate}		
 \end{enumerate}

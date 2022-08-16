@@ -54,10 +54,10 @@ Let $Y_{1},Y_{2},\ldots $ be an i.i.d. sequence of arbitrarily distributed rando
 			This definition of convergence is very important in econometrics. There exist different theorems that establish necessary and sufficient conditions depending on the process at study. In Quantitative Macroeconomics, we are mainly concerned with identically distributed process that are either independent of each other or homogenously dependent, i.e. autoregressive AR or VAR processes (aka homogeneous Markov processes).
 		\end{itemize}
 	\item Here is an extended illustration for several distributions: 
-	\lstinputlisting{progs/matlab/LawOfLargeNumbers.m}
+	\lstinputlisting{../progs/matlab/LawOfLargeNumbers.m}
 	Note that for the $t$-distribution with infinite variance the weak LLN does not apply.
 	\item Here is an extended illustration for different error term distributions: 
-	\lstinputlisting{progs/matlab/LawOfLargeNumbersAR1.m} 
+	\lstinputlisting{../progs/matlab/LawOfLargeNumbersAR1.m} 
 	Note that we need to make sure that $E[\varepsilon_t]=0$ when we simulate data. We see that the weak law of large numbers holds under weaker conditions than iid. For instance, one can show that for the stationary AR(1), necessary and sufficient conditions are: $Var[y_t]<\infty$ and $|\gamma(k)| \rightarrow 0$ as $k \rightarrow \infty$. This does not hold for all distributions considered in the code. Particularly, the student's t distribution with 2 degrees of freedom does not have a finite variance.
 \end{enumerate}
 \fi

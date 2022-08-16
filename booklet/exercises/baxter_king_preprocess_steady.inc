@@ -44,7 +44,7 @@ Willi, a fellow student, wants to assess how changes in fiscal policy (taxation 
 
 \begin{solution}\textbf{Solution to \nameref{ex:BaxterKingPreprocessSteady}}
 \ifDisplaySolutions
-\lstinputlisting{progs/dynare/Baxter_King.mod}
+\lstinputlisting{../progs/dynare/Baxter_King.mod}
 \fi
 \newpage
 \end{solution}

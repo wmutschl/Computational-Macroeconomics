@@ -170,8 +170,7 @@ Install the most recent version of MATLAB with the following Toolboxes:
 
 \begin{solution}\textbf{Solution to \nameref{ex:QuickTourMATLAB}}
 \ifDisplaySolutions
-\\\texttt{quick\_tour\_matlab.m}:
-\lstinputlisting{progs/matlab/quick_tour_matlab.m}
+\lstinputlisting{../progs/matlab/quick_tour_matlab.m}
 \fi
 \newpage
 \end{solution}

@@ -46,7 +46,7 @@ write_out(dynamic_model_eqs, 'rbc_dynamic_resid', 'residual', false, dynamic_nam
 write_out(dynamic_g1, 'rbc_dynamic_g1', 'g1', false, dynamic_names, endo_names, exo_names, param_names);
 \end{lstlisting}
 	The function \texttt{write\_out.m} looks like this:
-	\lstinputlisting{progs/matlab/write_out.m}
+	\lstinputlisting{../progs/matlab/write_out.m}
 	\item Make the whole script a function called \texttt{matlab\_rbc\_nonlinear\_preprocessing.m} with an output variable MODEL,
 	  which is a structure containing information on the names and numbers of the endogenous and exogenous variables,
   	  the names and numbers of the parameters, and also the \texttt{lead\_lag\_incidence} matrix.
@@ -83,7 +83,7 @@ our_g1_static    = rbc_static_g1(ys,ex0,M_.params);
 \ifDisplaySolutions
 \begin{enumerate}
 \item \texttt{rbc\_nonlinear.mod}:
-	\lstinputlisting{progs/dynare/rbc_nonlinear.mod}
+	\lstinputlisting{../progs/dynare/rbc_nonlinear.mod}
 \item Dynare's preprocessor creates the following script files:
 	\begin{itemize}
 	\item \texttt{driver.m}: the preprocessor reads the text and information you provide in your mod file 
@@ -119,7 +119,7 @@ The columns of the matrix represent the endogenous variables in their order of d
 A zero in the matrix means that this endogenous does not appear in the model in this time period.
 The value in the \texttt{M\_.lead\_lag\_incidence} matrix corresponds to the column of that variable in the Jacobian of the dynamic model.
 \item \texttt{matlab\_rbc\_nonlinear\_preprocessing.m}:
-\lstinputlisting{progs/matlab/matlab_rbc_nonlinear_preprocessing.m}
+\lstinputlisting{../progs/matlab/matlab_rbc_nonlinear_preprocessing.m}
 \end{enumerate}
 \fi
 \newpage
