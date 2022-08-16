@@ -21,6 +21,8 @@ booklet/ex*.synctex.gz
 booklet/ex*.toc
 booklet/ans_ex*.tex
 
+handouts/*.key
+
 progs/dynare/*.log
 progs/dynare/*.pdf
 progs/dynare/*_TeX_binder.tex
