@@ -1,0 +1,28 @@
+name: Build LaTeX exams as PDF
+
+on:
+  push:
+    tags:
+      - 'exam_*_v*.*.*'
+
+  workflow_dispatch:
+
+jobs:
+  build_exercises:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository      
+        uses: actions/checkout@v3
+
+      - name: Compile LaTex documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: "*term_exam_*.tex"
+          glob_root_file: true
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "*term_exam_*.pdf"
+          generateReleaseNotes: false
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,6 +1,5 @@
 [![Build LaTeX exercises as PDF](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exercises.yml/badge.svg)](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exercises.yml)
-[![Build LaTeX midterm exams as PDF](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-midterm-exams.yml/badge.svg)](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-midterm-exams.yml)
-[![Build LaTeX endterm exams as PDF](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-endterm-exams.yml/badge.svg)](https://github.com/wmutschl/Computaional-Macroeconomics/actions/workflows/latex-endterm-exams.yml)
+[![Build LaTeX exams as PDF](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exams.yml/badge.svg)](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exams.yml)
 
 # Computational Macroeconomics
 

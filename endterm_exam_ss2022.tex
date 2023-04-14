@@ -1,0 +1,363 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage[english]{babel}
+\usepackage[a4paper]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs,longtable}
+\usepackage{xcolor}
+%\parindent0mm
+%\parskip1.5ex plus0.5ex minus0.5ex
+
+\begin{document}
+	
+\title{Computational Macroeconomics}
+\author{Endterm Exam}
+\date{Summer 2022}
+\maketitle
+
+
+\begin{itemize}
+    \item Answer \textbf{all} of the following \textbf{three} exercises in English.
+    \item All assignments will be given the same weight in the final grade.
+    \item Hand in your solutions before Sunday August, 10 2022 at 3pm.
+    \item The solution files should contain your executable (and commented) Dynare and MATLAB files
+        as well as all additional documentation as \texttt{pdf}, not \texttt{doc} or \texttt{docx}.
+    Your \texttt{pdf} files may also include scans or pictures of handwritten notes.
+    \item Please e-mail ALL the solution files to \url{willi.mutschler@uni-tuebingen.de}.
+    I will confirm the receipt of your work also by email (typically within the hour). If not, please resend it to me.
+    \item All students must work on their own, please also give your student ID number and the name of the module you want to earn credits for.
+    \item It is advised to regularly check Ilias and your emails in case of urgent updates.
+    \item If there are any questions, do not hesitate to contact Willi Mutschler.
+\end{itemize}
+
+%\section*{Changelog}
+\newpage
+
+\section[A Model of Consumption Choice with a Borrowing Constraint (Guerrieri and Iacoviello, 2015)]{A Model of Consumption Choice with a Borrowing Constraint (Guerrieri and Iacoviello, 2015)\label{ex:Guerrieri_Iacoviello_2015_borrcon}}
+Occasionally binding borrowing constraints arise in a wide variety of models where households can \emph{self-insure} by holding and managing an asset,
+  up to some borrowing limit, that can be used to buffer consumption against adverse shocks.
+In these models, one can distinguish situations when a household is not constrained in the current period,
+  and the traditional Euler equation for consumption holds;
+  and situations when the household is credit constrained,
+  current consumption is too low relative to next period,
+  and the Euler equation for consumption does not hold.
+
+Consider a consumer that maximizes:
+\begin{align*}
+E_t \sum_{s=0}^\infty \beta^s \frac{C_t^{1-\gamma}-1}{1-\gamma}
+\end{align*}
+subject to the budget constraint, and to an (occasionally binding) constraint stating that borrowing $B_t$ cannot exceed a fraction $m$ of income $Y_t$:
+\begin{align}
+C_t + R B_{t-1} = Y_t + B_t \label{eq:borrcon:budget}
+\end{align}
+\begin{align}
+B_t \leq m Y_t \label{eq:borrcon:constraint}
+\end{align}
+Above, $R$ denotes the gross interest rate.
+The discount factor $\beta$ is assumed to satisfy the restriction that $\beta R <1$,
+  so that in the deterministic steady-state the borrowing constraint is binding.
+Giving initial conditions, the impatient household prefers a consumption path that is falling over time,
+  and attains this path by borrowing today.
+If income is constant, the household will eventually be borrowing constrained and will roll its debt over forever,
+  and consumption will settle at a level given by income less the steady-state debt service.
+The log of income follows an AR(1) stochastic process of the form:
+\begin{align}
+\ln Y_t = \rho \ln Y_{t-1} + \epsilon_t \label{eq:borrcon:LOM_Y}
+\end{align}
+where $\epsilon_t$ is an exogenous normally distributed innovation with standard deviation $\sigma$.
+
+\noindent ~\\The goal of the following exercises is to simulate the model using Dynare's occbin toolkit.
+
+\begin{enumerate}
+\item Denote with $\lambda_t$ the Lagrange multiplier on the borrowing constraint \eqref{eq:borrcon:constraint} and
+  derive the following consumption Euler equation and Kuhn-Tucker condition:
+\begin{align}
+C_t^{-\gamma} = \beta R E_t C_{t+1}^{-\gamma} + \lambda_t \label{eq:borrcon:Euler}
+\end{align}
+\begin{align}
+\lambda_t (B_t - mY_t) = 0 \label{eq:borrcon:KuhnTucker}
+\end{align}
+\end{enumerate}
+The set of equations describing the system of necessary conditions for an equilibrium are given by a
+  a system of four equations in four unknowns $\{C_t,B_t,\lambda_t,Y_t\}$,
+  which includes equations \eqref{eq:borrcon:budget}, \eqref{eq:borrcon:LOM_Y}, \eqref{eq:borrcon:Euler},
+  and the occasionally binding constraint \eqref{eq:borrcon:KuhnTucker}.
+Consider a case, when in the reference regime, the borrowing constraint binds,
+  and the multiplier is greater than zero, i.e. $B_t=mY_t$ and $\lambda_t>0$.
+In the alternative regime, the borrowing constraint is slack, and the multiplier is zero,
+  i.e. $\lambda_t=0$ and $B_t\leq m Y_t$.
+\begin{enumerate}[resume]
+\item Write a Dynare mod file for this model, using the following calibration: $\beta=0.945$, $R=1.05$, $\rho=0.9$, $\gamma=1$, $m=1$, and $\sigma=0.0131$.
+Compute the steady-state of all model variables.
+\item Do the following stochastic simulation (both linear and piecewise linear) using Dynare's occbin toolkit:
+\begin{itemize}
+\item Start from the non-stochastic steady-state where income is one.
+\item In period 2, a two standard deviation shock brings up income unexpectedly.
+\item In period 21, a two standard deviation shock pushes down income unexpectedly.
+\end{itemize}
+\item Plot the reactions for $t=1,...,40$ of
+\begin{itemize}
+  \item consumption in percentage deviation from its steady-state
+  \item borrowing in percentage deviation from its steady-state
+  \item income in percentage deviation from its steady-state
+  \item the ratio of borrowing to income  
+\end{itemize}
+How long does the occasionally binding constraint bind in your simulation?
+\end{enumerate}
+\newpage
+\subsection*{Codes and hints}
+\begin{itemize}
+\item The paper and appendix are available on Ilias.
+\end{itemize}
+
+\newpage
+
+\section[Technology shocks with non-symmetric innovations (Andreasen, 2012)]{Technology shocks with non-symmetric innovations (Andreasen, 2012)\label{ex:Andreasen_2012}}
+The goal of this exercise is to look into the third-order perturbation approach and replicate columns (2) and (3) of Table 2 in Andreasen (2012): \emph{On the effects of rare disasters and uncertainty shocks for risk premia in non-linear DSGE models},
+  published in Review of Economic Dynamics (15).
+For the following exercise, we will focus on the sections about rare disasters only.
+\begin{enumerate}
+\item What is the main research question of the paper?
+Why is the proposed third-order perturbation solution method appropriate to tackle this research question?
+\item Compared to the standard New Keynesian DSGE model we learned about in the lecture,
+  what features are added in the paper and why?
+\item The third-order perturbation solution in Dynare's model framework is given by:
+\begin{align*}
+y_t &= \bar{y}\\
+&
+\colorbox{gray!10}{$
++g_x (x_{t-1} - \bar{x}) + g_u u_{t}
+$}
+\\
+&
+\qquad
+\colorbox{gray!10}{$
++ g_{\sigma}
+$}
+\\
+&
+\colorbox{gray!25}{$
++ \frac{1}{2} g_{xx} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x})\right)
++  g_{xu} \left((x_{t-1} - \bar{x}) \otimes u_t\right)
++ \frac{1}{2} g_{uu} \left(u_t \otimes u_t\right)
+$}
+\\
+&
+\qquad
+\colorbox{gray!25}{$
++ g_{x\sigma} (x_{t-1} - \bar{x})
++ g_{u\sigma} u_t
+$}
+\\
+&
+\qquad\qquad
+\colorbox{gray!25}{$
++ \frac{1}{2} g_{\sigma\sigma}
+$}
+\\
+&
+\colorbox{gray!50}{$
++ \frac{1}{6} g_{xxx} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x})\right) %+ 1/6*gxxx*kron(xhat,kron(xhat,xhat)) ...
++ \frac{1}{6} g_{uuu} \left(u_t \otimes u_t \otimes u_t\right) % + 1/6*guuu*kron(u,kron(u,u)) ...
+$}
+\\
+&
+\qquad
+\colorbox{gray!50}{$
++ \frac{3}{6} g_{xxu} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x}) \otimes u_t \right) %+ 3/6*gxxu*kron(xhat,kron(xhat,u)) ...
++ \frac{3}{6} g_{xuu} \left((x_{t-1} - \bar{x}) \otimes u_t \otimes u_t \right) %+ 3/6*gxuu*kron(xhat,kron(u,u)) ...
+$}
+\\
+&
+\qquad\qquad
+\colorbox{gray!50}{$
++ \frac{3}{6} g_{xx\sigma} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x}) \right)
++ g_{xu\sigma} \left((x_{t-1} - \bar{x}) \otimes u_t \right)
++ \frac{3}{6} g_{uu\sigma} \left(u_t \otimes u_t \right)
+$}
+\\
+&
+\qquad\qquad\qquad
+\colorbox{gray!50}{$
++ \frac{3}{6} g_{x\sigma\sigma} (x_{t-1} - \bar{x}) %+ 3/6*gxss*xhat ...
++ \frac{3}{6} g_{u\sigma\sigma} u_t %+ 3/6*guss*u ...
+$}
+\\
+&
+\qquad\qquad\qquad\qquad
+\colorbox{gray!50}{$
++ \frac{1}{6} g_{\sigma\sigma\sigma} % + 1/6*gsss;
+$}
+\end{align*}
+where after running \texttt{stoch\_simul(order=3)}
+\begin{itemize}
+  \item $x_t$ are the state variables and $y_t$ are the variables that we focus our analysis on (i.e. reported or observed variables)
+  \item the steady-states $\bar{x}$ and $\bar{y}$ can be accessed from the rows of \texttt{oo\_.dr.ys(oo\_.dr.order\_var)}
+  \item the \colorbox{gray!10}{first-order terms} can be accessed from the rows of \texttt{oo\_.dr.ghx} and \texttt{oo\_.dr.ghu}
+  \item the \colorbox{gray!25}{second-order terms} can be accessed from the rows of \texttt{oo\_.dr.ghxx}, \texttt{oo\_.dr.ghxu}, \texttt{oo\_.dr.ghuu}, and \texttt{oo\_.dr.ghs2}
+  \item the \colorbox{gray!25}{third-order terms} can be accessed from  the rows of \texttt{oo\_.dr.ghxxx}, \texttt{oo\_.dr.ghxxu}, \texttt{oo\_.dr.ghxuu}, \texttt{oo\_.dr.ghxss}, \texttt{oo\_.dr.ghuuu} and \texttt{oo\_.dr.ghuss}
+\end{itemize}
+Note that there is no \texttt{oo\_.dr.ghs}, \texttt{oo\_.dr.ghxxs}, \texttt{oo\_.dr.ghxus}, \texttt{oo\_.dr.ghuus}, and \texttt{oo\_.dr.ghs3}.
+
+Why does Dynare not compute $g_{\sigma}$, $g_{xx\sigma}$, $g_{xu\sigma}$, $g_{uu\sigma}$, and $g_{\sigma\sigma\sigma}$?
+\end{enumerate}
+Now consider Table (2) of the paper.
+\begin{enumerate}[resume]
+\item Replicate column (2) labeled \emph{Benchmark}. Note that this requires to run a simulation of length 2000000 for a third-order approximation to the model with Gaussian shocks.
+In the hints below you will find out how to get the same shock series to replicate the numbers in the column.
+\item Replicate column (3) labeled \emph{Case I}. Note that this requires to run a simulation of length 2000000 for a third-order approximation to the model with non-symmetric shocks.
+In the hints below you will find out how to get the same shock series to replicate the numbers in the column.
+\item Comment on the different results obtained in columns (2) and (3) of the table.
+\end{enumerate}
+
+\newpage
+\subsection*{Codes and hints}
+\begin{itemize}
+\item The paper and technical appendix are available on Ilias.
+\item The mod file \texttt{Andreasen\_2012\_rare\_disasters.mod} contains a Dynare version of the DSGE model used to study rare disasters.
+This mod file simulates data and computes empirical moments from a simulated time series of length 2000000 for a first-order approximation to the model.
+Note that your task is to adapt the codes that do the simulation for a third-order approximation.
+The mod file also contains some further hints and explanations.
+\item The function \texttt{Andreasen\_2012\_get\_shocks.m} produces both the Gaussian and non-symmetric shock series used to replicate columns (2) and (3) in Table 2 of the paper.
+It also creates $\Sigma^{(3)}$ for both cases which is an input argument of \texttt{get\_ghs3.m}.
+\item The function \texttt{get\_ghs3.m} computes $g_{\sigma\sigma\sigma}$ from
+\begin{align*}
+(A+B) g_{\sigma\sigma\sigma} = -\left( f_{y^{**}_{+}} g^{**}_{uuu} + f_{y^{**}_{+}y^{**}_{+}} (g^{**}_u \otimes g^{**}_{uu})P^3_{u\_uu} + f_{y^{**}_{+}y^{**}_{+}y^{**}_{+}} (g^{**}_u \otimes g^{**}_u \otimes g^{**}_u)\right)\Sigma^{(3)} \label{eq:gsss}
+\end{align*}
+where $f_{y^{**}_{+}}$, $f_{y^{**}_{+}y^{**}_{+}}$, and $f_{y^{**}_{+}y^{**}_{+}y^{**}_{+}}$ are the first, second, and third-order derivatives of the dynamic model equations with respect to forward jumper variables $y_{t+1}^{**}$.
+$g^{**}_u$, $g^{**}_{uu}$, and $g^{**}_{uuu}$ are the partial derivatives of the jumper variables with respect to shocks.
+$P^3_{u\_uu}$ is a permutation matrix.
+$\Sigma^{(3)} = E[u_t \otimes u_t \otimes u_t]$ are the vectorized unconditional third-order product moments.
+$A$ and $B$ are the auxiliary perturbation matrices:
+\begin{align*}
+	A & = f_{y_0} + \begin{pmatrix} \underbrace{0}_{n\times n_{static}} &\vdots& \underbrace{f_{y^{**}_{+}} \cdot g^{**}_{x}}_{n \times n_{spred}} &\vdots& \underbrace{0}_{n\times n_{frwd}}  \end{pmatrix}\\
+	B & = \begin{pmatrix} \underbrace{0}_{n \times n_{static}}&\vdots & \underbrace{0}_{n \times n_{pred}} & \vdots & \underbrace{f_{y^{**}_{+}}}_{n \times n_{sfwrd}} \end{pmatrix}
+\end{align*}
+where $f_{y_{0}}$ are the first derivatives of the dynamic model equations with respect to all current endogenous variables $y_{t}^{}$
+and $g^{**}_{x}$ are the first partial derivatives of the jumper variables with respect to previous state variables.
+\item In MATLAB, the Kronecker product $\mathcal{A} \otimes \mathcal{B} \otimes \mathcal{C}$ of arbitrary matrices $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{C}$
+  can be computed using \texttt{kron($\mathcal{A}$,kron($\mathcal{B}$,$\mathcal{C}$))}.
+\item If your computer struggles with the simulation, reduce the length of the simulation to 200000 or lower.
+On my MacBook Air (M1) it takes about a minute to do the simulation at third-order.
+\end{itemize}
+
+\newpage
+
+\section[Solving the RBC model with leisure using a simple projection method]{Solving the RBC model with leisure using a simple projection method\label{ex:RBCLeisureProjection}}
+Consider the basic RBC model with leisure and a CES utility function represented by the following system of equations:
+\begin{align*}
+{{C}}_{t}^{-{{\eta^C}}} &={{\beta}}\, E_t \left\{{{C}}_{t+1}^{-{{\eta^C}}}\, \left(1-{{\delta}}+{{R}}_{t+1}\right) \right\}
+\\
+{{W}}_{t}&=\frac{\psi\, \left(1-{{L}}_{t}\right)^{-{{\eta^L}}}}{{{C}}_{t}^{-{{\eta^C}}}}
+\\
+{{W}}_{t}&=\left(1-{{\alpha}}\right)\, {{A}}_{t}\, \left(\frac{{{K}}_{t-1}}{{{L}}_{t}}\right)^{{{\alpha}}}
+\\
+{{R}}_{t}&={{\alpha}}\, {{A}}_{t}\, \left(\frac{{{K}}_{t-1}}{{{L}}_{t}}\right)^{{{\alpha}}-1}
+\\
+{{Y}}_{t}&={{A}}_{t}\, {{K}}_{t-1}^{{{\alpha}}}\, {{L}}_{t}^{1-{{\alpha}}}
+\\
+{{Y}}_{t}&={{C}}_{t}+{{I}}_{t}
+\\
+{{K}}_{t}&={{I}}_{t}+\left(1-{{\delta}}\right)\, {{K}}_{t-1}
+\\
+\log\left({{A}}_{t}\right)&={{\rho}}\, \log\left({{A}}_{t-1}\right)+{{\varepsilon}}_{t}
+\end{align*}
+The description of variables and parameters are given in Tables \ref{tbl:RBC.Variables} and \ref{tbl:RBC.Parameters}.
+The goal of this exercise is to solve the model with a simple projection method.
+
+\begin{enumerate}
+\item Briefly describe the four steps of the projection method to solve a DSGE model.
+\item What is the \emph{curse of dimensionality}? Does this curse also apply to perturbation methods?
+\item Solve the model using a projection method. To this end:
+\begin{itemize}
+  \item Set up a simple grid for the state variables $K_{t-1}$ and $A_t$:
+  \begin{itemize}
+    \item For $K_{t-1}$ use 10 evenly distributed points between $\frac{1}{2}\bar{K}$ and $\frac{3}{2}\bar{K}$, where $\bar{K}$ is the steady-state of $K_t$.
+    \item For $\log(A_t)$ use 10 evenly distributed points between $-3\frac{\sigma^2}{1-\rho^2}$ and $3\frac{\sigma^2}{1-\rho^2}$.
+  \end{itemize}
+  \item Use regular second-order polynomials for approximating the policy functions for the log of consumption and the log of labor supply:
+  \begin{align*}
+    \log(C_t) &= \theta_{1} + \theta_{2} \log(K_{t-1}) + \theta_{3} \log(A_t) + \theta_{4} \log(K_{t-1})^2 + \theta_{5} \log(A_t)^2 + \theta_{6} \log(K_{t-1})\log(A_t)
+    \\
+    \log(L_t) &= \theta_{7} + \theta_{8} \log(K_{t-1}) + \theta_{9} \log(A_t) + \theta_{10} \log(K_{t-1})^2 + \theta_{11} \log(A_t)^2 + \theta_{12} \log(K_{t-1})\log(A_t)
+  \end{align*}
+  \item To minimize the Euler residuals use \texttt{fminsearch} with the following set of options:\\\texttt{optimset('MaxFunEvals',1e5,'MaxIter',1e6,'TolFun',1e-7,'TolX',1e-7,'Display','Iter')}.
+\end{itemize}
+\item Plot both the consumption and labor supply choice as a function of the grid on $K_{t-1}$ and for 3 values of $A_t = \{0.9,1.0,1.1\}$.
+\end{enumerate}
+
+\newpage
+\subsection*{Codes and hints}
+\begin{itemize}
+\item A Dynare version of this model is given in the file \texttt{rbc\_ces.mod}.
+This file computes the steady-state and a second-order perturbation approximation.
+It might contain some useful information or computations for the projection method.
+\end{itemize}
+
+\begin{center}
+  \begin{longtable}{cc}
+  \caption{Variables}\label{tbl:RBC.Variables}\\%
+  \hline%
+  \multicolumn{1}{c}{\textbf{Variables}} &
+  \multicolumn{1}{c}{\textbf{Description}}\\%
+  \hline\hline%
+  \endfirsthead
+  \multicolumn{2}{c}{{\tablename} \thetable{} -- Continued}\\%
+  \hline%
+  \multicolumn{1}{c}{\textbf{Variables}} &
+  \multicolumn{1}{c}{\textbf{Description}}\\%
+  \hline\hline%
+  \endhead
+  ${Y_t}$ & output\\
+  ${C_t}$ & consumption\\
+  ${K_t}$ & capital\\
+  ${L_t}$ & labor\\
+  ${A_t}$ & productivity\\
+  ${R_t}$ & real return on capital\\
+  ${W_t}$ & real wage\\
+  ${I_t}$ & investment\\
+  ${\varepsilon_t}$ & Productivity Shock\\
+  \hline%
+  \end{longtable}
+\end{center}
+
+\begin{center}
+  \begin{longtable}{ccc}
+  \caption{Parameters}\label{tbl:RBC.Parameters}\\%
+  \toprule%
+  \multicolumn{1}{c}{\textbf{Parameter}} &
+  \multicolumn{1}{c}{\textbf{Value}} &
+   \multicolumn{1}{c}{\textbf{Description}}\\%
+  \midrule%
+  \endfirsthead
+  \multicolumn{3}{c}{{\tablename} \thetable{} -- Continued}\\%
+  \midrule%
+  \multicolumn{1}{c}{\textbf{Parameter}} &
+  \multicolumn{1}{c}{\textbf{Value}} &
+    \multicolumn{1}{c}{\textbf{Description}}\\%
+  \midrule%
+  \endhead
+  ${\alpha}$ 	 & 	 0.350 	 & 	 Output Elasticity of Capital\\
+  ${\beta}$ 	 & 	 0.990 	 & 	 Discount Factor\\
+  ${\delta}$ 	 & 	 0.025 	 & 	 Depreciation Rate\\
+  ${\rho}$ 	 & 	 0.900 	 & 	 Persistence technology\\
+  ${\bar{L}}$ 	 & 	 0.333 	 & 	 steady-state labor that calibrates $\psi$ endogenously\\
+  ${\eta^C}$ 	 & 	 2.000 	 & 	 CES utility elasticity with respect to consumption\\
+  ${\eta^L}$ 	 & 	 1.500 	 & 	 CES utility elasticity with respect to labor\\
+  ${\psi}$ 	   & 	 $\bar{W}(1-\bar{L})^{\eta_L} \bar{C}^{-\eta_C}$ 	 & 	the labor disutility weight, where $\bar{W}$ and $\bar{C}$ \\
+               &           &are the steady-states of $W_t$ and $C_t$\\
+  \bottomrule%
+  \end{longtable}
+\end{center}
+
+  
+
+\end{document}
