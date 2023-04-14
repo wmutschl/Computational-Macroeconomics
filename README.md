@@ -9,9 +9,40 @@ The compiled materials (such as PDFs) are available under [Releases](https://git
 Please feel free to use this for teaching or learning purposes; however, taking into account the [GPL 3.0 license](https://choosealicense.com/licenses/gpl-3.0/).
 
 ## Content
-We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several examples from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
 
-As Computational Macroeconomics is highly computational, the course is interactive and *hands-on*, so there is no formal separation between the lecture and the exercise class. Each topic begins with a theoretical input and presentation of methods. These concepts are practiced directly thereafter by means of exercises and implemented on the computer in [MATLAB](https://mathworks.com)/[Octave](https://octave.org) and [Dynare](https://www.dynare.org).
+We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
+
+## Topics
+- Algebra of RBC and New-Keynesian models
+- Steady-state
+- Preprocessing of DSGE models
+- Simulation and solution methods
+  - perfect foresight
+  - 1st-order perturbation (log-linearization)
+  - k-order perturbation
+  - projection
+- Impulse response analysis
+- Sensitivity analysis
+- Large shocks
+- Rare events
+- Occasionally binding constraints
+- Optimal policy
+
+
+
+## Case Studies
+- Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
+- Welfare and fiscal policy (Baxter and King, 1993, American Economic Review)
+- Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
+- International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
+- Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)
+- Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
+- Optimal environmental policy (Heutel, 2012, Review of Economic Dynamics; Annicchiarico and Di Dio, 2015, Journal of Environmental Economics and Management)
+- Equity premium puzzle (Jermann, 1998, Journal of Monetary Economics)
+- Zero-lower bound on nominal interest rates (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
+- Rare disasters (Fernandez-Villaverde and Levintal, 2018, Quantitative Economics; Isore and Szczerbowicz, 2017, Journal of Economic Dynamics and Control)
+- Endogenous Banking Crises (Boissay, Collard, and Smets, 2016, Journal of Political Economy)
 
 ## Learning target
 
