@@ -1,0 +1,18 @@
+\section[What is Computational Macroeconomics]{What is Computational Macroeconomics\label{ex:ComputationalMacroeconomics}}
+Broadly define the scope and research topics of \enquote{Computational Macroeconomics}, 
+	  sometimes referred to as \enquote{Numerical Methods in Macroeconomics}.
+What are the challenges and approaches?
+
+\paragraph{Readings}
+\begin{itemize}
+	\item \textcite[Ch. 1-2]{Fernandez-Villaverde.Rubio-Ramirez.Schorfheide_2016_SolutionEstimationMethods}
+	\item \textcite[Ch. 1-2]{Maliar.Maliar_2014_NumericalMethodsLargeScale}
+	\item \textcite[Ch. 1]{Judd_1998_NumericalMethodsEconomics}
+\end{itemize}
+
+\begin{solution}\textbf{Solution to \nameref{ex:ComputationalMacroeconomics}}
+\ifDisplaySolutions
+\input{exercises/computational_macroeconomics_scope_solution.inc}
+\fi
+\newpage
+\end{solution}
