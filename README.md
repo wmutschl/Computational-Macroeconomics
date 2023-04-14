@@ -34,7 +34,11 @@ Basic undergraduate knowledge of macroeconomics as well as econometrics are requ
 If you spot mistakes, let me know by opening an issue or write me an email to [willi@mutschler.eu](mailto:willi@mutschler.eu).
 Moreover, solutions to the exercises in other computer languages (e.g. Julia, Python or R) are highly appreciated.
 
-## Week 1: Introductions
+## Schedule with To-Do Lists
+
+<details>
+  <summary>Week 1: Introductions</summary>
+
 ### Goals
 
 * understand the scope and topics of *Computational Macroeconomics*
@@ -59,3 +63,5 @@ Moreover, solutions to the exercises in other computer languages (e.g. Julia, Py
   * [ ] check your emails and cancel the meeting again using the link in the email
   * [ ] now you know how easy it is to schedule a meeting with me :-)
 * [ ] participate in the Q&A sessions
+
+</details>
