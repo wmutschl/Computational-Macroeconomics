@@ -80,9 +80,9 @@ Moreover, solutions to the exercises in other computer languages (e.g. Julia, Py
 
 * [ ] read the general course information on [Ilias](https://ovidius.uni-tuebingen.de/ilias3/goto.php?target=crs_4166405&client_id=pr02)
 * [ ] watch the introductory videos (on YouTube)
-  * [ ] Introduction to Computational Macroeconomics
-  * [ ] Introduction to MATLAB
-  * [ ] Quick Tour Dynare (focus on solution methods and simulations)
+  * [ ] [Introduction to Computational Macroeconomics](https://youtu.be/vZfX5U5xyws)
+  * [ ] [Introduction to MATLAB](https://youtu.be/_CbLr11aeQ4)
+  * [ ] [Quick Tour Dynare (focus on solution methods and simulations)](https://youtu.be/NDFSUx46FvM)
 * [ ] prepare your computer: MATLAB/Octave and Dynare
   * [ ] install MATLAB R2023a following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clientdienste/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
   * [ ] install Dynare 5.4 following [this guide](https://www.dynare.org/resources/quick_start/)
