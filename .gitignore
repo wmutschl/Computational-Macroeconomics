@@ -22,3 +22,22 @@ week_*_solution.tex
 *.toc
 
 progs/dynare/*\+*/
+progs/dynare/arma_1_1/
+
+progs/dynare/Baxter_King_figure_2/
+
+progs/dynare/Baxter_King_steady/
+
+progs/dynare/rbc_ces/
+
+progs/dynare/rbc_logutil/
+
+progs/dynare/arma_1_1.log
+
+progs/dynare/Baxter_King_figure_2.log
+
+progs/dynare/Baxter_King_steady.log
+
+progs/dynare/rbc_ces.log
+
+progs/dynare/rbc_logutil.log

@@ -95,3 +95,29 @@ Moreover, solutions to the exercises in other computer languages (e.g. Julia, Py
 * [ ] participate in the Q&A sessions
 
 </details>
+
+
+<details>
+  <summary>Week 2: RBC Model, Calibration and Steady-State</summary>
+
+### Goals
+
+* understand and get comfortable with the algebra of RBC models
+* understand the concept of a steady-state
+* understand the concept of calibration
+* practice Dynare
+* start programming with MATLAB
+
+### To Do
+
+* [ ] read King and Rebelo (1999) and Baxter and King (1993)
+* [ ] watch the following videos (on YouTube)
+  * [ ] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
+  * [ ] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)
+](https://youtu.be/4xeoLh3edpo)
+  * [ ] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types
+](https://youtu.be/HRpynlbZBzM)
+* [ ] do exercises 1 and 2 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do the case study together
+* [ ] bring all your questions and concerns to the Q&A sessions
+
+</details>
