@@ -3,7 +3,7 @@
   $x - \theta x = 0 \Leftrightarrow x = 0$,
   where $x$ denotes the non-stochastic steady-state
   (we drop the time subscript in the original equation when computing the steady-state).
-\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/dynare/arma_1_1.mod}
+\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/arma_1_1.mod}
 Some notes:
 \begin{itemize}
 	\item we used MATLAB codes for plotting.
@@ -16,5 +16,5 @@ Some notes:
 		i.e. the process explodes and does not return to the equilibrium/steady-state.
 \end{itemize}
 
-\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/arma_1_1.m}
+\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/arma_1_1.m}
 \end{enumerate}

@@ -98,7 +98,7 @@ Lastly, the persistence parameters are supposed to be equal to 0.75:
 Counting the $*$, we have calibrated the 12 model parameters using the steady-state relationships and the provided targets.
 
 \item The mod file might look like this:
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/dynare/Baxter_King_steady.mod}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/Baxter_King_steady.mod}
 
 
 \end{enumerate}

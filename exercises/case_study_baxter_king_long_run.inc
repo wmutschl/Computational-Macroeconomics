@@ -16,7 +16,7 @@
 \end{enumerate}
 
 {\footnotesize
-\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily]
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
 idx_y  = varlist_indices('y', M_.endo_names); % index to access y in oo_.endo_simul
 
 % STEP 1: SET INITIAL CONDITION

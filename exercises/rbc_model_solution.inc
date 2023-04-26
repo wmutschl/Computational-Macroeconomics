@@ -215,11 +215,11 @@ Typically we find that $\rho_A$ is mostly set around 0.9 to reflect persistence 
   and $\sigma_A$ around $0.6$ in the simple RBC model.
 \end{itemize}
 \item The function might look like this:
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/rbc_logutil_ss.m}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/rbc_logutil_ss.m}
 You can try it out with the following parametrization:
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/rbc_logutil_ss_test.m}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/rbc_logutil_ss_test.m}
 \item The mod file might look like this:
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/dynare/rbc_logutil.mod}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/rbc_logutil.mod}
 Obviously, the results are the same.
 \item
 \begin{enumerate}
@@ -236,13 +236,13 @@ Obviously, the results are the same.
 	This cannot be solved for $n$ in closed-form.
 	Rather, we need to condition on the values of the parameters and use a numerical optimizer to solve for $n$.
 	\item The function might look like this:
-	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/rbc_ss.m}
+	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/rbc_ss.m}
 	You can try it out with the following parametrization (same as in the Dynare mod file):
-	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/rbc_ss_test.m}
+	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/rbc_ss_test.m}
 	\item In Dynare we could use the following mod file:
-	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/dynare/rbc_ces.mod}
+	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/rbc_ces.mod}
 	and the following helper function:
-	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/dynare/rbc_ces_helper_function.m}
+	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/rbc_ces_helper_function.m}
 	Obviously, the results are the same.
 \end{enumerate}
 
