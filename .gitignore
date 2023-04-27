@@ -41,3 +41,7 @@ progs/dynare/Baxter_King_steady.log
 progs/dynare/rbc_ces.log
 
 progs/dynare/rbc_logutil.log
+
+progs/dynare/Baxter_King_steady_growth/
+
+progs/dynare/Baxter_King_steady_growth.log

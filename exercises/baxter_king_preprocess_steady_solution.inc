@@ -10,10 +10,11 @@
     government investment $I_t^G$,
     private capital stock $K_t$, 
     public capital stock $K_t^G$,
-    real rental rate of private capital $r_{K,t}$,
-    real wage $w_t$, income tax rate $\tau_t$,
+    real rental rate of private capital $R^K_{t}$,
+    real wage $W_t$,
+    income tax rate $\tau_t$,
     fiscal transfers $TR_t$
-    and labor $n_t$.
+    and labor $N_t$.
     Note that we have 12 equations, so we should also have 12 endogenous variables.
     \item \textbf{Exogenous variables}:
     Government spending shock $\varepsilon_t^{G^B}$,
@@ -21,11 +22,11 @@
     tax rate shock $\varepsilon_t^{\tau}$.
     \item \textbf{Parameters:}
     Discount factor $\beta$,
+    utility leisure weight $\theta_L$,
     public capital productivity $\theta_G$,
     private capital productivity $\theta_K$
-    labor productivity $\theta_L$,
-    utility leisure weight $\theta_L$,
-    capital depreciation rate $\delta$,
+    labor productivity $\theta_N$,
+    capital depreciation rate $\delta_K$,
     persistence parameter government spending rule $\rho_{G^B}$,
     persistence parameter government investment rule $\rho_{I^G}$,
     persistence parameter tax rule $\rho_{\tau}$,
@@ -37,25 +38,25 @@
 \item We have 12 parameters to calibrate.
 First, we fix the steady-state of six variables using the provided targets:
 \begin{align*}
-Y &= \bar{Y} = 1
+Y &= 1
 \\
-G^B &= \bar{G}^B = 0.2 \bar{Y} \tag*{(*)}
+G^B &= \bar{G}^B = 0.2 Y \tag*{(*)}
 \\
-I^G &= \bar{I}^G = 0.02 \bar{Y} \tag*{(*)}
+I^G &= \bar{I}^G = 0.02 Y \tag*{(*)}
 \\
-TR &= \bar{TR} = 0
+TR &= 0
 \\
-w &= \bar{w} = 2
+W &= 2
 \\
 N &= \bar{N} = 1/3
 \end{align*}
 Second, from the labor demand equation in steady-state we have:
 \begin{align*}
-\theta_K = 1 - \frac{w N}{Y} = 1/3 \tag*{(*)}
+\theta_N = \frac{W N}{Y} = 2/3 \tag*{(*)}
 \end{align*}
 Constant returns to scale over privately provided inputs in the production function implies
 \begin{align*}
-\theta_N = 1-\theta_K = 2/3 \tag*{(*)}
+\theta_K = 1-\theta_N = 1/3 \tag*{(*)}
 \end{align*}
 Third, public capital productivity $\theta_G$ should be lower than $\theta_K$, so for example:
 \begin{align*}
@@ -75,19 +76,19 @@ I &= \delta_K K \approx 0.2406
 \\
 C &= Y - I - G^B - I^G \approx 0.5394
 \\
-r_K &= \theta_K \frac{Y}{K} \approx 0.0364
+R^K &= \theta_K \frac{Y}{K} \approx 0.0364
 \\
-\tau &= \bar{\tau} = \frac{G^B + I^G + TR}{w N + r_K K} \approx 0.2164 \tag*{(*)}
+\tau &= \bar{\tau} = \frac{G^B + I^G + TR}{W N + R^K K} \approx 0.2164 \tag*{(*)}
 \end{align*}
 From the savings decision in steady-state we get
 \begin{align*}
-\beta = \frac{1}{1-\delta + (1-\tau)r_K} \approx 0.9965 \tag*{(*)}
+\beta = \frac{1}{1-\delta + (1-\tau)R^K} \approx 0.9965 \tag*{(*)}
 \end{align*}
 Now we can compute the labor utility weight parameter from the labor supply decision:
 \begin{align*}
-\theta_L = (1-\tau) w \frac{1-N}{C} \approx 1.9369 \tag*{(*)}
+\theta_L = (1-\tau) W \frac{1-N}{C} \approx 1.9369 \tag*{(*)}
 \end{align*}
-Lastly, the persistence parameters are supposed to be equal to 0.75:
+Lastly, the persistence parameters are supposed to be equal to $0.75$:
 \begin{align*}
 \rho_{G^B} &= 0.75 \tag*{(*)}
 \\
@@ -99,6 +100,93 @@ Counting the $*$, we have calibrated the 12 model parameters using the steady-st
 
 \item The mod file might look like this:
 \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/Baxter_King_steady.mod}
+
+\item 
+\begin{enumerate}    
+    \item A balanced growth path refers to a situation in which all model variables grow at some constant rate.
+    This is motivated by certain stylized facts (sometimes referred to as Kaldor facts or great ratios):
+    \begin{itemize}
+        \item The shares of national income received by labor and capital are roughly constant over long periods of time
+        \item The rate of growth of the capital stock is roughly constant over long periods of time
+        \item The rate of growth of output per worker is roughly constant over long periods of time
+        \item The capital/output ratio is roughly constant over long periods of time
+        \item The rate of return on investment is roughly constant over long periods of time
+        \item The real wage grows over time
+    \end{itemize}
+    \item \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness} show that Harrod neutral technical progress
+    and certain preferences (like the log-utility case we have specified here) are needed in the RBC model for the existence of a Balanced Growth Path.
+    Moreover, the production function needs to exhibit constant returns to scale, i.e.\ $\theta_N+\theta_K+\theta_G=1$.
+    \item First, note that time endowment is fixed according to $L_t+N_t=1$, so both $L_t$ and $N_t$ have a balanced growth rate of 0.
+    We will now derive the balanced growth path (BGP).
+    First, we postulate that on the BGP output, private and public capital grow at constant rates $\gamma_Y$, $\gamma_K$, and $\gamma_{K^G}$.
+    Let's revisit the production function \eqref{eq:BaxterKing:ProductionFunctionGrowth} and divide both sides by $X_t$
+    \begin{align*}
+    \frac{Y_t}{X_t} = \left(\frac{X_t N_t}{X_t}\right)^{\theta_N} \left(\frac{K_{t-1}}{X_t}\right)^{\theta_K} \left(\frac{K^G_{t-1}}{X_t}\right)^{\theta_G}
+    \end{align*}
+    where we make use of constant returns to scale $\theta_N+\theta_K+\theta_G=1$.    
+    As $N_t$ does not grow over time, this equation implies that if $Y_t$, $K_{t-1}$ and $K_{t-1}^G$ are growing at the same rate as $X_t$,
+      then they are on a BGP.
+    Note that the constant returns to scale assumption is crucial here.
+    So let's postulate $\gamma_Y=\gamma_K=\gamma_{K^G}=\gamma_X$ and check the other equations if there is a contradiction to such a BGP. 
+    Further, let's denote with lowercase letters detrended variables:
+    \begin{align*}
+    y_t \equiv \frac{Y_t}{X_t}, \qquad k_{t-1} \equiv \frac{K_{t-1}}{X_t}, \qquad k^G_{t-1} \equiv \frac{K^G_{t-1}}{X_t}
+    \end{align*}
+    such that the stationarized production function is
+    \begin{align*}
+    y_t = N_t^{\theta_N} (k_{t-1})^{\theta_K} (k^G_{t-1})^{\theta_G}
+    \end{align*}
+    Let's stationarize the labor demand equation \eqref{eq:BaxterKing:LaborDemand}:
+    \begin{align*}
+    \underbrace{\frac{W_t}{X_t}}_{w_t} N_t = \theta_N \frac{Y_t}{X_t} \Leftrightarrow w_t N_t = \theta_N y_t
+    \end{align*}
+    The right-hand side is constant and does not grow.
+    Accordingly, the real wage grows over time (see our stylized facts), and on a BGP it needs to actually grow with $\gamma_X$,
+      because otherwise the left-hand side, i.e.\ the ratio $W_t/X_t$, wouldn't be constant over time.
+    Similarly, let's stationarize the capital demand equation
+    \begin{align*}
+    R^K_t \frac{K_{t-1}}{X_t} = \theta_K \frac{Y_t}{X_t} \Leftrightarrow R^K_t k_{t-1} = \theta_K y_t
+    \end{align*}    
+    As $k_{t-1}$ and $y_t$ are already detrended, there is no need to further detrend $R^K_t$,
+      i.e.\ on a BGP the rate of return is constant (see our stylized facts).
+    So far we basically replaced the upper-case letters with lower-case (detrended) letters,
+      but the equations remain the same.
+    We can do the same for the market clearing condition as well as the fiscal budget:
+    \begin{align*}
+    y_t &= c_t + i_t + g_t^B + i_t^G
+    \\
+    g_t^B + i_t^G &= \tau_t(W_t N_t + R^K_t k_{t-1}) - tr_t
+    \end{align*}
+    The fiscal rules need to be changed to correspond to detrended variables (in a sense these are just ad-hoc rules and not based on optimality conditions):
+    \begin{align*}
+    g_t^B-\bar{g}^B &= \rho_{G^B} \left(g_{t-1}^B - \bar{g}^B\right) +  \varepsilon_t^{g^B}
+    \\
+    i_t^G-\bar{i}^G &= \rho_{I^G} \left(i_{t-1}^G - \bar{i}^G\right) +  \varepsilon_t^{i^G}
+    \\
+    \log\left(\frac{\tau_t}{\bar{\tau}}\right) &= \rho_\tau \log\left(\frac{\tau_{t-1}}{\bar{\tau}}\right) +  \varepsilon_t^\tau
+    \end{align*}
+    The consumption-leisure choice is given in detrended form:
+    \begin{align*}
+    (1-\tau_t) w_t = \theta_L \frac{c_t}{1-N_t}
+    \end{align*}
+    Finally, we turn to the equations that do change, i.e.\ dividing the capital accumulation equations by $X_t$ yields:
+    \begin{align*}
+    \frac{K_t}{X_{t+1}}\frac{X_{t+1}}{X_t} = (1-\delta_K)\frac{K_{t-1}}{X_t} + \frac{I_t}{X_t} \Leftrightarrow \gamma_X k_{t} =  (1-\delta_K) k_{t-1} + i_t
+    \\
+    \frac{K^G_t}{X_{t+1}}\frac{X_{t+1}}{X_t} = (1-\delta_K)\frac{K^G_{t-1}}{X_t} + \frac{I^G_t}{X_t} \Leftrightarrow \gamma_X k^G_{t} =  (1-\delta_K) k^G_{t-1} + i^G_t
+    \end{align*}
+    Similarly, the detrended Euler equation changes to:
+    \begin{align*}
+    \frac{ X_{t+1} \frac{C_{t+1}}{X_{t+1}} } {X_t \frac{C_{t}}{X_{t}}} = \gamma_X \frac{c_{t+1}}{c_t} = \beta E_t \left[ 1-\delta_K+(1-\tau_{t+1}r_{K,t+1}) \right]
+    \end{align*}
+    
+\item In the codes, we need to impose constant returns to scale in the production function and adjust the capital accumulation equations and the capital Euler equation.
+This also requires some changes in the computation\texttt{steady\_state\_model} block.
+The mod file might look like this:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/Baxter_King_steady_growth.mod}
+Note that we normalized steady-state output higher than 1, because otherwise steady-state consumption would become negative.
+    
+\end{enumerate}
 
 
 \end{enumerate}

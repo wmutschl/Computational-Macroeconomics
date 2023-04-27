@@ -24,42 +24,42 @@ K_{t}^G &= (1-\delta_K)K_{t-1}^G + I_t^G \label{eq:BaxterKing:PublicCapital}
 with $\delta_K$ denoting the common depreciation rate, $I_t$ is private investment and $I_t^G$ government investment.
 Total uses of goods for consumption and investment cannot exceed disposable income from labor and private capital rentals:
 \begin{align*}
-C_t + I_t \leq (1-\tau_t)(w_t N_t + r_{K,t} K_{t-1}) + {TR}_t
+C_t + I_t \leq (1-\tau_t)(W_t N_t + R^K_{t} K_{t-1}) + {TR}_t
 \end{align*}
-where $w_t$ is the real wage, $r_{K,t}$ the real rental rate of capital, $\tau_t$ the uniform tax rate on income and $TR_t$ are real lump-sum transfer payments.
+where $W_t$ is the real wage, $R^K_t$ the real rental rate of capital, $\tau_t$ the uniform tax rate on income and $TR_t$ are real lump-sum transfer payments.
 The time $N_t$ devoted to work is constraint by a normalized time budget:
 \begin{align*}
 L_t + N_t = 1
 \end{align*}
 Optimality is given by the consumption-leisure choice
 \begin{align}
-(1-\tau_t) w_t = \theta_L \frac{C_t}{1-N_t} \label{eq:BaxterKing:ConsumptionLeisure}
+(1-\tau_t) W_t = \theta_L \frac{C_t}{1-N_t} \label{eq:BaxterKing:ConsumptionLeisure}
 \end{align}
 and the savings decision
 \begin{align}
-E_t \left[ \frac{C_{t+1}}{C_t}\right] = \beta E_t \left[ 1-\delta_K + (1-\tau_{t+1})r_{K,t+1}\right] \label{eq:BaxterKing:SavingsDecision}
+E_t \left[ \frac{C_{t+1}}{C_t}\right] = \beta E_t \left[ 1-\delta_K + (1-\tau_{t+1})R^K_{t+1}\right] \label{eq:BaxterKing:SavingsDecision}
 \end{align}
 
 \paragraph*{Firms}
 Firms maximize profits
 \begin{align*}
-\max Y_t - w_t N_t - r_{K,t} K_{t-1}
+\max Y_t - W_t N_t - R^K_{t} K_{t-1}
 \end{align*}
 by choosing factor inputs $N_t$ and $K_{t-1}$ and subject to a Cobb-Douglas production function for output $Y_t$:
 \begin{align}
-  Y_t = (N_t)^{\theta_N} (K_{t-1})^{\theta_K} (K_{t-1}^G)^{\theta_G} \label{eq:BaxterKing:CobbDouglasProductionFunction}
+Y_t = (N_t)^{\theta_N} (K_{t-1})^{\theta_K} (K_{t-1}^G)^{\theta_G} \label{eq:BaxterKing:CobbDouglasProductionFunction}
 \end{align}
 where $\theta_N$, $\theta_K$ and $\theta_G$ denote, respectively, the productivity of labor, private and public capital in production.
 Taking factor prices as given, optimal factor demand is given by
 \begin{align}
-w_t N_t &= \theta_N Y_t \label{eq:BaxterKing:LaborDemand}\\
-r_{K,t} K_{t-1}&= \theta_K Y_t \label{eq:BaxterKing:PrivateCapitalDemand}
+W_t N_t &= \theta_N Y_t \label{eq:BaxterKing:LaborDemand}\\
+R^K_{t} K_{t-1}&= \theta_K Y_t \label{eq:BaxterKing:PrivateCapitalDemand}
 \end{align}
 
 \paragraph*{Fiscal authority}
 The fiscal authority faces the budget constraint
 \begin{align}
-G_t \equiv G_t^B + I_t^G = \tau_t(w_t N_t + r_{K,t} K_{t-1}) - TR_t\label{eq:BaxterKing:FiscalBudget}
+G_t \equiv G_t^B + I_t^G = \tau_t(W_t N_t + R^K_{t} K_{t-1}) - TR_t\label{eq:BaxterKing:FiscalBudget}
 \end{align}
 and its behavior is described by exogenous AR(1) processes
 \begin{align}
@@ -106,17 +106,17 @@ Overall, the model can be summarized through equations
 \item As a first step it is always important to distinguish between variables and parameters.
 What are the endogenous variables, the exogenous variables and the model parameters?  
 
-\item Calibrate the model parameters so that a period corresponds to a quarter.
+\item Calibrate the model parameters so that a period corresponds to a \textbf{quarter}.
 Select the parameter values so that the steady state of the model matches the specifications in the following table:
 \begin{center}
 \begin{tabular}{lcc}
 Target & Symbol & Value \\\hline
-steady-state output level          & $\bar{Y}$ & 1 \\
-steady-state public consumption    & $\bar{G}^B$ & 0.2$\bar{Y}$ \\
-steady-state public investment     & $\bar{I}^G$ & 0.02$\bar{Y}$ \\
-steady-state transfers             & $\bar{TR}$ & 0 \\
-steady-state real wage             & $\bar{w}$ & 2\\
-steady-state labor                 & $\bar{N}$ & 1/3\\
+steady-state output level          & $Y$ & 1 \\
+steady-state public consumption    & $G^B$ & 0.2$Y$ \\
+steady-state public investment     & $I^G$ & 0.02$Y$ \\
+steady-state transfers             & $TR$ & 0 \\
+steady-state real wage             & $W$ & 2\\
+steady-state labor                 & $N$ & 1/3\\
 \hline
 \end{tabular}
 \end{center}
@@ -128,24 +128,30 @@ Regarding the fiscal policy rules, set all persistence parameters to 0.75.
 \item Write a Dynare mod-file for this model with the above calibration and compute the steady-state.
 Comment each block so that the structure of the code is made explicit.
 
+\newpage
+
 \item Now assume that the production function incorporates labor-augmenting technical progress at the constant gross rate $\gamma_X>1$:
-\begin{align*}
-  Y_t &= (X_t N_t)^{\theta_N} (K_{t-1})^{\theta_K} (K_{t-1}^G)^{\theta_G} \label{eq:BaxterKing:ProductionFunction}
+\begin{align}
+  Y_t &= (X_t N_t)^{\theta_N} (K_{t-1})^{\theta_K} (K_{t-1}^G)^{\theta_G} \label{eq:BaxterKing:ProductionFunctionGrowth}
   \\
-  X_{t+1} &= \gamma_X X_t
-\end{align*}
-Note that in the absence of shocks, this implies a balanced growth path for the model variables.
-Show how to eliminate the steady-state growth by rescaling all of the trending variables by $X_t$.
-Add this feature to your mod file and calibrate $\gamma_X$ such that the economy growths at 1.6\% per annum.
-\\
-\emph{Hint: See section 3.1 in \textcite{King.Rebelo_1999_ResuscitatingRealBusiness} for the intuition and steps
-  or \textcite{King.Plosser.Rebelo_2002_ProductionGrowthBusiness} for extensive technical details on assumptions and required functional forms.}
+  X_{t+1} &= \gamma_X X_t \nonumber
+\end{align}
+  \begin{enumerate}
+  \item What is a \emph{balanced growth path}?
+  \item What restriction on the parameters is required such that the model features a balanced growth path for the model variables?
+  \item Show how to eliminate the steady-state growth by rescaling all of the trending variables by $X_t$.
+  \item Adjust your mod file and calibrate $\gamma_X$ such that the economy growths at 1.6\% \textbf{per annum}.
+  \end{enumerate}
+\emph{Hint: See section 3.1 in \textcite{King.Rebelo_1999_ResuscitatingRealBusiness} for the intuition and steps.
+For extensive technical details on assumptions and required functional forms have a look at \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness}
+  and its technical appendix \textcite{King.Plosser.Rebelo_2002_ProductionGrowthBusiness}. }
 \end{enumerate}
 
 \paragraph{Readings}
 \begin{itemize}
 \item \textcite{Baxter.King_1993_FiscalPolicyGeneral}
 \item \textcite{King.Rebelo_1999_ResuscitatingRealBusiness}
+\item \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness}
 \item \textcite{King.Plosser.Rebelo_2002_ProductionGrowthBusiness}
 \end{itemize}
 

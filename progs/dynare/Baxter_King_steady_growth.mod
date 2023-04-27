@@ -1,5 +1,5 @@
 % =========================================================================
-% computes the steady-state of a no growth variant of the Baxter and King (1993, AER)
+% computes the steady-state of a growth variant of the Baxter and King (1993, AER) model
 % =========================================================================
 % Willi Mutschler (willi@mutschler.eu)
 % Version: April 26, 2023
@@ -11,17 +11,17 @@
 % note that you can use either % or // for comments in a mod file
 %-------------------------------------------------------------------------%
 var 
-  y   // output
-  c   // consumption
-  iv  // private investment
-  gb  // basic government spending
-  ivg // government investment
-  k   // private capital stock
-  kg  // public capital stock
+  y   // output (detrended)
+  c   // consumption (detrended)
+  iv  // private investment (detrended)
+  gb  // basic government spending (detrended)
+  ivg // government investment (detrended)
+  k   // private capital stock (detrended)
+  kg  // public capital stock (detrended)
   rk  // real interest rate
-  w   // real wage
+  w   // real wage (detrended)
   tau // net tax rate
-  tr  // fiscal transfers
+  tr  // fiscal transfers (detrended)
   n   // labor
 ;
 
@@ -44,6 +44,7 @@ parameters
   GB_BAR  // target value of basic government spending
   IVG_BAR // target value of government investment
   TAU_BAR // target value of tax rate
+  GAMMAX  // steady-state growth rate
 ;
 
 %-------------------------------------------------------------------------%
@@ -52,26 +53,27 @@ parameters
 % name as a declared parameter to initialize entries in M_.params
 %-------------------------------------------------------------------------%
 % parameter calibration using targeted steady-state values
-Y_BAR   = 1;
+GAMMAX  = 1+0.06/4; % 1.6% growth per annum, note that we aim for a quarterly calibration
+Y_BAR   = 10; % normalize higher than 1 otherwise consumption might be negative
 GB_BAR  = 0.2*Y_BAR;
 IVG_BAR = 0.02*Y_BAR;
 TR_BAR  = 0;
 W_BAR   = 2;
 N_BAR   = 1/3;
-
-THETA_N = W_BAR*N_BAR/Y_BAR; % from labor demand in steady-state
-THETA_K = 1-THETA_N;         % constant returns to scale over privately provided inputs
-THETA_G = 0.3*THETA_K;       % public capital productivity should be lower than capital share in production
-
 DELTA_K = 0.025; % standard quarterly value (see e.g. RBC model)
-KG_BAR  = IVG_BAR/DELTA_K; % from public capital law of motion in steady-state
+KG_BAR  = IVG_BAR/(GAMMAX-1+DELTA_K); % from public capital law of motion in steady-state
+THETA_N = W_BAR*N_BAR/Y_BAR; % from labor demand in steady-state
+% constant returns to scale over all provided inputs: THETA_N+THETA_K+THETA_G=1
+% combined with public capital productivity should be lower than capital share in production
+THETA_G = 0.3*(1-THETA_N);
+THETA_K = 1-THETA_N-THETA_G;
 K_BAR   = (Y_BAR/(KG_BAR^THETA_G*N_BAR^THETA_N))^(1/THETA_K); % from production function
-IV_BAR  = K_BAR*DELTA_K; % private capital accumulation
+IV_BAR  = K_BAR*(GAMMAX-1+DELTA_K); % private capital accumulation
 C_BAR   = Y_BAR - IV_BAR - GB_BAR - IVG_BAR; % from ressource constraint in steady-state
 RK_BAR  = THETA_K*Y_BAR/K_BAR; % from capital demand
 TAU_BAR = (GB_BAR + IVG_BAR + TR_BAR)/(W_BAR*N_BAR+RK_BAR*K_BAR); % fiscal budget ins steady-state
 
-BETA    = 1/(1-DELTA_K+(1-TAU_BAR)*RK_BAR);  % from savings decision in steady-state
+BETA    = GAMMAX/(1-DELTA_K+(1-TAU_BAR)*RK_BAR);  % from savings decision in steady-state
 THETA_L = (1-TAU_BAR)*W_BAR*(1-N_BAR)/C_BAR; % labor utility weight from labor supply decision
 
 % same persistence of exogenous processes
@@ -86,13 +88,13 @@ RHO_TAU = 0.75;
 model;
 
 [name='law of motion private capital stock']
-k = (1-DELTA_K)*k(-1) + iv;
+GAMMAX*k = (1-DELTA_K)*k(-1) + iv;
 [name='law of motion public capital stock']
-kg = (1-DELTA_K)*kg(-1) + ivg;
+GAMMAX*kg = (1-DELTA_K)*kg(-1) + ivg;
 [name='labor-leisure decision']
 (1-tau)*w = THETA_L*c/(1-n);
 [name='savings decision']
-c(+1)/c = BETA*(1-DELTA_K + (1-tau(+1))*rk(+1));
+GAMMAX*c(+1)/c = BETA*(1-DELTA_K + (1-tau(+1))*rk(+1));
 [name='production function']
 y = n^THETA_N * k(-1)^THETA_K * kg(-1)^THETA_G;
 [name='labor demand']

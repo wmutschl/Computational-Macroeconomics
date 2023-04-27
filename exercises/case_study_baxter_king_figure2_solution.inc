@@ -1,0 +1,1 @@
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/Baxter_King_figure_2.mod}

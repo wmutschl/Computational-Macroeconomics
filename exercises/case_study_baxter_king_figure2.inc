@@ -1,0 +1,65 @@
+\section[Case Study Baxter and King (1993, AER): Macroeconomic Effects Of A Permanent Increase in Basic Government Purchases]{Case Study Baxter and King (1993, AER): Macroeconomic Effects Of A Permanent Increase in Basic Government Purchases\label{ex:CaseStudy.BaxterKing.Figure2}}
+
+\begin{enumerate}
+    \item Read the paper by \textcite{Baxter.King_1993_FiscalPolicyGeneral} and focus particularly on the model equations and analysis done in section III.B.
+    \item Write a Dynare mod file for the model and calibrate it according to the \emph{Benchmark Model with Basic Government Purchases} given in Table 1.
+    Compute the steady-state using an \texttt{initval} block.
+    \item Replicate Figure 2.
+\end{enumerate}
+\paragraph{Notes and hints}
+\begin{itemize}
+    \item According to footnote 3, the quantitative analysis corresponds to a model with labor-augmenting technical progress.
+    Calibrate $\gamma_X$ such that the economy grows at 1.6\% per annum, a typical value used in e.g.\ \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness}.
+    \item Pay attention to the different scales on the y-axes, i.e.\ commodity units, percent, and basis points.
+    \item Skip the term structure variable in panel \emph{C.}, as we will re-visit the term structure in RBC models later on.
+    \item Use a perfect foresight simulation for computing the transition path
+      (i) from the initial steady-state (specified by \texttt{initval}) to
+      (ii) a terminal steady-state (specified by \texttt{endval}) with
+      (iii) a permanent increase in basic government purchases (specified by setting a nonzero value on the exogenous variable in the terminal steady-state).
+    The following code snippet might be useful:
+\end{itemize}
+
+{\footnotesize
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+idx_y  = varlist_indices('y', M_.endo_names); % index to access y in oo_.endo_simul
+
+% STEP 1: SET INITIAL CONDITION
+initval;
+% TODO: add values for all variables with the initial steady-state
+end;
+steady; % compute initial steady-state
+        % steady after intival uses the computed steady-state to initialize oo_.endo_simul
+
+% STEP 2: SET TERMINAL CONDITION
+commodity_unit = 0.01*oo_.steady_state(idx_y); % commodity unit (p.321) defined as 1% of initial output
+
+endval;
+% TODO: set a nonzero value for the exogenous variable on basic government spending to implement a permanent increase
+% other variables that are not specified in the endval block remain at the initial steady-state
+end;
+
+steady; % recompute steady-state numerically starting from old steady-state and changed values
+        % steady after endval will set the terminal condition oo_.endo_simul(:,end) to the endval steady-state
+
+% STEP 3: COMPUTE TRANSITION PATH
+perfect_foresight_setup(periods=200);
+perfect_foresight_solver;
+
+% STEP 4: PLOTTING
+% oo_.endo_simul contains the simulated variables,
+% note that the first entry is the initial condition (initval steady-state)
+% and the last is the terminal condition (endval steady-state)
+horizon = 1:22;
+% do transformations on plotted variables
+plot_y  = (oo_.endo_simul(idx_y,horizon+1)-oo_.endo_simul(idx_y,1))./commodity_unit;   % deviation from initial steady-state, normalized in commodity units
+plot(horizon,plot_y, "o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+
+\end{lstlisting}
+}%
+
+\begin{solution}\textbf{Solution to \nameref{ex:CaseStudy.BaxterKing.Figure2}}
+\ifDisplaySolutions
+\input{exercises/case_study_baxter_king_figure2_solution.inc}
+\fi
+\newpage
+\end{solution}
