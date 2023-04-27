@@ -1,6 +1,6 @@
 \begin{enumerate}
 
-\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/matrix_algebra_eigenvalues.m}
+\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/matrix_algebra_eigenvalues.m}
 In the univariate AR(1) model we would check whether the autocorrelation coefficient is between -1 and 1, 
   i.e.\ $|A|<1$, such that $\sum_{j=0}^\infty (AL)^j=1/(1-AL)$ where $L$ is the lag operator.
 In the multivariate case, we want the same thing, i.e.\ $\sum_{j=0}^\infty (AL)^j=(1-AL)^{-1}$.
@@ -49,7 +49,7 @@ vec(DEF) &= \begin{pmatrix} f_{11}D e_1 +f_{21}D e_2+\dots+ f_{p1}D e_p\\ f_{12}
 Alternatively, you can also use the symbolic toolbox of MATLAB to proof the formula:
 \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/matrix_algebra_kronecker_formula.m}
 
-\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/matrix_algebra_cholesky.m}
+\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/matrix_algebra_cholesky.m}
 \begin{align*}
 \underbrace{\begin{pmatrix}1&0&0\\0&1&0\\0&0.5&1\end{pmatrix}}_W \underbrace{\begin{pmatrix}2.25&0&0\\0&1&0\\0&0&0.49\end{pmatrix}}_{\Sigma_\varepsilon} \underbrace{\begin{pmatrix}1&0&0\\0&1&0.5\\0&0&1\end{pmatrix}}_{W'} = \underbrace{\begin{pmatrix}2.25&0&0\\0&1&0.5\\0&0.5&0.74\end{pmatrix}}_{\Sigma}
 \end{align*}
@@ -63,7 +63,7 @@ Alternatively, you can also use the symbolic toolbox of MATLAB to proof the form
 	vec(\Sigma_y) &= (I-A\otimes A)^{-1}vec(\Sigma_u)
 	\end{align*}
 	\item Doubling algorithm:
-	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/dlyapdoubling.m}
+	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/dlyapdoubling.m}
 	The basic idea of the doubling algorithm is to start at some $\Sigma_{y,0}$
 	  and find new values for $\Sigma_{y,i+1}$ using the equation $A \Sigma_{y,i} A' + \Sigma_u$
 	  until the difference $\Sigma_{y,i+1} - \Sigma_{y,i}$ becomes very small or a certain number of iterations is reached.
@@ -71,7 +71,7 @@ Alternatively, you can also use the symbolic toolbox of MATLAB to proof the form
 	  provided that one updates three other matrices.
 	There are also other (generalized) algorithms to solve such matrix Lyapunov (or Sylvester) equations.
 	\item Comparison:
-	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily,title=\lstname]{progs/matlab/matrix_algebra_lyapunov.m}
+	\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/matrix_algebra_lyapunov.m}
 	\end{enumerate}
 
 \end{enumerate}
