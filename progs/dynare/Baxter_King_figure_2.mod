@@ -7,7 +7,7 @@
 % - add term structure variable
 % =========================================================================
 % Willi Mutschler (willi@mutschler.eu)
-% Version: April 26, 2023
+% Version: April 27, 2023
 % =========================================================================
 
 %-------------------------------------------------------------------------%
@@ -132,42 +132,43 @@ sG  = 0.20;     % government spending over output G/Y
 TAU_BAR = 0.20; % same tax rate as government spending ratio implies zero transfers
 TR  = 0;
 TAU = TAU_BAR;
-
-RK  = (GAMMAX/BETA-1+DELTA_K)/(1-TAU_BAR); % savings decision in steady-state
-K_N = (THETA_K/RK)^(1/(1-THETA_K));        % capital demand with THETA_N=1-THETA_K in steady-state
-K   = K_N*N;                               % definition in steady-state
-Y   = N^(1-THETA_K)*K^THETA_K;             % production function in steady-state
-W   = (1-THETA_K)*Y/N;                     % labor demand in steady-state
-IV  = (GAMMAX-1+DELTA_K)*K;                % private capital accumulation in steady-state
-GB_BAR = sG*Y; GB = GB_BAR;                % definition spending ratio in steady-state
-C   = Y-IV-GB;                             % ressource constraint in steady-state
-LAM = 1/C;                                 % marginal utility in steady-state
-THETA_L = (1-TAU)*W*(1-N)/C;               % labor supply in steady-state
-
-% remaining variables in steady-state
-UC  = C^(-1);
-UL  = THETA_L*L^(-1);
-FK  = THETA_K*A*K^(THETA_K-1)*N^THETA_N;
-FN  = THETA_N*A*K^THETA_K*N^(THETA_N-1);
-Q   = (1-TAU)*FK;
+% calibrate GB_BAR and THETA_L implicitly via steady-state relationships
+Q  = GAMMAX/BETA-1+DELTA_K;     % savings decision in steady-state
+FK = Q/(1-TAU);                 % marginal product of capital in steady-state
+K  = (FK/((THETA_K*A*N^THETA_N)))^(1/(THETA_K-1)); % capital demand in steady-state
+FN = THETA_N*A*K^THETA_K*N^(THETA_N-1);          % labor demand in steady-state
+W  = FN;                        % real wage in steady-state
+IV = (GAMMAX-1+DELTA_K)*K;      % private capital accumulation in steady-state
+Y  = A*N^(1-THETA_K)*K^THETA_K; % production function in steady-state
+GB_BAR = sG*Y; GB = GB_BAR;     % definition spending ratio in steady-state
+C   = Y-IV-GB;                  % ressource constraint in steady-state
+UC  = C^(-1); LAM=UC;           % marginal consumption utility in steady-state
+UL  = LAM*(1-TAU)*FN;           % marginal labor utility in steady-state
+THETA_L = UL*L;                 % labor supply in steady-state
 
 %-------------------------------------------------------------------------%
 % simulation: transition to new steady-state
 %-------------------------------------------------------------------------%
 % STEP 1: SET INITIAL CONDITION
 initval;
-  e_gb  = 0;
-  y     = Y;
-  c     = C;
-  l     = L;
-  n     = N;  
-  iv    = IV;
-  k     = K;  
-  lam   = LAM;
-  tr    = TR;
-  tau   = TAU;  
-  gb    = GB;
-  r     = R;
+  e_gb = 0;
+  y    = Y;
+  c    = C;
+  l    = L;
+  n    = N;
+  iv   = IV;
+  k    = K;
+  lam  = LAM;
+  tr   = TR;
+  tau  = TAU;
+  gb   = GB;
+  w    = W;
+  q    = Q;
+  r    = R;
+  uc   = UC;
+  ul   = UL;
+  fn   = FN;
+  fk   = FK;
   check_walras = 0;
 end;
 steady; % compute initial steady-state
@@ -187,14 +188,13 @@ steady; % recompute steady-state numerically starting from old steady-state and 
 % STEP 3: COMPUTE TRANSITION PATH
 perfect_foresight_setup(periods=200);
 perfect_foresight_solver; % simulate transition path based on nonlinear model equations
-%perfect_foresight_solver(linear_approximation); % simulate transition path based on linearized model equations
 
 %-------------------------------------------------------------------------%
 % Figure 2: Macroeconomic Effects of A Permanent Increase in Basic Government Purchases
 %-------------------------------------------------------------------------%
-% oo_.endo_simul contains the simulated variables,
-% note that the first entry is the initial condition (initval steady-state)
-% and the last is the terminal condition (endval steady-state)
+% oo_.endo_simul contains the simulated variables; note that
+% - the first entry oo_.endo_simul(:,1)   is the initial condition (initval steady-state)
+% - the last entry  oo_.endo_simul(:,end) is the terminal condition (endval steady-state)
 
 % indices to access the variables in oo_.endo_simul
 idx_y  = varlist_indices('y', M_.endo_names);
@@ -206,19 +206,19 @@ idx_r  = varlist_indices('r', M_.endo_names);
 
 % do transformations on plotted variables
 horizon = 1:22;
-plot_y  = (oo_.endo_simul(idx_y,horizon+1)-oo_.endo_simul(idx_y,1))./commodity_unit;   % deviation from initial steady-state, normalized in commidity units
-plot_c  = (oo_.endo_simul(idx_c,horizon+1)-oo_.endo_simul(idx_c,1))./commodity_unit;   % deviation from initial steady-state, normalized in commidity units
-plot_iv = (oo_.endo_simul(idx_iv,horizon+1)-oo_.endo_simul(idx_iv,1))./commodity_unit; % deviation from initial steady-state, normalized in commidity units
-plot_n  = 100*(oo_.endo_simul(idx_n,horizon+1)./oo_.endo_simul(idx_n,1)-1);            % percentage deviation from initial steady-state, in percent
-plot_w  = 100*(oo_.endo_simul(idx_w,horizon+1)./oo_.endo_simul(idx_w,1)-1);            % percentage deviation from initial steady-state, in percent
-plot_r  = 100*100*(oo_.endo_simul(idx_r,horizon+1) - oo_.endo_simul(idx_r,1));         % percentage point deviation from initial steady-state, in basis points
+y_plot  = (oo_.endo_simul(idx_y,horizon+1)-oo_.endo_simul(idx_y,1))./commodity_unit;   % deviation from initial steady-state, normalized in commidity units
+c_plot  = (oo_.endo_simul(idx_c,horizon+1)-oo_.endo_simul(idx_c,1))./commodity_unit;   % deviation from initial steady-state, normalized in commidity units
+iv_plot = (oo_.endo_simul(idx_iv,horizon+1)-oo_.endo_simul(idx_iv,1))./commodity_unit; % deviation from initial steady-state, normalized in commidity units
+n_plot  = 100*(oo_.endo_simul(idx_n,horizon+1)./oo_.endo_simul(idx_n,1)-1);            % percentage deviation from initial steady-state, in percent
+w_plot  = 100*(oo_.endo_simul(idx_w,horizon+1)./oo_.endo_simul(idx_w,1)-1);            % percentage deviation from initial steady-state, in percent
+r_plot  = 100*100*(oo_.endo_simul(idx_r,horizon+1) - oo_.endo_simul(idx_r,1));         % percentage point deviation from initial steady-state, in basis points
 
 % Figure 2: Commodity Market
 figure(name="Commodity Market");
 hold on;
-plot(horizon,plot_y,  "o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
-plot(horizon,plot_c,  "^",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
-plot(horizon,plot_iv, "x",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+plot(horizon,y_plot,  "o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+plot(horizon,c_plot,  "^",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+plot(horizon,iv_plot, "x",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
 yline(0,'LineWidth',2);
 set(gca,'FontSize',12);
 legend(["Output", "Consumption", "Investment"],'Location','SouthEast','Box', 'off');
@@ -232,8 +232,8 @@ hold off
 % Figure 2: Labor Market
 figure(name="Labor Market");
 hold on;
-plot(horizon,plot_n,"o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
-plot(horizon,plot_w,"^",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+plot(horizon,n_plot,"o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+plot(horizon,w_plot,"^",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
 yline(0,'LineWidth',2);
 set(gca,'FontSize',12);
 legend(["Labor Input", "Real Wage"],'Location','SouthEast','Box', 'off');
@@ -247,7 +247,7 @@ hold off
 % Figure 2: Financial Market (term structure not yet)
 figure(name="Financial Market");
 hold on;
-plot(horizon,plot_r,"o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
+plot(horizon,r_plot,"o",'MarkerEdgeColor','black','MarkerFaceColor','black','MarkerSize',8,'LineStyle','none');
 yline(0,'LineWidth',2);
 set(gca,'FontSize',12);
 legend(["Real Interest Rate"],'Location','NorthEast','Box', 'off');
