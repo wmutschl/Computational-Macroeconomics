@@ -8,62 +8,6 @@ The compiled materials (such as PDFs) are available under [Releases](https://git
 
 Please feel free to use this for teaching or learning purposes; however, taking into account the [GPL 3.0 license](https://choosealicense.com/licenses/gpl-3.0/).
 
-## Content
-
-We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
-
-## Topics
-- Algebra of RBC and New-Keynesian models
-- Steady-state
-- Preprocessing of DSGE models
-- Simulation and solution methods
-  - perfect foresight
-  - 1st-order perturbation (log-linearization)
-  - k-order perturbation
-  - projection
-- Impulse response analysis
-- Sensitivity analysis
-- Large shocks
-- Rare events
-- Occasionally binding constraints
-- Optimal policy
-
-
-
-## Case Studies
-- Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
-- Welfare and fiscal policy (Baxter and King, 1993, American Economic Review)
-- Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
-- Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
-- International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
-- Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)
-- Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
-- Optimal environmental policy (Heutel, 2012, Review of Economic Dynamics; Annicchiarico and Di Dio, 2015, Journal of Environmental Economics and Management)
-- Equity premium puzzle (Jermann, 1998, Journal of Monetary Economics)
-- Zero-lower bound on nominal interest rates (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
-- Rare disasters (Fernandez-Villaverde and Levintal, 2018, Quantitative Economics; Isore and Szczerbowicz, 2017, Journal of Economic Dynamics and Control)
-- Endogenous Banking Crises (Boissay, Collard, and Smets, 2016, Journal of Political Economy)
-
-## Learning target
-
-Students acquire knowledge of advanced numerical methods in the field of computational macroeconomics. This knowledge is relevant for the realization of a wide variety of macroeconomic research projects and is applied in central banks, ministries, research institutes (e.g. DIW, ifo, IfW, IWH, RWI) and research departments of international organizations (e.g. IMF, World Bank). Upon successful  completion of this module, students are prepared to work in these areas. At the same time, the module  prepares students for the requirements of a methodologically oriented macroeconomic dissertation.
-
-Students get familiar with a variety of algorithms, examples and situations in which computational thinking is useful in approximating and evaluating abstract macroeconomic phenomena. They recognize and appreciate the connections between theory and computational methods and use their training to find possible avenues of research. While constructing abstract algorithms, they identify appropriate computational tools and evaluate their strengths and weaknesses in the context of problem solving. They utilize computers and software effectively as tools for solving and simulating macroeconomic models. In addition, because students work on the problem sets as a team, students' coordination, organization, and communication skills are enhanced.
-
-
-## Requirements
-Basic undergraduate knowledge of macroeconomics as well as econometrics are required, programming skills in a scripting language are advantageous, but not necessary.
-
-## Software used
-
-* [MATLAB](https://mathworks.com) or [Octave](https://octave.org)
-* [Dynare](https://www.dynare.org)
-
-
-## Getting Involved
-If you spot mistakes, let me know by opening an issue or write me an email to [willi@mutschler.eu](mailto:willi@mutschler.eu).
-Moreover, solutions to the exercises in other computer languages (e.g. Julia, Python or R) are highly appreciated.
-
 ## Schedule with To-Do Lists
 
 <details>
@@ -140,3 +84,59 @@ Moreover, solutions to the exercises in other computer languages (e.g. Julia, Py
 * [ ] bring all your questions and concerns to the Q&A sessions
 
 </details>
+
+## Content
+
+We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
+
+## Topics
+- Algebra of RBC and New-Keynesian models
+- Steady-state
+- Preprocessing of DSGE models
+- Simulation and solution methods
+  - perfect foresight
+  - 1st-order perturbation (log-linearization)
+  - k-order perturbation
+  - projection
+- Impulse response analysis
+- Sensitivity analysis
+- Large shocks
+- Rare events
+- Occasionally binding constraints
+- Optimal policy
+
+
+
+## Case Studies
+- Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
+- Welfare and fiscal policy (Baxter and King, 1993, American Economic Review)
+- Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
+- International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
+- Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)
+- Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
+- Optimal environmental policy (Heutel, 2012, Review of Economic Dynamics; Annicchiarico and Di Dio, 2015, Journal of Environmental Economics and Management)
+- Equity premium puzzle (Jermann, 1998, Journal of Monetary Economics)
+- Zero-lower bound on nominal interest rates (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
+- Rare disasters (Fernandez-Villaverde and Levintal, 2018, Quantitative Economics; Isore and Szczerbowicz, 2017, Journal of Economic Dynamics and Control)
+- Endogenous Banking Crises (Boissay, Collard, and Smets, 2016, Journal of Political Economy)
+
+## Learning target
+
+Students acquire knowledge of advanced numerical methods in the field of computational macroeconomics. This knowledge is relevant for the realization of a wide variety of macroeconomic research projects and is applied in central banks, ministries, research institutes (e.g. DIW, ifo, IfW, IWH, RWI) and research departments of international organizations (e.g. IMF, World Bank). Upon successful  completion of this module, students are prepared to work in these areas. At the same time, the module  prepares students for the requirements of a methodologically oriented macroeconomic dissertation.
+
+Students get familiar with a variety of algorithms, examples and situations in which computational thinking is useful in approximating and evaluating abstract macroeconomic phenomena. They recognize and appreciate the connections between theory and computational methods and use their training to find possible avenues of research. While constructing abstract algorithms, they identify appropriate computational tools and evaluate their strengths and weaknesses in the context of problem solving. They utilize computers and software effectively as tools for solving and simulating macroeconomic models. In addition, because students work on the problem sets as a team, students' coordination, organization, and communication skills are enhanced.
+
+
+## Requirements
+Basic undergraduate knowledge of macroeconomics as well as econometrics are required, programming skills in a scripting language are advantageous, but not necessary.
+
+## Software used
+
+* [MATLAB](https://mathworks.com) or [Octave](https://octave.org)
+* [Dynare](https://www.dynare.org)
+
+
+## Getting Involved
+If you spot mistakes, let me know by opening an issue or write me an email to [willi@mutschler.eu](mailto:willi@mutschler.eu).
+Moreover, solutions to the exercises in other computer languages (e.g. Julia, Python or R) are highly appreciated.
