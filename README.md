@@ -110,7 +110,6 @@ Moreover, solutions to the exercises in other computer languages (e.g. Julia, Py
 
 ### To Do
 
-* [ ] read King and Rebelo (1999) and Baxter and King (1993)
 * [ ] watch the following videos (on YouTube)
   * [ ] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
   * [ ] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)
@@ -118,6 +117,26 @@ Moreover, solutions to the exercises in other computer languages (e.g. Julia, Py
   * [ ] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types
 ](https://youtu.be/HRpynlbZBzM)
 * [ ] do exercises 1 and 2 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do the case study together
+* [ ] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
+
+<details>
+  <summary>Week 3: Practicing MATLAB, New Keynesian Model</summary>
+
+### Goals
+
+* practice MATLAB: symbolic toolbox, matrix algebra, loops, Kronecker products, functions
+* understand and get comfortable with the algebra of New Keynesian models
+* practice Dynare with the New Keynesian model
+
+### To Do
+
+* [ ] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
+* [ ] do the MATLAB exercises 1 and 2 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
+* [ ] work carefully and thoroughly through the very long exercise 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
+* [ ] we will do exercise 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class
 * [ ] bring all your questions and concerns to the Q&A sessions
 
 </details>
