@@ -4,7 +4,7 @@
 % computes the steady-state of the RBC model with CES utility
 % =========================================================================
 % Willi Mutschler (willi@mutschler.eu)
-% Version: January 26, 2023
+% Version: April 26, 2023
 % =========================================================================
 
 % calibration
@@ -16,7 +16,7 @@ PARAMS.PSI   = 1.7333;
 PARAMS.RHOA  = 0.9;
 PARAMS.ETAC  = 2;
 PARAMS.ETAL  = 1.5;
-SS.l = 1/3; % initial guess for labor
+SS.n = 1/3; % initial guess for labor
 
 % compute steady-state
 [SS,PARAMS,error_indicator] = rbc_ss(SS,PARAMS);

@@ -95,6 +95,6 @@ subplot(3,3,3); plot(oo_.endo_simul(ismember(M_.endo_names,'c'),300:end)); title
 subplot(3,3,4); plot(oo_.endo_simul(ismember(M_.endo_names,'k'),300:end)); title('capital');
 subplot(3,3,5); plot(oo_.endo_simul(ismember(M_.endo_names,'iv'),300:end)); title('investment');
 subplot(3,3,6); plot(oo_.endo_simul(ismember(M_.endo_names,'rk'),300:end)); title('rental rate');
-subplot(3,3,7); plot(oo_.endo_simul(ismember(M_.endo_names,'l'),300:end)); title('labor');
+subplot(3,3,7); plot(oo_.endo_simul(ismember(M_.endo_names,'n'),300:end)); title('labor');
 subplot(3,3,8); plot(oo_.endo_simul(ismember(M_.endo_names,'w'),300:end)); title('wage');
 

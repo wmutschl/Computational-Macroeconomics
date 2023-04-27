@@ -49,7 +49,7 @@ The first-order condition w.r.t. $k_{t}$ is given by
 \underbrace{\gamma c_t^{-1}}_{U_{c,t}} &= \beta E_t \underbrace{\gamma c_{t+1}^{-1}}_{U_{c,t+1}}\left(1 - \delta + r_{k,t+1}\right)
 \end{align*}
 This is the Euler equation of \textbf{intertemporal optimality}. It reflects the trade-off between consumption and savings.
-If the household saves a (marginal) unit of consumption, i.e. invest this into the capital stock,
+If the household saves a (marginal) unit of consumption, i.e. invests this into the capital stock,
   she can consume $(1-\delta+r_{k,t+1})$ units in the following period.
 The marginal utility of consuming a unit today is equal to $U_{c,t}$,
   whereas consuming tomorrow has expected utility equal to $E_t(U_{c,t+1})$.
@@ -151,7 +151,7 @@ To this end, set labor demand equal to labor supply and express the right hand s
 \\
 \Leftrightarrow n &= \frac{\frac{\gamma}{\psi} \left(\frac{c}{n}\right)^{-1} w}{1+\frac{\gamma}{\psi} \left(\frac{c}{n}\right)^{-1} w}
 \end{align*}
-Now we have $n$, so is straightforward to compute the missing steady-state values, i.e.
+Now we have $n$, so it is straightforward to compute the missing steady-state values, i.e.
 \begin{align*}
 c = \frac{c}{n} n,\qquad
 i = \frac{i}{n} n,\qquad
