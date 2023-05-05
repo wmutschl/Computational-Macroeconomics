@@ -16,15 +16,15 @@ Assume that the parameters have the following values:
       \endhead
       ${\beta}$ 	 & 	 0.990\\
       ${\delta}$   &   0.025\\
-      ${\phi_i}$   &   4.000 \\
-      ${\alpha}$   &   0.300\\
-      ${\sigma_c}$ 	 & 	 1.000\\
-      ${\sigma_h}$ 	 & 	 1.000\\
+      ${\phi_i}$   &   4.250 \\
+      ${\alpha}$   &   0.330\\
+      ${\sigma_c}$ 	 & 	 2.000\\
+      ${\sigma_h}$ 	 & 	 2.000\\
       $\chi_h$       & 5.000\\
       ${\theta}$ 	 & 	 0.750\\
-      ${\epsilon}$ 	 & 	 9.000\\
-      ${\phi_{\pi}}$ 	 & 	 1.500\\
-      ${\phi_{y}}$ 	 & 	 0.125\\
+      ${\epsilon}$ 	 & 	 6.000\\
+      ${\psi_{\pi}}$ 	 & 	 1.500\\
+      ${\psi_{y}}$ 	 & 	 0.125\\
       ${\Pi^*}$ 	 & 	 1.005\\
       ${\rho_a}$ 	 & 	 0.900\\
       ${\rho_\zeta}$ 	 & 	 0.500\\
@@ -35,31 +35,11 @@ Assume that the parameters have the following values:
 \noindent
 Write a Dynare mod file for this model and compute the steady state of the model either analytically using a \texttt{steady\_state\_model} block
   or numerically using an \texttt{initval} block.
-%Hint: The model equations are 
-%\eqref{eq:NewKeynesianNominalInterestRate}, 
-%\eqref{eq:NewKeynesianRealInterestRate},
-%\eqref{eq:NewKeynesianLaborSupply},
-%\eqref{eq:NewKeynesianEuler},     
-%\eqref{eq:NewKeynesianRealMarginalCosts},
-%\eqref{eq:NewKeynesianPriceSetting}, 
-%\eqref{eq:NewKeynesianPriceSettingSum1}, 
-%\eqref{eq:NewKeynesianPriceSettingSum2},
-%\eqref{eq:NewKeynesianLoMPriceDispersion},
-%\eqref{eq:NewKeynesianMonetaryPolicyRule},
-%\eqref{eq:NewKeynesianLoMPreferenceShifter}, 
-%\eqref{eq:NewKeynesianLoMTechnology},
-%\eqref{eq:NewKeynesianLoMMonPol},
-%\eqref{eq:NewKeynesianAggregateProfits}, 
-%\eqref{eq:NewKeynesianAggregateDemand}, 
-%\eqref{eq:NewKeynesianAggregateSupply}, 
-%and
-%\eqref{eq:NewKeynesianLoMPriceInefficiency}.
-
 \noindent Additionally, for reporting purposes, add the following equations:
 \begin{align*}
 \widehat{y}_t &= \log\left(y_{t}\right) - \log\left(y\right) &&
 \widehat{w}_t =\log\left(w_t\right) - \log\left(w\right)&&
-\widehat{n}_t = \log\left(n_{t}\right) - \log\left(n\right) \\
+\widehat{h}_t = \log\left(h_{t}\right) - \log\left(h\right) \\
 \widehat{\Pi}^{an}_{t}&=4 \left( \log\left(\Pi_{t}\right) - \log\left(\Pi\right) \right)&&
 \widehat{R}^{an}_{t} =4 \left( \log\left(R_{t}\right) - \log\left(R\right)\right)&&
 \widehat{r}^{an}_{t} =4 \left( \log\left(r_{t}\right) - \log\left(r\right) \right)\\
@@ -69,9 +49,33 @@ Write a Dynare mod file for this model and compute the steady state of the model
 \end{align*}    
 where variables without a time subscript denote steady-state values.
 
+\noindent\emph{Hint: The model equations are
+\eqref{eq:NewKeynesian.CapitalAccumulation},
+\eqref{eq:NewKeynesian.RealInterestRate}, 
+\eqref{eq:NewKeynesian.MarginalUtility},
+\eqref{eq:NewKeynesian.LaborSupply},
+\eqref{eq:NewKeynesian.EulerBond},
+\eqref{eq:NewKeynesian.EulerInvestment},
+\eqref{eq:NewKeynesian.EulerCapital},
+\eqref{eq:NewKeynesian.RealMarginalCosts},
+\eqref{eq:NewKeynesian.IntermediateFirms.PriceSetting},
+\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1},
+\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2},
+\eqref{eq:NewKeynesian.ResetPriceLoM},
+\eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatioAggregated},
+\eqref{eq:NewKeynesian.IntermediateFirms.AggregateProfits},
+\eqref{eq:NewKeynesian.AggregateDemand},
+\eqref{eq:NewKeynesian.AggregateSupply},
+\eqref{eq:NewKeynesian.PriceDistortionLoM},
+\eqref{eq:NewKeynesian.MonetaryPolicyRule},
+\eqref{eq:NewKeynesian.LoM.PreferenceShifter},
+\eqref{eq:NewKeynesian.LoM.TFP},
+\eqref{eq:NewKeynesian.LoM.MonPol}.
+}
+
 \begin{solution}\textbf{Solution to \nameref{ex:NewKeynesianModelPreprocessSteady}}
 \ifDisplaySolutions
-%\input{exercises/nk_preprocess_steady_solution.inc}
+\input{exercises/nk_preprocess_steady_solution.inc}
 \fi
 \newpage
 \end{solution}

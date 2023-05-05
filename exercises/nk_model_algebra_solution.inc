@@ -7,49 +7,49 @@ IES = -\frac{c_t^{-\sigma_c}}{ -\sigma_c c_t^{-\sigma_c-1} c_t} = \frac{1}{\sigm
 
 \item The household minimizes consumption expenditures
 \begin{align*}
-\int_0^1 P_t(h) c_t(h)dh
+\int_0^1 P_t(j) c_t(j)dj
 \end{align*}
-by choosing $c_t(h)$ and taking the aggregation technology \eqref{eq:NewKeynesian.ConsumptionAggregator} into account.
+by choosing $c_t(j)$ and taking the aggregation technology \eqref{eq:NewKeynesian.ConsumptionAggregator} into account.
 That is, the Lagrangian is given by:
 \begin{align*}
-\pounds^c = \int_0^1 P_t(h) c_t(h)dh + P_t \left( c_t - \left[\int_0^1 c_t(h)^{\frac{\epsilon-1}{\epsilon}}dh\right]^{\frac{\epsilon}{\epsilon-1}} \right)
+\pounds^c = \int_0^1 P_t(j) c_t(j)dj + P_t \left( c_t - \left[\int_0^1 c_t(j)^{\frac{\epsilon-1}{\epsilon}}dj\right]^{\frac{\epsilon}{\epsilon-1}} \right)
 \end{align*}
   where $P_t$ denotes the Lagrange multiplier, i.e.\ the cost of an additional unit in the index $c_t$.
-Setting the derivative with respect to $c_t(h)$ equal to zero yields:
+Setting the derivative with respect to $c_t(j)$ equal to zero yields:
 \begin{align*}
-\frac{\partial \pounds^c}{\partial c_t(h)} = P_t(h) - P_t \left(\frac{\epsilon}{\epsilon-1}\right) \underbrace{\left[\int_0^1 c_t(h)^{\frac{\epsilon-1}{\epsilon}}dh\right]^{\frac{\epsilon}{\epsilon-1}-1}}_{c_t^{1/\epsilon}} \left(\frac{\epsilon-1}{\epsilon}\right) \underbrace{c_t(h)^{\frac{\epsilon-1}{\epsilon}-1}}_{c_t(h)^{-1/\epsilon}} = 0
+\frac{\partial \pounds^c}{\partial c_t(j)} = P_t(j) - P_t \left(\frac{\epsilon}{\epsilon-1}\right) \underbrace{\left[\int_0^1 c_t(j)^{\frac{\epsilon-1}{\epsilon}}dj\right]^{\frac{\epsilon}{\epsilon-1}-1}}_{c_t^{1/\epsilon}} \left(\frac{\epsilon-1}{\epsilon}\right) \underbrace{c_t(j)^{\frac{\epsilon-1}{\epsilon}-1}}_{c_t(j)^{-1/\epsilon}} = 0
 \end{align*}
 which can be simplified to get equation \eqref{eq:NewKeynesian.ConsumptionDemand}:
 \begin{align*}
-c_t(h) = \left(\frac{P_t(h)}{P_t}\right)^{-\epsilon} c_t
+c_t(j) = \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} c_t
 \end{align*}
-\emph{Interpretation:} This is the demand function for each consumption good $c_t(h)$.
+\emph{Interpretation:} This is the demand function for each consumption good $c_t(j)$.
 Accordingly, $\epsilon$ is the (constant) demand elasticity.
 	
 Plugging this expression into the aggregation technology yields equation \eqref{eq:NewKeynesian.AggregatePriceIndex}:
-\begin{align}
-&c_t^{\frac{\epsilon-1}{\epsilon}} = \int_0^1 c_t(h)^{\frac{\epsilon-1}{\epsilon}}dh = \int_0^1 \left(\left(\frac{P_t(h)}{P_t}\right)^{-\epsilon} c_t\right)^{\frac{\epsilon-1}{\epsilon}}dh = c_t^{\frac{\epsilon-1}{\epsilon}} P_t^{\epsilon-1} \int_0^1 P_t(h)^{1-\epsilon}dh \nonumber
+\begin{align*}
+&c_t^{\frac{\epsilon-1}{\epsilon}} = \int_0^1 c_t(j)^{\frac{\epsilon-1}{\epsilon}}dj = \int_0^1 \left(\left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} c_t\right)^{\frac{\epsilon-1}{\epsilon}}dj = c_t^{\frac{\epsilon-1}{\epsilon}} P_t^{\epsilon-1} \int_0^1 P_t(j)^{1-\epsilon}dj
 \\
 \Leftrightarrow &
-P_t = \left[\int_0^1 P_t(h)^{1-\epsilon}dh\right]^{\frac{1}{1-\epsilon}}
-\Leftrightarrow 
-1 = \int_0^1 \left(\frac{P_t(h)}{P_t}\right)^{1-\epsilon}dh \label{eq:AggregatePriceIndex}
-\end{align}
+P_t = \left[\int_0^1 P_t(j)^{1-\epsilon}dj\right]^{\frac{1}{1-\epsilon}}
+\Leftrightarrow
+1 = \int_0^1 \left(\frac{P_t(j)}{P_t}\right)^{1-\epsilon}dj
+\end{align*}
 Similar to the aggregation technology \eqref{eq:NewKeynesian.ConsumptionAggregator} for the consumption index,
-  the Lagrange multiplier, that we called $P_t$, can be interpreted as the aggregation technology for the different prices $P_t(h)$.
+  the Lagrange multiplier, that we called $P_t$, can be interpreted as the aggregation technology for the different prices $P_t(j)$.
 \\\emph{Interpretation:} $P_t$ is the aggregate price index of consumption bundle $c_t$.
 
-Let's have a look at the objective function, i.e.\ total consumption expenditures $\int_0^1 c_t(h) P_t(h) dh$
+Let's have a look at the objective function, i.e.\ total consumption expenditures $\int_0^1 c_t(j) P_t(j) dj$
   and insert the demand function to get \eqref{eq:NewKeynesian.AggregateConsumptionExpenditures}:
 \begin{align*}
-\int_0^1 c_t(h) P_t(h) dh = \int_0^1 \left(\frac{P_t(h)}{P_t}\right)^{-\epsilon} c_t P_t(h) dh
-= P_t c_t \underbrace{\int_0^1 \left(\frac{P_t(h)}{P_t}\right)^{1-\epsilon}  dh}_{\overset{\eqref{eq:AggregatePriceIndex}}{=1}} = P_t c_t
+\int_0^1 c_t(j) P_t(j) dj = \int_0^1 \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} c_t P_t(j) dj
+= P_t c_t \underbrace{\int_0^1 \left(\frac{P_t(j)}{P_t}\right)^{1-\epsilon}  dj}_{\overset{\eqref{eq:NewKeynesian.AggregatePriceIndex}}{=1}} = P_t c_t
 \end{align*}
 \emph{Interpretation:} Conditional on optimal behavior of households, total consumption expenditures can be rewritten
   as the product of the aggregate price index times the aggregate consumption quantity index.
 
-\item If $\phi=0$, then the capital stock can be adjusted instantaneously.
-If, however, $\phi>0$, the model features a real rigidity in form of a quadratic adjustment costs of investment.
+\item If $\phi_i=0$, then the capital stock can be adjusted instantaneously.
+If, however, $\phi_i>0$, the model features a real rigidity in form of a quadratic adjustment costs of investment.
 That is, there is a loss of capital in the investment process,
   which adds a cost to the marginal productivity of capital.
 In New Keynesian models, the presence of such investment adjustment costs can lead to a delay in the response of investment to changes in economic conditions;
@@ -75,19 +75,16 @@ So suppose that you buy such a bond at a price of 0.8, then although the bond pa
   your compensation is the difference between the initial price and the face value.
 Let $R_t$ denote the \emph{gross yield to maturity} of a zero-coupon bond,
   that is the discount rate that sets the present value of the promised bond payments equal to the current market price of the bond.
-So the price of a Zero-Coupon bond is equal to
-\begin{align*}
-P^B_t = \frac{1}{R_t}
-\end{align*}
+So the price of a Zero-Coupon bond is equal to $P^B_t = \frac{1}{R_t}$.
 In the numerical example above this would imply $R_t=1.25$.
 As there are no other investment opportunities in this model,
   $R_t$ is also equal to the nominal interest rate in the economy.
 This relationship is typically used directly in New Keynesian models,
-  so that we replace $P^B_t$ with $1/R_t$ in the budget constraint $\eqref{eq:NewKeynesian.Budget}$.
+  so that we replace $P^B_t$ with $1/R_t$ in the budget constraint $\eqref{eq:NewKeynesian.BudgetNominal}$.
 	
 Equation \eqref{eq:NewKeynesian.RealInterestRate} is the so-called Fisherian equation
-  which states that the gross real return on a bond $r_t$
-  is equivalent to the gross nominal interest rate $R_t$ divided by the expected gross inflation rate $E_t \Pi_{t+1}$.
+  which states that the gross real return on a bond, $r_t$,
+  is equivalent to the gross nominal interest rate, $R_t$, divided by the expected gross inflation rate, $E_t \Pi_{t+1}$.
 Inflation expectations are responsible for the difference between nominal and real interest rates,
   showing that future expectations matter for the economy.
 
@@ -103,23 +100,23 @@ b_t=\frac{B_t}{P_t},~~ w_t=\frac{W_t}{P_t},~~ r^k_t = \frac{R^k_t}{P_t},~~ div^{
   and $\Pi_t=P_t/P_{t-1}$ is the CPI gross inflation rate.
 The Lagrangian for the household's problem is then given by:
 \begin{align*}
-&\pounds^{HH} = E_t \sum_{j=0}^{\infty} \beta^j \zeta_{t+j} \left\{	U\left({c}_{t+j},h_{t+j}\right) \right\}
+&\pounds^{HH} = E_t \sum_{s=0}^{\infty} \beta^s \zeta_{t+s} \left\{	U\left({c}_{t+s},h_{t+s}\right) \right\}
 \\
-& - \beta^j \lambda_{t+j} \left\{
-  c_{t+j}
-+ i_{t+j}
-+ \frac{b_{t+j}}{{R}_{t+j}}
-- \frac{b_{t-1+j}}{\Pi_{t+j}}
-- w_{t+j} h_{t+j}
-- r^k_{t+j} k_{t-1+j}
-- div^{Fin}_{t+j}
-- \int_0^1 div^{Int}_{t+j}(f) df
+& - \beta^s \lambda_{t+s} \left\{
+  c_{t+s}
++ i_{t+s}
++ \frac{b_{t+s}}{{R}_{t+s}}
+- \frac{b_{t-1+s}}{\Pi_{t+s}}
+- w_{t+s} h_{t+s}
+- r^k_{t+s} k_{t-1+s}
+- div^{Fin}_{t+s}
+- \int_0^1 div^{Int}_{t+s}(f) df
 \right\}
 \\
-& + \beta^j \lambda_{t+j} q_{t+j} \left\{ (1-\delta)k_{t+j-1} + \Biggl( 1 - \frac{\phi_i}{2} \left(\frac{i_{t+j}}{i_{t-1+j}} - 1 \right)^2 \Biggr) i_t - k_{t+j}  \right\}
+& + \beta^s \lambda_{t+s} q_{t+s} \left\{ (1-\delta) k_{t+s-1} + \Biggl( 1 - \frac{\phi_i}{2} \left(\frac{i_{t+s}}{i_{t-1+s}} - 1 \right)^2 \Biggr) i_{t+s} - k_{t+s}  \right\}
 \end{align*}
-where $\beta^j\lambda_{t+j}$ and $\beta^j q_{t+j}$ are the scaled Lagrange multipliers
-  corresponding to period $t+j$'s \textbf{real} budget constraint \eqref{eq:NewKeynesian.BudgetReal} and capital accumulation equation \eqref{eq:NewKeynesian.CapitalAccumulation}.
+where $\beta^s\lambda_{t+s}$ and $\beta^s q_{t+s}$ are the scaled Lagrange multipliers
+  corresponding to period $t+s$'s \textbf{real} budget constraint \eqref{eq:NewKeynesian.BudgetReal} and capital accumulation equation \eqref{eq:NewKeynesian.CapitalAccumulation}.
 
 \paragraph{First-order condition with respect to $c_t$}
 Setting the derivative of $\pounds^{HH}$ with respect to $c_t$ to zero and rearranging directly yields equation \eqref{eq:NewKeynesian.MarginalUtility}:
@@ -131,14 +128,14 @@ i.e. the benefit (shadow price) of an additional unit of revenue (e.g. dividends
 
 \paragraph{First-order condition with respect to $h_t$}
 Setting the derivative of $\pounds^{HH}$ with respect to $h_t$ to zero and rearranging directly yields equation \eqref{eq:NewKeynesian.LaborSupply}:
-\begin{align}
+\begin{align*}
 w_t = - \frac{\zeta_t {U^h_t}}{\lambda_t} = - \frac{U^h_t}{U^c_t} = \chi_h h_t^{\sigma_h} c_t^{\sigma_c}
-\end{align}
+\end{align*}
 \emph{Interpretation:} This is the \textbf{intratemporal} optimality condition or, in other words, the labor supply curve of the household.
 Note that the preference shifter $\zeta_t$ has no effect on this intratemporal decision.
 
 \paragraph{First-order condition with respect to $b_t$}
-Setting the derivative of $\pounds^{HH}$ with respect to $h_t$ to zero yields:
+Setting the derivative of $\pounds^{HH}$ with respect to $b_t$ to zero yields:
 \begin{align*}
 \frac{\lambda_t}{R_t} &= \beta E_t \left[\lambda_{t+1} \Pi_{t+1}^{-1} \right]
 \end{align*}
@@ -181,8 +178,8 @@ q_t &= \beta E_t \frac{\lambda_{t+1}}{\lambda_t} \left( r^k_{t+1} + q_{t+1}(1-\d
 \end{align*}
 \emph{Interpretation:} This is the capital Euler equation.
 It is similar to the Bond Euler equation; however, in terms of saving into the capital stock instead of bonds.
-Note that due to the same pricing kernel $\Lambda_{t,t+1} = \beta E_t \lambda_{t+1}/\lambda_t$
-  there is arbitrage between the real rate and the compensation of capital:
+Note that due to the same pricing kernel $\Lambda_{t,t+1} = \beta E_t \lambda_{t+1}/\lambda_t$ (aka stochastic discount factor \eqref{eq:NewKeynesian.StochasticDiscountFactor})
+  there is arbitrage between the real rate on Bonds and the compensation of capital:
 \begin{align*}
 r_t = E_t r^k_{t+1} + E_t q_{t+1}(1-\delta)
 \end{align*}
@@ -244,19 +241,19 @@ In our model, both the \emph{solvency} and \emph{transversality} conditions for 
 So these conditions are rather trivial in this model setting, but are important to impose in more sophisticated models with e.g.\ nonzero government debt.
 
 \item As the firms are owned by the households, the nominal stochastic discount factor,
-$\Lambda_{t,t+j}$, between $t$ and $t+j$ is derived from the Euler equation \eqref{eq:HH.Euler} of the households
+$\Lambda_{t,t+s}$, between $t$ and $t+s$ is derived from the Euler equation \eqref{eq:NewKeynesian.EulerBond} of the households
 $\lambda_t = \beta E_t \left[\lambda_{t+1} R_t \Pi_{t+1}^{-1} \right]$
-which implies for the stochastic discount factor:
+which implies for the stochastic discount factor \eqref{eq:NewKeynesian.StochasticDiscountFactor}:
 \begin{align*}
-E_t \Lambda_{t,t+j} = E_t 1/R_{t+j} = E_t\beta^j \frac{\lambda_{t+j}}{\lambda_{t}}\frac{P_t}{P_{t+j}}
+E_t \Lambda_{t,t+s} = E_t 1/R_{t+s} = E_t\beta^s \frac{\lambda_{t+s}}{\lambda_{t}}\frac{P_t}{P_{t+s}}
 \end{align*}
 From here, we can establish the following relationships:
 \begin{align*}
 \Lambda_{t,t} &= 1
 \\
-\Lambda_{t+1,t+1+j} & = \beta^j \frac{\lambda_{t+1+j}}{\lambda_{t+1}} \frac{P_{t+1}}{P_{t+1+j}}
+\Lambda_{t+1,t+1+s} & = \beta^s \frac{\lambda_{t+1+s}}{\lambda_{t+1}} \frac{P_{t+1}}{P_{t+1+s}}
 \\
-\Lambda_{t,t+1+j} & = \beta^{j+1} \frac{\lambda_{t+1+j}}{\lambda_{t}} \frac{P_{t}}{P_{t+1+j}} = \beta \frac{\lambda_{t+1}}{\lambda_{t}} \frac{P_{t}}{P_{t+1}} \beta^j \frac{\lambda_{t+1+j}}{\lambda_{t+1}} \frac{P_{t+1}}{P_{t+1+j}} = \beta \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{-1} \Lambda_{t+1,t+1+j}
+\Lambda_{t,t+1+s} & = \beta^{s+1} \frac{\lambda_{t+1+s}}{\lambda_{t}} \frac{P_{t}}{P_{t+1+s}} = \beta \frac{\lambda_{t+1}}{\lambda_{t}} \frac{P_{t}}{P_{t+1}} \beta^s \frac{\lambda_{t+1+s}}{\lambda_{t+1}} \frac{P_{t+1}}{P_{t+1+s}} = \beta \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{-1} \Lambda_{t+1,t+1+s}
 \end{align*}
 We will need this later to derive the recursive nonlinear price setting equations.
 
@@ -271,9 +268,9 @@ The Lagrangian is
 \end{align*}
   where $\Lambda_t^p$ is the Lagrange multiplier corresponding to the aggregation technology \eqref{eq:NewKeynesian.Firms.Aggregator}.
 The first-order condition w.r.t $y_t$ is
-\begin{align}
+\begin{align*}
 P_t = \Lambda_{t}^p
-\end{align}
+\end{align*}
 $\Lambda_{t}^p$ is thus the gain of an additional output unit; hence, equal to the aggregate price index $P_t$.
 
 The first-order condition w.r.t. $y_t(f)$ yields:
@@ -301,6 +298,7 @@ Isomorphic to \eqref{eq:NewKeynesian.AggregateConsumptionExpenditures},
 \begin{align*}
 Div_t^{Fin} = P_t y_t - \int_{0}^{1} P_t(f) y_t(f) df = 0
 \end{align*}
+This is a manifestation of perfect competition in the retail sector of the economy.
 
 \item As firms are owned by the household, future profits directly increase the revenue side of the households budget constraint \eqref{eq:NewKeynesian.BudgetNominal}.
 Additional revenues are valued by their increase in consumption possibilities $\lambda_t$ in period $t$, $\beta \lambda_{t+1}$ in $t+1$ etc.
@@ -308,22 +306,22 @@ Therefore we use the stochastic discount factor to compare the benefit of change
 
 \item The Lagrangian of the intermediate firm is 
 \begin{multline}
-\pounds^f = E_t \sum_{j=0}^{\infty}\Lambda_{t,t+j} P_{t+j} \left[\frac{P_{t+j}(f)}{P_{t+j}} y_{t+j}(f) - w_{t+j} n_{t+j}(f) - r^k_{t+j} k_{t-1+j}(f) \right.
+\pounds^f = E_t \sum_{s=0}^{\infty}\Lambda_{t,t+s} P_{t+s} \left[\frac{P_{t+s}(f)}{P_{t+s}} y_{t+s}(f) - w_{t+s} n_{t+s}(f) - r^k_{t+s} k_{t-1+s}(f) \right.
 \\
 \left.
-+ mc_{t+j}(f)\left(a_{t+j}(k_{t-1+j}(f))^\alpha (n_{t+j}(f))^{1-\alpha} - y_{t+j}(f)\right)\right]
++ mc_{t+s}(f)\left(a_{t+s}(k_{t-1+s}(f))^\alpha (n_{t+s}(f))^{1-\alpha} - y_{t+s}(f)\right)\right]
 \label{eq:IntermediateFirms.Lagrangian}
 \end{multline}
 \emph{Interpretation of $mc_t(f)$:} The Lagrange multiplier $mc_t(f)$ is the shadow price of producing an additional output unit in the optimum;
   obviously, this is the definition of real marginal costs.
 
-Taking the derivative wrt $n_t(f)$ and $k_{t-1}(f)$ actually boils down to a static problem (as we only need to evaluate the Lagrangian for $j=0$)
+Taking the derivative wrt $n_t(f)$ and $k_{t-1}(f)$ actually boils down to a static problem (as we only need to evaluate the Lagrangian for $s=0$)
   and yields equations \eqref{eq:NewKeynesian.IntermediateFirms.CapitalDemand} and \eqref{eq:NewKeynesian.IntermediateFirms.LaborDemand}:
-\begin{align}
+\begin{align*}
 \frac{r^k_t}{mc_t(f)} &= \alpha a_t \left( \frac{n_t(f)}{k_{t-1}(f)}\right)^{1-\alpha}
 \\
 \frac{w_t}{mc_t(f)} &= (1-\alpha) a_t \left(\frac{n_t(f)}{k_{t-1}(f)}\right)^{-\alpha}
-\end{align}
+\end{align*}
 \emph{Interpretation:} These are the capital demand and labor demand functions.
 
 \item Dividing equation \eqref{eq:NewKeynesian.IntermediateFirms.CapitalDemand} by \eqref{eq:NewKeynesian.IntermediateFirms.LaborDemand} yields equation \eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio}:
@@ -341,7 +339,7 @@ mc_t(f) = \frac{1}{a_t} \left(\frac{w_t}{1-\alpha}\right)^{1-\alpha} \left(\frac
 \end{align*}
 \emph{Interpretation:} As labor and capital inputs are supplied by homogenous factor markets,
   the right-hand side is independent of $f$.
-In other words, all firms face the same marginal costs and we denote this by $mc_t \equiv mc_t(f)$.
+In other words, all firms face the same marginal costs and we denote this by dropping the $f$: $mc_t \equiv mc_t(f)$.
 	
 
 \item Let's revisit the Lagrangian of the intermediate firm \eqref{eq:IntermediateFirms.Lagrangian}
@@ -349,93 +347,92 @@ In other words, all firms face the same marginal costs and we denote this by $mc
 To this end, we first focus only on relevant parts in the function and
   substitute the demand function \eqref{eq:NewKeynesian.Firms.Demand} for $y_t(f)$:
 \begin{align}
-\pounds^{f^p} &= E_t \sum_{j=0}^{\infty}\Lambda_{t,t+j} P_{t+j} \left[
-  \left(\frac{P_{t+j}(f)}{P_{t+j}}\right)^{1-\epsilon} y_{t+j}
-  - mc_{t+j} \left(\frac{P_{t+j}(f)}{P_{t+j}}\right)^{-\epsilon} y_{t+j}
+\pounds^{f^p} &= E_t \sum_{s=0}^{\infty}\Lambda_{t,t+s} P_{t+s} \left[
+  \left(\frac{P_{t+s}(f)}{P_{t+s}}\right)^{1-\epsilon} y_{t+s}
+  - mc_{t+s} \left(\frac{P_{t+s}(f)}{P_{t+s}}\right)^{-\epsilon} y_{t+s}
   + \dots
   \right]
 \label{eq:Firms.Lagrangian}
 \end{align}
 When firms decide how to set their price they need to take into account
-that due to the Calvo mechanism they might get stuck at $\widetilde{P}_t(f)$ for a number of periods $j=1,2,...$
+that due to the Calvo mechanism they might get stuck at $\widetilde{P}_t(f)$ for a number of periods $s=1,2,...$
 before they can re-optimize again.
-The probability of such a situation is $\theta^j$.
+The probability of such a situation is $\theta^s$.
 Therefore, when firms are able to change prices in period $t$,
 they take this into account and the above Lagrangian of the expected discounted sum of nominal profits becomes:
-\begin{align}
-\pounds^{f^p} &= E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} P_{t+j}\left[ \left(\frac{\widetilde{P}_{t}(f)}{P_{t+j}}\right)^{1-\epsilon} y_{t+j} - mc_{t+j} \left(\frac{\widetilde{P}_{t}(f)}{P_{t+j}}\right)^{-\epsilon} y_{t+j} + \dots \right]\\
-&= E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} P_{t+j}^\epsilon y_{t+j} \left[ \widetilde{P}_{t}(f)^{1-\epsilon}  - P_{t+j} \cdot mc_{t+j} \cdot \widetilde{P}_{t}(f)^{-\epsilon} + ... \right]
-\label{eq:Firms.Lagrangian.Calvo}
-\end{align}
+\begin{align*}
+\pounds^{f^p} &= E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} P_{t+s}\left[ \left(\frac{\widetilde{P}_{t}(f)}{P_{t+s}}\right)^{1-\epsilon} y_{t+s} - mc_{t+s} \left(\frac{\widetilde{P}_{t}(f)}{P_{t+s}}\right)^{-\epsilon} y_{t+s} + \dots \right]\\
+&= E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} P_{t+s}^\epsilon y_{t+s} \left[ \widetilde{P}_{t}(f)^{1-\epsilon}  - P_{t+s} \cdot mc_{t+s} \cdot \widetilde{P}_{t}(f)^{-\epsilon} + ... \right]
+\end{align*}
 The first-order condition of $\pounds^{f^p}$ wrt to $\widetilde{P}_t(f)$ is
-\begin{align}
-0= E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} P_{t+j}^\epsilon y_{t+j} \left[ (1-\epsilon)\cdot \widetilde{P}_{t}(f)^{-\epsilon}  +\epsilon \cdot P_{t+j} \cdot mc_{t+j} \widetilde{P}_{t}(f)^{-\epsilon-1}\right]
-\end{align}
-As $\widetilde{P}_t(f)>0$ does not depend on $j$, we multiply by $\widetilde{P}_t(f)^{\epsilon+1}$:
-\begin{align}
-0= E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} P_{t+j}^{\epsilon} y_{t+j} \left[ (1-\epsilon)\cdot\widetilde{P}_t(f) +\epsilon \cdot P_{t+j} \cdot mc_{t+j}  \right]
-\end{align}
+\begin{align*}
+0= E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} P_{t+s}^\epsilon y_{t+s} \left[ (1-\epsilon)\cdot \widetilde{P}_{t}(f)^{-\epsilon}  +\epsilon \cdot P_{t+s} \cdot mc_{t+s} \widetilde{P}_{t}(f)^{-\epsilon-1}\right]
+\end{align*}
+As $\widetilde{P}_t(f)>0$ does not depend on $s$, we multiply by $\widetilde{P}_t(f)^{\epsilon+1}$:
+\begin{align*}
+0= E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} P_{t+s}^{\epsilon} y_{t+s} \left[ (1-\epsilon)\cdot\widetilde{P}_t(f) +\epsilon \cdot P_{t+s} \cdot mc_{t+s}  \right]
+\end{align*}
 Rearranging
-\begin{align}
-\widetilde{P}_t(f) \cdot E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} P_{t+j}^{\epsilon} y_{t+j}  = \frac{\epsilon}{\epsilon-1} \cdot E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} P_{t+j}^{\epsilon+1} y_{t+j} mc_{t+j}
-\end{align}
+\begin{align*}
+\widetilde{P}_t(f) \cdot E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} P_{t+s}^{\epsilon} y_{t+s}  = \frac{\epsilon}{\epsilon-1} \cdot E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} P_{t+s}^{\epsilon+1} y_{t+s} mc_{t+s}
+\end{align*}
 Dividing both sides by $\color{red}{P_t^{\epsilon+1}}$
-\begin{align}
-\underbrace{\frac{\widetilde{P}_t(f)}{\color{red}{P_t}}}_{\widetilde{p}_t} \cdot  \underbrace{E_t\sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} \left(\frac{P_{t+j}^{\epsilon}}{\color{red}{P_t^{\epsilon}}}\right) y_{t+j}}_{s_{1,t}}
+\begin{align*}
+\underbrace{\frac{\widetilde{P}_t(f)}{\color{red}{P_t}}}_{\widetilde{p}_t} \cdot  \underbrace{E_t\sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} \left(\frac{P_{t+s}^{\epsilon}}{\color{red}{P_t^{\epsilon}}}\right) y_{t+s}}_{s_{1,t}}
 =
-\frac{\epsilon}{\epsilon-1} \cdot \underbrace{E_t \sum_{j=0}^{\infty}\theta^j \Lambda_{t,t+j} \left(\frac{P_{t+j}^{\epsilon+1}}{\color{red}{P_t^{\epsilon+1}}}\right) y_{t+j} mc_{t+j}}_{s_{2,t}}
-\end{align}
+\frac{\epsilon}{\epsilon-1} \cdot \underbrace{E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} \left(\frac{P_{t+s}^{\epsilon+1}}{\color{red}{P_t^{\epsilon+1}}}\right) y_{t+s} mc_{t+s}}_{s_{2,t}}
+\end{align*}
 The first-order condition can thus be written compactly: 
 \begin{align*}
 \widetilde{p}_t = \frac{\epsilon}{\epsilon-1} \cdot \frac{s_{2,t}}{s_{1,t}}
 \end{align*}
-Note that both $s_{1,t}$ and $s_{2,t}$ are independent of $f$; hence, $\widetilde{p}_t$ is also independent of $f$ and it was correct to drop the $f$ in the notation.
+Note that both $s_{1,t}$ and $s_{2,t}$ are independent of $f$; hence, $\widetilde{p}_t$ is also independent of $f$ and therefore we drop the $f$ in the notation.
 
 \emph{Interpretation:} As all firms face the same factor input prices, they choose the same capital to labor ratio and have the same marginal costs.
-Therefore, all firms that are allowed to reoptimize will set the same relative price $\widetilde{p}_t$.
+Therefore, all firms that are allowed to re-optimize will set the same relative reset price $\widetilde{p}_t$.
   
 
 \item To write the two infinite sums recursively,
   we first repeat the previously derived relationship \eqref{eq:NewKeynesian.StochasticDiscountFactorRecursive} for the stochastic discount factor:
 \begin{align*}
-\color{blue} \Lambda_{t,t+j+1} = \beta \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{-1} \Lambda_{t+1,t+1+j}
+\color{blue} \Lambda_{t,t+s+1} = \beta \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{-1} \Lambda_{t+1,t+1+s}
 \end{align*}
 and obviously $\Lambda_{t,t}=1$.
   
 The first recursive sum can be written as:
 \begin{align*}
 s_{1,t} &= 
-E_t\sum^{\infty}_{\color{red}{j=0}}\theta^j \Lambda_{t,t+j} \left(\frac{P_{t+j}}{P_t}\right)^{\epsilon} y_{t+j}
+E_t\sum^{\infty}_{\color{red}{s=0}}\theta^s \Lambda_{t,t+s} \left(\frac{P_{t+s}}{P_t}\right)^{\epsilon} y_{t+s}
 \\
-&= \theta^0 \Lambda_{t,t} \left(\frac{P_t}{P_t}\right)^\epsilon y_t + E_t\sum^{\infty}_{\color{red}{j=1}}\theta^{\color{red}{j}} \Lambda_{t,t+\color{red}{j}} \left(\frac{P_{t+\color{red}{j}}}{P_t}\right)^{\epsilon} y_{t+\color{red}{j}}
+&= \theta^0 \Lambda_{t,t} \left(\frac{P_t}{P_t}\right)^\epsilon y_t + E_t\sum^{\infty}_{\color{red}{s=1}}\theta^{\color{red}{s}} \Lambda_{t,t+\color{red}{s}} \left(\frac{P_{t+\color{red}{s}}}{P_t}\right)^{\epsilon} y_{t+\color{red}{s}}
 \\
-&= y_t + E_t\sum^{\infty}_{\color{red}{j=0}}\theta^{\color{red}{j+1}} \Lambda_{t,t+\color{red}{j+1}} \left(\frac{P_{t+\color{red}{j+1}}}{P_t}\right)^{\epsilon} y_{t+\color{red}{j+1}}
+&= y_t + E_t\sum^{\infty}_{\color{red}{s=0}}\theta^{\color{red}{s+1}} \Lambda_{t,t+\color{red}{s+1}} \left(\frac{P_{t+\color{red}{s+1}}}{P_t}\right)^{\epsilon} y_{t+\color{red}{s+1}}
 \\
-&= y_t + E_t\sum^{\infty}_{j=0}\theta^{j+1} {\color{blue}{\Lambda_{t,t+j+1}}} \left({\color{green}{\frac{P_{t+j+1}}{P_{t+1}}\frac{P_{t+1}}{P_{t}}}}\right)^{\epsilon} y_{t+j+1}
+&= y_t + E_t\sum^{\infty}_{s=0}\theta^{s+1} {\color{blue}{\Lambda_{t,t+s+1}}} \left({\color{green}{\frac{P_{t+s+1}}{P_{t+1}}\frac{P_{t+1}}{P_{t}}}}\right)^{\epsilon} y_{t+s+1}
 \\
-&= y_t + E_t\sum^{\infty}_{j=0}\theta^{j+1} {\color{blue}{\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{-1} \Lambda_{t+1,t+1+j}}} \left({\color{green}{\frac{P_{t+j+1}}{P_{t+1}}\Pi_{t+1}}}\right)^{\epsilon} y_{t+j+1}
+&= y_t + E_t\sum^{\infty}_{s=0}\theta^{s+1} {\color{blue}{\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{-1} \Lambda_{t+1,t+1+s}}} \left({\color{green}{\frac{P_{t+s+1}}{P_{t+1}}\Pi_{t+1}}}\right)^{\epsilon} y_{t+s+1}
 \\
-&= y_t + E_t\sum^{\infty}_{j=0}\theta^{j {\color{red}+1}} { {\color{red}\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon-1}} \Lambda_{t+1,t+1+j}} \left({\frac{P_{t+j+1}}{P_{t+1}}}\right)^{\epsilon} y_{t+j+1}
+&= y_t + E_t\sum^{\infty}_{s=0}\theta^{s {\color{red}+1}} { {\color{red}\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon-1}} \Lambda_{t+1,t+1+s}} \left({\frac{P_{t+s+1}}{P_{t+1}}}\right)^{\epsilon} y_{t+s+1}
 \\
-&= y_t + {\color{red}\theta\beta E_t\frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon-1}} \underbrace{E_t\sum^{\infty}_{j=0}\theta^{j} \Lambda_{t+1,t+1+j} \left(\frac{P_{t+1+j}}{P_{t+1}}\right)^{\epsilon} y_{t+1+j}}_{=s_{1,t+1}}
+&= y_t + {\color{red}\theta\beta E_t\frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon-1}} \underbrace{E_t\sum^{\infty}_{s=0}\theta^{s} \Lambda_{t+1,t+1+s} \left(\frac{P_{t+1+s}}{P_{t+1}}\right)^{\epsilon} y_{t+1+s}}_{=s_{1,t+1}}
 \end{align*}
 The second recursive sum can be written as
 \begin{align*}
 s_{2,t} &= 
-E_t\sum_{{\color{red}j=0}}^{\infty}\theta^j \Lambda_{t,t+j} \left(\frac{P_{t+j}}{P_t}\right)^{\epsilon+1} y_{t+j} mc_{t+j}
+E_t\sum_{{\color{red}s=0}}^{\infty}\theta^s \Lambda_{t,t+s} \left(\frac{P_{t+s}}{P_t}\right)^{\epsilon+1} y_{t+s} mc_{t+s}
 \\
-&= \theta^0 \Lambda_{t,t} \left(\frac{P_t}{P_t}\right)^{\epsilon+1} y_t mc_t + E_t\sum^{\infty}_{\color{red}{j=1}}\theta^{\color{red}{j}} \Lambda_{t,t+\color{red}{j}} \left(\frac{P_{t+\color{red}{j}}}{P_t}\right)^{\epsilon+1} y_{t+\color{red}{j}} mc_{t+\color{red}{j}}
+&= \theta^0 \Lambda_{t,t} \left(\frac{P_t}{P_t}\right)^{\epsilon+1} y_t mc_t + E_t\sum^{\infty}_{\color{red}{s=1}}\theta^{\color{red}{s}} \Lambda_{t,t+\color{red}{s}} \left(\frac{P_{t+\color{red}{s}}}{P_t}\right)^{\epsilon+1} y_{t+\color{red}{s}} mc_{t+\color{red}{s}}
 \\
-&= y_t mc_t + E_t\sum^{\infty}_{\color{red}{j=0}}\theta^{\color{red}{j+1}} \Lambda_{t,t+\color{red}{j+1}} \left(\frac{P_{t+\color{red}{j+1}}}{P_t}\right)^{\epsilon+1} y_{t+\color{red}{j+1}} mc_{t+\color{red}{j+1}}
+&= y_t mc_t + E_t\sum^{\infty}_{\color{red}{s=0}}\theta^{\color{red}{s+1}} \Lambda_{t,t+\color{red}{s+1}} \left(\frac{P_{t+\color{red}{s+1}}}{P_t}\right)^{\epsilon+1} y_{t+\color{red}{s+1}} mc_{t+\color{red}{s+1}}
 \\
-&= y_t mc_t + E_t\sum^{\infty}_{j=0}\theta^{j+1} {\color{blue}{\Lambda_{t,t+j+1}}} \left({\color{green}{\frac{P_{t+j+1}}{P_{t+1}}\frac{P_{t+1}}{P_{t}}}}\right)^{\epsilon+1} y_{t+j+1} mc_{t+j+1}
+&= y_t mc_t + E_t\sum^{\infty}_{s=0}\theta^{s+1} {\color{blue}{\Lambda_{t,t+s+1}}} \left({\color{green}{\frac{P_{t+s+1}}{P_{t+1}}\frac{P_{t+1}}{P_{t}}}}\right)^{\epsilon+1} y_{t+s+1} mc_{t+s+1}
 \\
-&= y_t mc_t + E_t\sum^{\infty}_{j=0}\theta^{j+1} {\color{blue}{\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{-1}\Lambda_{t+1,t+1+j}}} \left({\color{green}{\frac{P_{t+j+1}}{P_{t+1}}\Pi_{t+1}}}\right)^{\epsilon+1} y_{t+j+1} mc_{t+j+1}
+&= y_t mc_t + E_t\sum^{\infty}_{s=0}\theta^{s+1} {\color{blue}{\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{-1}\Lambda_{t+1,t+1+s}}} \left({\color{green}{\frac{P_{t+s+1}}{P_{t+1}}\Pi_{t+1}}}\right)^{\epsilon+1} y_{t+s+1} mc_{t+s+1}
 \\
-&= y_t mc_t + E_t\sum^{\infty}_{j=0}\theta^{j{\color{red}+1}} {\color{red}\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon}} \Lambda_{t+1,t+1+j} \left(\frac{P_{t+j+1}}{P_{t+1}}\right)^{\epsilon+1} y_{t+j+1} mc_{t+j+1}
+&= y_t mc_t + E_t\sum^{\infty}_{s=0}\theta^{s{\color{red}+1}} {\color{red}\beta \frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon}} \Lambda_{t+1,t+1+s} \left(\frac{P_{t+s+1}}{P_{t+1}}\right)^{\epsilon+1} y_{t+s+1} mc_{t+s+1}
 \\
 &= y_t mc_t + 
-{\color{red}\theta\beta E_t\frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon}} \underbrace{E_t\sum^{\infty}_{j=0}\theta^{j} \Lambda_{t+1,t+1+j} \left(\frac{P_{t+1+j}}{P_{t+1}}\right)^{\epsilon+1} y_{t+1+j} mc_{t+1+j}}_{=s_{2,t+1}}
+{\color{red}\theta\beta E_t\frac{\lambda_{t+1}}{\lambda_t}\Pi_{t+1}^{\epsilon}} \underbrace{E_t\sum^{\infty}_{s=0}\theta^{s} \Lambda_{t+1,t+1+s} \left(\frac{P_{t+1+s}}{P_{t+1}}\right)^{\epsilon+1} y_{t+1+s} mc_{t+1+s}}_{=s_{2,t+1}}
 \end{align*}
 \paragraph{Recursive Pricing Summary:}
 \begin{align*}
@@ -468,6 +465,18 @@ As optimizing and non-optimizing firms behave symmetrically, we therefore have:
 1&=(1-\theta) \widetilde{p}_t^{1-\epsilon}  + \theta \Pi_t^{\epsilon-1}
 \end{align*}
 
+\item Aggregating equation \eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio} over $f\in[0,1]$ yields equation \eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatioAggregated}:
+\begin{align*}
+\underbrace{\int_0^1 k_{t-1}(f)df}_{\overset{\eqref{eq:NewKeynesian.CapitalMarketClearing}}{=}k_{t-1}} 
+= \int_0^1 \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) n_t(f) df
+= \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \underbrace{\int_0^1 n_{t}(f)df}_{\overset{\eqref{eq:NewKeynesian.LaborMarketClearing}}{=}h_{t}}
+\end{align*}
+$h_t$ is the aggregated \textbf{labor supply} of the households.
+Because we assumed that hours worked are identical across family members, there is no need to distinguish between different households $j\in[0,1]$.
+In more general models, we would need to aggregate individual labor supply $h_t(j)$ of household $j$.
+$n_t(f)$ is the individual \textbf{labor demand} of intermediate firm $f$;
+  accordingly, $h_t = \int_0^1 n_t(f) df$ is a resource constraint stating that total hours worked need to equal total labor demand.
+Similar arguments apply to the \textbf{capital supply} of the household $k_t$ and individual \textbf{capital demand} $k_t(f)$ of intermediate firm $f$.
 
 \item Aggregated nominal profits of the intermediate firms are given by:
 \begin{align*}
@@ -480,7 +489,10 @@ Therefore, real profits of the intermediate firms are:
 \begin{align*}
  div^{Int}_t = \frac{Div^{Int}_t}{P_t} = y_t - w_t h_t -r^k_t k_{t-1}
 \end{align*}
-
+Due to (i) the introduction of monopolistic competition and (ii) nominal price rigidities,
+  intermediate firms charge a price larger than their marginal costs
+  and will therefore earn profits such that $div^{Int}_t>0$.
+However, these two frictions create an inefficient allocation compared to a model without these frictions (aka RBC model).
 	
 \item Revisit the budget constraint in real terms \eqref{eq:NewKeynesian.BudgetReal} and impose previously derived relationships:
 \begin{align*}
@@ -496,7 +508,8 @@ c_t &+ i_t = y_t
 \end{align*}
 \emph{Interpretation:} This is the aggregate demand equation.
 	
-\item \emph{On the one hand}, we can combining $y_t^{sum}$ with the the production function \eqref{eq:NewKeynesian.IntermediateFirms.ProductionFunction}:
+\item Let's define $y_t^{sum} = \int_{0}^1 y_t(f) df$.
+\emph{On the one hand}, we can compute $y_t^{sum}$ using the the production function \eqref{eq:NewKeynesian.IntermediateFirms.ProductionFunction}:
 \begin{align*}
 y_t^{sum} = \int_{0}^1 y_t(f) df = a_t {\color{red} \int_0^1 \left(\frac{k_{t-1}(f)}{n_{t}(f)}\right)^{\alpha-1}} k_{t-1}(f) {\color{red}df}
 \end{align*}
@@ -507,23 +520,20 @@ y_t^{sum}
 \\
 &\overset{\eqref{eq:NewKeynesian.CapitalMarketClearing}}{=} a_t {\color{red}\left( \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \right)^{\alpha-1}} k_{t-1}
 \end{align*}
-Next, let's aggregate the capital to labor ratio equation \eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio}:
+From equation \eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatioAggregated} we have
 \begin{align*}
-\underbrace{\int_0^1 k_{t-1}(f) df}_{\overset{\eqref{eq:NewKeynesian.CapitalMarketClearing}}{=} k_{t-1}} &= \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \underbrace{\int_0^1 n_t(f) df}_{\overset{\eqref{eq:NewKeynesian.LaborMarketClearing}}{=}h_t}
-\\
-\Leftrightarrow
-\left(\frac{k_{t-1}}{h_t}\right)^{\alpha-1} &= \color{red}{\left( \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \right)^{\alpha-1} }
+\color{red}{\left( \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \right)^{\alpha-1} } = \left(\frac{k_{t-1}}{h_t}\right)^{\alpha-1}
 \end{align*}
 Inserting into the above expression for $y_t^{sum}$ yields:
 \begin{align}
 y_t^{sum} = a_t \left(\frac{k_{t-1}}{h_t}\right)^{\alpha-1} k_{t-1} = a_t k_{t-1}^{\alpha} h_t^{1-\alpha} \label{eq:NewKeynesian.ytsum1}
 \end{align}
 
-\emph{On the other hand}, we can combine $y_t^{sum}$ with the demand function \eqref{eq:NewKeynesian.Firms.Demand} for intermediate good $y_t(f)$:
+\emph{On the other hand}, we can compute $y_t^{sum}$ with the demand function \eqref{eq:NewKeynesian.Firms.Demand} for intermediate good $y_t(f)$:
 \begin{align}
 y_t^{sum} = \int_{0}^1 y_t(f) df \overset{\eqref{eq:NewKeynesian.Firms.Demand}}{=} y_t \underbrace{\int_{0}^1 \left(\frac{P_t(f)}{P_t}\right)^{-\epsilon} df}_{=p_t^*} \label{eq:NewKeynesian.ytsum2}
 \end{align}
-where we made use of the definition of $p_t^*$ in \eqref{eq:NewKeynesian.PriceDistortionDefinition}.
+where we made use of the definition of $p_t^*$ in \eqref{eq:NewKeynesian.PriceDistortionDefinition} to \emph{"get rid of the integral"}.
 
 Finally, equating both expressions \eqref{eq:NewKeynesian.ytsum1} and \eqref{eq:NewKeynesian.ytsum2} for $y_t^{sum}$ yields equation \eqref{eq:NewKeynesian.AggregateSupply}:
 \begin{align*}

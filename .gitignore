@@ -47,3 +47,7 @@ progs/dynare/Baxter_King_steady_growth/
 progs/dynare/Baxter_King_steady_growth.log
 
 progs/matlab/num_df.m
+
+progs/dynare/nk/
+
+progs/dynare/nk.log
