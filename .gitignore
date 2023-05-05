@@ -51,3 +51,15 @@ progs/matlab/num_df.m
 progs/dynare/nk/
 
 progs/dynare/nk.log
+
+progs/matlab/rbc_dynamic_g1.m
+
+progs/matlab/rbc_dynamic_resid.m
+
+progs/matlab/rbc_static_g1.m
+
+progs/matlab/rbc_static_resid.m
+
+progs/dynare/rbc.log
+
+progs/dynare/rbc/

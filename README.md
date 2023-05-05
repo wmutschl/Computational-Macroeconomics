@@ -85,6 +85,31 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
+
+<details>
+  <summary>Week 4: Preprocessing and steady-state in MATLAB, numerical optimization</summary>
+
+### Goals
+
+* understand and replicate preprocessing and steady-state computations in MATLAB
+* understand and start using numerical optimizers
+
+### To Do
+
+* [ ] watch the (very short) videos:
+  * [Introduction to Optimization: What is Optimization](https://youtu.be/Q2dewZweAtU)
+  * [Introduction To Optimization: Objective Functions and Decision Variables](https://youtu.be/AoJQS10Ewn4)
+  * [Introduction To Optimization: Gradients, Constraints, Continuous and Discrete Variables](https://youtu.be/URkmNZuFzKg)
+  * [Introduction To Optimization: Gradient Based Algorithms](https://youtu.be/n-Y0SDSOfUI)
+  * [Introduction To Optimization: Gradient Free Algorithms (1/2) - Genetic - Particle Swarm](https://youtu.be/3QJjfeVrut8)
+  * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
+  * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)  
+* [ ] do exercises 1-3 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
+* [ ] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
+
 ## Content
 
 We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.

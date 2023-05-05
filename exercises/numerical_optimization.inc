@@ -1,0 +1,52 @@
+\section[Numerical optimization in MATLAB]{Numerical optimization in MATLAB\label{ex:MatlabNumericalOptimization}}
+\begin{enumerate}
+\item In a nutshell, what is the goal of numerical optimization?
+\item What is an \emph{objective function}, what are \emph{decision or design variables}, what is a \emph{gradient}, and what is a \emph{constraint}?
+\item What is the general idea behind gradient-based optimization algorithms?
+\item What is the general idea behind gradient-free optimization algorithms? Name a few examples.
+\item In numerical optimization theory, the Rosenbrock function is a non-convex function often used as a performance test problem for optimization algorithms.
+It is defined by:
+\begin{align*}
+f(x,y) = 100(y-x^2)^2 + (1-x)^2
+\end{align*}
+The global minimum is inside a long, narrow, parabolic shaped flat valley.
+To find the valley is trivial;
+  to converge to the global minimum, however, is difficult.
+
+\begin{enumerate}
+
+\item Make a 3D plot of the function to see that the global minimum is at $(x, y)=(1, 1)$ where $f(x, y)=0$.
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+fsurf(@(x,y) ((1-x).^2)+(100*((y-(x.^2)).^2)),[-2 2 -2 5],'ShowContours','on')
+title('Rosenbrock function')
+xlabel('x')
+ylabel('y')
+\end{lstlisting}
+
+\item Find the global minimum of the function by trying out different optimizers.
+Draw the initial values randomly (e.g. with \texttt{randi}).
+
+\end{enumerate}  
+\item In numerical optimization theory, the Rastrigin function is a non-convex function often used as a performance test problem for optimization algorithms.
+It is a typical example of a non-linear multi-modal function and given by:
+\begin{align*}
+f(x,y) = 20 + x^2 + y^2 - 10(\cos(2\pi x)+\cos(2\pi y))
+\end{align*}
+Note that the global minimum is at $(x, y)=(0, 0)$ where $f(x, y)=0$.
+Finding the minimum of this function is a fairly difficult problem due to its large search space and its large number of local minima.
+Repeat the previous exercise on the Rastrigin function.
+\end{enumerate}
+
+
+\paragraph{Readings}
+\begin{itemize}
+  \item AlphaOpt: Introduction to Optimization: What Is Optimization? (\url{https://www.youtube.com/watch?v=Q2dewZweAtU&list=PLLK3oSbvdxFdF67yVxF_1FQO9SbBY3yTL})
+  \item MathWorks: Comparison of Six Solvers (\url{https://mathworks.com/help/gads/example-comparing-several-solvers.html})
+\end{itemize}
+
+\begin{solution}\textbf{Solution to \nameref{ex:MatlabNumericalOptimization}}
+\ifDisplaySolutions
+\input{exercises/numerical_optimization_solution.inc}
+\fi
+\newpage
+\end{solution}

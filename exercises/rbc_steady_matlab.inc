@@ -1,0 +1,54 @@
+\section[RBC model: steady-state in MATLAB]{RBC model: steady-state in MATLAB\label{ex:RBCModelSteadyMATLAB}}
+Consider the basic Real Business Cycle (RBC) model with leisure and log utility function.
+The dynamic model equations are given in Table \ref{tbl:RBC.Model},
+  the variable description in Table \ref{tbl:RBC.Variables},
+  and the description and calibration of parameters in Table \ref{tbl:RBC.Parameters}.
+
+\begin{enumerate}
+
+\item Create a Dynare mod file for this model and use a \texttt{steady\_state\_model} block to compute the steady-state.
+Store the computed steady-state into a variable \texttt{stst\_dyn}.
+Evaluate the static file at the steady-state and store your result into a variable \texttt{resid\_dyn}.
+Compute the sum of squared residuals of \texttt{resid\_dyn} and store your result into a variable \texttt{ssq\_dyn}.
+
+\item Preprocess the model using the function \texttt{preprocessing\_matlab\_rbc.m} created in the previous exercise.
+
+\item Put the values for the parameters given in Table \ref{tbl:RBC.Parameters} into a vector \texttt{MODEL.params}.
+
+\item Create two functions handles:
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+exo_vars = 0;
+obj     = @(xparam)     rbc_static_resid(xparam,exo_vars,MODEL.params)    ;
+obj_ssq = @(xparam) sum(rbc_static_resid(xparam,exo_vars,MODEL.params).^2);
+\end{lstlisting} 
+
+\item Provide initial guess values for the steady-state of all endogenous variables in a vector called \texttt{xparam0}.
+Also create two vectors \texttt{LB} and \texttt{UB} with a lower and upper bound for the variables.
+
+\item Minimize either \texttt{obj} or \texttt{obj\_ssq} with different numerical optimization algorithms.
+You might want to have a look into \texttt{fsolve}, \texttt{lsqnonlin}, \texttt{fminunc}, \texttt{fminsearch}, \texttt{fmincon}, \texttt{simulannealbnd} and \texttt{patternsearch}.
+
+\item Compare the computed steady-state values, the residuals of the static model equations and the sum of squared residuals.
+
+\item Redo the exercise, but now randomize your starting values by drawing them uniformly given the lower and upper bounds,
+  e.g.\ use the following code snippet:
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+randomize_initial_values = 1; % set to 1 to randomize initial values
+if randomize_initial_values
+    no_good = 1;
+    while no_good
+        xparam0 = LB + (UB-LB).*rand(length(xparam0),1);    
+        if all(~isnan(obj(xparam0)))
+            no_good = 0;
+        end
+    end
+end
+\end{lstlisting}
+\end{enumerate}
+
+\begin{solution}\textbf{Solution to \nameref{ex:RBCModelSteadyMATLAB}}
+\ifDisplaySolutions
+\input{exercises/rbc_steady_matlab_solution.inc}
+\fi
+\newpage
+\end{solution}
