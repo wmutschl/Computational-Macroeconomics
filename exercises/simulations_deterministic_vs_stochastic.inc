@@ -1,0 +1,15 @@
+\section[Deterministic vs. stochastic simulations]{Deterministic vs stochastic simulations\label{ex:SimulationsDeterministicStochastic}}
+What is the difference between deterministic and stochastic simulations of DSGE models?
+In other words, what is the difference between using \texttt{perfect\_foresight\_solver} or \texttt{stoch\_simul} in Dynare?
+
+\paragraph{Readings}
+\begin{itemize}
+  \item \textcite{Mutschler_2023_UnderstandingDeterministicSimulations}
+\end{itemize}
+
+\begin{solution}\textbf{Solution to \nameref{ex:SimulationsDeterministicStochastic}}
+\ifDisplaySolutions
+\input{exercises/simulations_deterministic_vs_stochastic_solution.inc}
+\fi
+\newpage
+\end{solution}

@@ -63,3 +63,23 @@ progs/matlab/rbc_static_resid.m
 progs/dynare/rbc.log
 
 progs/dynare/rbc/
+
+progs/dynare/nk2co_common/
+
+progs/dynare/nk2co_perm_infltarget_surprise/
+
+progs/dynare/nk2co_perm_tax_announced/
+
+progs/dynare/nk2co_temp_monpol_announced/
+
+progs/dynare/nk2co_temp_monpol_surprise/
+
+progs/dynare/nk2co_common.log
+
+progs/dynare/nk2co_perm_infltarget_surprise.log
+
+progs/dynare/nk2co_perm_tax_announced.log
+
+progs/dynare/nk2co_temp_monpol_announced.log
+
+progs/dynare/nk2co_temp_monpol_surprise.log

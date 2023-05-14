@@ -110,6 +110,28 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 </details>
 
 
+<details>
+  <summary>Week 5: </summary>
+
+### Goals
+
+* understand Dynare's commands to do deterministic simulations
+* understand algorithm used by Dynare to do deterministic simulations
+* understand Newton algorithm
+* re-implement deterministic simulations in MATLAB
+
+### To Do
+* [ ] watch the videos
+  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
+  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
+  * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16) Visually Explained: Newton's Method in Optimization](https://youtu.be/-RdOwhmqP5s?t=355)
+  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
+* [ ] do exercise 1 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
+* [ ] we will do a case study together in class
+* [ ] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
 ## Content
 
 We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
@@ -133,10 +155,10 @@ We cover modern theoretical macroeconomics (the study of aggregated variables su
 
 
 ## Case Studies
-- Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
-- Welfare and fiscal policy (Baxter and King, 1993, American Economic Review)
-- Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- Fiscal policy (Baxter and King, 1993, American Economic Review)
 - Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
+- Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
 - International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
 - Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)
 - Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
