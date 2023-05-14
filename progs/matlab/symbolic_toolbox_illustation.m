@@ -150,7 +150,11 @@ fclose(fileID);
 edit(NameOfFunction) % this opens a new editor with the just created script file
 
 %% 18
-% Compare time to evaluate either script files or symbolic expressions
+% see that both script files and symbolic expressions are equivalent
+rng(211); disp(num_df(randn(),randn(),rand(),rand()));
+rng(211); disp(double(subs(df,[x y ALPHA BETA],[randn(),randn(),rand(),rand()])));
+
+% compare time to evaluate either script files or symbolic expressions
 
 % evaluate expressions using script files (VERY FAST)
 rng(123); % get same random numbers by setting seed

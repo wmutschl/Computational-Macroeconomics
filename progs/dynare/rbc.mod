@@ -19,7 +19,7 @@ r = ALPH*y/k(-1);
 log(a) = (1-RHOA)*log(steady_state(a)) + RHOA*log(a(-1)) + eps_a;
 end;
 
-BETTA=0.99; DELT=0.025; GAMA=1; PSSI=1.6; ALPH=0.35; RHOA=0.9; A=1; 
+BETTA=0.99; DELT=0.025; GAMA=1; PSSI=1.6; ALPH=0.35; RHOA=0.9; A=10; 
 
 steady_state_model;
 a = A;
