@@ -30,7 +30,11 @@ any(y>0)
 
 % 7
 x+y
-x*y
+try
+  x*y
+catch
+    lasterr
+end
 x*y'
 x'*y
 y/x
