@@ -31,9 +31,9 @@ shocks;
 end;
 
 perfect_foresight_setup(periods=100); % prepare perfect foresight simulation
-endo_simul_init = oo_.endo_simul;    % store initial value matrix for endogenous
-exo_simul_init = oo_.exo_simul;      % store initial value matrix for exogenous
+endo_simul_init = oo_.endo_simul;     % store initial value matrix for endogenous
+exo_simul_init = oo_.exo_simul;       % store initial value matrix for exogenous
 
 perfect_foresight_solver; % run solver
 
-do_plots('Pre-Announced Permanent Tax Increase in HOME',40,oo_,M_);
+nk2co_do_plots('Pre-Announced Permanent Tax Increase in HOME',40,oo_,M_);

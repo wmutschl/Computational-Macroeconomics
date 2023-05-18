@@ -224,9 +224,9 @@ set(gca,'FontSize',12);
 legend(["Output", "Consumption", "Investment"],'Location','SouthEast','Box', 'off');
 xlabel('Years');
 ylabel('Commodity Units');
-xticks(horizon)
-ylim([-1.2,1.2])
-yticks(-1.2:0.3:1.2)
+xticks((horizon(1)-1):2:(horizon(end)-2));
+ylim([-1.2,1.2]);
+yticks(-1.2:0.3:1.2);
 hold off
 
 % Figure 2: Labor Market
@@ -239,9 +239,9 @@ set(gca,'FontSize',12);
 legend(["Labor Input", "Real Wage"],'Location','SouthEast','Box', 'off');
 xlabel('Years');
 ylabel('Percent');
-xticks(horizon)
-ylim([-1.6,1.6])
-yticks(-1.6:0.4:1.6)
+xticks((horizon(1)-1):2:(horizon(end)-2));
+ylim([-1.6,1.6]);
+yticks(-1.6:0.4:1.6);
 hold off
 
 % Figure 2: Financial Market (term structure not yet)
@@ -253,7 +253,7 @@ set(gca,'FontSize',12);
 legend(["Real Interest Rate"],'Location','NorthEast','Box', 'off');
 xlabel('Years');
 ylabel('Basis Points');
-xticks(horizon)
-ylim([0,12])
-yticks(0:1:12)
+xticks((horizon(1)-1):2:(horizon(end)-2));
+ylim([0,12]);
+yticks(0:1:12);
 hold off

@@ -1,1 +1,1 @@
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/Baxter_King_figure_2.mod}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Baxter_King_1993/Baxter_King_1993_figure_2.mod}

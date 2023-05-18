@@ -10,7 +10,7 @@ clear global; clearvars; close all; clc;
 
 % let's first run the mod file with dynare so we can compare the simulations
 oldfolder = cd('../dynare')
-dynare arma_1_1_dynare
+dynare arma_1_1
 cd(oldfolder)
 
 % store stuff from Dynare

@@ -1,5 +1,5 @@
-function do_plots(fig_title,irfhorizon,oo_,M_)
-% function do_plots(fig_title,irfhorizon,oo_,M_)
+function nk2co_do_plots(fig_title,irfhorizon,oo_,M_)
+% function nk2co_do_plots(fig_title,irfhorizon,oo_,M_)
 % =========================================================================
 % creates plots for deterministic simulations of a two-country New Keynesian DSGE model
 % -------------------------------------------------------------------------

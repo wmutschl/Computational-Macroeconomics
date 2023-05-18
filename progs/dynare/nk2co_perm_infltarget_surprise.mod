@@ -20,4 +20,4 @@ steady;
 perfect_foresight_setup(periods=500);
 perfect_foresight_solver;
 
-do_plots('Increase in Inflation Target',40,oo_,M_);
+nk2co_do_plots('Increase in Inflation Target',40,oo_,M_);

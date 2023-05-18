@@ -19,4 +19,4 @@ end;
 perfect_foresight_setup(periods=100);
 perfect_foresight_solver;
 
-do_plots('Pre-Announced Monetary Policy Shock in HOME',21,oo_,M_);
+nk2co_do_plots('Pre-Announced Monetary Policy Shock in HOME',21,oo_,M_);
