@@ -24,6 +24,7 @@ week_*_solution.tex
 progs/replications/*/*\+*/
 progs/replications/Baxter_King_1993/*.log
 progs/replications/Baxter_King_1993/Baxter_King_1993_figure_2/
+progs/replications/Baxter_King_1993/Baxter_King_1993_figure_3/
 progs/dynare/*\+*/
 progs/dynare/*.log
 

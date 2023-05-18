@@ -1,0 +1,26 @@
+\section[Case Study Baxter and King (1993, AER): Macroeconomic Effects Of A Four-Year War]{Case Study Baxter and King (1993, AER): Macroeconomic Effects Of A Four-Year War\label{ex:CaseStudy.BaxterKing.Figure3}}
+
+\begin{enumerate}
+    \item Read the paper by \textcite{Baxter.King_1993_FiscalPolicyGeneral} and focus particularly on the model equations and analysis done in section IV.A.
+    \item Write a Dynare mod file for the model and calibrate it according to the \emph{Benchmark Model with Basic Government Purchases} given in Table 1.
+    Compute the steady-state using an \texttt{initval} block.
+    \item Replicate Figure 3.
+    \item Do you think this simulation scenario reflects the essence of a war shock?
+\end{enumerate}
+\paragraph{Notes and hints}
+\begin{itemize}
+    \item According to footnote 3, the quantitative analysis corresponds to a model with labor-augmenting technical progress.
+    Calibrate $\gamma_X$ such that the economy grows at 1.6\% per annum, a typical value used in e.g.\ \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness}.
+    \item Pay attention to the different scales on the y-axes, i.e.\ commodity units, percent, and basis points.
+    \item Skip the term structure variable in panel \emph{C.}, as we will re-visit the term structure in RBC models later on.
+    \item Use a perfect foresight simulation for computing the transition path
+      from the initial steady-state (specified by an \texttt{initval} block)
+      subject to a sequence of four basic government purchases shocks (specified by a \texttt{shocks} block).    
+\end{itemize}
+
+\begin{solution}\textbf{Solution to \nameref{ex:CaseStudy.BaxterKing.Figure3}}
+\ifDisplaySolutions
+\input{exercises/case_study_baxter_king_figure3_solution.inc}
+\fi
+\newpage
+\end{solution}
