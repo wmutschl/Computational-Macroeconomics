@@ -111,7 +111,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 5: </summary>
+  <summary>Week 5: Deterministic simulations and perfect-foresight algorithm</summary>
 
 ### Goals
 
@@ -131,6 +131,31 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * [ ] bring all your questions and concerns to the Q&A sessions
 
 </details>
+
+
+<details>
+  <summary>Week 6: Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR</summary>
+
+### Goals
+
+* understand the SIR (Susceptible, Infected, Recovered) epidemiology model
+* understand and get used to Dynare's macro preprocessing directives
+* understand timing conventions of predetermined variables
+* understand the difference between sticky-price and flex-price New Keynesian economies
+* deal with common numerical issues in the perfect foresight solution algorithm
+* understand homotopy in the context of perfect foresight simulations
+* simulate a New-Keynesian SIR model
+
+### To Do
+* prepare exercise 1 of [week 6's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf)
+  * [ ] read the case-study paper carefully
+  * [ ] download all files
+  * [ ] read all the exercises
+  * [ ] try to prepare the exercises (this will be hard, so we will go through this together in class)
+* [ ] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
 
 ## Content
 
@@ -156,8 +181,8 @@ We cover modern theoretical macroeconomics (the study of aggregated variables su
 
 ## Case Studies
 - Fiscal policy (Baxter and King, 1993, American Economic Review)
-- Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
 - Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
 - Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
 - International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
 - Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)

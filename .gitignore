@@ -25,6 +25,9 @@ progs/replications/*/*\+*/
 progs/replications/Baxter_King_1993/*.log
 progs/replications/Baxter_King_1993/Baxter_King_1993_figure_2/
 progs/replications/Baxter_King_1993/Baxter_King_1993_figure_3/
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/*.log
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/Eichenbaum_Rebelo_Trabandt_2022/
+
 progs/dynare/*\+*/
 progs/dynare/*.log
 
@@ -46,3 +49,18 @@ progs/matlab/rbc_dynamic_g1.m
 progs/matlab/rbc_dynamic_resid.m
 progs/matlab/rbc_static_g1.m
 progs/matlab/rbc_static_resid.m
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_figures_both/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_figures_supply/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_histval/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_homotopy/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_initval/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_no_homotopy/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky/
+
+progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky_steady/

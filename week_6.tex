@@ -1,0 +1,44 @@
+% !TEX root = week_6.tex
+\input{common_header.inc}
+\Newassociation{solution}{Solution}{week_6_solution}
+\newif\ifDisplaySolutions%\DisplaySolutionstrue
+
+\begin{document}
+\title{Computational Macroeconomics\\~\\Summer 2023\\~\\Week 6}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: 1.0.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf}{GitHub}}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{week_6_solution}[week_6_solution]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/case_study_eichenbaum_rebelo_trabandt_2022.inc}%\newpage
+
+\printbibliography
+%\newpage
+
+\appendix
+\section{Helper functions for New Keynesian Epidemic model}
+\subsection{ert\_model\_sticky.mod\label{app:ert_model_sticky}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky.mod}
+
+\subsection{ert\_model\_go\_calibrate\_pi.m\label{app:ert_model_go_calibrate_pi}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_go_calibrate_pi.m}
+
+\subsection{ert\_model\_plot\_agg\_results.m\label{app:ert_model_plot_agg_results}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_plot_agg_results.m}
+
+\subsection{ert\_model\_plot\_by\_type\_results.m\label{app:ert_model_plot_by_type_results}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_plot_by_type_results.m}
+
+
+\Closesolutionfile{week_6_solution}
+\ifDisplaySolutions
+\newpage
+\appendix
+\section{Solutions}
+\input{week_6_solution}
+\fi
+\end{document}

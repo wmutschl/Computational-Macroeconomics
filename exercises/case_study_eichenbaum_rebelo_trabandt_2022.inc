@@ -1,0 +1,115 @@
+\section[Case Study Eichenbaum, Rebelo and Trabandt (2022, JEDC): Epidemics in the New Keynesian model]{Case Study Eichenbaum, Rebelo and Trabandt (2022, JEDC): Epidemics in the New Keynesian model\label{ex:CaseStudy.Eichenbaum.Rebelo.Trabandt.2022}}
+
+\begin{enumerate}
+\item Read the paper by \textcite{Eichenbaum.Rebelo.Trabandt_2022_EpidemicsNewKeynesian}
+  and focus particularly on Section 3 (The model economy), Section 4 (The impact of an epidemic), and the Appendix A (Equilibrium equations).
+
+\item Consider the Dynare mod file given in Appendix \ref{app:ert_model_sticky}, which is a stripped down version of the sticky-price New Keynesian SIR model as outlined in Appendix A of the paper.
+Compute the steady-state using an \texttt{initval} block.
+
+\item Note that the mod file contains a \texttt{predetermined\_variables} command.
+Read about this in the manual of Dynare \parencite{Adjemian.Bastani.Juillard.EtAl_2022_DynareReferenceManual}
+  and explain why this is relevant in the current model.
+
+\item Note that the Taylor rule, in equation 31), exhibits differences between the mod file and the paper.
+Specifically, in the paper, the output gap is defined as the discrepancy between output and the corresponding output level under flexible prices ($\xi=0$),
+  whereas in the mod file, it is defined as deviations from the steady-state.
+Generate a new mod file that incorporates equations for both the sticky-price and flexible-price economies,
+  with the two models connected through the Taylor rule in the sticky model.
+Additionally, you need to recalculate the pre-infectious steady-state for the combined economies.
+\emph{Hint: Don't forget to set the macro directive by including:\\ \texttt{\@\#define FLEX\_PRICE\_OUTPUT\_GAP = 1}}
+
+\item Read section \texttt{4.7. Initial and terminal conditions} in the manual of Dynare \parencite{Adjemian.Bastani.Juillard.EtAl_2022_DynareReferenceManual}.
+Add a \texttt{histval} block that implements the impact of an epidemic in the model,
+  i.e. in period $t=0$ change infected to $i_0=\varepsilon$ and susceptibles to $s_0=1-\varepsilon$,
+  while all other variables are set to their pre-infection steady-state.
+Run \texttt{perfect\_foresight\_setup} and have a look how Dynare initializes \texttt{M\_.\_endo\_histval},
+  \texttt{oo\_.\_endo\_simul} and \texttt{oo.\_exo\_simul} for the Newton algorithm.
+
+\item Notice that the \texttt{model} block has a \texttt{differentiate\_forward\_vars} option.
+Look into the manual of Dynare \parencite{Adjemian.Bastani.Juillard.EtAl_2022_DynareReferenceManual} what this option does.
+Explain why it is necessary in this model when we want to simulate the impact of an epidemic?
+
+\item What is \emph{homotopy} in the context of perfect foresight simulations?
+Illustrate this by setting
+\begin{align*}
+\pi_1 &= 2.568436063602094 \times 10^{-7}\\
+\pi_2 &= 1.593556989906377  \times 10^{-4}\\
+\pi_3 &= 0.499739472034583
+\end{align*}
+  and running a perfect foresight solver using the above \texttt{histval} block.
+
+\newpage
+
+\item Simulate the economy when the epidemic is a shock to consumption demand only,
+  i.e.\ replicate Figures 5 and 6.
+To this end, calibrate the probabilities according to:
+
+{\footnotesize
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+% calibation targets for shares of pi-terms in T-function in SIR model
+pi3_shr_target = 2/3;                  % share of T_0 jump due general infections
+pi1_shr_target = (1-pi3_shr_target);   % share of T_0 jump due to consumption-based infections
+pi2_shr_target = 0;                    % share of T_0 jump due to work-based infections
+[pi1_final,pi2_final,pi3_final] = ert_model_go_calibrate_pi(250,varepsilon,pir,pid,pi1_shr_target,pi2_shr_target,RplusD_target,c_ss,n_ss);
+\end{lstlisting}
+}
+
+\item Simulate the economy when the epidemic is a shock to labor supply only,
+  i.e.\ replicate Figures 7 and 8.
+To this end, calibrate the probabilities according to:
+
+{\footnotesize
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+pi3_shr_target = 2/3;                  % share of T_0 jump due general infections
+pi1_shr_target = 0;                    % share of T_0 jump due to consumption-based infections
+pi2_shr_target = (1-pi3_shr_target);   % share of T_0 jump due to work-based infections
+[pi1_final,pi2_final,pi3_final] = ert_model_go_calibrate_pi(250,varepsilon,pir,pid,pi1_shr_target,pi2_shr_target,RplusD_target,c_ss,n_ss);
+\end{lstlisting}
+}
+
+\item Simulate the economy when the epidemic is a shock to both consumption demand and labor supply,
+  i.e.\ replicate Figures 9 and 10.
+To this end, calibrate the probabilities according to:
+
+{\footnotesize
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+pi3_shr_target = 2/3;                  % share of T_0 jump due general infections
+pi1_shr_target = (1-pi3_shr_target)/2; % share of T_0 jump due to consumption-based infections
+pi2_shr_target = (1-pi3_shr_target)/2; % share of T_0 jump due to work-based infections
+[pi1_final,pi2_final,pi3_final] = ert_model_go_calibrate_pi(250,varepsilon,pir,pid,pi1_shr_target,pi2_shr_target,RplusD_target,c_ss,n_ss);
+\end{lstlisting}
+}
+    
+\end{enumerate}
+
+
+\paragraph{Hints}
+
+\begin{itemize}
+
+\item Appendix \ref{app:ert_model_go_calibrate_pi} contains a helper function to calibrate the probabilities $\pi_1$, $\pi_2$ and $\pi_3$.
+    
+\item Appendix \ref{app:ert_model_plot_agg_results} contains a helper function to plot figures 5, 7, and 9.
+
+\item Appendix \ref{app:ert_model_plot_by_type_results} contains a helper function to plot figures 6, 8, and 10.
+
+\item It might help to know that you can have multiple \texttt{model} and \texttt{var} blocks in the same mod file.
+
+\item Dynare's \texttt{\@\#include "SOMEMODILE"} directive might be useful.
+
+\item \texttt{set\_param\_value('pi3',pi3\_final)} is a useful function to update parameters when you loop over parameters.
+
+\item If your solution does not converge, try homotopy for $\pi_3$, e.g. start with $\pi_3/3$.
+
+\item Set the \texttt{periods} option to 500 and the \texttt{maxit} option to 100.
+
+\end{itemize}
+
+
+\begin{solution}\textbf{Solution to \nameref{ex:CaseStudy.Eichenbaum.Rebelo.Trabandt.2022}}
+\ifDisplaySolutions
+\input{exercises/case_study_eichenbaum_rebelo_trabandt_2022_solution.inc}
+\fi
+\newpage
+\end{solution}
