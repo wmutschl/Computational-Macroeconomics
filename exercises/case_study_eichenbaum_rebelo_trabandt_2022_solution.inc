@@ -1,0 +1,100 @@
+\begin{itemize}
+
+    \item[2.] Let's use Dynare's \texttt{\@\#include "ert\_model\_sticky.mod"} directive to read in the sticky-price mod file into another mod file that just computes the steady-state.
+Note that during calibration all values for the pre-infection steady-state are already computed (with a subindex \texttt{\_ss}),
+  so we can simply put that into an \texttt{initval} block:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky_steady.mod}
+
+\item[3.] In the paper the state variables capital, infected, susceptible, recovered, deceased and population
+  have a "beginning-of-period" timing convention,
+  whereas Dynare requires these variables to be "end-of-period".
+One could either lag all occurrences manually in the model equations,
+  or use \texttt{"predetermined\_variables"} such that Dynare's preprocessor does this transformation of timing.
+This is personal preference, but using \texttt{"predetermined\_variables"} makes the equations appear more in line with the paper.
+
+\item[4.] This is basically a copy \& paste exercise combined with the \texttt{\@\#include} directive.
+First, let's create a mod file for the flex-price economy called \texttt{"ert\_model\_flex.inc"}
+\begin{itemize}
+    \item Copy and paste the variable declarations and model equations of \texttt{ert\_model\_sticky.mod} into the new mod file.
+    \item Add a \texttt{\_flex} to the variables to indicate that this is the same variable,
+      but in the flex-price model.
+    Similarly, adjust all appearances of the variable in the model equations.
+    Hint: You might want to use MATLAB's \emph{Find \& Replace} feature for this.
+    \item Rename the parameter $\xi$ in the flex-price model to $\xi^f$ and set it equal to 0.
+    Do so by either declaring a new parameter calibrated to 0 or using a \emph{model local variable.}
+    \item Re-compute manually the steady-states of the auxiliary variables in the recursive pricing equations $K^{f,flex}$ and $F^{flex}$.
+\end{itemize}
+The inc file might look like this:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_flex.inc}
+As a mod file can contain several declarations of variables (\texttt{var} blocks) or model equations (\texttt{model} blocks),
+  we can conveniently use \texttt{\@\#include} to put both economies into the same mod file.
+So let's create a new mod file called \texttt{"ert\_model\_initval.mod"}
+  and use \texttt{\@\#include "ert\_model\_sticky.mod"} to read in the sticky-price mod file
+  and similarly \texttt{\@\#include "ert\_model\_flex.inc"} directive to read in the flex-price mod file.
+Then compute the pre-infection steady-state by using an \texttt{initval} block.
+Note that we need to set the macro directive\\\texttt{\@\#define FLEX\_PRICE\_OUTPUT\_GAP = 1}\\
+  prior to including the flex-price model so the correct Taylor rule is chosen.
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_initval.mod}
+
+\item[5.] The key sentence in the manual interesting to our application is:
+\begin{quote}
+\emph{Another one is to study how an economy, starting from arbitrary initial conditions at time 0 converges towards equilibrium.
+In this case models, the command histval permits to specify different historical initial values for variables with lags for the periods before the beginning of the simulation.
+Due to the design of Dynare, in this case initval is used to specify the terminal conditions.}
+\end{quote}
+For us the arbitrary initial condition is that infections break out at time 0
+  and we want to study how the economy converges towards equilibrium (which is not the pre-infection steady-state, see next exercise).
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_histval.mod}
+
+\item[6.] The Newton algorithm requires the evaluation of the forward-looking variables at the terminal steady-state.
+But the terminal steady-state is an endogenous function of the epidemic dynamics;
+  hence, it is not known a priori.
+Typically, this makes the perfect foresight solution algorithm inaccurate and often the solution cannot not found.
+But notice that the problem is just that we need to evaluate ONLY the forward-looking variables.
+So, one way out is to replace all forward-looking variables in the model by auxiliary variables
+  that have a known terminal steady-state, such that the solution regains numerical accuracy.
+Dynare's \texttt{differentiate\_forward\_vars} option implements the following transformation automatically:
+Replace all (or a subset of) variables dated t+1, say $X_{t+1}$,
+  by the sum of the current level and expected variation, $X_t + dX_{t+1}$,
+  and introduce an auxiliary equation for the new variable $dX_t=X_t-X_{t-1}$.
+This transformation is done automatically by Dynare's preprocessor,
+  which is a very good thing because doing such transformations manually is extremely error-prone.
+
+\item[7.] Newton-type algorithms are very powerful if we are close to the actual solution
+  as it belongs to the family of gradient-type optimizers.
+Whenever we want to study \textbf{large} deviations from an initial condition,
+  Newton-type algorithms might have a hard time to find the solution.
+The idea of homotopy (also called divide-and-conquer) is therefore to subdivide the problem of finding the solution into smaller problems.
+So for example, if you have a large exogenous shock on impact of size $1$,
+  the idea is to first find a solution for a smaller shock size, say $0.1$,
+  and then use that as an initial condition to find a solution for a shock size of $0.2$, $0.3$,..., and finally $1$.
+This is the default of Dynare.
+\begin{quote}
+\emph{Whenever the maximum number of iterations is reached by the Newton algorithm,
+  the perfect foresight solver uses a homotopy technique if it cannot solve the problem.
+Concretely, it divides the problem into smaller steps by diminishing the size of shocks
+  and increasing them progressively until the problem converges.}
+\end{quote}
+But in our case we don't have a shock,
+  but jump from no infections to infections.
+Particularly, we change the parameter $\pi_3$ from $0$ to a large value, say $0.5$,
+  and this is a large jump.
+Try out the following mod file:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_no_homotopy.mod}
+Note that even though Dynare has a built in switch to a homotopy method,
+  it still fails, because we don't have a large shock or a large difference between initial and terminal conditions,
+  but change parameters that affects the dynamics of the model to an endogenous terminal steady-state.
+Therefore, we need to implement the homotopy ourselves by looping over the parameter $\pi_3$.
+Try out the following mod file with homotopy:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_homotopy.mod}
+
+\item[8.] This replicates Figures 5 and 6:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_figures_demand.mod}
+
+\item[9.] This replicates Figures 7 and 8:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_figures_supply.mod}
+
+\item[10.] This replicates Figures 9 and 10:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_figures_both.mod}
+
+\end{itemize}
