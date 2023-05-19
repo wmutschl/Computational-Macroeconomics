@@ -116,15 +116,14 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 ### Goals
 
 * understand Dynare's commands to do deterministic simulations
-* understand algorithm used by Dynare to do deterministic simulations
-* understand Newton algorithm
+* understand the Newton algorithm used by Dynare to solve perfect foresight problems
 * re-implement deterministic simulations in MATLAB
 
 ### To Do
 * [ ] watch the videos
   * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
   * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
-  * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16) Visually Explained: Newton's Method in Optimization](https://youtu.be/-RdOwhmqP5s?t=355)
+  * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
   * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
 * [ ] do exercise 1 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
 * [ ] we will do a case study together in class
@@ -179,19 +178,19 @@ We cover modern theoretical macroeconomics (the study of aggregated variables su
 
 
 
-## Case Studies
-- Fiscal policy (Baxter and King, 1993, American Economic Review)
-- Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
-- Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
-- Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
-- International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
-- Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)
-- Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
-- Optimal environmental policy (Heutel, 2012, Review of Economic Dynamics; Annicchiarico and Di Dio, 2015, Journal of Environmental Economics and Management)
-- Equity premium puzzle (Jermann, 1998, Journal of Monetary Economics)
-- Zero-lower bound on nominal interest rates (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
-- Rare disasters (Fernandez-Villaverde and Levintal, 2018, Quantitative Economics; Isore and Szczerbowicz, 2017, Journal of Economic Dynamics and Control)
-- Endogenous Banking Crises (Boissay, Collard, and Smets, 2016, Journal of Political Economy)
+## Case Studies and Replications (Preliminary)
+- [x] Fiscal policy (Baxter and King, 1993, American Economic Review)
+- [x] Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- [ ] Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
+- [ ] Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
+- [ ] International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
+- [ ] Nonlinearities and large shocks (Harding, Linde and Trabandt, 2022)
+- [ ] Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
+- [ ] Optimal environmental policy (Heutel, 2012, Review of Economic Dynamics; Annicchiarico and Di Dio, 2015, Journal of Environmental Economics and Management)
+- [ ] Equity premium puzzle (Jermann, 1998, Journal of Monetary Economics)
+- [ ] Zero-lower bound on nominal interest rates (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
+- [ ] Rare disasters (Fernandez-Villaverde and Levintal, 2018, Quantitative Economics; Isore and Szczerbowicz, 2017, Journal of Economic Dynamics and Control)
+- [ ] Endogenous Banking Crises (Boissay, Collard, and Smets, 2016, Journal of Political Economy)
 
 ## Learning target
 
