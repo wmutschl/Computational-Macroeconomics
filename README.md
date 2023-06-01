@@ -22,21 +22,21 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 
-* [ ] read the general course information on [Ilias](https://ovidius.uni-tuebingen.de/ilias3/goto.php?target=crs_4166405&client_id=pr02)
-* [ ] watch the introductory videos (on YouTube)
-  * [ ] [Introduction to Computational Macroeconomics](https://youtu.be/vZfX5U5xyws)
-  * [ ] [Introduction to MATLAB](https://youtu.be/_CbLr11aeQ4)
-  * [ ] [Quick Tour Dynare (focus on solution methods and simulations)](https://youtu.be/NDFSUx46FvM)
-* [ ] prepare your computer: MATLAB/Octave and Dynare
-  * [ ] install MATLAB R2023a following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clientdienste/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
-  * [ ] install Dynare 5.4 following [this guide](https://www.dynare.org/resources/quick_start/)
-* [ ] do [exercises for week 1](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf)
-* [ ] write down all your questions
-* [ ] [schedule an online meeting](https://schedule.mutschler.eu) with me
-  * [ ] put *"I am interested in this course"* under *"What is the meeting about?"*
-  * [ ] check your emails and cancel the meeting again using the link in the email
-  * [ ] now you know how easy it is to schedule a meeting with me :-)
-* [ ] participate in the Q&A sessions
+* [x] read the general course information on [Ilias](https://ovidius.uni-tuebingen.de/ilias3/goto.php?target=crs_4166405&client_id=pr02)
+* [x] watch the introductory videos (on YouTube)
+  * [x] [Introduction to Computational Macroeconomics](https://youtu.be/vZfX5U5xyws)
+  * [x] [Introduction to MATLAB](https://youtu.be/_CbLr11aeQ4)
+  * [x] [Quick Tour Dynare (focus on solution methods and simulations)](https://youtu.be/NDFSUx46FvM)
+* [x] prepare your computer: MATLAB/Octave and Dynare
+  * [x] install MATLAB R2023a following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clientdienste/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
+  * [x] install Dynare 5.4 following [this guide](https://www.dynare.org/resources/quick_start/)
+* [x] do [exercises for week 1](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf)
+* [x] write down all your questions
+* [x] [schedule an online meeting](https://schedule.mutschler.eu) with me
+  * [x] put *"I am interested in this course"* under *"What is the meeting about?"*
+  * [x] check your emails and cancel the meeting again using the link in the email
+  * [x] now you know how easy it is to schedule a meeting with me :-)
+* [x] participate in the Q&A sessions
 
 </details>
 
@@ -54,14 +54,14 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 
-* [ ] watch the following videos (on YouTube)
-  * [ ] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
-  * [ ] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)
+* [x] watch the following videos (on YouTube)
+  * [x] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
+  * [x] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)
 ](https://youtu.be/4xeoLh3edpo)
-  * [ ] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types
+  * [x] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types
 ](https://youtu.be/HRpynlbZBzM)
-* [ ] do exercises 1 and 2 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do the case study together
-* [ ] bring all your questions and concerns to the Q&A sessions
+* [x] do exercises 1 and 2 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do the case study together
+* [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
@@ -77,11 +77,11 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 
-* [ ] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
-* [ ] do the MATLAB exercises 1 and 2 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [ ] work carefully and thoroughly through the very long exercise 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [ ] we will do exercise 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class
-* [ ] bring all your questions and concerns to the Q&A sessions
+* [x] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
+* [x] do the MATLAB exercises 1 and 2 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
+* [x] work carefully and thoroughly through the very long exercise 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
+* [x] we will do exercise 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class
+* [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
@@ -96,7 +96,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 
-* [ ] watch the (very short) videos:
+* [x] watch the (very short) videos:
   * [Introduction to Optimization: What is Optimization](https://youtu.be/Q2dewZweAtU)
   * [Introduction To Optimization: Objective Functions and Decision Variables](https://youtu.be/AoJQS10Ewn4)
   * [Introduction To Optimization: Gradients, Constraints, Continuous and Discrete Variables](https://youtu.be/URkmNZuFzKg)
@@ -104,8 +104,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [Introduction To Optimization: Gradient Free Algorithms (1/2) - Genetic - Particle Swarm](https://youtu.be/3QJjfeVrut8)
   * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
   * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)  
-* [ ] do exercises 1-3 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
-* [ ] bring all your questions and concerns to the Q&A sessions
+* [x] do exercises 1-3 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
+* [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
@@ -120,14 +120,14 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * re-implement deterministic simulations in MATLAB
 
 ### To Do
-* [ ] watch the videos
+* [x] watch the videos
   * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
   * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
   * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
   * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
-* [ ] do exercise 1 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
-* [ ] we will do a case study together in class
-* [ ] bring all your questions and concerns to the Q&A sessions
+* [x] do exercise 1 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
+* [x] we will do a case study together in class
+* [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
@@ -147,14 +147,33 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 * prepare exercise 1 of [week 6's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf)
-  * [ ] read the case-study paper carefully
-  * [ ] download all files
-  * [ ] read all the exercises
-  * [ ] try to prepare the exercises (this will be hard, so we will go through this together in class)
-* [ ] bring all your questions and concerns to the Q&A sessions
+  * [x] read the case-study paper carefully
+  * [x] download all files
+  * [x] read all the exercises
+  * [x] try to prepare the exercises (this will be hard, so we will go through this together in class)
+* [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
+
+<details>
+  <summary>Week 7: Midterm Exam: Monopolistic Competition, Irreversible Investment, War Shock</summary>
+
+### Goals
+
+* understand monopolistic competition and the Dixit Stiglitz elasticity parameter
+* understand irreversible investments as an occasionally binding constraint
+* understand the modeling of a war in a New Keynesian model
+* get a good grade
+
+### To Do
+* [x] read the instructions and do both exercises from the [summer 2023 midterm exam](https://github.com/wmutschl/Computational-Macroeconomics/releases/download/exam_midterm_2023_v1.0.1/midterm_exam_ss2023.pdf)
+* [x] read the case-study paper carefully
+* [x] hand in your solutions via email
+* [x] for immediate help: contact me [via email](mailto:willi@mutschler.eu) or [schedule a meeting](https://schedule.mutschler.eu)
+
+
+</details>
 
 ## Content
 
@@ -181,6 +200,7 @@ We cover modern theoretical macroeconomics (the study of aggregated variables su
 ## Case Studies and Replications (Preliminary)
 - [x] Fiscal policy (Baxter and King, 1993, American Economic Review)
 - [x] Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
+- [x] Wars (Auray and Eyquem, 2019, Journal of Economic Dynamics and Control)
 - [ ] Trend inflation (Ascari and Sbordone, 2014, Journal of Economic Literature)
 - [ ] Technology shocks and business cycles (King, Plosser and Rebelo, 1988, Journal of Monetary Economics)
 - [ ] International spillovers under different environmental policy regimes (Annicchiarico and Diluiso, 2019, Resource and Energy Economics)
@@ -188,7 +208,7 @@ We cover modern theoretical macroeconomics (the study of aggregated variables su
 - [ ] Fiscal multipliers (Linde and Trabandt, 2017, Journal of Applied Econometrics)
 - [ ] Optimal environmental policy (Heutel, 2012, Review of Economic Dynamics; Annicchiarico and Di Dio, 2015, Journal of Environmental Economics and Management)
 - [ ] Equity premium puzzle (Jermann, 1998, Journal of Monetary Economics)
-- [ ] Zero-lower bound on nominal interest rates (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
+- [ ] Zero-lower bound on nominal interest rates, irreversible investment (Guerrieri and Iacoviello, 2015, Journal of Monetary Economics)
 - [ ] Rare disasters (Fernandez-Villaverde and Levintal, 2018, Quantitative Economics; Isore and Szczerbowicz, 2017, Journal of Economic Dynamics and Control)
 - [ ] Endogenous Banking Crises (Boissay, Collard, and Smets, 2016, Journal of Political Economy)
 
@@ -211,3 +231,4 @@ Basic undergraduate knowledge of macroeconomics as well as econometrics are requ
 ## Getting Involved
 If you spot mistakes, let me know by opening an issue or write me an email to [willi@mutschler.eu](mailto:willi@mutschler.eu).
 Moreover, solutions to the exercises in other computer languages (e.g. Julia, Python or R) are highly appreciated.
+Please sent me those either [via email](mailto:willi@mutschler.eu) or (better) open a pull request.
