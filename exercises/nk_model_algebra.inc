@@ -122,7 +122,7 @@ w_t &= \chi_h h_t^{\sigma_h} c_t^{\sigma_c}
 \lambda_t &= \beta E_t \left[\lambda_{t+1} r_t\right]
 \label{eq:NewKeynesian.EulerBond}
 \\
-1 &= q_t - q_t \phi_i \left(\frac{i_t}{i_{t-1}}-1\right)\left(\frac{i_t}{i_{t-1}}\right)
+1 &= q_t \left( 1 - \frac{\phi_i}{2} \left(\frac{i_t}{i_{t-1}}-1\right)^2 - \phi_i \left(\frac{i_t}{i_{t-1}}-1\right)\left(\frac{i_t}{i_{t-1}}\right) \right)
   + \beta E_t \frac{\lambda_{t+1}}{\lambda_t} q_{t+1} \phi_i \left(\frac{i_{t+1}}{i_{t}}-1\right)\left(\frac{i_{t+1}}{i_{t}}\right)^2
 \label{eq:NewKeynesian.EulerInvestment}
 \\

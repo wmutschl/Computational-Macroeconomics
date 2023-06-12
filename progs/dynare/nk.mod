@@ -90,8 +90,8 @@ w = CHIH*h^(SIGMA_H)*c^(SIGMA_C);
 [name='optimal bond holding, Euler equation for bonds']
 lam = BETA*lam(+1)*rreal;
 [name='optimal investment decision, Euler equation for investment']
-1 = q - q * PHIIV * (iv/iv(-1)-1)*(iv/iv(-1))
-      + BETA*lam(+1)/lam*q(+1)*PHIIV*(iv(+1)/iv-1)*(iv(+1)/iv)^2;
+1 = q * ( 1 - PHIIV/2 * (iv/iv(-1)-1)^2 - PHIIV * (iv/iv(-1)-1)*(iv/iv(-1)) )
+  + BETA * lam(+1)/lam * q(+1) * PHIIV * (iv(+1)/iv-1) * (iv(+1)/iv)^2;
 [name='optimal capital decision, Euler equation for capital']
 q = BETA*lam(+1)/lam*(rk(+1)+q(+1)*(1-DELTA));
 
