@@ -64,3 +64,7 @@ progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_no_homotopy/
 progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky/
 
 progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky_steady/
+
+progs/dynare/nk_stoch/
+
+progs/dynare/nk_var_typology/
