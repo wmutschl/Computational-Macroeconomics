@@ -8,6 +8,7 @@
 function MODEL = preprocessing_matlab_rbc
 
 %% symbolic declarations
+fname = "rbc";
 endo_names = ["y"; "c"; "k"; "n"; "a"; "r"; "w"; "iv"];
 exo_names = ["eps_a"];
 param_names = ["BETTA"; "DELT"; "GAMA"; "PSSI"; "ALPH"; "RHOA"];
@@ -25,7 +26,13 @@ syms(endo_names + "_stst")
 syms(exo_names);
 
 % declare parameters as symbolic (check in the workspace)
-syms(param_names);
+try
+    syms(param_names); % depending if name of parameter is builtin MATLAB command this won't work in a function
+catch
+    for jp=1:length(param_names)
+        eval(sprintf('%s = sym(''%s'');',param_names(jp),param_names(jp)));
+    end
+end
 
 %% symbolic model equations
 % intertemporal optimality (Euler)
@@ -101,16 +108,25 @@ static_eqs = subs(static_eqs,sym(endo_names + "_stst"),endo_vars); % substitute 
 static_g1 = jacobian(static_eqs,endo_vars);
 
 %% write out to script files
-write_out(static_eqs,'rbc_static_resid','residual',1,dynamic_names,endo_names,exo_names,param_names);
-write_out(static_g1,'rbc_static_g1','g1',1,dynamic_names,endo_names,exo_names,param_names);
-write_out(dynamic_eqs,'rbc_dynamic_resid','residual',0,dynamic_names,endo_names,exo_names,param_names);
-write_out(dynamic_g1,'rbc_dynamic_g1','g1',0,dynamic_names,endo_names,exo_names,param_names);
+write_out(static_eqs,fname+"_static_resid",'residual',1,dynamic_names,endo_names,exo_names,param_names);
+write_out(static_g1,fname+"_static_g1",'g1',1,dynamic_names,endo_names,exo_names,param_names);
+write_out(dynamic_eqs,fname+"_dynamic_resid",'residual',0,dynamic_names,endo_names,exo_names,param_names);
+write_out(dynamic_g1,fname+"_dynamic_g1",'g1',0,dynamic_names,endo_names,exo_names,param_names);
 
 %% store to structure
+MODEL.fname = fname;
 MODEL.endo_names = endo_names;
 MODEL.endo_nbr = endo_nbr;
+MODEL.nstatic = length(endo_static_names);
+MODEL.npred = length(endo_pred_names);
+MODEL.nboth = length(endo_mixed_names);
+MODEL.nfwrd = length(endo_fwrd_names);
+MODEL.nspred = MODEL.npred+MODEL.nboth;
+MODEL.nsfwrd = MODEL.nboth+MODEL.nfwrd;
 MODEL.exo_names = exo_names;
 MODEL.exo_nbr = exo_nbr;
 MODEL.lead_lag_incidence = lead_lag_incidence;
 MODEL.param_names = param_names;
 MODEL.param_nbr = param_nbr;
+
+[~,MODEL.order_var] = ismember(endo_names,[endo_static_names; endo_pred_names; endo_mixed_names; endo_fwrd_names]);
