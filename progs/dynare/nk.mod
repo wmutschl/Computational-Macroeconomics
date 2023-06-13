@@ -40,13 +40,13 @@ nu      // monetary policy shock
 zeta    // discount factor shifter
 
 // reporting variables in percentage deviation from steady-state
-hat_y hat_w hat_h hat_pi_ann hat_rnom_ann hat_rreal_ann hat_mc hat_a hat_zeta
+hat_y hat_c hat_w hat_h hat_k hat_iv hat_pi_ann hat_rnom_ann hat_rreal_ann hat_rk_ann hat_mc hat_a hat_zeta
 ;
 
 varexo
 eps_a     // innovation to total factor productivity
 eps_nu    // innovation to monetary policy shock
-eps_zeta  // innovation to discount factor shifter
+eps_zeta  // innovation to discount factor shifter (enters with a negative sign)
 ;
 
 parameters
@@ -133,23 +133,31 @@ log(a) = RHOA*log(a(-1)) + eps_a;
 [name='monetary policy shock process']
 nu = RHONU*nu(-1) + eps_nu;
 [name='discount factor shifter process']
-log(zeta) = RHOZETA*log(zeta(-1)) + eps_zeta;
+log(zeta) = RHOZETA*log(zeta(-1)) - eps_zeta; // note the minus sign
 
 ///////////////
 // reporting //
 ///////////////
 [name='output in percentage deviation from steady-state']
 hat_y = log(y) - log(steady_state(y));
+[name='consumption in percentage deviation from steady-state']
+hat_c = log(c) - log(steady_state(c));
 [name='wage in percentage deviation from steady-state']
 hat_w = log(w) - log(steady_state(w));
 [name='labor in percentage deviation from steady-state']
 hat_h = log(h) - log(steady_state(h));
+[name='capital in percentage deviation from steady-state']
+hat_k = log(k) - log(steady_state(k));
+[name='investment in percentage deviation from steady-state']
+hat_iv = log(iv) - log(steady_state(iv));
 [name='annualized inflation in percentage deviation from steady-state']
 hat_pi_ann = 4*(log(pie) - log(steady_state(pie)));
 [name='annualized nominal interest rate in percentage deviation from steady-state']
 hat_rnom_ann = 4*(log(rnom) - log(steady_state(rnom)));
 [name='annualized real interest rate in percentage deviation from steady-state']
 hat_rreal_ann = 4*(log(rreal) - log(steady_state(rreal)));
+[name='annualized real return on capital in percentage deviation from steady-state']
+hat_rk_ann = 4*(log(rk) - log(steady_state(rk)));
 [name='marginal costs in percentage deviation from steady-state']
 hat_mc = log(mc) - log(steady_state(mc));
 [name='total factor productivity in percentage deviation from steady-state']

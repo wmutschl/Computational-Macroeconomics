@@ -37,16 +37,20 @@ Write a Dynare mod file for this model and compute the steady state of the model
   or numerically using an \texttt{initval} block.
 \noindent Additionally, for reporting purposes, add the following equations:
 \begin{align*}
-\widehat{y}_t &= \log\left(y_{t}\right) - \log\left(y\right) &&
-\widehat{w}_t =\log\left(w_t\right) - \log\left(w\right)&&
+\widehat{y}_t &= \log\left(y_{t}\right) - \log\left(y\right), \qquad
+\widehat{c}_t = \log\left(c_{t}\right) - \log\left(c\right), \qquad
+\widehat{w}_t =\log\left(w_t\right) - \log\left(w\right) , \qquad
 \widehat{h}_t = \log\left(h_{t}\right) - \log\left(h\right) \\
-\widehat{\Pi}^{an}_{t}&=4 \left( \log\left(\Pi_{t}\right) - \log\left(\Pi\right) \right)&&
-\widehat{R}^{an}_{t} =4 \left( \log\left(R_{t}\right) - \log\left(R\right)\right)&&
-\widehat{r}^{an}_{t} =4 \left( \log\left(r_{t}\right) - \log\left(r\right) \right)\\
-\widehat{mc}_t &= \log\left(mc_{t}\right) - \log\left(mc\right) &&
-\widehat{a}_t = \log\left(a_{t}\right) - \log\left(a\right)&&
+\widehat{k}_t &= \log\left(k_{t}\right) - \log\left(k\right), \qquad
+\widehat{i}_t = \log\left(i_{t}\right) - \log\left(i\right), \qquad
+\widehat{\Pi}^{an}_{t}=4 \left( \log\left(\Pi_{t}\right) - \log\left(\Pi\right) \right),\\
+\widehat{R}^{an}_{t} &=4 \left( \log\left(R_{t}\right) - \log\left(R\right)\right), \qquad
+\widehat{r}^{an}_{t} =4 \left( \log\left(r_{t}\right) - \log\left(r\right) \right), \qquad
+\widehat{r}^{k}_{t} =4 \left( \log\left(r^k_{t}\right) - \log\left(r^k\right) \right), \\
+\widehat{mc}_t &= \log\left(mc_{t}\right) - \log\left(mc\right), \qquad
+\widehat{a}_t = \log\left(a_{t}\right) - \log\left(a\right), \qquad
 \widehat{z}_t = \log\left(z_{t}\right) - \log\left(z\right)
-\end{align*}    
+\end{align*}
 where variables without a time subscript denote steady-state values.
 
 \noindent\emph{Hint: The model equations are
