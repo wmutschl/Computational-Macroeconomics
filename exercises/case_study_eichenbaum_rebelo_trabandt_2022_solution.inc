@@ -49,7 +49,7 @@ For us the arbitrary initial condition is that infections break out at time 0
 \item[6.] The Newton algorithm requires the evaluation of the forward-looking variables at the terminal steady-state.
 But the terminal steady-state is an endogenous function of the epidemic dynamics;
   hence, it is not known a priori.
-Typically, this makes the perfect foresight solution algorithm inaccurate and often the solution cannot not found.
+Typically, this makes the perfect foresight solution algorithm inaccurate and often the solution cannot be found.
 But notice that the problem is just that we need to evaluate ONLY the forward-looking variables.
 So, one way out is to replace all forward-looking variables in the model by auxiliary variables
   that have a known terminal steady-state, such that the solution regains numerical accuracy.
