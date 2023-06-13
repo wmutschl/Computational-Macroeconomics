@@ -1,0 +1,77 @@
+\section[Brock and Mirman (1972) Model]{Brock and Mirman (1972) Model\label{ex:BrockMirmanPolicyFunction}}
+Consider a simple RBC model with log-utility and full depreciation.
+The objective is to maximize
+\begin{align*}
+\max ~E_t \sum_{j=0}^{\infty} \beta^{j} \log(c_{t+j})
+\end{align*}
+subject to the law of motion for capital $k_t$ at the end of period $t$
+\begin{align}
+k_{t} = a_t k_{t-1}^\alpha - c_t \label{eq:BrockMirmanCapital}
+\end{align}
+with $\beta <1$ denoting the discount factor and $E_t$ is expectation given information at time $t$.
+Productivity $a_t$ is the driving force of the economy and evolves according to
+\begin{align}
+\log{a_{t}} &= \rho \log{a_{t-1}}  + \varepsilon_{t} \label{eq:BrockMirmanTFP}
+\end{align}
+where $\rho$ denotes the persistence parameter
+  and $\varepsilon_{t}$ is assumed to be normally distributed with mean zero and variance $\sigma^2$.
+Finally, we assume that the transversality condition and 
+  the following non-negativity constraints are fullfilled: $k_t \geq0$ and $c_t \geq 0$.
+
+\begin{enumerate}
+
+\item Show that the first-order condition is given by
+\begin{align}
+1 = \alpha \beta E_t \frac{c_{t}}{c_{t+1}} a_{t+1} k_{t}^{\alpha-1} \label{eq:BrockMirmanEuler}
+\end{align}
+
+\item Compute the steady-state of the model with pen and paper,
+  in the sense that there is a set of values for the endogenous variables that in equilibrium remain constant over time.
+
+\item Professor Mutschler taught you the concept of a policy function,
+\begin{align*}
+\begin{pmatrix} c_{t}\\k_{t}\\a_{t} \end{pmatrix}
+&= g(a_{t-1},k_{t-1},\varepsilon_{t})
+\end{align*}	 
+  which maps the current state of the economy ($k_{t-1}$ and $a_{t-1}$) and current shocks $\varepsilon_{t}$ to current decisions of the agents.
+You remember him stating, that there is no way to derive the function in closed-form, so that's why we use perturbation approximation techniques.
+Willi, a fellow student, disagrees with this assessment and claims that he is able to compute the policy function in closed-form for this model.
+He claims that the policy function is linear in $ a_t k_{t-1}^\alpha$, i.e. it has the form
+\begin{align}
+c_{t} &= g^c a_t k_{t-1}^\alpha \label{eq:BrockMirman:gc}\\
+k_{t} & = g^k a_t k_{t-1}^\alpha \label{eq:BrockMirman:gk}
+\end{align}
+where $g^c$ and $g^k$ are some scalars which are a function of model parameters $\alpha$ and $\beta$ only.
+Professor Mutschler is surprised and therefore asks you on the exam to derive the scalar values $g^c$ and $g^k$.
+Do so by inserting the guessed policy functions \eqref{eq:BrockMirman:gc} and \eqref{eq:BrockMirman:gk}
+  into the model equations \eqref{eq:BrockMirmanCapital} and \eqref{eq:BrockMirmanEuler}.
+
+\item Write a program that:
+\begin{enumerate}
+	\item pre-processes the model and saves both the static and dynamic model equations as well as Jacobians to script files
+	  which can be evaluated for any value of parameters, dynamic endogenous variables and exogenous variables.
+	\item computes the steady-state for the following parametrization: $\alpha=0.3$, $\beta=0.96$, $\rho=0.5$, and $\sigma=0.2$.
+	\item computes the first-order approximated policy function (i.e. $g_x$ and $g_u$ in the notation used in the lecture) for the following parametrization:
+	  $\alpha=0.3$, $\beta=0.96$, $\rho=0.5$, and $\sigma=0.2$.
+	\item plots the impulse response function of all model variables with respect to a one standard deviation shock in total factor productivity
+	and compares these to the IRF based on the the true policy function.
+	\item draws $T=200$ shocks from the normal distribution with standard deviation $\sigma$ and simulates data for all model variables
+	by using the first-order approximated policy function.
+	Compare this to simulating the model using the true policy function and the same shock series.
+\end{enumerate}
+
+\end{enumerate}
+
+\paragraph{Readings}
+\begin{itemize}
+	\item \textcite{Brock.Mirman_1972_OptimalEconomicGrowth}
+	\item \textcite[Ch.~5]{Hansen.Sargent_2013_RecursiveModelsDynamic}
+	\item \textcite[Ch.~3.1.2]{Ljungqvist.Sargent_2018_RecursiveMacroeconomicTheory}
+\end{itemize}
+
+\begin{solution}\textbf{Solution to \nameref{ex:BrockMirmanPolicyFunction}}
+\ifDisplaySolutions
+\input{exercises/brock_mirman_policy_function_solution.inc}
+\fi
+\newpage
+\end{solution}
