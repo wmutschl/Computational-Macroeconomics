@@ -2,31 +2,29 @@
 Consider the New Keynesian model of \textcite{An.Schorfheide_2007_BayesianAnalysisDSGE}.
 The model equations are given by 
 \begin{align}
-1 &= \beta \mathbb{E}_t\left[\left(\frac{c_{t+1}}{c_t}\right)^{-\tau} \frac{1}{\gamma z_{t+1}} \frac{R_t}{\pi_{t+1}}\right] \label{eq:AS_B1}
+1 &= \beta \mathbb{E}_t\left[\left(\frac{c_{t+1}}{c_t}\right)^{-\tau} \frac{1}{\gamma z_{t+1}} \frac{R_t}{\pi_{t+1}}\right] \label{eq:AS_Euler}
 \\
-1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] - \phi \beta \mathbb{E}_t \left[\left(\frac{c_{t+1}}{c_t}\right)^{-\tau} \frac{y_{t+1}}{y_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-c_t^{\tau}\right]
+1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] - \phi \beta \mathbb{E}_t \left[\left(\frac{c_{t+1}}{c_t}\right)^{-\tau} \frac{y_{t+1}}{y_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-c_t^{\tau}\right] \label{eq:AS_PC}
 \\
-y_t &= c_t + \frac{g_t-1}{g_t} y_t + \frac{\phi}{2} \left({\pi_t - \pi}\right)^2 y_t
+y_t &= c_t + \frac{g_t-1}{g_t} y_t + \frac{\phi}{2} \left({\pi_t - \pi}\right)^2 y_t \label{eq:AS_Market}
 \\
-R_t &= {R_t^{*}}^{1-\rho_R} R_{t-1}^{\rho_R} e^{\sigma_r\epsilon_{R,t}}
+R_t &= {R_t^{*}}^{1-\rho_R} R_{t-1}^{\rho_R} e^{\epsilon_{R,t}} \label{eq:AS_Taylor1}
 \\
-\ln(z_t) &= \rho_z \ln(z_{t-1}) + \sigma_z\epsilon_{z,t}
+R_t^* &= R \left(\frac{\pi_t}{\bar{\pi}}\right)^{\psi_1} \left(\frac{y_t}{y_t^*}\right)^{\psi_2} \label{eq:AS_Taylor2}
 \\
-\ln(g_t) &= (1-\rho_g)\ln(\bar{g}) + \rho_g \ln(g_{t-1}) + \sigma_g\epsilon_{g,t}
+\ln(z_t) &= \rho_z \ln(z_{t-1}) + \epsilon_{z,t} \label{eq:AS_tfpgrowth}
 \\
-y_t^* &= (1-\nu)^{\frac{1}{\tau}} g_t
+\ln(g_t) &= (1-\rho_g)\ln\left(\bar{g}\right) + \rho_g \ln(g_{t-1}) + \epsilon_{g,t} \label{eq:AS_g}
+\\
+y_t^* &= (1-\nu)^{\frac{1}{\tau}} g_t \label{eq:AS_flexy}
 \end{align}
-where $\epsilon_{R,t}$, $\epsilon_{g,t}$ and $\epsilon_{z,t}$ are iid normally distributed with a standard error of 1.
+where $\epsilon_{R,t}$, $\epsilon_{g,t}$ and $\epsilon_{z,t}$ are iid normally distributed with a mean of zeros and standard errors equal to $\sigma_r$, $\sigma_g$, $\sigma_z$, respectively.
 Moreover, we have the following auxiliary parameter relationships:
 \begin{align*}
 \gamma = 1+\frac{\gamma^{Q}}{100}, \qquad
 \beta = \frac{1}{1+r^{A}/400}, \qquad
 \bar{\pi} = 1+\frac{\pi^{A}}{400}, \qquad
 \phi = \tau \frac{1-\nu}{\nu \bar{\pi}^{2}\kappa}
-\end{align*}
-and one auxiliary variable $R_t^*$:
-\begin{align*}
-R_t^* &= R \left(\frac{\pi_t}{\bar{\pi}}\right)^{\psi_1} \left(\frac{y_t}{y_t^*}\right)^{\psi_2}
 \end{align*}
 Note that $y_t^*$ is an endogenous model variable, whereas $\bar{\pi}$ and $\bar{g}$ are parameters and $R$ denotes the steady-state of $R_t$.
 
@@ -64,18 +62,14 @@ and the other one \textbf{dovish}:
 \item Provide intuition behind each equation of the model.
 How are nominal price rigidities modelled?\\\emph{Hint: Have a look at the relevant parts of the underlying paper.}
 
-\item Write a Dynare mod file for this model.
+\item Write a Dynare mod file for this model. Derive the steady state of all model variables analytically and include these in a \texttt{steady\_state\_model} block.
 
-\item Derive the steady state of all model variables analytically and include these in a \texttt{steady\_state\_model} block.
-If you struggle to do that, use an \texttt{initval} block.
-\item Investigate the steady-state properties and theoretical moments of the two different parametrizations (dovish vs. hawkish) 
-  by running the \texttt{steady} and \texttt{stoch\_simul(order=1,periods=0)} commands.
-Explain how theoretical moments are computed and re-compute the displayed moments in MATLAB.
+\item Explain how theoretical moments are computed based on the first-order policy function.
+
+\item Investigate the steady-state properties, theoretical moments, and impulse response functions of the two different parametrizations (dovish vs. hawkish) 
+  by running the \texttt{steady} and \texttt{stoch\_simul(order=1)} commands.
 \\
 \emph{Hint: Look at Dynare's output in the command window for the Steady-State values and Theoretical Moments.}
-\item Now compare the impulse-response functions of the two different parametrizations (dovish vs. hawkish) for output and inflation
-  to a one standard deviation TFP shock and a one standard deviation monetary policy shock.
-Provide intuition for the impulse response functions.
 \item The determinacy region is defined as the parameter space for which the Blanchard \& Khan (1980, Econometrica) order and rank conditions are full-filled.
 Dynare's sensitivity toolbox provides means to get a graphical representation of this region
   by drawing randomly from the parameter space and checking the order and rank conditions.
@@ -88,7 +82,7 @@ PSI1, uniform_pdf,,, 0,6; %draw uniformly from 0 to 6
 PSI2, uniform_pdf,,,-1,6; %draw uniformly from -1 to 6
 RHOR, uniform_pdf,,,-1,1; %draw uniformly from -1 to 1
 end;
-varobs y pie;
+varobs y pie R;
 dynare_sensitivity(prior_range=0,stab=1,nsam=2000);		
 %---------------
 \end{verbatim}	
@@ -96,10 +90,6 @@ dynare_sensitivity(prior_range=0,stab=1,nsam=2000);
   while keeping all other parameter values at their calibrated values.
 Focus on the the plots and explain these.
 What does this imply for the ability of monetary policy to anchor inflation expectations?
-\item In your opinion, is the monetary policy strategy conducted by the European Central bank hawkish or dovish?
-What about the Federal Reserve?
-Given the insights you gained in this exercise:
-Would it be desirable for policymakers to be rather hawkish or dovish?
 \end{enumerate}
 
 \paragraph{Readings}
@@ -109,7 +99,7 @@ Would it be desirable for policymakers to be rather hawkish or dovish?
 
 \begin{solution}\textbf{Solution to \nameref{ex:AnScho2007_identif_bk}}
 \ifDisplaySolutions
-\input{exercises/an_schorfheide_identif_bk_solution.inc}
+\input{exercises/an_schorfheide_identif_bk_solution.tex}
 \fi
 \newpage
 \end{solution}
