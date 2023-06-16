@@ -21,6 +21,7 @@ disp(array2table(M_.lead_lag_incidence,...
 fprintf('    number in M_.lead_lag_incidence corresponds to column in dynamic Jacobian g1\n');
 fprintf('\n%s\n\n',strjoin(repmat("*",1,100),''))
 
+
 % static variables: appear only at t, but not at t-1 and not at t+1
 endo_static_names = M_.endo_names(ismember(transpose(M_.lead_lag_incidence>0), [0 1 0],'rows'));
 fprintf('%s\n',strjoin(repmat("*",1,100),''))
@@ -38,19 +39,19 @@ fprintf('    M_.npred = %d\n',M_.npred)
 fprintf('\n%s\n\n',strjoin(repmat("*",1,100),''))
 
 % purely forward looking variables: appear at t+1 but not at t-1, possibly at t
-endo_fwrd_names = M_.endo_names(ismember(transpose(M_.lead_lag_incidence([1 3],:)>0), [0 1],'rows'))
+endo_fwrd_names = M_.endo_names(ismember(transpose(M_.lead_lag_incidence([1 3],:)>0), [0 1],'rows'));
 fprintf('%s\n',strjoin(repmat("*",1,100),''))
 fprintf('\n    purely forward looking variables: appear at t+1 but not at t-1, possibly at t\n\n')
-disp(endo_pred_names');
-fprintf('    M_.nfwrd = %d\n',M_.npred)
+disp(endo_fwrd_names');
+fprintf('    M_.nfwrd = %d\n',M_.nfwrd)
 fprintf('\n%s\n\n',strjoin(repmat("*",1,100),''))
 
 % mixed variables: appear at t-1 and t+1, and possibly at t
-endo_mixed_names = M_.endo_names(ismember(transpose(M_.lead_lag_incidence([1 3],:)>0), [1 1],'rows'))
+endo_mixed_names = M_.endo_names(ismember(transpose(M_.lead_lag_incidence([1 3],:)>0), [1 1],'rows'));
 fprintf('%s\n',strjoin(repmat("*",1,100),''))
 fprintf('\n    mixed variables: appear at t-1 and t+1, and possibly at t\n\n')
-disp(endo_pred_names');
-fprintf('    M_.nboth = %d\n',M_.npred)
+disp(endo_mixed_names');
+fprintf('    M_.nboth = %d\n',M_.nboth)
 fprintf('\n%s\n\n',strjoin(repmat("*",1,100),''))
 
 % state and jumper variables

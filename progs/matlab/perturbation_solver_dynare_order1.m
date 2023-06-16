@@ -37,7 +37,9 @@ function [g_x, g_u, info] = perturbation_solver_dynare_order1(M_, oo_, fname_dyn
 % Willi Mutschler (willi@mutschler.eu)
 % Version: June 13, 2023
 % =========================================================================
-
+if nargin < 3
+    fname_dynamic_Jacobian = [];
+end
 if nargin < 4
     keep_static = false;
 end
