@@ -175,6 +175,102 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
+
+<details>
+  <summary>Week 8: First-order perturbation, Identification, Sensitivity, Log-Linearization</summary>
+
+### Goals
+* understand the concept of a policy function
+* understand the general idea of first-order perturbation approximation
+* understand certainty equivalence
+* understand the algorithm to compute the perturbation matrices using the Linear Rational Expectation model framework
+* [optional] understand Dynare's first-order perturbation solver
+
+
+### To Do
+* [ ] watch [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
+* [ ] [optional] [Solving rational expectation models with first order perturbation: what Dynare does (Part 2 of 2)]() on YouTube
+* [ ] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
+* [ ] read section 2 of An and Schorfheide (2007)
+* [ ] [optional] read Rupert and Šustek (2019)
+* [ ] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
+
+<details>
+  <summary>Week 9: </summary>
+
+### Goals
+* 
+
+### To Do
+* [ ]
+
+</details>
+
+
+<details>
+  <summary>Week 10: </summary>
+
+### Goals
+* 
+
+### To Do
+* [ ]
+
+</details>
+
+
+<details>
+  <summary>Week 11: </summary>
+
+### Goals
+* 
+
+### To Do
+* [ ]
+
+</details>
+
+
+<details>
+  <summary>Week 12: </summary>
+
+### Goals
+* 
+
+### To Do
+* [ ]
+
+</details>
+
+
+<details>
+  <summary>Week 13: </summary>
+
+### Goals
+* 
+
+### To Do
+* [ ]
+
+</details>
+
+
+<details>
+  <summary>Week 14: </summary>
+
+### Goals
+* 
+
+### To Do
+* [ ]
+
+</details>
+
+
+
 ## Content
 
 We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
