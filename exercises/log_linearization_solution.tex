@@ -1,0 +1,122 @@
+\begin{enumerate}
+
+\item Note that $A_t$ has a unit root, so in model A the variables $Y_t$, $Y_t^*$, $C_t$ and $G_t$ would be trending,
+  while in model B the de-trended variables $y_t$, $y_t^*$, $c_t$ and $g_t$ would be stationary.
+It is important to work with the stationary model in Dynare.
+
+\item No, variables in model C behave as the log of variables in model B.
+In addition, in model B, variables have distinct steady state values depending on the parameters of the model,
+  while in model C, the steady state of all variables is zero.
+
+\item Compared to our baseline New Keynesian model, this model
+\begin{itemize}
+    \item has the Rotemberg-pricing assumption instead of Calvo price rigidities.
+    \item a linear production function instead of a Cobb-Douglas one.
+    \item no capital and no investment
+    \item includes a stochastic process for fiscal policy.
+    \item includes a persistence term in the Taylor rule.
+\end{itemize}
+
+\item The exponential transform enables one to write variables in terms of log deviations from their log steady state:
+\begin{align*}
+x_t = e^{log(x_t)} = e^{log(x_t) - log(x) + log(x)} = x e^{log(x_t)-log(x)} = x e^{\hat{x}_t}
+\end{align*}
+\begin{itemize}    
+    \item Lets use this on equation \eqref{eq:AS_B1}:
+    \begin{align*}
+    1 = \beta E_t \left[ \left(\frac{c e^{\hat{c}_{t+1}}}{c e^{\hat{c}_t}}\right)^{-\tau} \frac{1}{\gamma z e^{\hat{z}_{t+1}}} \frac{R e^{\hat{R}_t}}{\pi e^{\hat{\pi}_{t+1}}} \right]
+    \end{align*}
+    Note that equation \eqref{eq:AS_B1} in steady state is equal to $1 = \beta \frac{1}{\gamma z}\frac{R}{\pi}$.
+    So we can simplify the previous equation to get equation \eqref{eq:AS_C1}:
+    \begin{align*}
+    1 &= \mathbb{E}_t \left[e^{-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - \hat{z}_{t+1} - \hat{\pi}_{t+1} }\right]
+    \end{align*}    
+    \item The first-order Taylor expansion of equation \eqref{eq:AS_C1} is:
+    \begin{align*}
+    1 = e^0 + e^0 E_t \left(-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - \hat{z}_{t+1} - \hat{\pi}_{t+1}  \right)\\
+    \Leftrightarrow
+    0 = -\tau E_t \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - E_t\hat{z}_{t+1} - E_t \hat{\pi}_{t+1}
+    \end{align*}
+    The first-order Taylor expansion of equation \eqref{eq:AS_C3} is:
+    \begin{align*}
+    e^0 + e^0\left(\hat{c}_t - \hat{y}_t\right) = e^0 - \frac{\phi \pi^2 g}{2} (e^0-1)^2 + e^0(-\hat{g}_t) - \frac{\phi \pi^2 g}{2} 2 \left(e^0-1\right)(\hat{\pi}_t)\\
+    \Leftrightarrow \hat{c}_t = \hat{y}_t -\hat{g}_t
+    \end{align*}
+    Combining yields equation \eqref{eq:AS_D1}:
+    \begin{align*}
+    \hat{y}_{t} &= \mathbb{E}_t \hat{y}_{t+1} + \hat{g}_{t} - E_t\hat{g}_{t+1} - \frac{1}{\tau} \left(\hat{R}_{t}- \mathbb{E}_t \hat{\pi}_{t+1} - \mathbb{E}_t \hat{z}_{t+1}\right)
+    \end{align*}
+\end{itemize}
+
+\item Note that we also added the hat variables to make the equivalence between model variants even more evident:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_nonlinear.mod}
+\begin{verbatim}
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+c              0.9487     0.0058     0.0000
+z              1.0000     0.0069     0.0000
+pie            1.0080     0.0070     0.0000
+R              1.0156     0.0083     0.0001
+Rstar          1.0156     0.0113     0.0001
+y              1.1161     0.0225     0.0005
+ystar          1.1161     0.0214     0.0005
+g              1.1765     0.0226     0.0005
+chat           0.0000     0.0061     0.0000
+zhat           0.0000     0.0069     0.0000
+piehat         0.0000     0.0069     0.0000
+Rhat           0.0000     0.0082     0.0001
+yhat           0.0000     0.0202     0.0004
+ghat           0.0000     0.0192     0.0004
+YGR            0.5000     1.1045     1.2199
+INFL           3.2000     2.7787     7.7214
+INT            6.2000     3.2712    10.7006	
+\end{verbatim}
+Note that the moments and irfs are exactly the same between model variants B, C and D when you compare the hat variables and measurement equations.
+
+\item 
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_nonlinear_exp.mod}
+\begin{verbatim}
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+chat           0.0000     0.0061     0.0000
+zhat           0.0000     0.0069     0.0000
+piehat         0.0000     0.0069     0.0000
+Rhat           0.0000     0.0082     0.0001
+yhat           0.0000     0.0202     0.0004
+ghat           0.0000     0.0192     0.0004
+YGR            0.5000     1.1045     1.2199
+INFL           3.2000     2.7787     7.7214
+INT            6.2000     3.2712    10.7006	
+\end{verbatim}
+Note that the moments and irfs are exactly the same between model variants B, C and D when you compare the hat variables and measurement equations.
+
+\item 
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_loglinear.mod}
+\begin{verbatim}
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+chat           0.0000     0.0061     0.0000
+zhat           0.0000     0.0069     0.0000
+piehat         0.0000     0.0069     0.0000
+Rhat           0.0000     0.0082     0.0001
+yhat           0.0000     0.0202     0.0004
+ghat           0.0000     0.0192     0.0004
+YGR            0.5000     1.1045     1.2199
+INFL           3.2000     2.7787     7.7214
+INT            6.2000     3.2712    10.7006	
+\end{verbatim}
+Note that the moments and irfs are exactly the same between model variants B, C and D when you compare the hat variables and measurement equations.
+
+\item Note that all model variants yield the same model dynamics evident in the same moments and impulse response functions.
+You can simply add logged variables or hat variables to your already nonlinear model equations.
+So there is no better or worse way to enter the model into Dynare.
+
+\textbf{BUT:} Log-linearizing the model equations by hand is often tedious and very error-prone.
+By defining logged variables in the original nonlinear model equations and using first-order perturbation techniques,
+  effectively Dynare does the linearization for you.
+So in most cases, it is actually better to focus on the nonlinear stationarized model equations.
+On the other hand, log-linearized expressions often provide clear analytic intuition
+  and, more importantly, reduce the model size which is beneficial for e.g. estimation.
+So as always there is a trade-off, but usually you are more flexible (and less error-prone) by sticking to the nonlinear model equations.
+
+\end{enumerate}

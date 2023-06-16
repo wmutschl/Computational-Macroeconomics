@@ -1,0 +1,93 @@
+\begin{enumerate}
+
+\item Due to our assumptions , we will not have corner solutions and can neglect the non-negativity constraints.
+Due to the transversality condition and the concave optimization problem, we only need to focus on the first-order conditions. 
+The Lagrangian for the household problem is
+\begin{align*}
+L = E_t\sum_{j=0}^{\infty}\beta^j\left\{\log(c_{t+j}) + \lambda_{t+j} \left(a_{t+j}k_{t+j-1}^\alpha - c_t - k_{t+j}\right)\right\}
+\end{align*}
+Note that the problem is not to choose $\{c_t,k_{t}\}_{t=0}^\infty$ all at once in an open-loop policy,
+  but to choose these variables sequentially given the information at time $t$ in a closed-loop policy.
+
+The first-order condition w.r.t. $c_t$ is given by
+\begin{align*}
+\frac{\partial L}{\partial c_{t}} &= E_t \left(c_t^{-1}-\lambda_{t}\right) = 0
+\\
+\Leftrightarrow \lambda_{t} &= c_{t}^{-1} & (I)
+\end{align*}
+The first-order condition w.r.t. $k_{t}$ is given by
+\begin{align*}
+\frac{\partial L}{\partial k_{t}} &= E_t (-\lambda_{t}) + E_t \beta \left(\lambda_{t+1}\alpha a_{t+1} k_{t}^{\alpha-1}\right) = 0
+\\
+\Leftrightarrow \lambda_{t} &= \alpha\beta E_t \lambda_{t+1} a_{t+1} k_{t}^{\alpha-1} & (II)
+\end{align*}
+			
+(I) and (II) yields
+\begin{align*}
+c_t^{-1} = \alpha \beta E_t c_{t+1}^{-1} a_{t+1} k_{t}^{\alpha-1}
+\end{align*}
+	
+\item First, consider the steady value of technology: 
+\begin{align*}
+\log\bar{a}=\rho \log\bar{a} + 0 \Leftrightarrow \log\bar{a} = 0 \Leftrightarrow \bar{a} = 1
+\end{align*}
+The Euler equation in steady-state becomes:
+\begin{align*}
+\bar{k} = (\alpha \beta \bar{a})^{\frac{1}{1-\alpha}}
+\end{align*}
+	
+\item Inserting the guessed policy function for $c_t$ inside the the capital accumulation equation yields:
+\begin{align*}
+k_{t} = a_{t} k_{t-1}^\alpha - g^c a_t k_{t-1}^\alpha = (1-g^c) a_t k_{t-1}^\alpha
+\end{align*}
+Therefore, $g^k=(1-g^c)$; in other words, once we derive $g^c$, we get $g^k$.
+			
+Inserting the guessed policy function for $c_t$ inside the Euler equation yields
+\begin{align*}
+\frac{1}{c_t} = \alpha \beta E_t \frac{1}{c_{t+1}} a_{t+1} k_{t}^{\alpha-1}
+\\
+\frac{1}{g^c a_t k_{t-1}^\alpha} = \alpha \beta E_t \frac{1}{g^c a_{t+1} k_{t}^\alpha} a_{t+1} k_{t}^{\alpha-1}
+\\
+a_t k_{t-1}^\alpha = \frac{1}{\alpha \beta} E_t k_{t}
+\end{align*}
+Inserting the decision rule for capital:
+\begin{align*}
+a_t k_{t-1}^\alpha = \frac{1}{\alpha \beta} (1-g^c)a_t k_{t-1}^\alpha
+\\
+\Leftrightarrow g^c = (1-\alpha \beta)
+\end{align*}
+Thus the policy functions for $c_t$ and $k_t$ are
+\begin{align*}
+c_t &= (1-\alpha\beta) a_t k_{t-1}^\alpha
+\\
+k_{t} &= \alpha \beta a_t k_{t-1}^\alpha
+\end{align*}
+Now inserting $a_t = a_{t-1}^{\rho} e^{\varepsilon_t}$ yields:
+\begin{align*}
+a_t &= a_{t-1}^{\rho} e^{\varepsilon_t}
+\\
+c_t &= (1-\alpha\beta) a_{t-1}^\rho k_{t-1}^\alpha e^{\varepsilon_t}
+\\
+k_t &= \alpha\beta a_{t-1}^\rho k_{t-1}^\alpha e^{\varepsilon_t}
+\end{align*}
+In summary we have found analytically the policy functions.
+This will not be possible for other DSGE models and we have to rely on numerical methods to approximate it.
+
+\item The following codes illustrate the exercise both with Dynare as well as in MATLAB,
+  and compares the results to show that they are (numerically equivalent):
+
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/Brock_Mirman_compare.m}
+
+Here is the Dynare mod file:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/Brock_Mirman.mod}
+
+Here is the manual preprocessing of the model in MATLAB:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/Brock_Mirman_preprocessing.m}
+
+Here is the steady-state script in MATLAB:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/Brock_Mirman_ss.m}
+
+\paragraph{Interpretation} A first-order perturbation solution is already very accurate for this model if the model dynamics stay close to the steady-state.
+In other words, only for large shocks (try increasing $\sigma$) we see that the approximated and true trajectories differ in size, but not in direction.
+
+\end{enumerate}

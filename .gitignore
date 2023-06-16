@@ -68,3 +68,23 @@ progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky_steady/
 progs/dynare/nk_stoch/
 
 progs/dynare/nk_var_typology/
+
+progs/dynare/nk_irfs_det/
+
+progs/dynare/nk_irfs_stoch/
+
+progs/dynare/an_schorfheide_identif_bk/
+
+progs/dynare/an_schorfheide_identif_dovish/
+
+progs/dynare/an_schorfheide_identif_hawkish/
+
+progs/dynare/an_schorfheide_sensitivity_bk/
+
+progs/matlab/BrockMirman_dynamic_g1.m
+
+progs/matlab/BrockMirman_dynamic_resid.m
+
+progs/matlab/BrockMirman_static_g1.m
+
+progs/matlab/BrockMirman_static_resid.m

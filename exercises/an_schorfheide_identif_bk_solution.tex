@@ -1,0 +1,53 @@
+\begin{enumerate}
+
+\item Interpretation of model equations:
+\begin{itemize}
+    \item Equation \eqref{eq:AS_Euler} is the Euler equation determining optimal consumption and saving decision.
+    \item Equation \eqref{eq:AS_PC} is the nonlinear New Keynesian Phillips curve,
+      which determines optimal price setting of the firms subject to Rotemberg price adjustment costs.
+    \item Equation \eqref{eq:AS_market} is the market clearing condition;
+      note that the price adjustment costs are quadratic and valued in terms of output goods.
+    \item Equations \eqref{eq:AS_Taylor1} and \eqref{eq:AS_Taylor2} form the Taylor rule,
+      i.e.\ monetary policy reacts to deviations of both inflation from its target
+      as well as the output gap, which is defined as deviation of output from its flex-price version.
+    \item Equation \eqref{eq:AS_tfpgrowth} is the law of motion of the growth rate of productivity.
+    \item Equation \eqref{eq:AS_g} is the law of motion for the government spending process.
+    \item Equation \eqref{eq:AS_flexy} is the output value which would occur when there are no price rigidties ($\phi=0$).
+\end{itemize}
+
+\item The mod file might look like this:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_identif_bk.mod}
+
+\item The first-order approximated policy function is given by:
+\begin{align*}
+    y_t = \bar{y} + g_y (y_{t-1} - \bar{y}) + g_u u_t
+\end{align*}
+where $g_y$ is a $n \times n$ matrix (i.e.\ zero columns for all variables except the state variables).
+Note that due to the Blanchard-Khan conditions this is a stationary process,
+  such that $E[y_t] = E[y_s] = \mu_y$ and $\Sigma_{j} \equiv COV[y_t,y_{t-j}] = COV[y_{s}, y_{s-j}]$ for all $s,t,j$.
+The first moment is equal to the steady-state:
+\begin{align*}
+&E [y_t] = \bar{y} + g_y (E [y_{t-1}] - \bar{y}) + g_u E [u_t]
+\\
+&\Leftrightarrow \mu_y = \bar{y} + g_y(\mu_y - \bar{y}) + g_u \cdot 0
+\\
+&\Leftrightarrow \mu_y = \bar{y}
+\end{align*}
+Let's denote $\hat{y}_t = y_t - \bar{y}$, then the variance of $y_t$ is given by:
+\begin{align*}
+&\Sigma_0 = E[\hat{y}_t \hat{y}_t'] = g_y E[\hat{y}_{t-1} \hat{y}_{t-1}'] g_y' + g_u E[u_t u_t'] g_u'
+\\
+&\Leftrightarrow \Sigma_0 = g_y \Sigma_0 g_y' + g_u \Sigma_u g_u'
+\end{align*}
+This is a Lyapunov equation which you can either solve with the Kronecker product or an efficient algorithm (e.g.\ doubling).
+Once we have $\Sigma_0$, the autocovariances are computed by $\Sigma_j = g_y \Sigma_{j-1}$.
+
+\item Here is the mod file for the hawkish calibration:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_identif_hawkish.mod}
+
+Here is the mod file for the dovish calibration:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_identif_dovish.mod}
+
+Note that the steady-state and theoretical moments are (numerically) equal to each other.
+Moreover, the IRFs look exactly the same (and they actually are at least numerically).
+\end{enumerate}
