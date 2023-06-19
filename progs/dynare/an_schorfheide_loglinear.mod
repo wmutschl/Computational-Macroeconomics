@@ -1,59 +1,74 @@
 % This file implements the log-linearized model equations of
 % An and Schorfheide (2007, Econometric Reviews)
-% 
-% THIS MOD-FILE REQUIRES DYNARE 4.6 OR HIGHER
-%==========================================================================
-% Copyright (C) 2021 Willi Mutschler
-%
-% This is free software: you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation, either version 3 of the License, or
-% (at your option) any later version.
-%
-% It is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-%
-% For a copy of the GNU General Public License,
-% see <http://www.gnu.org/licenses/>.
-%==========================================================================
+% =========================================================================
+% Willi Mutschler (willi@mutschler.eu)
+% Version: June 13, 2023
+% =========================================================================
 
-var chat zhat piehat Rhat yhat ghat
-    YGR INFL INT;
-varexo epsr epsg epsz;
-parameters TAU KAPPA PSI1 PSI2 RHOR RHOG RHOZ RA PIEA GAMQ NU GSTAR;
+var
+// variables in log dev. from steady-state
+chat   ${\hat{c}}$     (long_name='detrended consumption (log dev. from steady-state)')
+zhat   ${\hat{z}}$     (long_name='technology growth (log dev. from steady-state)')
+phat   ${\hat{\pi}}$   (long_name='inflation rate (log dev. from steady-state)')
+rhat   ${\hat{R}}$     (long_name='nominal interest rate (log dev. from steady-state)')
+yhat   ${\hat{y}}$     (long_name='detrended output (log dev. from steady-state)')
+ghat   ${\hat{g}}$     (long_name='government consumption (log dev. from steady-state)')
+// observable variables
+YGR    ${YGR}$         (long_name='output growth rate (quarter-on-quarter)')
+INFL   ${INFL}$        (long_name='annualized inflation rate')
+INT    ${INT}$         (long_name='annualized nominal interest rate')
+;
 
-% Parametrization follows table (3)
-TAU=2; KAPPA=0.33; PSI1=1.5; PSI2=0.125; RHOR=0.75; RHOG=0.95; RHOZ=0.90;
-RA=1; PIEA=3.2; GAMQ= 0.5; NU=0.1; GSTAR=1/0.85;
+varexo
+epsr   ${\varepsilon^R}$   (long_name='monetary policy shock')
+epsg   ${\varepsilon^g}$   (long_name='government spending shock')
+epsz   ${\varepsilon^z}$   (long_name='total factor productivity growth shock')
+;
 
-model(linear);
-#BETA = 1/(1+RA/400);
+parameters
+TAU     ${\tau}$           (long_name='inverse of intertemporal elasticity of subsitution')
+KAPPA   ${\kappa}$         (long_name='auxiliary parameter, slope of New-Keynesian Phillips curve')
+PSI1    ${\psi_1}$         (long_name='Taylor rule sensitivity parameter to inflation deviations')
+PSI2    ${\psi_2}$         (long_name='Taylor rule sensitivity parameter to output deviations')
+RHOR    ${\rho_R}$         (long_name='Taylor rule persistence')
+RHOG    ${\rho_{g}}$       (long_name='persistence government spending process')
+RHOZ    ${\rho_z}$         (long_name='persistence TFP growth rate process')
+RA      ${r_{A}}$          (long_name='annualized steady-state real interest rate')
+PA      ${\pi^{(A)}}$      (long_name='annualized target inflation rate')
+GAMQ    ${\gamma^{(Q)}}$   (long_name='quarterly steady-state growth rate of technology')
+NU      ${\nu}$            (long_name='inverse of elasticity of demand in Dixit Stiglitz aggregator')
+GBAR    ${\bar{g}}$        (long_name='steady state government spending process')
+;
 
-yhat = yhat(+1) + ghat - ghat(+1) - 1/TAU*(Rhat -piehat(+1) - zhat(+1));
-piehat = BETA*piehat(+1) + KAPPA*(yhat-ghat);
+model;
+#BETA  = 1/(1+RA/400); //below eq.(38)
+[name='New Keynesian IS curve']
+yhat = yhat(+1) + ghat - ghat(+1) - 1/TAU*(rhat -phat(+1) - zhat(+1));
+[name='New Keynesian Phillips curve']
+phat = BETA*phat(+1) + KAPPA*(yhat-ghat);
+[name='market clearing']
 chat = yhat - ghat;
-Rhat = RHOR*Rhat(-1) + (1-RHOR)*PSI1*piehat + (1-RHOR)*PSI2*(yhat-ghat) + epsr;
-zhat = RHOZ*zhat(-1) + epsz;
+[name='Taylor rule']
+rhat = RHOR*rhat(-1) + (1-RHOR)*PSI1*phat + (1-RHOR)*PSI2*(yhat-ghat) + epsr;
+[name='government spending rule']
 ghat = RHOG*ghat(-1) + epsg;
-YGR = GAMQ + 100*( yhat - yhat(-1) + zhat );
-INFL = PIEA + 400*piehat;
-INT = PIEA + RA + 4*GAMQ + 400*Rhat;
+[name='total factor productivity growth']
+zhat = RHOZ*zhat(-1) + epsz;
+[name='output growth (q-on-q)']
+YGR  = GAMQ + 100*( yhat - yhat(-1) + zhat );
+[name='annualized inflation']
+INFL = PA + 400*phat;
+[name='annualized nominal interest rate']
+INT  = PA + RA + 4*GAMQ + 400*rhat;
 end;
 
 steady_state_model;
-chat=0; zhat=0; piehat=0; Rhat=0; yhat=0; ghat=0; YGR=0; INFL=0; INT=0;
-YGR = GAMQ;
-INFL = PIEA;
-INT = PIEA + RA + 4*GAMQ;
+chat=0; zhat=0; phat=0; rhat=0; yhat=0; ghat=0;
+YGR  = GAMQ;
+INFL = PA;
+INT  = PA + RA + 4*GAMQ;
 end;
 
-shocks;
-var epsr; stderr 0.2/100;
-var epsz; stderr 0.3/100;
-var epsg; stderr 0.6/100;
-end;
-
+@#include "an_schorfheide_params_shocks.inc"
 steady;
-stoch_simul(order=1);
+stoch_simul(order=1,nograph);

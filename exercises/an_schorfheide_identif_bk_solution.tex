@@ -5,7 +5,7 @@
     \item Equation \eqref{eq:AS_Euler} is the Euler equation determining optimal consumption and saving decision.
     \item Equation \eqref{eq:AS_PC} is the nonlinear New Keynesian Phillips curve,
       which determines optimal price setting of the firms subject to Rotemberg price adjustment costs.
-    \item Equation \eqref{eq:AS_market} is the market clearing condition;
+    \item Equation \eqref{eq:AS_Market} is the market clearing condition;
       note that the price adjustment costs are quadratic and valued in terms of output goods.
     \item Equations \eqref{eq:AS_Taylor1} and \eqref{eq:AS_Taylor2} form the Taylor rule,
       i.e.\ monetary policy reacts to deviations of both inflation from its target
@@ -22,8 +22,11 @@
 \begin{align*}
     y_t = \bar{y} + g_y (y_{t-1} - \bar{y}) + g_u u_t
 \end{align*}
-where $g_y$ is a $n \times n$ matrix (i.e.\ zero columns for all variables except the state variables).
-Note that due to the Blanchard-Khan conditions this is a stationary process,
+where $g_y$ is a $n \times n$ matrix.
+Note that Dynare's \texttt{oo\_.dr.ghx} matrix has only columns for state variables,
+  so $g_y$ is basically equal to: $g_y = \begin{bmatrix} 0_{n \times n^{static}} & ghx & 0_{n \times n^{fwrd}} \end{bmatrix}$.
+
+Due to the Blanchard-Khan conditions this is a stationary process,
   such that $E[y_t] = E[y_s] = \mu_y$ and $\Sigma_{j} \equiv COV[y_t,y_{t-j}] = COV[y_{s}, y_{s-j}]$ for all $s,t,j$.
 The first moment is equal to the steady-state:
 \begin{align*}
@@ -50,4 +53,48 @@ Here is the mod file for the dovish calibration:
 
 Note that the steady-state and theoretical moments are (numerically) equal to each other.
 Moreover, the IRFs look exactly the same (and they actually are at least numerically).
+
+This is a manifestation of an inherent \emph{identification problem} in the model:
+  different structures yield the same moments and impulse responses;
+  they cannot be distinguished from each other.
+This is quite a severe problem in this specific model,
+  because according to the model there is no distinction between a hawkish or a dovish monetary policy,
+  which is obviously counter-factual.
+Note that this identification problem is a property of the model
+  and needs to be dealt with, i.e.\ changing your model slightly by adding features to the model
+  or a different specification for the monetary policy rule
+  solves the identification problem, see \textcite{Ivashchenko.Mutschler_2020_EffectObservablesFunctionala} for more details.
+
+\item Here is the mod file that does the sensitivity analysis of the Blanchard-Khan conditions:
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/an_schorfheide_sensitivity_bk.mod}
+Note that in the figures blue dots mark parameter values that imply \emph{good behavior},
+  whereas red dots imply \emph{bad behavior}.
+In our exercise \emph{good behavior} corresponds to a unique and stable solution,
+  according to the Blanchard and Khan order and rank conditions.
+If you study the graphs in detail, one sees that particularly the feedback parameter on inflation deviations drives the behavior.
+In almost all cases $\psi_1>1$ implies that the model has a unique and stable solutions.
+This is known as the Taylor Principle, i.e.\ a guideline or rule of thumb that suggests that a central bank should raise nominal interest rates
+  by more than one-for-one in response to an increase in inflation.
+The underlying mechanism is that the central bank controls not only the short-term nominal interest rate,
+  but because nominal prices are sticky it has leverage over the ex-ante real interest rate.
+Therefore, by raising nominal interest rates sufficiently, the real interest rate will increase as well inducing a demand-side effect by making consumption and investment today less attractive.
+If a central bank were to raise the nominal interest rate by less than the increase in inflation,
+  then the real interest rate (the nominal rate minus inflation) could actually decrease, which could stimulate demand and potentially lead to even more inflation.
+But if the central bank raises the nominal rate by more than the increase in inflation, then the real interest rate increases, which tends to reduce demand and curb inflation.
+
+The Taylor Principle has significant implications for the ability of monetary policy to anchor inflation expectations.
+By following a policy rule that raises interest rates more than one-for-one with inflation,
+  central banks can help to stabilize inflation and anchor inflation expectations.
+Here's why: If the public expects the central bank to adhere to the Taylor Principle,
+  they'll anticipate that any rise in inflation will be met with an even greater rise in nominal interest rates,
+  leading to an increase in the real interest rate.
+This should in turn suppress demand and curb further inflation.
+If people expect that the central bank will keep inflation under control in this way, their inflation expectations will be stable, which is beneficial for the economy.
+Stable inflation expectations can reduce the volatility of inflation and output, leading to smoother economic cycles.
+However, it's important for the central bank to have a credible commitment to such a policy.
+If the public doubts the central bank's willingness or ability to respond aggressively to inflation, they might expect higher future inflation.
+This could be self-fulfilling, as workers demand higher wages and firms raise prices in anticipation of the higher inflation.
+In other words, the Taylor Principle not only provides a guide for how to adjust interest rates in response to inflation,
+  but it also offers a way to manage the public's expectations about future inflation.
+This is a crucial aspect of modern monetary policy, as expectations about future inflation can influence current behavior and can therefore become self-fulfilling.
 \end{enumerate}

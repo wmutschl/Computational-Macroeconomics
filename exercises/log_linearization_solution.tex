@@ -1,26 +1,35 @@
 \begin{enumerate}
 
-\item Note that $A_t$ has a unit root, so in model A the variables $Y_t$, $Y_t^*$, $C_t$ and $G_t$ would be trending,
-  while in model B the de-trended variables $y_t$, $y_t^*$, $c_t$ and $g_t$ would be stationary.
-It is important to work with the stationary model in Dynare.
-
-\item No, variables in model C behave as the log of variables in model B.
-In addition, in model B, variables have distinct steady state values depending on the parameters of the model,
-  while in model C, the steady state of all variables is zero.
-
 \item Compared to our baseline New Keynesian model, this model
-\begin{itemize}
+    \begin{itemize}
     \item has the Rotemberg-pricing assumption instead of Calvo price rigidities.
     \item a linear production function instead of a Cobb-Douglas one.
     \item no capital and no investment
     \item includes a stochastic process for fiscal policy.
     \item includes a persistence term in the Taylor rule.
+    \item has a unit root in total factor productivity and a shock to the growth of TFP.
 \end{itemize}
+  
+\item Note that $A_t$ has a unit root, so in model A the variables $Y_t$, $Y_t^*$, $C_t$ and $G_t$ would be trending,
+  while in model B the de-trended variables $y_t$, $y_t^*$, $c_t$ and $g_t$ would be stationary.
+It is important to work with the stationary model in Dynare to have a well-behaved (constant!) steady-state
+  around which the perturbation solution is computed.
 
-\item The exponential transform enables one to write variables in terms of log deviations from their log steady state:
+\item No, variables in model C behave as the log of variables in model B.
+In addition, in model B, variables have distinct steady state values depending on the parameters of the model,
+  while in model C, the steady state of all variables is zero.
+If, however, we would add hat variables to model B,
+  then the hat variables would be equivalent between model variants.
+
+\item The exponential transform enables one to write variables in terms of log deviations from their steady state:
 \begin{align*}
 x_t = e^{log(x_t)} = e^{log(x_t) - log(x) + log(x)} = x e^{log(x_t)-log(x)} = x e^{\hat{x}_t}
 \end{align*}
+It is very useful to do this transform, when you want to log-linearize your model,
+  i.e.\ do a first-order Taylor approximation of the model equations with respect to logged variables (HAT VARIABLES $\hat{x}_t$).\footnote{
+Note that there are shortcuts to do a log-linearization without doing the exp transform for purely multiplicative or additive equations.
+However, the exp transform always works, particularly for more difficult equations, so no need for learning the shortcuts.
+}
 \begin{itemize}    
     \item Lets use this on equation \eqref{eq:AS_B1}:
     \begin{align*}
@@ -31,13 +40,13 @@ x_t = e^{log(x_t)} = e^{log(x_t) - log(x) + log(x)} = x e^{log(x_t)-log(x)} = x 
     \begin{align*}
     1 &= \mathbb{E}_t \left[e^{-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - \hat{z}_{t+1} - \hat{\pi}_{t+1} }\right]
     \end{align*}    
-    \item The first-order Taylor expansion of equation \eqref{eq:AS_C1} is:
+    \item Log-Linearization: the first-order Taylor expansion of equation \eqref{eq:AS_C1} with respect to the hat variables is:
     \begin{align*}
     1 = e^0 + e^0 E_t \left(-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - \hat{z}_{t+1} - \hat{\pi}_{t+1}  \right)\\
     \Leftrightarrow
     0 = -\tau E_t \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - E_t\hat{z}_{t+1} - E_t \hat{\pi}_{t+1}
     \end{align*}
-    The first-order Taylor expansion of equation \eqref{eq:AS_C3} is:
+    The first-order Taylor expansion of equation \eqref{eq:AS_C3} with respect to the hat variables is:
     \begin{align*}
     e^0 + e^0\left(\hat{c}_t - \hat{y}_t\right) = e^0 - \frac{\phi \pi^2 g}{2} (e^0-1)^2 + e^0(-\hat{g}_t) - \frac{\phi \pi^2 g}{2} 2 \left(e^0-1\right)(\hat{\pi}_t)\\
     \Leftrightarrow \hat{c}_t = \hat{y}_t -\hat{g}_t
@@ -107,16 +116,16 @@ INT            6.2000     3.2712    10.7006
 \end{verbatim}
 Note that the moments and irfs are exactly the same between model variants B, C and D when you compare the hat variables and measurement equations.
 
-\item Note that all model variants yield the same model dynamics evident in the same moments and impulse response functions.
-You can simply add logged variables or hat variables to your already nonlinear model equations.
-So there is no better or worse way to enter the model into Dynare.
-
-\textbf{BUT:} Log-linearizing the model equations by hand is often tedious and very error-prone.
+\item Note that all model variants yield the same model dynamics evident in the same moments and impulse response functions for the hat variables or the observable variables.
+Therefore, one can simply add auxiliary variables for the log or the percentage deviation of a variable to a nonlinear mod file.
+So there is no need to do a log-linearization on a model per se.
+Moreover, log-linearizing the model equations by hand is often tedious and very error-prone.
 By defining logged variables in the original nonlinear model equations and using first-order perturbation techniques,
   effectively Dynare does the linearization for you.
 So in most cases, it is actually better to focus on the nonlinear stationarized model equations.
-On the other hand, log-linearized expressions often provide clear analytic intuition
-  and, more importantly, reduce the model size which is beneficial for e.g. estimation.
-So as always there is a trade-off, but usually you are more flexible (and less error-prone) by sticking to the nonlinear model equations.
+Also, you cannot do higher-order approximations on the log-linearized system.
 
+On the other hand, log-linearized expressions often provide clear analytic intuition
+  and reduce the model size which might be beneficial for e.g. advanced estimation techniques
+  (for standard ones this is not really necessary).
 \end{enumerate}

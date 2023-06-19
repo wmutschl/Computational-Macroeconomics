@@ -1,3 +1,10 @@
+% This file illustrates the Taylor principle by using Dynare's sensitivity
+% toolbox on the nonlinear model equations of An and Schorfheide (2007, 
+% Econometric Reviews)
+% =========================================================================
+% Willi Mutschler (willi@mutschler.eu)
+% Version: June 13, 2023
+% =========================================================================
 @#include "an_schorfheide_identif_bk.mod"
 
 TAU   = 2;
@@ -8,7 +15,7 @@ RHOZ  = 0.90;
 RA    = 1;
 PA    = 3.2;
 GAMQ  = 0.5;
-C_Y   = 0.85;
+GBAR  = 1/0.85;
 SIG2Z = 0.9;
 SIG2G = 0.36;
 PSI1  = 1.5;
@@ -28,5 +35,5 @@ PSI1, uniform_pdf,,, 0,6; %draw uniformly from 0 to 6
 PSI2, uniform_pdf,,,-1,6; %draw uniformly from -1 to 6
 RHOR, uniform_pdf,,,-1,1; %draw uniformly from -1 to 1
 end;
-varobs y p r; % for analysis of BK conditions, it does not matter which variables
+varobs y p r; % for analysis of BK conditions, it does not matter which variables are observed
 dynare_sensitivity(prior_range=0,stab=1,nsam=2000);

@@ -88,3 +88,9 @@ progs/matlab/BrockMirman_dynamic_resid.m
 progs/matlab/BrockMirman_static_g1.m
 
 progs/matlab/BrockMirman_static_resid.m
+
+progs/dynare/an_schorfheide_loglinear/
+
+progs/dynare/an_schorfheide_nonlinear/
+
+progs/dynare/an_schorfheide_nonlinear_exp/

@@ -188,12 +188,12 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 ### To Do
-* [ ] watch [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
-* [ ] [optional] [Solving rational expectation models with first order perturbation: what Dynare does (Part 2 of 2)]() on YouTube
-* [ ] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
-* [ ] read section 2 of An and Schorfheide (2007)
-* [ ] [optional] read Rupert and Šustek (2019)
-* [ ] bring all your questions and concerns to the Q&A sessions
+* [x] watch [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
+* [x] [optional] [Solving rational expectation models with first order perturbation: what Dynare does (Part 2 of 2)]() on YouTube
+* [x] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
+* [x] read section 2 of An and Schorfheide (2007)
+* [x] [optional] read Rupert and Šustek (2019)
+* [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
