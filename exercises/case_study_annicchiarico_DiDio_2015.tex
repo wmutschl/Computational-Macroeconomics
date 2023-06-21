@@ -1,0 +1,104 @@
+\section[Case Study Annicchiarico and Di Dio (2015): Environmental policy and macroeconomic dynamics in a new Keynesian model]{Case Study Annicchiarico and Di Dio (2015): Environmental policy and macroeconomic dynamics in a new Keynesian model\label{ex:CaseStudy.Annicchiarico.DiDio.2015}}
+
+\begin{enumerate}
+\item Read the paper by \textcite{Annicchiarico.DiDio_2015_EnvironmentalPolicyMacroeconomic},
+  its Online Appendix, and its Erratum available from \url{http://www.barbarannicchiarico.eu/research.htm}.
+How does the model differ from the New Keynesian model that we studied in the course so far?
+
+\item Consider the following Dynare files given in the appendix:
+\begin{itemize}
+  \item \texttt{ann\_dio\_2015\_\_symdecls.inc}
+  \item \texttt{ann\_dio\_2015\_\_modeleqs.inc}
+  \item \texttt{ann\_dio\_2015\_tbl1\_tbl2\_no\_policy.mod}
+  \item \texttt{ann\_dio\_2015\_tbl2\_environmental\_policy.mod}
+  \item \texttt{ann\_dio\_2015\_steadystate\_helper\.m}
+\end{itemize}
+Explain what each file is doing.
+
+\item Note that \texttt{\_modeleqs.inc} misses two equations, one for the abatement effort (A.26), and one describing the environmental policy regime.
+However, it contains a \texttt{@\#include "\_environmental\_regime.inc"}  directive.
+Create a file with this name and add the missing equations, differentiating the different policy regimes by using Dynare's MACRO preprocessing variables
+  and the \texttt{@\#ifdef} directive. That is, the file should look like this:
+
+{\footnotesize
+\begin{lstlisting}[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize]
+@#ifdef NO_POLICY
+  [name='A(26) abatement effort']
+  
+@#else
+  [name='A(26) abatement effort']
+  
+@#endif
+
+@#ifdef NO_POLICY
+  [name='environmental policy regime: no policy (p.6 bottom)']
+  
+@#endif
+
+@#ifdef CAP_AND_TRADE
+  [name='environmental policy regime: cap-and-trade (p.6 bottom)']
+  
+@#endif
+
+@#ifdef INTENSITY_TARGET
+  [name='environmental policy regime: intensity target (p.7 top)']
+  
+@#endif
+
+@#ifdef TAX_POLICY
+  [name='environmental policy regime: tax policy (p.7 top)']
+  
+@#endif
+\end{lstlisting}
+}
+\item See the hints below and replicate Table 1 and Table 2 of the paper.
+
+\item See the hints below and replicate Figures 1, 2, and 3 of the paper.
+
+\item See the hints below and replicate Tables 3, 4, and 5 of the paper.
+
+\end{enumerate}
+
+\newpage
+\paragraph{Hints}
+
+\begin{itemize}
+
+\item Dynare's \texttt{@\#include "SOMEMODILE"} directive is very useful.
+  as it enables you to split mod files into several modular components,
+  such as different variable declarations, model equations, shocks declarations, calibrations and simulations commands.
+In this course, we usually use .inc as the ending for the files,
+  to make explicit that these files need to be included in to a mod file as it makes no sense to run them separately.
+The main advantage is that you don't have to copy/paste the whole model (at the beginning) or changes to the model (during development).
+
+\item Read about \texttt{save\_params\_and\_steady\_state} and \texttt{load\_params\_and\_steady\_state} in the manual of Dynare.
+
+\item The calibration used in the figures and tables is slightly different.
+\begin{itemize}
+  \item set $\phi_1$ to $0.180$ instead of $0.185$.
+  \item set the government spending ratio in the no-policy regime to $0.102158273389097$.
+  \item set the emissions share to total emissions equal to $0.20840121$ in the no-policy regime.
+  \item set $\sigma_a=1$ and $\sigma_g=1$ for figures 1 and 2.
+  \item set $\sigma_\eta=0.0025$ and $\iota_\pi=1.5$ for figure 3.
+\end{itemize} 
+  
+\item The figures with the IRFs are computed from a first-order approximation.
+Something is wrong in the published figures at the impact period,
+  see the Erratum that explains that there was a mistake in the code
+  and provides the correctly generated IRFs (except for figure 2b).
+
+\item The moments in Tables 3 to 6 are computed from a second-order approximation with pruning.
+Note that in more recent versions of Dynare,
+  the moments are computed based on closed-form expressions from the pruned state-space system
+  instead of using second-order accurate expressions.
+So tiny errors in the unconditional means and somewhat different variances and autocorrelations are to be expected.
+
+\end{itemize}
+
+
+\begin{solution}\textbf{Solution to \nameref{ex:CaseStudy.Annicchiarico.DiDio.2015}}
+\ifDisplaySolutions
+\input{exercises/case_study_annicchiarico_DiDio_2015_solution.tex}
+\fi
+\newpage
+\end{solution}

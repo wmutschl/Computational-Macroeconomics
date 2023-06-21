@@ -199,7 +199,28 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 9: </summary>
+  <summary>Week 9: Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy, Trend Inflation in the New Keynesian model.</summary>
+
+### Goals
+* understand and get used to Dynare's *stoch_simul* command
+* understand Dynare's sensitivity toolbox
+* study the modeling approach and effects of different environmental policies in a New Keynesian model
+* study the macroeconomics of trend inflation in a New Keynesian model
+
+### To Do
+* prepare [week 9's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_9.pdf)
+  * [x] read the case-study papers on environmental policy and trend inflation carefully
+  * [x] download all files
+  * [x] read all the exercises
+  * [x] try to prepare the replications
+* [x] bring all your questions and concerns to the Q&A sessions
+
+
+</details>
+
+
+<details>
+  <summary>Week 10: OccBin, Introduction to Higher-Order Approximation</summary>
 
 ### Goals
 * 
@@ -211,7 +232,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 10: </summary>
+  <summary>Week 11: Recursive Preferences and Equity Risk Premium and Stochastic Volatility</summary>
 
 ### Goals
 * 
@@ -223,7 +244,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 11: </summary>
+  <summary>Week 12: Optimal Policy and Welfare assessment</summary>
 
 ### Goals
 * 
@@ -235,7 +256,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 12: </summary>
+  <summary>Week 13: Projection</summary>
 
 ### Goals
 * 
@@ -247,19 +268,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 13: </summary>
-
-### Goals
-* 
-
-### To Do
-* [ ]
-
-</details>
-
-
-<details>
-  <summary>Week 14: </summary>
+  <summary>Week 14: Projection</summary>
 
 ### Goals
 * 

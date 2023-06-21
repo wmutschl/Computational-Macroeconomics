@@ -1,0 +1,57 @@
+\section[Case Study Ascari and Sbordone (2014): The Macroeconomics of Trend Inflation]{Case Study Ascari and Sbordone (2014): The Macroeconomics of Trend Inflation\label{ex:CaseStudy.Ascari.Sbordone.2014}}
+
+\begin{enumerate}
+\item Read the paper by \textcite{Ascari.Sbordone_2014_MacroeconomicsTrendInflation} and its Appendix.
+How does the model differ from the New Keynesian model that we studied in the course so far?
+
+\item Consider the following Dynare files given in the appendix:
+\begin{itemize}
+  \item \texttt{ascari\_sbordone\_2014\_common.mod}
+  \item \texttt{ascari\_sbordone\_2014\_calib\_common.inc}
+\end{itemize}
+Explain what each file is doing.
+
+\item Replicate figure 14 of the paper.
+Set initially $\varphi = 1$, $\phi_\pi=2$, $\phi_y = 0.5/4$ and $\rho_i=0.8$.
+
+\item Replicate figure 13 of the paper.
+Set initially $\varphi = 0$, $\phi_\pi=1.5$, $\phi_y = 0.5/4$ and $\rho_i=0$.
+
+\item Replicate the business cycle moments reported on page 717.
+Set initially $\varphi = 1$, $\rho_a=0.95$, $\rho_i=0$ $\phi_\pi=1.5$, and $\phi_y = 0.5/4$.
+Note that for the business cycle moments, the technology shock standard error is actually $0.45$.
+
+\item Replicate figure 7 of the paper.
+Set initially $\varphi = 1$, $\phi_\pi=2$, $\phi_y = 0.5/4$ and $\rho_i=0.8$.
+
+\item Replicate figure 8 of the paper.
+Set initially $\varphi = 1$, $\phi_\pi=2$, $\phi_y = 0.5/4$ and $\rho_i=0.8$.
+
+\item Replicate figure 11 of the paper.
+Set initially $\varphi = 1$, $\phi_\pi=2$, $\phi_y = 0.5/4$ and $\rho_i=0.8$.
+Note that as described in footnote 54, the determinacy region in Figure 11 is actually the "determinacy and stability region",
+  i.e.\ it does not distinguish whether the Blanchard-Kahn conditions fail because of too many unstable roots (instability, info==3)
+  or because of too few unstable roots (indeterminacy, info==4).
+
+\end{enumerate}
+
+\paragraph{Hints}
+
+\begin{itemize}
+
+\item The annual inflation target is disaggregated to quarterly figures using the geometric mean.
+Simply dividing by 4 results in small numerical differences.
+
+\item The labor disutility parameter, which is unspecified in the paper is set so that labor is 1/3 in the benchmark case.
+
+\item The technology parameter, which is also left unspecified in the published version, is set to 1 in steady state.
+  
+\end{itemize}
+
+
+\begin{solution}\textbf{Solution to \nameref{ex:CaseStudy.Ascari.Sbordone.2014}}
+\ifDisplaySolutions
+\input{exercises/case_study_ascari_sbordone_2014_solution.tex}
+\fi
+\newpage
+\end{solution}
