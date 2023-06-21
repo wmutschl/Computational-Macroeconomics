@@ -1,6 +1,6 @@
 \begin{itemize}
 
-    \item[2.] Let's use Dynare's \texttt{\@\#include "ert\_model\_sticky.mod"} directive to read in the sticky-price mod file into another mod file that just computes the steady-state.
+    \item[2.] Let's use Dynare's \texttt{@\#include "ert\_model\_sticky.mod"} directive to read in the sticky-price mod file into another mod file that just computes the steady-state.
 Note that during calibration all values for the pre-infection steady-state are already computed (with a subindex \texttt{\_ss}),
   so we can simply put that into an \texttt{initval} block:
 \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_sticky_steady.mod}
@@ -12,7 +12,7 @@ One could either lag all occurrences manually in the model equations,
   or use \texttt{"predetermined\_variables"} such that Dynare's preprocessor does this transformation of timing.
 This is personal preference, but using \texttt{"predetermined\_variables"} makes the equations appear more in line with the paper.
 
-\item[4.] This is basically a copy \& paste exercise combined with the \texttt{\@\#include} directive.
+\item[4.] This is basically a copy \& paste exercise combined with the \texttt{@\#include} directive.
 First, let's create a mod file for the flex-price economy called \texttt{"ert\_model\_flex.inc"}
 \begin{itemize}
     \item Copy and paste the variable declarations and model equations of \texttt{ert\_model\_sticky.mod} into the new mod file.
@@ -27,12 +27,12 @@ First, let's create a mod file for the flex-price economy called \texttt{"ert\_m
 The inc file might look like this:
 \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_flex.inc}
 As a mod file can contain several declarations of variables (\texttt{var} blocks) or model equations (\texttt{model} blocks),
-  we can conveniently use \texttt{\@\#include} to put both economies into the same mod file.
+  we can conveniently use \texttt{@\#include} to put both economies into the same mod file.
 So let's create a new mod file called \texttt{"ert\_model\_initval.mod"}
-  and use \texttt{\@\#include "ert\_model\_sticky.mod"} to read in the sticky-price mod file
-  and similarly \texttt{\@\#include "ert\_model\_flex.inc"} directive to read in the flex-price mod file.
+  and use \texttt{@\#include "ert\_model\_sticky.mod"} to read in the sticky-price mod file
+  and similarly \texttt{@\#include "ert\_model\_flex.inc"} directive to read in the flex-price mod file.
 Then compute the pre-infection steady-state by using an \texttt{initval} block.
-Note that we need to set the macro directive\\\texttt{\@\#define FLEX\_PRICE\_OUTPUT\_GAP = 1}\\
+Note that we need to set the macro directive\\\texttt{@\#define FLEX\_PRICE\_OUTPUT\_GAP = 1}\\
   prior to including the flex-price model so the correct Taylor rule is chosen.
 \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Eichenbaum_Rebelo_Trabandt_2022/ert_model_initval.mod}
 

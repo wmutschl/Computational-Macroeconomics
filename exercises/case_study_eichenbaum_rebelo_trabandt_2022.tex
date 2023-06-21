@@ -17,7 +17,7 @@ Specifically, in the paper, the output gap is defined as the discrepancy between
 Generate a new mod file that incorporates equations for both the sticky-price and flexible-price economies,
   with the two models connected through the Taylor rule in the sticky model.
 Additionally, you need to recalculate the pre-infectious steady-state for the combined economies.
-\emph{Hint: Don't forget to set the macro directive by including:\\ \texttt{\@\#define FLEX\_PRICE\_OUTPUT\_GAP = 1}}
+\emph{Hint: Don't forget to set the macro directive by including:\\ \texttt{@\#define FLEX\_PRICE\_OUTPUT\_GAP = 1}}
 
 \item Read section \texttt{4.7. Initial and terminal conditions} in the manual of Dynare \parencite{Adjemian.Bastani.Juillard.EtAl_2022_DynareReferenceManual}.
 Add a \texttt{histval} block that implements the impact of an epidemic in the model,
@@ -96,7 +96,7 @@ pi2_shr_target = (1-pi3_shr_target)/2; % share of T_0 jump due to work-based inf
 
 \item It might help to know that you can have multiple \texttt{model} and \texttt{var} blocks in the same mod file.
 
-\item Dynare's \texttt{\@\#include "SOMEMODILE"} directive might be useful.
+\item Dynare's \texttt{@\#include "SOMEMODILE"} directive might be useful.
 
 \item \texttt{set\_param\_value('pi3',pi3\_final)} is a useful function to update parameters when you loop over parameters.
 
