@@ -1,5 +1,7 @@
-[![Build LaTeX exercises as PDF](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exercises.yml/badge.svg)](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exercises.yml)
-[![Build LaTeX exams as PDF](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exams.yml/badge.svg)](https://github.com/wmutschl/Computational-Macroeconomics/actions/workflows/latex-exams.yml)
+[![Build LaTeX](../../actions/workflows/latex.yml/badge.svg)](../../actions/workflows/latex.yml)
+[![Dynare 6.0 MATLAB R2024a Windows](../../actions/workflows/dynare-6.0-matlab-r2024a-windows.yml/badge.svg)](../../actions/workflows/dynare-6.0-matlab-r2024a-windows.yml)
+[![Dynare 6.0 MATLAB R2024a MacOS](../../actions/workflows/dynare-6.0-matlab-r2024a-macos.yml/badge.svg)](../../actions/workflows/dynare-6.0-matlab-r2024a-macos.yml)
+[![Dynare 6.0 MATLAB R2024a Ubuntu](../../actions/workflows/dynare-6.0-matlab-r2024a-ubuntu.yml/badge.svg)](../../actions/workflows/dynare-6.0-matlab-r2024a-ubuntu.yml)
 
 # Computational Macroeconomics
 
