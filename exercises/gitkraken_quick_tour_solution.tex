@@ -1,0 +1,222 @@
+\begin{enumerate}
+
+\item
+\emph{git} is a version control system, i.e.\ a way to track changes to code, text, documents, data etc.
+It let's you go back and forth between many different versions of the same file, and see a list of the differences.
+Collaboration becomes (technically) very easy and straightforward as people can work on different files or different versions of the same file simultaneously
+  and afterwards merge their changes.
+
+\emph{git} is the most popular version control system invented in 2005 to track the development of the worldwide largest open-source project: the Linux Kernel.
+It is a \textbf{command line tool}, and at some point you should learn the commands on the Command Line Interface (CLI).
+However, there are many graphical user interface (GUI) programs that make getting started with Git much easier
+  and integrate seamlessly with online collaboration platforms such as GitHub or GitLab.
+Therefore, in this exercise I will focus on such a tool called GitKraken,
+  which I use daily and highly recommend.\footnote{%
+  Other GUI programs work very similarly,
+    see \url{https://en.wikipedia.org/wiki/Comparison_of_Git_GUIs} for a comparison of features.
+  I also recommend the built-in git functionality of Visual Studio Code.
+}
+GitKraken offers a free trial of their paid license,
+  but also offers a free version for use on publicly-hosted repositories (which is fine for our purposes as we will mostly do stuff locally anyway).
+Additionally, GitKraken also offers the Pro license FREE to students and teachers through the GitHub Student Developer Pack (\url{https://education.github.com/pack}).
+
+While git and GitKraken are tools that you install on your computer,
+  GitHub is an online platform that provides a nice visual interface to help you manage your version-controlled projects remotely.
+It is the largest git repository hosting service and has become by far the largest open-source collaboration site.
+Another important online platform is Gitlab as you can also host that on your computer or server.
+For individuals gitea offers yet another way to host a stripped down version of GitHub or Gitlab.	
+I personally have accounts on GitHub (\url{https://github.com/wmutschl}) and Gitlab (\url{https://gitlab.com/wmutschl}),
+  but also use self-hosted versions of Gitlab (\url{https://git.dynare.org/wmutschl}) and gitea (\url{https://git.mutschler.eu}) to mirror my projects.
+
+\item
+A typical workflow looks like this:
+\begin{itemize}
+\item select a model framework, choose parameters and then run a simulation
+\item prepare tables, graphs and reports
+\end{itemize}
+All of these tasks heavily rely on coding, i.e.\ putting text into some files that are then evaluated by software that actually performs the tasks.
+Moreover, we will see that simulating macroeconomic models requires a lot of trial and error and accordingly those files constantly change and need to be adapted.
+\emph{git} enables you to track these changes as it gives you an organized revision history.
+So you can experiment with your codes, make changes to a project and always keep the ability to go back and fourth between changes.
+So stop naming files like \emph{2024{-}04{-}24-master-thesis-v2-final-now-really-final.tex}
+  and let \emph{git} do its magic for you by simply tracking the file \emph{thesis.tex} with all of its revision history.
+
+\item
+Follow the instructions provided in the links or get in touch if you are struggling with the installation.
+
+\item
+Follow the instructions provided in the links or get in touch if you are struggling with the installation.
+
+\item
+Follow the instructions provided in the links or get in touch if you are struggling with the installation.
+
+\item
+In GitKraken: Open a new Tab, click \emph{Start a local repo}, then on the \emph{Init} register select \emph{Local Only} and fill out the details.
+Note that GitKraken automatically creates a first commit with a \texttt{README.md} file.
+Inside every repository there is a hidden folder \texttt{.git}.
+It contains everything done by \emph{git}, so all the changes you will ever do.
+Never delete this folder!
+Also putting a repository on a cloud storage folder might damage this folder,
+  so best practice is to use a local folder on the disk.
+We will cover how to push the repository to a so-called remote which works basically like syncing,
+  but much more robust and git-ier.
+
+\item
+Now the benefits of using a GUI like GitKraken become evident,
+  as our changes are displayed in the \emph{Unstaged Files} area
+  and by clicking on the file we get a really pretty side-by-side comparison of all the changes.
+We can now decide which lines we want to \texttt{stage} and \texttt{commit}.
+
+\item
+The git model looks like the following diagram:\\
+\begin{tikzpicture}[mypostaction/.style 2 args={decoration={text align={left indent=#1}, text along path, text={#2}},decorate}]
+\node[draw,
+      fill=Rhodamine!50,
+      minimum width=3cm,
+      minimum height=2.5cm,
+      text width=2.5cm,
+      text centered
+     ]
+	 (unstaged) at (0,0) {File changes in working directory (Unstaged Files)};
+\node [draw,
+       fill=Goldenrod,
+	   minimum width=3cm,
+	   minimum height=2.5cm,
+	   text width=2.5cm,
+	   text centered,
+	   right=1cm of unstaged
+	  ]
+	  (staged) {Staged files};	 
+\node [draw,
+	   fill=SpringGreen, 
+	   minimum width=3cm, 
+	   minimum height=2.5cm,
+	   text width=2.5cm,
+	   text centered,
+	   right=1cm of staged
+	  ]
+	  (local) {Local repository};	 
+\node [draw,
+       fill=SeaGreen, 
+	   minimum width=3cm, 
+	   minimum height=2.5cm,
+	   text width=2.5cm,
+	   text centered,
+	   right=1cm of local
+	  ]
+	  (remote) {Remote repository (GitHub, GitLab) [optional]};
+	 
+% Arrows with text label
+\coordinate (unstageRoot) at (-0.5,2); \coordinate (stageRoot) at (3.5,2);
+	\draw[-latex, blue!20!white, line width=2ex]  (unstageRoot) to[in=135,out=90] (stageRoot);
+	\path [postaction={mypostaction={0.7cm}{stage changes}},postaction={mypostaction={1.2cm}{git add},/pgf/decoration/raise=-3mm}](unstageRoot) to [in=180,out=3] (stageRoot);
+\coordinate (stageRoot) at (4,2); \coordinate (localRoot) at (8,2);
+	\draw[-latex, blue!20!white, line width=2ex]  (stageRoot) to[in=135,out=90] (localRoot);
+	\path [postaction={mypostaction={0.5cm}{commit changes}},postaction={mypostaction={1cm}{git commit},/pgf/decoration/raise=-3mm}](stageRoot) to [in=180,out=3] (localRoot);
+\coordinate (localRoot) at (8.5,2); \coordinate (remoteRoot) at (12.5,2);
+	\draw[-latex, blue!20!white, line width=2ex]  (localRoot) to[in=135,out=90] (remoteRoot);
+	\path [postaction={mypostaction={0.7cm}{push changes}},postaction={mypostaction={1.2cm}{git push},/pgf/decoration/raise=-3mm}](localRoot) to [in=180,out=3] (remoteRoot);
+
+\end{tikzpicture}
+
+You do your work in your \textbf{working directory}.
+On the \textbf{stage} you collect all the changes that you want to save.
+This is very powerful because sometimes it is just individual lines of code or text that you want to keep track of and not the whole file.
+Once you've tracked all the changes that you want to combine, it is time to collect these changes into a \textbf{commit}.
+A commit is a permanent snapshot of the files that git tracks stored in the {.git} directory.
+It is associated with a unique identifier (hash).
+In other words, a commit is like a snapshot in time; you can always revert back to this and see what changes were made compared to any other commit.
+On your local repository (i.e.\ on your local machine) you now have a nice versioned history.
+However, if you want to collaborate with others or sync your repository to a specialized cloud provider you need to push these changes to a so-called remote repository,
+  typically on GitHub, GitLab, but any folder that you can access via remotely might serve as a remote repository.
+
+\item
+Click on the file and select \texttt{Stage File} or add each line by clicking on the plus or minus signs left to each line.
+Once you are happy with the file, click on the X to close the file-comparison window.
+We now don't see any unstaged files and can proceed to write a commit message and then click on the big green button.
+
+\item
+A \emph{good commit} typically does one discrete task or change only.
+For example, you added a variable to the regression specification in the code, in the output and in the report.
+Or you changed the name of a variable and treat it properly across multiple scripts.
+This enables you to make meaningful commit messages like \emph{Add wage rigidities to the model} or \emph{Fix bug in the simulation routine}
+  and you thus end up with a well organized repository.
+This workflow needs some practice and everyone is slightly different with regards to this.
+Nevertheless, try to combine changes to certain meaningful smaller tasks and provide good commit messages.
+In my experience, having ten tiny commits is always preferable to one large commit.
+Your future self and collaborators will thank you!
+
+The question to what you should include in your commits, is also a matter of choice and preference.
+Definitely your script files of codes, latex and text files.
+Data is also sometimes given as csv files which are basically just text files.
+Binary files (like Excel sheets, Word documents, Power Point slides) are a bit tricky to handle,
+  as you can't see the differences between versions in git.
+It depends on the specific needs whether one should commit these files as well (e.g.\ for Excel files with data this obviously makes sense),but I usually don't do this.
+Note that GitHub doesn't allow files larger than 100 MB or projects with total size larger than 1 {GB}.
+There is also a way to deal with large binary files called \texttt{Git Large File Storage (LFS)}.
+
+\item
+Right click on the initial commit and select \emph{Reset main to this commit {-} Soft}.
+Click on the file in the staged files section and remove the last line from the stage.
+Re-commit your stage by providing a meaningful commit message and hitting the green button.
+Click on Stash to put the remaining changes into the stash.
+
+\item
+Simply click on Push and add the remote.
+On the left Panel click on REMOTE to see the current remote (usually named origin).
+Note that you can add several remotes (say from different people) and compare the commits.
+Remotes are also a nice backup of your codes.
+
+\item
+Branches are arguably the most powerful part of \emph{git}.
+By default you have a \textbf{main} branch,
+  but what if you want to do some experiments, re-write an estimation function from scratch, work on a new feature, etc?
+You could copy the whole folder and start working there or you use git and create a branch and make the changes there.
+You can switch between branches, make commits to any branch, move them around, etc.
+If your experiment doesn't work out, simply delete the branch.
+If your experiments work out, commit them and merge them into the main branch.
+Sometimes there will be conflicts which one needs to sort out,
+  but using GUI tools like GitKraken makes this very easy
+  as you have a pretty side-by-side comparison of changes.
+Branches are arguably the most powerful part of \emph{git} especially for our purposes
+  as research is a highly nonlinear process, and this way of doing version control is much more similar to how we actually work
+  than the very linear way that other cloud storage providers do version control.
+Branches are also extremely powerful for collaboration
+  as different people can work on the same thing at the same time.
+
+Select a so-called parent commit, where you want to create a new branch.
+Note that this doesn't have to be the latest commit.
+Click on the button \emph{Branch} and name it according to the exercise.
+On the left panel, click on LOCAL to see an overview of all your branches.
+
+\item
+Create, copy and paste the three files into your repository.
+Check for pasting errors and then \emph{Stage all changes} and commit them.
+
+\item
+Run the commands and solve any errors you might get from latex.
+
+\item
+Follow the instructions in the exercise.
+Note that there is a difference between \enquote{Ignore} and \enquote{Ignore and Stop Tracking}.
+\enquote{Ignore} simply adds the file{(type)} to the \texttt{.gitignore} file so that new files with that name/type/whatever are not tracked.
+To \enquote{Ignore and Stop Tracking} means to remove the file{(s)} from git version control:
+  they will no longer be in the repo (as of the commit that performs the \enquote{stop tracking}).
+Basically, use \enquote{Ignore and Stop Tracking} if the file{(s)} you are ignoring never should have been in the repo in the first place.
+
+\item
+Make sure you are on the correct branch \emph{latex-exam-template} and push this branch to GitHub.
+Either right click on the commit or go to the left panel, click on PULL REQUESTS and on the green plus sign that appears.
+Select the \emph{latex-exam-template} as the FROM REPO branch and \emph{main} as the TO REPO branch.
+Enter a Title and Description and click on the green button.
+Have a look in GitHub ar the pull request.
+As there are no conflicts merge it and go back to GitKraken to see what happens in your repository.
+You might need to \enquote{fetch origin} by right clicking on the origin remote.
+
+\item
+Double click on your local main branch and then click on pull,
+  which fast forwards your repo to the merged changes.
+Then click on Pop to get the WIP codes which were stored on main.
+Right click on the README.md file in the \emph{Unstaged Files} area and select \emph{Discard changes}.
+
+\end{enumerate}

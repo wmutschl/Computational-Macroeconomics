@@ -1,0 +1,87 @@
+Starting Dynare (version 5.4).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ...
+WARNING: in the 'steady_state_model' block, variable 'A' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'i' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'p_star' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'pi' is declared twice
+WARNING: in the 'steady_state_model' block, variable 's' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'y' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'phi' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'psi' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'w' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'N' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'MC_real' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'real_interest' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'A_tilde' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'Average_markup' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'Marginal_markup' is declared twice
+WARNING: in the 'steady_state_model' block, variable 'price_adjustment_gap' is declared twice
+Found 19 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 1).
+Processing outputs ...
+done
+Preprocessing completed.
+
+[Warning: Some of the parameters have no value (Y_bar, i_bar) when using steady. If these parameters are not initialized in a steadystate file or a steady_state_model-block, Dynare may not be able to solve the model. Note that
+simul, perfect_foresight_setup, and perfect_foresight_solver do not automatically call the steady state file.] 
+
+STEADY-STATE RESULTS:
+
+y                    		 -1.09861
+i                    		 -4.59512
+pi                   		 0
+N                    		 -1.09861
+w                    		 -0.105361
+p_star               		 0
+psi                  		 1.25138
+phi                  		 1.35674
+A                    		 0
+MC_real              		 -0.105361
+real_interest        		 0.0100503
+zeta                 		 0
+s                    		 0
+v                    		 0
+A_tilde              		 0
+Utility              		 -154.861
+Average_markup       		 0.105361
+Marginal_markup      		 0.105361
+price_adjustment_gap 		 0
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+
+               0                0                0
+               0                0                0
+               0                0                0
+               0                0                0
+          0.5166           0.5166                0
+            0.75             0.75                0
+            1.01             1.01                0
+           1.251            1.246           0.1086
+           1.251            1.246          -0.1086
+           1.347            1.347                0
+             Inf              Inf                0
+
+
+There are 5 eigenvalue(s) larger than 1 in modulus 
+for 5 forward-looking variable(s)
+
+The rank condition is verified.
+
+Output Standard Deviation: 	 1.298 	 2.845
+Inflation Standard Deviation: 	 0.413 	 0.847
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resol')" style="font-weight:bold">resol</a>
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ascari_sbordone_2014.driver', '/Users/wmutschl/Work/Lehre/Computational-Macroeconomics/progs/replications/Ascari_Sbordone_2014/+ascari_sbordone_2014/driver.m', 522)" style="font-weight:bold">ascari_sbordone_2014.driver</a> (<a href="matlab: opentoline('/Users/wmutschl/Work/Lehre/Computational-Macroeconomics/progs/replications/Ascari_Sbordone_2014/+ascari_sbordone_2014/driver.m',522,0)">line 522</a>)
+[dr,info]=resol(0,M_,options_,oo_);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', '/Applications/Dynare/5.4/matlab/dynare.m', 278)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('/Applications/Dynare/5.4/matlab/dynare.m',278,0)">line 278</a>)
+    evalin('base',[fname '.driver']);
+} 
+close all
+clc
+dynare ascari_sbordone_2014_moments

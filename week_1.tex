@@ -1,12 +1,12 @@
 % !TEX root = week_1.tex
-\input{common_header.tex}
+\input{exercises/_common_header.tex}
 \Newassociation{solution}{Solution}{week_1_solution}
-\newif\ifDisplaySolutions\DisplaySolutionstrue
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
 
 \begin{document}
-\title{Computational Macroeconomics\\~\\Summer 2023\\~\\Week 1}
+\title{Computational Macroeconomics\\~\\Summer 2024\\~\\Week 1}
 \author{Willi Mutschler\\willi@mutschler.eu}
-\date{Version: 1.0.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf}{GitHub}}
+\date{Version: 1.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf}{GitHub}}
 \maketitle\thispagestyle{empty}
 
 \newpage
@@ -18,13 +18,19 @@
 \input{exercises/programming_languages.tex}\newpage
 \input{exercises/matlab_quick_tour.tex}\newpage
 \input{exercises/arma_simulation.tex}\newpage
-\printbibliography
-\newpage
-
-\Closesolutionfile{week_1_solution}
-\ifDisplaySolutions
+\input{exercises/gitkraken_quick_tour.tex}\newpage
+\printbibliography%
 \newpage
 \appendix
+\section{Exam template files for \LaTeX}
+\lstinputlisting[language=tex,frame=single,title=\lstname,breaklines=true,breakatwhitespace=false,basicstyle=\scriptsize\mlttfamily]{progs/latex/templateExamSolution.tex}
+\lstinputlisting[language=tex,frame=single,title=\lstname,breaklines=false,breakatwhitespace=false,basicstyle=\scriptsize\mlttfamily]{progs/latex/templateExamBiblio.bib}
+\lstinputlisting[style=Matlab-editor,basicstyle=\footnotesize\mlttfamily,title=\lstname]{progs/matlab/templateMatlabExample.m}
+
+
+\Closesolutionfile{week_1_solution}
+\ifDisplaySolutions%
+\newpage
 \section{Solutions}
 \input{week_1_solution}
 \fi

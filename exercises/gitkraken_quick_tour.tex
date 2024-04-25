@@ -1,0 +1,131 @@
+\section[Quick Tour: git with GitKraken]{Quick Tour: git with GitKraken (OPTIONAL)\label{ex:QuickTourGitWithGitKraken}}
+
+\begin{enumerate}
+
+\item
+What is \emph{git}? What is \emph{GitKraken}? What is \emph{GitHub}?
+
+\item
+How does a typical workflow in Computational Macroeconomics look like?
+How can a version control system like git support this workflow?
+
+\item
+If you haven't already, sign up for a free account on GitHub: \url{https://github.com/signup}
+
+\item
+If you haven't already, sign up for the GitHub Student Developer Pack \url{https://education.github.com/pack}.
+If you add your university email address, the decision process is very fast (usually within a day).
+
+\item
+Install GitKraken for your operating system \url{https://www.gitkraken.com/download} and connect it with GitHub.
+Go to preferences \(\rightarrow \) Integrations \(\rightarrow \) GitHub and click \emph{Generate SSH key and add to GitHub}.
+Checkout the other preferences.
+For instance, if you are on Windows make sure that under \emph{Editor} the \emph{End of Line Character} is set to \emph{LF}.\footnote{%
+  If you are on Windows and working with people who are not (or vice-versa),
+    you'll probably run into line-ending issues at some point.
+  This is because Windows uses both a carriage-return character and a linefeed character for newlines in its files,
+    whereas macOS and Linux systems use only the linefeed character.
+  This is a subtle but incredibly annoying fact of cross-platform work;
+    many editors on Windows silently replace existing LF-style line endings with CRLF,
+    or insert both line-ending characters when the user hits the enter key.
+  Therefore, it is advised to tell git to convert CRLF to LF on commit but not the other way around.
+}
+
+\item
+Create a local repository on your computer called \emph{Comp-Macro} by selecting \texttt{Start a local repo} in GitKraken.
+
+\item
+With your favorite text editor open the \texttt{README.md} file inside the folder and add the following:
+\begin{lstlisting}[basicstyle=\scriptsize\mlttfamily]
+# Repository for Computational Macroeconomics
+In this repository I will practice solving DSGE models.
+The folder contains examples and codes developed in the lecture.
+I also don't understand git and find this really cumbersome!
+Dropbox, iCloud, Nextcloud, and OneDrive is so much better!
+\end{lstlisting}
+Save the file and have a look into GitKraken what happened in your repository.
+
+\item
+Explain the \emph{git model} of staging, committing and pushing.
+
+\item
+Stage and commit all the changes you made so far to the repository.
+
+\item
+What is a \emph{good commit}?
+
+\item
+\emph{Soft Reset} your current status (so-called HEAD) to the initial commit.
+Re-commit everything except the last line in the README.md file without actually changing the file in your text editor.
+Put the remaining changes (i.e.\ the last line into the stash, which is a place for work-in-progress).
+
+\item
+Push your local repository to GitHub and visit https://github.com/[USERNAME]/Comp-Macro to see what happened.
+
+\item
+What are \emph{git branches}?
+Create a branch called \emph{latex-exam-template} and checkout the branch.
+
+\item
+While on your \emph{latex-exam-template} branch, use your favorite text editor
+  to create the three files \texttt{templateExamSolution.tex}, \texttt{templateExamBiblio.bib}, and \texttt{templateMatlabExample.m} given in the Appendix.
+Typically, when copy and pasting from a pdf you will run into characters (like minus signs and empty space) not correctly pasted into your text editor,
+  so you will need to check everything manually.
+Once you are happy, commit only three files using the message \enquote{Created latex template for exam solutions}.
+
+\item
+Compile the Latex files using your favorite Latex GUI or via the command line:
+\begin{lstlisting}[language=tex,frame=single,basicstyle=\scriptsize\mlttfamily]
+pdflatex templateExamSolution
+biber templateExamSolution
+pdflatex templateExamSolution
+pdflatex templateExamSolution
+\end{lstlisting}
+Open the pdf to make sure the file compiled correctly.
+
+\item
+Like in the previous exercise we often have some auxiliary files created by a program which we do not care about.
+We can tell \emph{git} to ignore individual files or patterns of files.
+In GitKraken, simply right-click on the file you want to ignore and select how you want to ignore it.
+Do so for the just created auxiliary Latex files, but also for the generated pdf (as it is binary).
+Have a look into the newly created \texttt{.gitignore} file and commit it.\footnote{%
+  GitHub also has a collection of useful gitignore files for various programming languages at \url{https://github.com/github/gitignore}.
+}
+
+\item
+Create a Pull Request to GitHub of your develop branch to your main branch. Go to GitHub and accept this.
+See what happens in the repository.
+
+\item
+Switch back to your main branch and pull the merged changes.
+Then click Pop to add the changes you had in your stash back on top of the current branch.
+Either decide to discard the last line in the README.md file or commit it and schedule a meeting with me to discuss your issues.
+
+\item
+Once you got accepted to the GitHub Student Developer Pack, activate GitKraken to get the free PRO license.
+
+\end{enumerate}
+
+
+\paragraph{Readings}
+\begin{itemize}
+	\item \url{https://www.gitkraken.com/learn/git}: highly recommended (particularly the videos)
+	\item \textcite{Chacon_2014_ProGit}: extensive book on git
+\end{itemize}
+
+\paragraph{Useful urls}
+\begin{itemize}	
+	\item \url{https://www.sas.upenn.edu/~jesusfv/Chapter_HPC_5_Git.pdf}
+	\item \url{https://github.com/jaredgars/LEAP}
+	\item \url{https://luispfonseca.com/files/slides_git.pdf}
+	\item \url{https://www.frankpinter.com/notes/git-for-economists-presentation.pdf}
+	\item \url{https://github.com/fditraglia/git-for-economists}
+	\item \url{https://matteosostero.com/files/slides_git.pdf}
+\end{itemize}
+
+\begin{solution}\textbf{Solution to \nameref{ex:QuickTourGitWithGitKraken}}
+\ifDisplaySolutions%
+\input{exercises/gitkraken_quick_tour_solution.tex}
+\fi
+\newpage
+\end{solution}

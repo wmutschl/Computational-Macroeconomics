@@ -1,20 +1,31 @@
 \begin{enumerate}
-\item As for all $t$ the shocks are zero, i.e. $\varepsilon_t = 0$, we get
-  $x - \theta x = 0 \Leftrightarrow x = 0$,
-  where $x$ denotes the non-stochastic steady-state
+
+\item
+As for all \(t\) the shocks are zero, i.e.\
+  \(\varepsilon_t = 0\), we get \(x - \theta x = 0 \Leftrightarrow x = 0\),
+  where \(x\) denotes the non-stochastic steady-state
   (we drop the time subscript in the original equation when computing the steady-state).
-\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/arma_1_1.mod}
+
+\item
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/arma11.mod}
+
 Some notes:
+
 \begin{itemize}
-	\item we used MATLAB codes for plotting.
-	\item whenever the parameters are equal to each other,
-		the simulated series for $x_t$ is always equal to the drawn shocks $\varepsilon_t$.
-	\item for some parameter combinations, e.g. $\theta=1.5$ and $\theta=0.4$,
-		Dynare prints an error \texttt{Blanchard \& Kahn conditions are not satisfied: no stable equilibrium.}
-	If you are familiar with time series models,
-		this is due to the fact that this parameter combination provides a non-stationary process,
-		i.e. the process explodes and does not return to the equilibrium/steady-state.
+
+\item
+Whenever the parameters are equal to each other, the simulated series for \(x_t\) is always equal to the drawn shocks \(\varepsilon_t\).
+
+\item
+Sometimes Dynare prints an error message, e.g.\ try out \(\theta=1.5\) and \(\theta=0.4\).
+If you are familiar with time series models, this is due to the fact that this parameter combination provides a non-stationary process,
+  i.e.\ the process explodes and does not return to the equilibrium/steady-state.
 \end{itemize}
 
-\item \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/arma_1_1.m}
+\item
+This function simulates the ARMA{(1,1)} model in MATLAB:\@
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/arma11Simulate.m}
+This script can be used to compare the results from Dynare with the results from MATLAB:\@
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/arma11CompareMATLABWithDynare.m}
+
 \end{enumerate}

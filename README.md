@@ -4,7 +4,7 @@
 # Computational Macroeconomics
 
 These are my course materials for a graduate course on Computational Macroeconomics taught at the University of Tübingen.
-The compiled materials (such as PDFs) are available under [Releases](https://github.com/wmutschl/Computational-Macroeconomics/releases).
+The compiled PDF materials are available under [Releases](https://github.com/wmutschl/Computational-Macroeconomics/releases).
 
 Please feel free to use this for teaching or learning purposes; however, taking into account the [GPL 3.0 license](https://choosealicense.com/licenses/gpl-3.0/).
 
@@ -19,17 +19,21 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * decide whether you want to take the course
 * prepare your computer for the course with MATLAB/Octave and Dynare
 * do your first steps in MATLAB/Octave and Dynare
+* (optionally) install GitKraken and do your first steps with git
 
 ### To Do
 
-* [x] read the general course information on [Ilias](https://ovidius.uni-tuebingen.de/ilias3/goto.php?target=crs_4166405&client_id=pr02)
+* [x] read the general course information on [Ilias](https://ovidius.uni-tuebingen.de)
 * [x] watch the introductory videos (on YouTube)
   * [x] [Introduction to Computational Macroeconomics](https://youtu.be/vZfX5U5xyws)
   * [x] [Introduction to MATLAB](https://youtu.be/_CbLr11aeQ4)
   * [x] [Quick Tour Dynare (focus on solution methods and simulations)](https://youtu.be/NDFSUx46FvM)
 * [x] prepare your computer: MATLAB/Octave and Dynare
-  * [x] install MATLAB R2023a following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clientdienste/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
-  * [x] install Dynare 5.4 following [this guide](https://www.dynare.org/resources/quick_start/)
+  * [x] install MATLAB R2024a following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clientdienste/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
+  * [x] install Dynare 6.0 following [this guide](https://www.dynare.org/resources/quick_start/)
+  * [x] (optionally) create an account on [GitHub.com](https://github.com/signup)
+  * [x] (optionally) sign up for the [GitHub Students Developer Pack](https://education.github.com/pack) to get a free Pro license for GitKraken (among other things)
+  * [x] (optionally) install the [GitKraken Client](https://gitkraken.com/download)  
 * [x] do [exercises for week 1](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf)
 * [x] write down all your questions
 * [x] [schedule an online meeting](https://schedule.mutschler.eu) with me
@@ -40,6 +44,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
+<!---
 
 <details>
   <summary>Week 2: RBC Model, Calibration and Steady-State</summary>
@@ -278,7 +283,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-
+-->
 
 ## Content
 
