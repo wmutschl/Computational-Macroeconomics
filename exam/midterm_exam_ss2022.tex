@@ -1,0 +1,282 @@
+% !TEX root = midterm_exam_ss2022.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,top=2cm]{geometry}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage[english]{babel}
+\usepackage[a4paper]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+%\parindent0mm
+%\parskip1.5ex plus0.5ex minus0.5ex
+
+\begin{document}
+	
+\title{Computational Macroeconomics}
+\author{Midterm Exam}
+\date{Summer 2022}
+\maketitle
+
+\begin{itemize}
+\item
+Answer \textbf{all} of the following \textbf{two} exercises in English.
+
+\item
+All assignments will be given the same weight in the final grade.
+
+\item
+Hand in your solutions before Sunday June, 13 2022 at 3pm.
+
+\item
+The solution files should contain your executable (and commented) MATLAB functions and script files
+  as well as all additional documentation as \texttt{pdf}, not \texttt{doc} or \texttt{docx}.
+Your \texttt{pdf} files may also include scans or pictures of handwritten notes.
+
+\item
+Please e-mail ALL the solution files to \url{willi.mutschler@uni-tuebingen.de}.
+
+\item
+I will confirm the receipt of your work also by email (typically within the hour). If not, please resend it to me.		
+
+\item
+All students must work on their own, please also give your student ID number.		
+
+\item
+It is advised to regularly check Ilias and your emails in case of urgent updates.
+
+\item
+If there are any questions, do not hesitate to contact Willi Mutschler.
+\end{itemize}
+
+\newpage
+
+\section[An and Schorfheide (2007) Model]{An and Schorfheide (2007) Model\label{ex:AnScho}}
+Consider the New Keynesian model of An and Schorfheide (2007, Econometric Reviews).
+The model equations are given by 
+\begin{align}
+1 &= \beta \mathbb{E}_t\left[{\left(\frac{c_{t+1}}{c_t}\right)}^{-\tau} \frac{1}{\gamma z_{t+1}} \frac{R_t}{\pi_{t+1}}\right] \label{eq:AS_B1}
+\\
+1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] - \phi \beta \mathbb{E}_t \left[{\left(\frac{c_{t+1}}{c_t}\right)}^{-\tau} \frac{y_{t+1}}{y_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-c_t^{\tau}\right]
+\\
+y_t &= c_t + \frac{g_t-1}{g_t} y_t + \frac{\phi}{2} {\left({\pi_t - \pi}\right)}^2 y_t
+\\
+R_t &= {R_t^{*}}^{1-\rho_R} R_{t-1}^{\rho_R} e^{\sigma_r\epsilon_{R,t}}
+\\
+\ln(z_t) &= \rho_z \ln(z_{t-1}) + \sigma_z\epsilon_{z,t}
+\\
+\ln(g_t) &= (1-\rho_g)\ln(\bar{g}) + \rho_g \ln(g_{t-1}) + \sigma_g\epsilon_{g,t}
+\\
+y_t^* &= {(1-\nu)}^{\frac{1}{\tau}} g_t
+\end{align}
+where \(\epsilon_{R,t}\), \(\epsilon_{g,t}\) and \(\epsilon_{z,t}\) are iid normally distributed with a standard error of 1.
+Moreover, we have the following auxiliary parameter relationships:
+\begin{align*}
+\gamma = 1+\frac{\gamma^{Q}}{100}, \qquad
+\beta = \frac{1}{1+r^{A}/400}, \qquad
+\bar{\pi} = 1+\frac{\pi^{A}}{400}, \qquad
+\phi = \tau \frac{1-\nu}{\nu \bar{\pi}^{2}\kappa}
+\end{align*}
+and one auxiliary variable \(R_t^*\):
+\begin{align*}
+R_t^* &= R {\left(\frac{\pi_t}{\bar{\pi}}\right)}^{\psi_1} {\left(\frac{y_t}{y_t^*}\right)}^{\psi_2}
+\end{align*}
+Note that \(y_t^*\) is an endogenous model variable, whereas \(\bar{\pi}\) and \(\bar{g}\) are parameters and \(R\) denotes the steady-state of \(R_t\).
+
+\paragraph{Parametrization}
+If not otherwise stated, use the following parameter values for the exercises:
+\begin{align*}
+&\tau=2,\quad
+\kappa=0.33,\quad
+\nu=0.1,\quad
+\rho_g=0.95,\quad
+\rho_z=0.9,\quad	
+r^{A}=1,\quad
+\\
+&\pi^{A}=3.2,\quad
+\gamma^{Q}=0.5,\quad
+\bar{g}=1/0.85,\quad
+\sigma_z = \sqrt{0.9},\quad
+\sigma_g=\sqrt{0.36}
+\end{align*}
+We will consider two different parametrization sets of the monetary policy rule \((\psi_1,\psi_2,\rho_R,\sigma_r)\), one is called \textbf{hawkish}:
+\begin{align*}
+&\psi_1=1.5,&& \psi_2=0.125,&& \rho_R = 0.75,&& \sigma_r = \sqrt{0.4}
+\end{align*}
+and the other one \textbf{dovish}:
+\begin{align*}
+&\psi_1=1.043195,&& \psi_2=0.918417,&& \rho_R = 0.792647,&& \sigma_r = \sqrt{0.446783}	
+\end{align*}
+
+\newpage
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+
+\item
+Provide intuition behind each equation of the model. How are nominal price rigidities modelled?\\\emph{Hint: Have a look at the relevant parts of the underlying paper.}
+
+\item
+Write a Dynare mod file for this model.
+
+\item
+Derive the steady state analytically and include these in a {\texttt{steady{\_}state{\_}model}} block.
+If you struggle to do that, use an \texttt{initval} block.
+
+\item
+Calibrate such that the ratio of steady-state consumption to steady-state output is equal to 90\%.
+For the following exercises, though, revert to the original parametrization.		
+
+\item
+Investigate the steady-state properties and theoretical moments of the dovish vs.\ hawkish parametrizations
+  by running the \texttt{steady} and \texttt{stoch{\_}simul{(order=1)}} commands.\\
+  \emph{Hint: Look at Dynare's output in the command window for the Steady-State values and Theoretical Moments.}
+
+\item
+Now compare the impulse-response functions of the two different parametrizations (dovish vs.\ hawkish) for output and inflation
+  to a one standard deviation TFP shock and a one standard deviation monetary policy shock.
+Provide intuition for the impulse response functions.
+
+\item
+The determinacy region is defined as the parameter space for which the Blanchard \& Khan (1980, Econometrica) order and rank conditions are full-filled.
+Dynare's sensitivity toolbox provides means to get a graphical representation of this region by drawing randomly from the parameter space and checking the order and rank conditions.
+Add the following code snippet to your mod file:
+\begin{verbatim}
+%---------------
+%specify parameters for which to map sensitivity
+estimated_params;
+PSI1, uniform_pdf,,, 0,6; %draw uniformly from 0 to 6
+PSI2, uniform_pdf,,,-1,6; %draw uniformly from -1 to 6
+RHOR, uniform_pdf,,,-1,1; %draw uniformly from -1 to 1
+end;
+varobs y pie;
+dynare_sensitivity(prior_range=0,stab=1,nsam=2000);
+%---------------
+\end{verbatim}	
+which randomly draws \(\psi_1 \in [0,6]\), \(\psi_2 \in [-1,6]\) and \(\rho_R \in [-1,1]\), while keeping all other parameter values at their calibrated values.
+Focus on the the plots and explain these.
+What does this imply for the ability of monetary policy to anchor inflation expectations?
+
+\item[Bonus points:]
+In your opinion, is the monetary policy strategy conducted by the European Central bank hawkish or dovish?
+What about the Federal Reserve?
+Given the insights you gained in this exercise:
+Would it be desirable for policymakers to be rather hawkish or dovish?
+
+\end{enumerate}
+
+
+\newpage
+
+\section[Brock and Mirman (1972) Model]{Brock and Mirman (1972) Model\label{ex:BrockMirman}}
+Consider a simple RBC model with log-utility and full depreciation.
+The objective is to maximize
+\begin{align*}
+\max~E_t \sum_{j=0}^{\infty} \beta^{j} \log(c_{t+j})
+\end{align*}
+subject to the law of motion for capital \(k_t\) at the end of period \(t\)
+\begin{align}
+k_{t} = a_t k_{t-1}^\alpha - c_t \label{eq:BrockMirmanCapital}
+\end{align}
+with \(\beta <1\) denoting the discount factor and \(E_t\) is expectation given information at time \(t\).
+Productivity \(a_t\) is the driving force of the economy and evolves according to
+\begin{align}
+\log{a_{t}} &= \rho_a \log{a_{t-1}}  + \varepsilon_{a,t} \label{eq:BrockMirmanTFP}
+\end{align}
+where \(\rho_a\) denotes the persistence parameter
+  and \(\varepsilon_{a,t}\) is assumed to be normally distributed with mean zero and variance \(\sigma_a\).
+Finally, we assume that the transversality condition and 
+  the following non-negativity constraints are full-filled: \(k_t \geq0\) and \(c_t \geq 0\).
+
+\begin{enumerate}
+
+\item
+Show that the first-order condition is given by
+\begin{align}
+1 = \alpha \beta E_t \frac{c_{t}}{c_{t+1}} a_{t+1} k_{t}^{\alpha-1} \label{eq:BrockMirmanEuler}
+\end{align}
+
+\item
+Compute the steady-state of the model with pen and paper,
+  in the sense that there is a set of values for the endogenous variables that in equilibrium remain constant over time.
+
+\item
+Write MATLAB (\textbf{NOT Dynare}) scripts that:
+\begin{enumerate}
+\item
+Pre-process the model and save both the static and dynamic model equations
+  as well as Jacobians to script files that can be evaluated for any value of parameters,
+  dynamic endogenous variables and exogenous variables.
+
+\item
+Compute the steady-state for the following parametrization:
+\(\alpha=0.3\), \(\beta=0.96\), \(\rho_a=0.5\), and \(\sigma_a=0.2\).
+\emph{Hint: You should get the following results:}
+\begin{verbatim}
+STEADY-STATE RESULTS:
+k 0.168929
+a 1
+c 0.417629
+\end{verbatim}
+
+\item
+Compute the first-order approximated policy function (i.e.\
+  \(g_x\) and \(g_u\) in the notation used in the lecture)
+  for the following parametrization:
+  \(\alpha=0.3\), \(\beta=0.96\), \(\rho_a=0.5\), and \(\sigma_a=0.2\).
+\emph{Hint: You should get the following results:}
+\begin{verbatim}
+POLICY AND TRANSITION FUNCTIONS
+                                   k               a               c
+Constant                    0.168929        1.000000        0.417629
+k(-1)                       0.300000               0        0.741667
+a(-1)                       0.084464        0.500000        0.208815
+eps_a                       0.168929        1.000000        0.417629
+\end{verbatim}
+
+\item
+Draw \(T=100\) shocks from the standard normal distribution and simulate data for consumption \(c_t\) for \(t=1,\cdots T\)
+  by using the first-order approximated policy function.
+\\\emph{Hint: Look at exercise 5 from problem set 1 or exercise 4 from problem set 2 how to simulate with MATLAB.}
+
+\end{enumerate}
+
+\newpage
+
+\item
+Professor Mutschler taught you the concept of a policy function,
+\begin{align*}
+\begin{pmatrix} c_{t}\\k_{t}\\a_{t} \end{pmatrix}
+&= g(a_{t-1},k_{t-1},\varepsilon_{a,t})
+\end{align*}
+  which maps the current state of the economy (\(k_{t-1}\) and \(a_{t-1}\))
+  and current shocks \(\varepsilon_{a,t}\) to current decisions of the agents.
+You remember him stating, that there is no way to derive the function in closed-form,
+  so that's why we use perturbation approximation techniques.
+Willi, a fellow student, disagrees with this assessment
+  and claims that he is able to compute the policy function in closed-form for this model.
+He claims that the policy function is linear in \(a_t k_{t-1}^\alpha \),
+  i.e.\ it has the form
+\begin{align}
+c_{t} &= g^c a_t k_{t-1}^\alpha \label{eq:BrockMirman:gc}
+\\
+k_{t} & = g^k a_t k_{t-1}^\alpha \label{eq:BrockMirman:gk}
+\end{align}
+  where \(g^c\) and \(g^k\) are some scalars which are a function of model parameters \(\alpha \) and \(\beta \) only.
+Professor Mutschler is surprised and therefore asks you on the exam to derive the scalar values \(g^c\) and \(g^k\).
+Do so by inserting the guessed policy functions~\eqref{eq:BrockMirman:gc} and~\eqref{eq:BrockMirman:gk}
+  into the model equations~\eqref{eq:BrockMirmanCapital} and~\eqref{eq:BrockMirmanEuler}.
+
+\item
+[Bonus points:] Compare simulated data for the endogenous variables
+  as well as impulse response functions of a one-standard-deviation technology shock
+  based on the true solution with the first-order approximated one.
+
+\end{enumerate} 
+
+\end{document}
