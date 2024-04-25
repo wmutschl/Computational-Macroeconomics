@@ -1,4 +1,4 @@
-name: Build LaTeX
+name: LaTeX
 
 on:
   push:

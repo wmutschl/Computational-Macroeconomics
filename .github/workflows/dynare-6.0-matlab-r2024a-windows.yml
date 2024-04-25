@@ -1,4 +1,4 @@
-name: 'Dynare 6.0 with MATLAB R2024a on Windows '
+name: 'Windows '
 
 on:
   push:
