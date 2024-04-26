@@ -1,15 +1,16 @@
-% =========================================================================
-% computes the steady-state of a no growth variant of the Baxter and King (1993, AER)
-% =========================================================================
+% computes the steady-state of a variant of the Baxter and King (1993, AER)
+% model without growth
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: April 26, 2023
-% =========================================================================
+% Version: April 26, 2024
+% -------------------------------------------------------------------------
 
-%-------------------------------------------------------------------------%
-% declare variables and parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% declare variables and parameters %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % var, varexo and parameters are Dynare blocks, they end with a semicolon
 % note that you can use either % or // for comments in a mod file
-%-------------------------------------------------------------------------%
+
 var 
   y   // output
   c   // consumption
@@ -46,11 +47,12 @@ parameters
   TAU_BAR // target value of tax rate
 ;
 
-%-------------------------------------------------------------------------%
-% calibrate parameters
+%%%%%%%%%%%%%%%
+% calibration %
+%%%%%%%%%%%%%%%
 % this is actual MATLAB code; Dynare will use variables that have the same
 % name as a declared parameter to initialize entries in M_.params
-%-------------------------------------------------------------------------%
+
 % parameter calibration using targeted steady-state values
 Y_BAR   = 1;
 GB_BAR  = 0.2*Y_BAR;
@@ -74,15 +76,17 @@ TAU_BAR = (GB_BAR + IVG_BAR + TR_BAR)/(W_BAR*N_BAR+RK_BAR*K_BAR); % fiscal budge
 BETA    = 1/(1-DELTA_K+(1-TAU_BAR)*RK_BAR);  % from savings decision in steady-state
 THETA_L = (1-TAU_BAR)*W_BAR*(1-N_BAR)/C_BAR; % labor utility weight from labor supply decision
 
-% same persistence of exogenous processes
+% persistence of exogenous processes
 RHO_GB  = 0.75;
 RHO_IVG = 0.75;
 RHO_TAU = 0.75;
 
-%-------------------------------------------------------------------------%
-% model equations
+%%%%%%%%%%%%%%%%%%%
+% model equations %
+%%%%%%%%%%%%%%%%%%%
 % this is a Dynare block, don't forget the semicolons after model and after each equation!
-%-------------------------------------------------------------------------%
+% using [name='NAME OF EQUATION'] provides more meaningful error messages in Dynare
+
 model;
 
 [name='law of motion private capital stock']
@@ -112,14 +116,14 @@ y = c + iv + gb + ivg;
 
 end;
 
-%-------------------------------------------------------------------------%
-% steady-state computations
-% initval is a Dynare block specifying the initial values for an optimizer
-%-------------------------------------------------------------------------%
-% note that above we already computed the steady-state for all variables,
-% so instead of a steady_state_model block we can also just use initval instead.
-% That is, a numerical fixed point solver with initial value already equal
-% to the analytically computed steady-state.
+%%%%%%%%%%%%%%%%
+% steady-state %
+%%%%%%%%%%%%%%%%
+% initval is a Dynare block specifying the initial values for a numerical optimizer
+% note that during calibration (above) we already computed the steady-state for all variables 
+% so instead of a steady_state_model block we can also just use initval here;
+% that is, a numerical fixed point solver with initial value already equal to the analytically computed steady-state
+
 initval;
 y   = Y_BAR;
 c   = C_BAR;
@@ -134,4 +138,8 @@ tau = TAU_BAR;
 tr  = TR_BAR;
 n   = N_BAR;
 end;
+
+%%%%%%%%%%%%%%%%
+% computations %
+%%%%%%%%%%%%%%%%
 steady; % compute steady-state

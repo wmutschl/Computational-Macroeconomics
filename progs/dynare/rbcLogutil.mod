@@ -1,16 +1,19 @@
-% =========================================================================
 % computes the steady-state of the RBC model with log utility
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: April 17, 2023
-% =========================================================================
+% Version: April 26, 2024
+% -------------------------------------------------------------------------
 
-%% Declare Variables and Parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% declare variables and parameters %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 var y c k n a rk w iv uc un fn fk;
 varexo eps_a;
 parameters ALPHA BETA DELTA GAMMA PSI RHOA;
 
-%% Calibration of parameters (simple)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% calibration of parameters (simple) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ALPHA = 0.35;
 % BETA = 0.9901;
 % DELTA = 0.025;
@@ -18,8 +21,9 @@ parameters ALPHA BETA DELTA GAMMA PSI RHOA;
 % PSI = 1.7333;
 % RHOA = 0.9;
 
-%% Calibration of parameters (advanced) for OECD countries
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% calibration of parameters (flipping steady-state analytically) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % target values
 K_Y  = 10;    % average capital productivity found in long-run averages of data
 IV_Y = 0.25;  % average investment to ouput ratio found in long-run averages of data
@@ -43,7 +47,9 @@ PSI = GAMMA*(C/N)^(-1)*W*(N/(1-N))^(-1); % flipped steady-state labor equation
 
 RHOA  = 0.9; % does not affect the steady-state
 
-%% Model Equations
+%%%%%%%%%%%%%%%%%%%
+% model equations %
+%%%%%%%%%%%%%%%%%%%
 model;
 uc = GAMMA*c^(-1);
 un = -PSI/(1-n);
@@ -60,7 +66,9 @@ y = c + iv;
 log(a) = RHOA*log(a(-1)) + eps_a;
 end;
 
-%% Steady State
+%%%%%%%%%%%%%%%%
+% steady-state %
+%%%%%%%%%%%%%%%%
 steady_state_model;
 a = 1;
 rk = 1/BETA+DELTA-1;
@@ -80,6 +88,9 @@ fn = (1-ALPHA)*a*(k/n)^ALPHA;
 fk  = ALPHA*a*(k/n)^(ALPHA-1);
 end;
 
+%%%%%%%%%%%%%%%%
+% computations %
+%%%%%%%%%%%%%%%%
 steady;
 
 shocks;
@@ -88,13 +99,16 @@ end;
 
 stoch_simul(order=1,irf=30,periods=400) y c k n rk w iv a;
 
-figure('name','Simulated Data')
-subplot(3,3,1); plot(oo_.endo_simul(ismember(M_.endo_names,'a'),300:end)); title('productivity');
-subplot(3,3,2); plot(oo_.endo_simul(ismember(M_.endo_names,'y'),300:end)); title('output');
-subplot(3,3,3); plot(oo_.endo_simul(ismember(M_.endo_names,'c'),300:end)); title('consumption');
-subplot(3,3,4); plot(oo_.endo_simul(ismember(M_.endo_names,'k'),300:end)); title('capital');
-subplot(3,3,5); plot(oo_.endo_simul(ismember(M_.endo_names,'iv'),300:end)); title('investment');
-subplot(3,3,6); plot(oo_.endo_simul(ismember(M_.endo_names,'rk'),300:end)); title('rental rate');
-subplot(3,3,7); plot(oo_.endo_simul(ismember(M_.endo_names,'n'),300:end)); title('labor');
-subplot(3,3,8); plot(oo_.endo_simul(ismember(M_.endo_names,'w'),300:end)); title('wage');
-
+%%%%%%%%%
+% plots %
+%%%%%%%%%
+figure('name','Simulated data')
+sgtitle('Simulated data')
+subplot(3,3,1); plot(oo_.endo_simul(ismember(M_.endo_names,'a' ),300:end), 'LineWidth',2); title('Productivity');
+subplot(3,3,2); plot(oo_.endo_simul(ismember(M_.endo_names,'y' ),300:end), 'LineWidth',2); title('Output');
+subplot(3,3,3); plot(oo_.endo_simul(ismember(M_.endo_names,'c' ),300:end), 'LineWidth',2); title('Consumption');
+subplot(3,3,4); plot(oo_.endo_simul(ismember(M_.endo_names,'k' ),300:end), 'LineWidth',2); title('Capital');
+subplot(3,3,5); plot(oo_.endo_simul(ismember(M_.endo_names,'iv'),300:end), 'LineWidth',2); title('Investment');
+subplot(3,3,6); plot(oo_.endo_simul(ismember(M_.endo_names,'rk'),300:end), 'LineWidth',2); title('Rental rate');
+subplot(3,3,7); plot(oo_.endo_simul(ismember(M_.endo_names,'n' ),300:end), 'LineWidth',2); title('Labor');
+subplot(3,3,8); plot(oo_.endo_simul(ismember(M_.endo_names,'w' ),300:end), 'LineWidth',2); title('Wage');

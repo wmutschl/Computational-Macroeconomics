@@ -1,22 +1,40 @@
 \section[Case Study Baxter and King (1993, AER): Macroeconomic Effects Of A Permanent Increase in Basic Government Purchases]{Case Study Baxter and King (1993, AER): Macroeconomic Effects Of A Permanent Increase in Basic Government Purchases\label{ex:CaseStudy.BaxterKing.Figure2}}
 
 \begin{enumerate}
-    \item Read the paper by \textcite{Baxter.King_1993_FiscalPolicyGeneral} and focus particularly on the model equations and analysis done in section III.B.
-    \item Write a Dynare mod file for the model and calibrate it according to the \emph{Benchmark Model with Basic Government Purchases} given in Table 1.
-    Compute the steady-state using an \texttt{initval} block.
-    \item Replicate Figure 2.
+
+\item
+Read the paper by \textcite{Baxter.King_1993_FiscalPolicyGeneral}
+  and focus particularly on the model equations and analysis done in section III.B.
+
+\item
+Write a Dynare mod file for the model
+  and calibrate it according to the \emph{Benchmark Model with Basic Government Purchases} given in Table 1.
+Compute the steady-state using an \texttt{initval} block.
+
+\item Replicate Figure 2.
+
 \end{enumerate}
+
 \paragraph{Notes and hints}
+
 \begin{itemize}
-    \item According to footnote 3, the quantitative analysis corresponds to a model with labor-augmenting technical progress.
-    Calibrate $\gamma_X$ such that the economy grows at 1.6\% per annum, a typical value used in e.g.\ \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness}.
-    \item Pay attention to the different scales on the y-axes, i.e.\ commodity units, percent, and basis points.
-    \item Skip the term structure variable in panel \emph{C.}, as we will re-visit the term structure in RBC models later on.
-    \item Use a perfect foresight simulation for computing the transition path
-      (i) from the initial steady-state (specified by \texttt{initval}) to
-      (ii) a terminal steady-state (specified by \texttt{endval}) with
-      (iii) a permanent increase in basic government purchases (specified by setting a nonzero value on the exogenous variable in the terminal steady-state).
-    The following code snippet might be useful:
+\item
+According to footnote 3, the quantitative analysis corresponds to a model with labor-augmenting technical progress.
+Calibrate \(\gamma_X\) such that the economy grows at 1.6\% per annum,
+  a typical value used in e.g.\ \textcite{King.Plosser.Rebelo_1988_ProductionGrowthBusiness}.
+
+\item
+Pay attention to the different scales on the y-axes, i.e.\ commodity units, percent, and basis points.
+
+\item
+Skip the term structure variable in panel \emph{C.}, as we will re-visit the term structure in RBC models later on.
+
+\item Use a perfect foresight simulation for computing the transition path
+  (i) from the initial steady-state (specified by \texttt{initval}) to
+  (ii) a terminal steady-state (specified by \texttt{endval}) with
+  (iii) a permanent increase in basic government purchases (specified by setting a nonzero value on the exogenous variable in the terminal steady-state).
+The following code snippet might be useful:
+
 \end{itemize}
 
 {\footnotesize
@@ -28,7 +46,7 @@ initval;
 % TODO: add values for all variables with the initial steady-state
 end;
 steady; % compute initial steady-state
-        % steady after intival uses the computed steady-state to initialize oo_.endo_simul
+        % steady after initval uses the computed steady-state to initialize oo_.endo_simul
 
 % STEP 2: SET TERMINAL CONDITION
 commodity_unit = 0.01*oo_.steady_state(idx_y); % commodity unit (p.321) defined as 1% of initial output
@@ -58,7 +76,7 @@ plot(horizon,plot_y, "o",'MarkerEdgeColor','black','MarkerFaceColor','black','Ma
 }%
 
 \begin{solution}\textbf{Solution to \nameref{ex:CaseStudy.BaxterKing.Figure2}}
-\ifDisplaySolutions
+\ifDisplaySolutions%
 \input{exercises/case_study_baxter_king_figure2_solution.tex}
 \fi
 \newpage

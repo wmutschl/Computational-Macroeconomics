@@ -1,9 +1,8 @@
-% =========================================================================
 % computes the steady-state of the RBC model with log utility
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: April 17, 2023
-% =========================================================================
+% Version: April 26, 2024
+% -------------------------------------------------------------------------
 
 % calibration
 PARAMS.ALPHA = 0.35;
@@ -15,7 +14,7 @@ PARAMS.RHOA = 0.9;
 SS = []; % no need for initial values
 
 % compute steady-state
-[SS,PARAMS,error_indicator] = rbc_logutil_ss(SS,PARAMS);
+[SS,PARAMS,error_indicator] = rbcLogutilSteadyState(SS,PARAMS);
 if ~error_indicator
     disp(SS);
 else

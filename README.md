@@ -46,7 +46,6 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
 
 <details>
   <summary>Week 2: RBC Model, Calibration and Steady-State</summary>
@@ -72,6 +71,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
+<!---
 
 <details>
   <summary>Week 3: Practicing MATLAB, New Keynesian Model</summary>

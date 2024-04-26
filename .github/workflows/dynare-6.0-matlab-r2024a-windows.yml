@@ -37,3 +37,22 @@ jobs:
             dynare arma11;
             cd("../matlab");
             arma11CompareMATLABWithDynare;
+
+      - name: Run week 2 codes
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath("Dynare-6.0-arm64/matlab");
+            cd("progs/matlab");
+            rbcLogutilSteadyStateTest;
+            cd("../dynare");
+            dynare rbcLogutil
+            cd("../matlab");
+            rbcCRRASteadyStateTest;
+            cd("../dynare");
+            dynare rbcCRRA
+            dynare BaxterKingSteadyState
+            dynare BaxterKingGrowthSteadyState
+            cd("../replications/Baxter_King_1993");
+            dynare Baxter_King_1993_figure_2
+            dynare Baxter_King_1993_figure_3

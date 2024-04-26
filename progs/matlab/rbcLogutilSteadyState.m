@@ -1,21 +1,21 @@
-function [SS,PARAMS,error_indicator] = rbc_logutil_ss(SS,PARAMS)
-% [SS,PARAMS,error_indicator] = rbc_logutil_ss(SS,PARAMS)
-% =========================================================================
-% computes the steady-state of the RBC model with log utility analytically
-% and stored into structures
-% =========================================================================
+function [SS,PARAMS,error_indicator] = rbcLogutilSteadyState(SS,PARAMS)
+% [SS,PARAMS,error_indicator] = rbcLogutilSteadyState(SS,PARAMS)
+% -------------------------------------------------------------------------
+% computes the steady-state of the RBC model with log utility analytically,
+% inputs and outputs are stored into structures
+% -------------------------------------------------------------------------
 % INPUTS
-%   - SS     : structure with initial steady state values, fieldnames are variable names (usually empty, but might be useful for initial values or to update endogenous parameters)
+%   - SS     : structure with initial steady-state values, fieldnames are variable names (usually empty, but might be useful for initial values or to update endogenous parameters)
 %	- params : structure with values for the parameters, fieldnames are parameter names
 % ----------------------------------------------------------------------
 % OUTPUTS
-%   - SS     : structure with computed steady state values, fieldnames are variable names
+%   - SS     : structure with computed steady-state values, fieldnames are variable names
 %	- params : structure with updated values for the parameters, fieldnames are parameter names
 %   - error_indicator: 0 if no error when computing the steady-state
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: April 17, 2023
-% =========================================================================
+% Version: April 26, 2024
+% -------------------------------------------------------------------------
 error_indicator = 0; % initialize no error
 
 % read-out parameters
@@ -24,7 +24,7 @@ BETA  = PARAMS.BETA;
 DELTA = PARAMS.DELTA;
 GAMMA = PARAMS.GAMMA;
 PSI   = PARAMS.PSI;
-RHOA  = PARAMS.RHOA;
+RHOA  = PARAMS.RHOA; % does not influence steady-state
 
 % compute steady-state analytically
 a = 1;
