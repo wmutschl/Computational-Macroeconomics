@@ -148,7 +148,9 @@ for j = 1:size(nonzero_vals,1)
 end
 fprintf(fileID,'\nend %% function end \n');
 fclose(fileID);
+try
 edit(NameOfFunction) % this opens a new editor with the just created script file
+end
 
 %% 18
 % see that both script files and symbolic expressions are equivalent
