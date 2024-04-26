@@ -1,11 +1,10 @@
-% =========================================================================
 % illustration of preprocessing of basic RBC model using MATLAB's symbolic toolbox
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: May 5, 2023
-% =========================================================================
+% Version: April 26, 2024
+% -------------------------------------------------------------------------
 
-function MODEL = preprocessing_matlab_rbc
+function MODEL = preprocessingRBC
 
 %% symbolic declarations
 fname = "rbc";
@@ -108,10 +107,10 @@ static_eqs = subs(static_eqs,sym(endo_names + "_stst"),endo_vars); % substitute 
 static_g1 = jacobian(static_eqs,endo_vars);
 
 %% write out to script files
-write_out(static_eqs,fname+"_static_resid",'residual',1,dynamic_names,endo_names,exo_names,param_names);
-write_out(static_g1,fname+"_static_g1",'g1',1,dynamic_names,endo_names,exo_names,param_names);
-write_out(dynamic_eqs,fname+"_dynamic_resid",'residual',0,dynamic_names,endo_names,exo_names,param_names);
-write_out(dynamic_g1,fname+"_dynamic_g1",'g1',0,dynamic_names,endo_names,exo_names,param_names);
+writeOut(static_eqs,fname+"_static_resid",'residual',1,dynamic_names,endo_names,exo_names,param_names);
+writeOut(static_g1,fname+"_static_g1",'g1',1,dynamic_names,endo_names,exo_names,param_names);
+writeOut(dynamic_eqs,fname+"_dynamic_resid",'residual',0,dynamic_names,endo_names,exo_names,param_names);
+writeOut(dynamic_g1,fname+"_dynamic_g1",'g1',0,dynamic_names,endo_names,exo_names,param_names);
 
 %% store to structure
 MODEL.fname = fname;

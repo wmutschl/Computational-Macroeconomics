@@ -1,6 +1,6 @@
-function write_out(Output, nameOfFunction, nameOfOutput, is_static, dynamic_names, endo_names, exo_names, param_names)
-% function write_out(Output, nameOfFunction, nameOfOutput, is_static, dynamic_names, endo_names, exo_names, param_names)
-% =========================================================================
+function writeOut(Output, nameOfFunction, nameOfOutput, is_static, dynamic_names, endo_names, exo_names, param_names)
+% writeOut(Output, nameOfFunction, nameOfOutput, is_static, dynamic_names, endo_names, exo_names, param_names)
+% -------------------------------------------------------------------------
 % helper function to create MATLAB script files for the residuals and
 % Jacobian of dynamic and static model equations of DSGE models, created
 % with MATLAB's symbolic toolbox
@@ -23,12 +23,13 @@ function write_out(Output, nameOfFunction, nameOfOutput, is_static, dynamic_name
 % - creates script file that are MATLAB funcions within current folder
 %   for fast evaluation of residuals or Jacobian of static or dynamic model
 %   equations of a DSGE model
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: May 5, 2023
-% =========================================================================
+% Version: Aprix 26, 2024
+% -------------------------------------------------------------------------
+
 filename = strcat(nameOfFunction,'.m');
-% Delete old version of file (if it exists)
+% delete old version of file (if it exists)
 if exist(filename,'file') > 0
     delete(filename);
 end

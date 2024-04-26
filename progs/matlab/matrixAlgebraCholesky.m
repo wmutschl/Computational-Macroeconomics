@@ -1,11 +1,10 @@
-% =========================================================================
-% Illustration how to decompose a covariance matrix such that
-% SIGu = W*SIGe*W'
+% illustration how to decompose a covariance matrix such that
+%   SIGu = W*SIGe*W'
 % using the Cholesky decomposition
-% =========================================================================
-% Willi Mutschler, April 24, 2023
+% -------------------------------------------------------------------------
+% Willi Mutschler, April 26, 2024
 % willi@mutschler.eu
-% =========================================================================
+% -------------------------------------------------------------------------
 clearvars; clc; close all; % housekeeping
 
 SIGu = [2.25 0   0;

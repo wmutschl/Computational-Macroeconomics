@@ -1,15 +1,16 @@
-% =========================================================================
-% Illustration symbolic toolbox in MATLAB
-% =========================================================================
-% Willi Mutschler, April 26, 2023
+% illustration of using the symbolic toolbox in MATLAB
+% -------------------------------------------------------------------------
+% Willi Mutschler, April 26, 2024
 % willi@mutschler.eu
-% =========================================================================
+% -------------------------------------------------------------------------
 
 %% 1
 sym(1/3)
 1/3
-% The symbolic number is represented in exact rational form, while the floating-point number is a decimal approximation.
-% Note that the symbolic result is not indented, while the standard MATLAB result is indented.
+% The symbolic number is represented in exact rational form,
+% while the floating-point number is a decimal approximation.
+% Note that the symbolic result is not indented,
+% while the standard MATLAB result is indented.
     
 %% 2
 sin(sym(pi))
@@ -19,7 +20,7 @@ sin(pi)
 
 %% 3
 syms x
-z=sym('y')
+z = sym('y')
 syms x y z
 
 %% 4

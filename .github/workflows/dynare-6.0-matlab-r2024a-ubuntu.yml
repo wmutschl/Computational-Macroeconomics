@@ -79,7 +79,7 @@ jobs:
         uses: matlab-actions/run-command@v2
         with:
           command: |
-            addpath("Dynare-6.0-arm64/matlab");
+            addpath("dynare/matlab");
             cd("progs/matlab");
             rbcLogutilSteadyStateTest;
             cd("../dynare");
@@ -92,4 +92,18 @@ jobs:
             dynare BaxterKingGrowthSteadyState
             cd("../replications/Baxter_King_1993");
             dynare Baxter_King_1993_figure_2
+
+      - name: Run week 3 codes
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath("dynare/matlab");
+            cd("progs/replications/Baxter_King_1993");
             dynare Baxter_King_1993_figure_3
+            cd("../../matlab")
+            symbolicToolboxIllustation;
+            matrixAlgebraEigenvalues;
+            matrixAlgebraKroneckerFormula;
+            matrixAlgebraCholesky;
+            matrixAlgebraCompareLyapunovSolvers;
+            preprocessingComparisonRBC;

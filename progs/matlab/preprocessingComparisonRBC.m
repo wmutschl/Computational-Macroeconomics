@@ -1,9 +1,8 @@
-% =========================================================================
 % comparison of preprocessing in Dynare and MATLAB of basic RBC model
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: May 5, 2023
-% =========================================================================
+% Version: April 26, 2024
+% -------------------------------------------------------------------------
 
 clearvars;
 
@@ -13,7 +12,7 @@ dynare rbc
 cd(oldfolder);
 
 %% MATLAB preprocessing
-preprocessing_matlab_rbc;
+preprocessingRBC;
 matlab_resid        = rbc_dynamic_resid(zzz_ss,ex_ss,M_.params,y_ss);
 matlab_resid_static = rbc_static_resid(y_ss,ex_ss,M_.params);
 matlab_g1           = rbc_dynamic_g1(zzz_ss,ex_ss,M_.params,y_ss);

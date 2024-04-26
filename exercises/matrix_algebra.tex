@@ -7,45 +7,56 @@ A = \begin{pmatrix}0.5 &0 &0 \\0.1&0.1&0.3\\0&0.2&0.3 \end{pmatrix}
 \end{align*}
 
 \begin{enumerate}
-\item Compute the eigenvalues of A.
-What would this imply for the system $y_t = c + A y_{t-1} + u_t$ with $u_t$ being white noise
-  ($E[u_t]=0$, $E[u_t u_t'] = \Sigma_u$, and $\forall s\neq t: E[u_t u_{t+s}'] = 0$)?
 
-\item Consider the matrices $D$: $m\times n$, $E$: $n\times p$ and $F$: $p\times k$.
+\item
+Compute the eigenvalues of A.
+What would this imply for the system \(y_t = c + A y_{t-1} + u_t\) with \(u_t\) being white noise
+  (\(E[u_t]=0\), \(E[u_t u_t'] = \Sigma_u\), and \(\forall s\neq t: E[u_t u_{t+s}'] = 0\))?
+
+\item
+Consider the matrices \(D\): \(m\times n\), \(E\): \(n\times p\) and \(F\): \(p\times k\).
 Show that
 \begin{align*}
 vec(DEF)=\left(F'\otimes D\right) vec(E)
 \end{align*}
-where $\otimes$ is the Kronecker product and $vec$ the vectorization operator.
+where \(\otimes \) is the Kronecker product and \(vec\) the vectorization operator.
 
-\item Compute a regular lower triangular matrix $W \in \mathbb{R}^{3 \times 3}$ and a diagonal matrix $\Sigma_\varepsilon \in \mathbb{R}^{3 \times 3}$ such that $\Sigma_u=W \Sigma_\varepsilon W'$.
+\item
+Compute a regular lower triangular matrix \(W \in \mathbb{R}^{3 \times 3}\)
+  and a diagonal matrix \(\Sigma_\varepsilon \in \mathbb{R}^{3 \times 3}\)
+  such that \(\Sigma_u=W \Sigma_\varepsilon W'\).
 \\
-Hint: Use the Cholesky factorization $\Sigma_u = P P' = W \Sigma_\varepsilon^{\frac{1}{2}}(W \Sigma_\varepsilon^{\frac{1}{2}})'$.
+Hint: Use the Cholesky factorization
+\(\Sigma_u = P P' = W \Sigma_\varepsilon^{\frac{1}{2}}(W \Sigma_\varepsilon^{\frac{1}{2}})'\).
 
-\item Solve the discrete Lyapunov matrix equation $\Sigma_{y} = A\Sigma_{y}A' + \Sigma_{u}$ using
- 	\begin{enumerate}
-	\item the Kronecker product and vectorization
-	\item the following iterative algorithm:
-	\begin{align*}
-	\Sigma_{y,0} &= I, A_0 = A, \Sigma_{u,0} = \Sigma_{u}\\
-	\Sigma_{y,i+1} &= A_i \Sigma_{y,i} A_i' + \Sigma_{u,i}\\
-	\Sigma_{u,i+1} &= A_i \Sigma_{u,i} A_i' + \Sigma_{u,i}\\
-	A_{i+1} &= A_i A_i
-	\end{align*}
-	Write a loop until either a maximal number of iterations (say 500) is reached or each element of $\Sigma_{y,i+1}-\Sigma_{y,i}$ is less than $10^{-25}$ in absolute terms.
- 	\item Compare both approaches for A and $\Sigma_u$ given above.
- 	\end{enumerate}
+\item
+Solve the discrete Lyapunov matrix equation \(\Sigma_{y} = A\Sigma_{y}A' + \Sigma_{u}\) using
+\begin{enumerate}
+  \item the Kronecker product and vectorization
+  \item the following iterative algorithm:
+  \begin{align*}
+  \Sigma_{y,0} &= I, A_0 = A, \Sigma_{u,0} = \Sigma_{u}\\
+  \Sigma_{y,i+1} &= A_i \Sigma_{y,i} A_i' + \Sigma_{u,i}\\
+  \Sigma_{u,i+1} &= A_i \Sigma_{u,i} A_i' + \Sigma_{u,i}\\
+  A_{i+1} &= A_i A_i
+  \end{align*}
+  Write a loop until either a maximal number of iterations (say 500) is reached
+    or each element of \(\Sigma_{y,i+1}-\Sigma_{y,i}\) is less than \(10^{-25}\) in absolute terms.
+  \item Compare both approaches for A and \(\Sigma_u\) given above.
+\end{enumerate}
+
 \end{enumerate}
 
 \paragraph{Readings:}
+
 \begin{itemize}
-	\item \textcite[Ch.~4.2]{Anderson.McGrattan.Hansen.EtAl_1996_MechanicsFormingEstimating}
-	\item \textcite[Ch.~6.7]{Anderson.Moore_1979_OptimalFiltering}
-	\item \textcite[Ch.~4.10]{Uribe.Schmitt-Grohe_2017_OpenEconomyMacroeconomics}
+\item \textcite[Ch.~4.2]{Anderson.McGrattan.Hansen.EtAl_1996_MechanicsFormingEstimating}
+\item \textcite[Ch.~6.7]{Anderson.Moore_1979_OptimalFiltering}
+\item \textcite[Ch.~4.10]{Uribe.Schmitt-Grohe_2017_OpenEconomyMacroeconomics}
 \end{itemize}
 
 \begin{solution}\textbf{Solution to \nameref{ex:MatrixAlgebra}}
-\ifDisplaySolutions
+\ifDisplaySolutions%
 \input{exercises/matrix_algebra_solution.tex}
 \fi
 \newpage

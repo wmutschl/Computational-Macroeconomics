@@ -71,27 +71,26 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
 
 <details>
-  <summary>Week 3: Practicing MATLAB, New Keynesian Model</summary>
+  <summary>Week 3: Practicing DYNARE, Symbolic Preprocessing in MATLAB</summary>
 
 ### Goals
 
+* practice DYNARE: permanent changes in fiscal policy
 * practice MATLAB: symbolic toolbox, matrix algebra, loops, Kronecker products, functions
-* understand and get comfortable with the algebra of New Keynesian models
-* practice Dynare with the New Keynesian model
+* understand preprocessing and steady-state computations in MATLAB
 
 ### To Do
 
-* [x] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
-* [x] do the MATLAB exercises 1 and 2 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [x] work carefully and thoroughly through the very long exercise 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [x] we will do exercise 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class
+* [x] finish and re-visit last week's exercises, particularly understand how to add deterministic growth to the RBC model
+* [x] do exercises 1, 2 and 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
+* [x] we will do exercise 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class, but you should already have a look
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
+<!---
 
 <details>
   <summary>Week 4: Preprocessing and steady-state in MATLAB, numerical optimization</summary>

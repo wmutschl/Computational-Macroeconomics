@@ -1,9 +1,8 @@
-% =========================================================================
-% Show that vec(D*E*F) = kron(F',D)*vec(E) using MATLAB's symbolic toolbox
-% =========================================================================
-% Willi Mutschler, April 24, 2023
+% show that vec(D*E*F) = kron(F',D)*vec(E) using MATLAB's symbolic toolbox
+% -------------------------------------------------------------------------
+% Willi Mutschler, April 26, 2024
 % willi@mutschler.eu
-% =========================================================================
+% -------------------------------------------------------------------------
 clearvars; clc; close all;
 
 %% Some basics on the symbolic toolbox

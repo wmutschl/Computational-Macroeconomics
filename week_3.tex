@@ -1,0 +1,36 @@
+% !TEX root = week_3.tex
+\input{exercises/_common_header.tex}
+\Newassociation{solution}{Solution}{week_3_solution}
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
+
+\begin{document}
+\title{Computational Macroeconomics\\~\\Summer 2024\\~\\Week 3}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: 1.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf}{GitHub}}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{week_3_solution}[week_3_solution]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/case_study_baxter_king_figure3.tex}\newpage
+\input{exercises/matlab_symbolic.tex}\newpage
+\input{exercises/matrix_algebra.tex}\newpage
+\input{exercises/preprocess_matlab_rbc.tex}\newpage
+
+\appendix
+\section{writeOut.m\label{app:writeOut}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/writeOut.m}
+
+\printbibliography%
+\newpage
+
+\Closesolutionfile{week_3_solution}
+\ifDisplaySolutions%
+\newpage
+\appendix
+\section{Solutions}
+\input{week_3_solution}
+\fi
+\end{document}
