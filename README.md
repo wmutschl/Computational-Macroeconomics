@@ -97,11 +97,14 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### Goals
 
+* understand and get comfortable with the algebra of New Keynesian models
+* practice Dynare with the New Keynesian model
 * understand and replicate preprocessing and steady-state computations in MATLAB
 * understand and start using numerical optimizers
 
 ### To Do
 
+* [x] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
 * [x] watch the (very short) videos:
   * [Introduction to Optimization: What is Optimization](https://youtu.be/Q2dewZweAtU)
   * [Introduction To Optimization: Objective Functions and Decision Variables](https://youtu.be/AoJQS10Ewn4)
@@ -111,6 +114,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
   * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)  
 * [x] do exercises 1-3 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
+* [x] work carefully and thoroughly through the very long exercise 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>

@@ -100,10 +100,10 @@ static_eqs = subs(static_eqs,sym(endo_names + "_stst"),endo_vars); % substitute 
 static_g1 = jacobian(static_eqs,endo_vars);
 
 %% write out to script files
-write_out(static_eqs,fname+"_static_resid",'residual',1,dynamic_names,endo_names,exo_names,param_names);
-write_out(static_g1,fname+"_static_g1",'g1',1,dynamic_names,endo_names,exo_names,param_names);
-write_out(dynamic_eqs,fname+"_dynamic_resid",'residual',0,dynamic_names,endo_names,exo_names,param_names);
-write_out(dynamic_g1,fname+"_dynamic_g1",'g1',0,dynamic_names,endo_names,exo_names,param_names);
+writeOut(static_eqs,fname+"_static_resid",'residual',1,dynamic_names,endo_names,exo_names,param_names);
+writeOut(static_g1,fname+"_static_g1",'g1',1,dynamic_names,endo_names,exo_names,param_names);
+writeOut(dynamic_eqs,fname+"_dynamic_resid",'residual',0,dynamic_names,endo_names,exo_names,param_names);
+writeOut(dynamic_g1,fname+"_dynamic_g1",'g1',0,dynamic_names,endo_names,exo_names,param_names);
 
 %% store to structure
 MODEL.fname = fname;
