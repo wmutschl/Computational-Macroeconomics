@@ -4,13 +4,13 @@ function [SS,PARAMS,error_indicator] = Brock_Mirman_ss(SS,PARAMS,MODEL)
 % computes the steady-state of the Brock and Mirman (1972) model analytically
 % =========================================================================
 % INPUTS
-%   - SS     : vector with initial steady state values in declaration order
+%   - SS     : vector with initial steady-state values in declaration order
 %              (usually empty, but might be useful for initial values
 %               or to update endogenous parameters)
 %	- params : vector with values for the parameters in declaration order
 % ----------------------------------------------------------------------
 % OUTPUTS
-%   - SS     : vector with computed steady state values in declaration order
+%   - SS     : vector with computed steady-state values in declaration order
 %	- params : vector with updated values for the parameters in declaration order
 %   - error_indicator: 0 if no error when computing the steady-state
 % =========================================================================

@@ -188,7 +188,7 @@ RHONU = 0.5;
 
 @#if USE_INITVAL==1
 %-------------------------------------------------------------------------%
-% computations: steady state with initval block
+% computations: steady-state with initval block
 %-------------------------------------------------------------------------%
 % note that you can compute simple expressions in the initval block and also
 % re-use computed variables in subsequent initial values of other variables,

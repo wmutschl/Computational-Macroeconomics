@@ -16,12 +16,12 @@ It is important to work with the stationary model in Dynare to have a well-behav
   around which the perturbation solution is computed.
 
 \item No, variables in model C behave as the log of variables in model B.
-In addition, in model B, variables have distinct steady state values depending on the parameters of the model,
-  while in model C, the steady state of all variables is zero.
+In addition, in model B, variables have distinct steady-state values depending on the parameters of the model,
+  while in model C, the steady-state of all variables is zero.
 If, however, we would add hat variables to model B,
   then the hat variables would be equivalent between model variants.
 
-\item The exponential transform enables one to write variables in terms of log deviations from their steady state:
+\item The exponential transform enables one to write variables in terms of log deviations from their steady-state:
 \begin{align*}
 x_t = e^{log(x_t)} = e^{log(x_t) - log(x) + log(x)} = x e^{log(x_t)-log(x)} = x e^{\hat{x}_t}
 \end{align*}
@@ -35,7 +35,7 @@ However, the exp transform always works, particularly for more difficult equatio
     \begin{align*}
     1 = \beta E_t \left[ \left(\frac{c e^{\hat{c}_{t+1}}}{c e^{\hat{c}_t}}\right)^{-\tau} \frac{1}{\gamma z e^{\hat{z}_{t+1}}} \frac{R e^{\hat{R}_t}}{\pi e^{\hat{\pi}_{t+1}}} \right]
     \end{align*}
-    Note that equation \eqref{eq:AS_B1} in steady state is equal to $1 = \beta \frac{1}{\gamma z}\frac{R}{\pi}$.
+    Note that equation \eqref{eq:AS_B1} in steady-state is equal to $1 = \beta \frac{1}{\gamma z}\frac{R}{\pi}$.
     So we can simplify the previous equation to get equation \eqref{eq:AS_C1}:
     \begin{align*}
     1 &= \mathbb{E}_t \left[e^{-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - \hat{z}_{t+1} - \hat{\pi}_{t+1} }\right]

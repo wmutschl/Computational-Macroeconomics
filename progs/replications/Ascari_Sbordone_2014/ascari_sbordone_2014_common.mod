@@ -33,15 +33,15 @@ VARPHI       $\varphi$        (long_name='inverse Frisch elasticity')
 THETA        $\theta$         (long_name='Calvo parameter')
 SIGMA        $\sigma$         (long_name='risk aversion')
 VAREPSILON   $\varepsilon$    (long_name='Elasticity of substitution')
-PIBAR        ${\bar{\pi}}$    (long_name='gross quarterly steady state inflation')
+PIBAR        ${\bar{\pi}}$    (long_name='gross quarterly steady-state inflation')
 RHO_NU       ${\rho_\nu}$     (long_name='autocorrelation of monetary shock')
 RHO_A        ${\rho_A}$       (long_name='autocorrelation of technology shock')
 RHO_ZETA     ${\rho_\zeta}$   (long_name='autocorrelation of preference shock')
 PHI_PI       ${\phi_\pi}$     (long_name='Taylor rule feedback inflation')
 PHI_Y        ${\phi_Y}$       (long_name='Taylor rule output')
-YBAR         ${\bar{Y}}$      (long_name='steady state output, set in steady state model block')
+YBAR         ${\bar{Y}}$      (long_name='steady-state output, set in steady-state model block')
 VARRHO       ${\varrho}$      (long_name='degree of indexing')
-IBAR         ${\bar{i}}$      (long_name='steady state interest rate, set in steady state model block')
+IBAR         ${\bar{i}}$      (long_name='steady-state interest rate, set in steady-state model block')
 D_N          ${d_n}$          (long_name='labor disutility parameter')
 RHO_I        ${\rho_i}$       (long_name='interest rate smoothing parameter')
 TREND_INFLATION
@@ -67,7 +67,7 @@ exp(log_n) = exp(log_s)*(exp(log_y)/exp(log_a))^(1/(1-ALPHA));
 [name='law of motion price dispersion (equation 8 section 1.6 in appendix)']
 exp(log_s) = (1-THETA)*exp(log_pstar)^(-VAREPSILON/(1-ALPHA))
            + THETA*exp(log_pi(-1))^((-VAREPSILON*VARRHO)/(1-ALPHA))*exp(log_pi)^(VAREPSILON/(1-ALPHA))*exp(log_s(-1));
-[name='monetary policy rule (reflects footnote 69) (equation 9 section 1.6 in appendix)']
+[name='monetary policy rule, eq.59 (reflects footnote 69) (equation 9 section 1.6 in appendix)']
 (1+exp(log_i))/(1+IBAR) = ((1+exp(log_i(-1)))/(1+IBAR))^RHO_I * ( (exp(log_pi)/PIBAR)^PHI_PI * (exp(log_y)/YBAR)^PHI_Y )^(1-RHO_I) * exp(nu);
 [name='definition real marginal costs (eq. 22 in appendix)']
 exp(log_mc) = 1/(1-ALPHA)*exp(log_w)*exp(log_a)^(1/(ALPHA-1))*exp(log_y)^(ALPHA/(1-ALPHA));
@@ -79,11 +79,11 @@ utility = log_y - D_N*exp(zeta)*exp(log_n)^(1+VARPHI)/(1+VARPHI) + BETA*utility(
 @#else
 utility = exp(log_y)^(1-SIGMA)/(1-SIGMA) - D_N*exp(zeta)*exp(log_n)^(1+VARPHI)/(1+VARPHI) + BETA*utility(+1);
 @#endif
-[name='law of motion monetary policy shock']
+[name='law of motion monetary policy shock, eq. 52']
 nu = RHO_NU*nu(-1) + eps_nu;
-[name='law of motion technology shock']
+[name='law of motion technology shock, eq.50']
 log_a = RHO_A*log_a(-1) + eps_a;
-[name='law of motion preference shock']
+[name='law of motion preference shock, eq. 51']
 zeta = RHO_ZETA*zeta(-1) + eps_zeta;
 [name='definition effective aggregate productivity']
 exp(log_atilde)=exp(log_a)/exp(log_s);

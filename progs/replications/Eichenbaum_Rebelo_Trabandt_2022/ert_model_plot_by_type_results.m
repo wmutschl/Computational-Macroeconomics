@@ -45,7 +45,7 @@ plot(time(1:end-1),0*time(1:end-1),'b-','LineWidth',1);
 hold off
 box off;
 title('Consumption by Type','FontSize',fsize);
-ylabel('% Dev. from Initial Steady State','FontSize',fsize);
+ylabel('% Dev. from initial steady-state','FontSize',fsize);
 xlabel('Weeks','FontSize',fsize);
 set(gca,'FontSize',fsize);
 legend('Susceptibles','Infected','Recovered','Location','SouthEast');
@@ -65,7 +65,7 @@ plot(time(1:end-1),0*time(1:end-1),'b-','LineWidth',1);
 hold off
 box off;
 title('Hours by Type','FontSize',fsize);
-ylabel('% Dev. from Initial Steady State','FontSize',fsize);
+ylabel('% Dev. from initial steady-state','FontSize',fsize);
 xlabel('Weeks','FontSize',fsize);
 set(gca,'FontSize',fsize);
 legend('Susceptibles','Infected','Recovered','Location','best');

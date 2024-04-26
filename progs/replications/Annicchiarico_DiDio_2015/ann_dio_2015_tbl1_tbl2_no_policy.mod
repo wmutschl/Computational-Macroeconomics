@@ -49,7 +49,7 @@ TARGET_ZSHARE = 0.20840121;
 l             = 0.2;
 
 %-------------------------------------------------------------------------%
-% computations: steady state and calibration of endogenous parameters
+% computations: steady-state and calibration of endogenous parameters
 %-------------------------------------------------------------------------%
 steady_state_model;
 pz = 0; % no policy regime
@@ -86,6 +86,15 @@ A = a;
 ZSTAR = DELTA_M*m - z; % implicit rest of the world emission share
 TARGET_INTENSITY = z/y;
 CARBON_TAX = pz;
+
+log_y = log(y);
+log_c = log(c);
+log_iv = log(iv);
+log_l = log(l);
+log_mc = log(mc);
+log_z = log(z);
+log_u = log(u);
+log_pz = log(pz);
 end;
 steady;
 save_params_and_steady_state('ann_dio_2015_calib_no_policy.inc');

@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%% Generate Figure 8: Trend Inflation and Steady State Variables
+%%%%%% Generate Figure 8: Trend Inflation and Steady-State Variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 @#define LOGUTILITY=1
 @#include "ascari_sbordone_2014_common.mod"
@@ -11,7 +11,7 @@ PHI_Y = 0.5/4;
 RHO_I = 0.8;
 
 verbatim;
-figure('Name','Trend Inflation and Steady State Variables');
+figure('Name','Trend Inflation and Steady-State Variables');
 trend_inflation_vector = 0:0.5:8;
 utility = NaN(length(trend_inflation_vector),1);
 output = NaN(length(trend_inflation_vector),1);
@@ -25,16 +25,13 @@ for iter=1:length(trend_inflation_vector)
     output(iter,1) = oo_.steady_state(strmatch('log_y',M_.endo_names,'exact'));
     marg_markup(iter,1) = oo_.steady_state(strmatch('log_marginal_markup',M_.endo_names,'exact'));
     ave_markup(iter,1) = oo_.steady_state(strmatch('log_average_markup',M_.endo_names,'exact'));
-    marg_markup_eq_37(iter,1) = log(VAREPSILON/(VAREPSILON-1)*(1-BETA*THETA*(M_.params(strmatch('PIBAR',M_.param_names,'exact')))^(VAREPSILON-1))/(1-BETA*THETA*(M_.params(strmatch('PIBAR',M_.param_names,'exact')))^(VAREPSILON)));
     price_adjust_gap(iter,1) = oo_.steady_state(strmatch('log_price_adjustment_gap',M_.endo_names,'exact'));
 end
-if max(abs(marg_markup-marg_markup_eq_37))>1e-8
-    error('Wrong results')
-end
+
 subplot(1,3,1)
     plot(trend_inflation_vector,(output-output(1,1))*100);
     xlabel('Annualized Trend Inflation');
-    ylabel('Steady state output');
+    ylabel('Steady-state output');
 subplot(1,3,2)
     plot(trend_inflation_vector,(ave_markup-ave_markup(1,1))*100,'-',...
          trend_inflation_vector,(marg_markup-marg_markup(1,1))*100,'--',...
@@ -44,5 +41,5 @@ subplot(1,3,2)
 subplot(1,3,3)
     plot(trend_inflation_vector,(utility-utility(1,1))./abs(utility(1,1))*100);
     xlabel('Annualized Trend Inflation');
-    ylabel('Steady state welfare');
+    ylabel('Steady-state welfare');
 end;

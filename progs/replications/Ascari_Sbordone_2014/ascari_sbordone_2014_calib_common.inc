@@ -1,5 +1,5 @@
 % fix labor to 1/3 to compute labor disutility parameter under benchmark of
-% zero trend inflation steady state with Frisch elasticity of 1
+% zero trend inflation steady-state with Frisch elasticity of 1
 N_SS = 1/3;
 BETA_SS = 0.99;
 ALPHA_SS = 0;

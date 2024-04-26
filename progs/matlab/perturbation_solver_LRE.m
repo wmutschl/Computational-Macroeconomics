@@ -51,7 +51,7 @@ nstatic  = M_.nstatic;  % number of static variables (appear only at t)
 nspred   = M_.nspred;   % number of state variables: predetermined and mixed
 dr_order_var       = oo_.dr.order_var;      % declaration order to DR order
 lead_lag_incidence = M_.lead_lag_incidence; % lead_lag_incidence matrix with information about columns in dynamic Jacobian matrix
-steady_state       = oo_.steady_state;      % steady state of endogenous in declaration order
+steady_state       = oo_.steady_state;      % steady-state of endogenous in declaration order
 exo_steady_state   = oo_.exo_steady_state;  % steady-state of exogenous variables
 
 %%%%%%%%%%%%%%%%%%%%

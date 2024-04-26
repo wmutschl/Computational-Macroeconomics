@@ -17,7 +17,7 @@ change_type(var)        TARGET_GSHARE;
 @#include "ann_dio_2015_modeleqs.inc"
 
 %-------------------------------------------------------------------------%
-% calibration via new steady state
+% calibration via new steady-state
 %-------------------------------------------------------------------------%
 load_params_and_steady_state('ann_dio_2015_calib_no_policy.inc'); % start from no policy calibration
 

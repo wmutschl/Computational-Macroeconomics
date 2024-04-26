@@ -6,14 +6,14 @@
  * It provides a replication of the main results of the original paper  
  * in Section 3 (the New Keynesian model with trend inflation). It replicates the Figures:
  * - Figure 7: The Cost of Price dispersion
- * - Figure 8: Trend Inflation and Steady State Variables
+ * - Figure 8: Trend Inflation and Steady-State Variables
  * - Figure 11: The Determinacy Region and Trend Inflation
  * - Figure 13: Impulse Response Functions to a 1 Percent Positive Technology Shock 
  * - Figure 14: Impulse Response Functions to a 1 Percent Positive Monetary Policy Shock 
  *
  * Moreover, it replicates the business cycle moments reported on p. 717. 
  *
- * This mod-file shows how to access steady state variables in order to plot steady state
+ * This mod-file shows how to access steady-state variables in order to plot steady-state
  * dependences on parameters.
  * It also shows how to manually do a stability mapping be iterating over a grid on the parameter space.
  * 
@@ -27,7 +27,7 @@
  * - Following the approach of the published replication files by the authors, the labor disutility parameter, which
  *      is unspecified in the paper is set so that labor is 1/3 in the benchmark case; this normalization is relevant
  *      for the definition of welfare
- * - The technology parameter, which is also left unspecified in the published version is set to in steady state, which 
+ * - The technology parameter, which is also left unspecified in the published version is set to in steady-state, which 
  *      is the natural normalization also used in the official replication files
  * - For the business cycle moments, the technology shock variance is actually 0.45^2 (not 0.45 as reported in the paper), i.e. 
  *      it is consistent with the number reported in Smets/Wouters (2007). Moreover, business cycle moments rely on a Taylor rule 
@@ -106,31 +106,31 @@ parameters trend_inflation
     theta   $\theta$    (long_name='Calvo parameter')
     sigma   $\sigma$    (long_name='Risk aversion')
     epsilon $\varepsilon$   (long_name='Elasticity of substitution')
-    Pi_bar  ${\bar \pi}$    (long_name='gross quarterly steady state inflation')
+    Pi_bar  ${\bar \pi}$    (long_name='gross quarterly steady-state inflation')
     rho_v   ${\rho_\nu}$    (long_name='autocorrelation of monetary shock')
     rho_a   ${\rho_a}$      (long_name='autocorrelation of technology shock')
     rho_zeta ${\rho_\zeta}$ (long_name='autocorrelation of preference shock')
     phi_pi  ${\phi_\pi}$    (long_name='Taylor rule feedback inflation')
     phi_y   ${\phi_y}$      (long_name='Taylor rule output')
-    Y_bar   ${\bar Y}$      (long_name='steady state output, set in steady state model block')
+    Y_bar   ${\bar Y}$      (long_name='steady-state output, set in steady-state model block')
     var_rho ${\varrho}$     (long_name='degree of indexing')
-    i_bar   ${\bar i}$      (long_name='steady state interest rate, set in steady state model block')
+    i_bar   ${\bar i}$      (long_name='steady-state interest rate, set in steady-state model block')
     d_n     ${d_n}$         (long_name='labor disutility parameter')
     rho_i   ${\rho_i}$      (long_name='interest rate smoothing parameter')
     ;
 
 
-%fix labor to 1/3 in zero trend inflation steady state with Frisch elasticity of 1#
+%fix labor to 1/3 in zero trend inflation steady-state with Frisch elasticity of 1#
 beta_ss = 0.99;
 alpha_ss = 0;
 theta_ss = 0.75;
 epsilon_ss = 10;
-sigma_ss = 1; %different utility than log case implies that model utility function and its steady state must be manually changed
+sigma_ss = 1; %different utility than log case implies that model utility function and its steady-state must be manually changed
 phi_par_ss=1;
 var_rho_ss = 0;
 trend_inflation_ss=0;
 
-%%compute labor disutility parameter under benchmark of 0 steady state
+%%compute labor disutility parameter under benchmark of 0 steady-state
 %%inflation
 Pi_bar = (1+0/100)^(1/4); %set Pi_bar to reflect quarterly inflation
 p_star_ss=((1-theta_ss*Pi_bar^((epsilon_ss-1)*(1-var_rho_ss)))/(1-theta_ss))^(1/(1-epsilon_ss));
@@ -483,10 +483,10 @@ verbatim;
     xlabel('Trend Inflation')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%% Generate Figure 8: Trend Inflation and Steady State Variables
+%%%%%% Generate Figure 8: Trend Inflation and Steady-State Variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         
-    figure('Name','Trend Inflation and Steady State Variables')
+    figure('Name','Trend Inflation and Steady-State Variables')
     trend_inflation_vector=0:0.5:8;
     utility=NaN(length(trend_inflation_vector),1);
     output=NaN(length(trend_inflation_vector),1);
@@ -509,7 +509,7 @@ verbatim;
     subplot(1,3,1)
     plot(trend_inflation_vector,(output-output(1,1))*100)
     xlabel('Trend Inflation')
-    ylabel('Steady state output')
+    ylabel('Steady-state output')
     subplot(1,3,2)
     plot(trend_inflation_vector,(ave_markup-ave_markup(1,1))*100,'-',trend_inflation_vector,(marg_markup-marg_markup(1,1))*100,'--',trend_inflation_vector,(price_adjust_gap-price_adjust_gap(1,1))*100,'.')
     xlabel('Trend Inflation')
@@ -517,7 +517,7 @@ verbatim;
     subplot(1,3,3)
     plot(trend_inflation_vector,(utility-utility(1,1))./abs(utility(1,1))*100)
     xlabel('Trend Inflation')
-    ylabel('Steady state welfare')
+    ylabel('Steady-state welfare')
     
 end;
     

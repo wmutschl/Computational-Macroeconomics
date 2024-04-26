@@ -33,7 +33,7 @@ RA      ${r_{A}}$          (long_name='annualized steady-state real interest rat
 PA      ${\pi^{(A)}}$      (long_name='annualized target inflation rate')
 GAMQ    ${\gamma^{(Q)}}$   (long_name='quarterly steady-state growth rate of technology')
 NU      ${\nu}$            (long_name='inverse of elasticity of demand in Dixit Stiglitz aggregator')
-GBAR    ${\bar{g}}$        (long_name='steady state government spending process')
+GBAR    ${\bar{g}}$        (long_name='steady-state government spending process')
 ;
 
 
