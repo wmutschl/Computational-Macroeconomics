@@ -1,6 +1,5 @@
 class/
-exam/
-literature/
+exam/summer-*
 stuff/
 
 week_*.log
@@ -110,3 +109,25 @@ progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_common.log
 progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_common/
 
 progs/dynare/arma11/
+
+.vscode/settings.json
+
+progs/dynare/BaxterKingGrowthSteadyState/
+
+progs/dynare/BaxterKingSteadyState/
+
+progs/dynare/rbcCRRA/
+
+progs/dynare/rbcLogutil/
+
+progs/replications/Annicchiarico_DiDio_2015/as_irf_a/
+
+progs/replications/Ascari_Sbordone_2014/as_fig11/
+
+progs/replications/Ascari_Sbordone_2014/as_fig14/
+
+progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_fig7/
+
+progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_fig8/
+
+progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_moments/
