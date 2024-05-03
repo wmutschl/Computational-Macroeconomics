@@ -39,9 +39,9 @@ disp(array2table(M_.lead_lag_incidence,...
 
 % create steady-state vectors
 [I,~] = find(M_.lead_lag_incidence');
-y_ss   = oo_.steady_state;      % steady-state of endogenous variables
-zzz_ss = oo_.steady_state(I);   % steady-state of dynamic variables
-ex_ss  = oo_.exo_steady_state'; % steady-state of exogenous variables
+y_ss   = oo_.steady_state;                % steady-state of endogenous variables
+zzz_ss = oo_.steady_state(I);             % steady-state of dynamic variables
+ex_ss  = transpose(oo_.exo_steady_state); % steady-state of exogenous variables
 
 % evaluate dynamic model residuals and Jacobian at steady-state
 [dynare_resid, dynare_g1] = feval([M_.fname,'.dynamic'], zzz_ss, ex_ss, M_.params, y_ss, 1);
