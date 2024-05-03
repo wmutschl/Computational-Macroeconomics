@@ -90,21 +90,38 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
 
 <details>
-  <summary>Week 4: Preprocessing and steady-state in MATLAB, numerical optimization</summary>
+  <summary>Week 4: New Keynesian Model</summary>
 
 ### Goals
 
 * understand and get comfortable with the algebra of New Keynesian models
 * practice Dynare with the New Keynesian model
-* understand and replicate preprocessing and steady-state computations in MATLAB
-* understand and start using numerical optimizers
 
 ### To Do
 
 * [x] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
+* [x] work carefully and thoroughly through the very long exercise 1 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
+* [x] practice Dynare with the New Keynesian model by doing exercise 2 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
+* [x] schedule a meeting for all your questions and concerns (or write me an email)
+
+</details>
+
+<!---
+
+<details>
+  <summary>Week 5: Numerical optimization, Deterministic simulations and perfect-foresight algorithm</summary>
+
+### Goals
+
+* understand and replicate preprocessing and steady-state computations in MATLAB
+* understand and start using numerical optimizers
+* understand Dynare's commands to do deterministic simulations
+* understand the Newton algorithm used by Dynare to solve perfect foresight problems
+* re-implement deterministic simulations in MATLAB
+
+### To Do
 * [x] watch the (very short) videos:
   * [Introduction to Optimization: What is Optimization](https://youtu.be/Q2dewZweAtU)
   * [Introduction To Optimization: Objective Functions and Decision Variables](https://youtu.be/AoJQS10Ewn4)
@@ -114,22 +131,6 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
   * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)  
 * [x] do exercises 1-3 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
-* [x] work carefully and thoroughly through the very long exercise 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [x] bring all your questions and concerns to the Q&A sessions
-
-</details>
-
-
-<details>
-  <summary>Week 5: Deterministic simulations and perfect-foresight algorithm</summary>
-
-### Goals
-
-* understand Dynare's commands to do deterministic simulations
-* understand the Newton algorithm used by Dynare to solve perfect foresight problems
-* re-implement deterministic simulations in MATLAB
-
-### To Do
 * [x] watch the videos
   * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
   * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
