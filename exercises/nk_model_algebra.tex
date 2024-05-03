@@ -1,386 +1,541 @@
 \section[The Algebra of New Keynesian Models]{The Algebra of New Keynesian Models\label{ex:AlgebraNewKeynesianModels}}
-Consider a New Keynesian (NK) model with capital and \textcite{Calvo_1983_StaggeredPricesUtilitymaximizing} price frictions.
+Consider a New Keynesian (NK) model with capital, subject to investment-adjustment costs, and \textcite{Calvo_1983_StaggeredPricesUtilitymaximizing} price frictions.
+The model is populated by a continuum of households \(h \in [0,n]\), final goods firms \(f \in [0,n]\), and intermediate goods firms \(m \in [0,n]\),
+  as well as a fiscal authority and a central bank.\footnote{%
+  Because we are looking at a closed-economy, in many papers and textbooks one typically normalizes \(n=1\),
+    thereby aligning per-capita variables with their corresponding total aggregates.
+}
 
-\paragraph{Households: Utility}
-The economy is assumed to be inhabited by a large representative family with a continuum of members.
-Consumption and hours worked are identical across family members.
-The household's preferences are defined over per capita consumption $c_t$,
-  and per capita labor effort $h_t$.
-The representative household maximizes present as well as expected future utility
+\subsection{Households: description}
+
+\paragraph{Utility}
+The household's preferences are defined over consumption \(C_{t}[h]\) and labor effort \(L^{s}_t[h]\),
+  so that they maximize present as well as expected future utility:
 \begin{align}
-	\max E_t \sum_{s=0}^{\infty} \beta^{s} \zeta_{t+s} U(c_{t+s}, h_{t+s}) \label{eq:NewKeynesian.UtilityLifetime}
+	\max \mathbb{E}_{t} \sum_{j=0}^{\infty} \beta^{j} \mu_{t+j} U(C_{t+j}[h], L^{s}_{t+j}[h]) \label{eq:NewKeynesian.UtilityLifetime}
 \end{align}
-where $E_t$ is the expectation operator conditional on information at time $t$
-  and $\zeta_t$ denotes an exogenous shifter to the discount factor $\beta <1$.
+\(\mathbb{E}_{t}\) is the expectation operator conditional on information at time \(t\)
+  and \(\mu_{t}\) denotes an exogenous shifter to the discount factor \(\beta <1\)
+that evolves according to:
+\begin{align}
+\log{\mu_{t}} &= \rho^{\mu} \log{\mu_{t-1}} + \varepsilon^{\mu}_{t} \label{eq:NewKeynesian.LoM.PreferenceShifter}
+\end{align}
+where \(\rho^{\mu}\) is the persistence of the law of motion
+  and \(\varepsilon^{\mu}_{t}\) is an exogenous deviation to the process.
+
 Consider the following functional form for the contemporaneous utility function
 \begin{align}
-U(c_t, h_t) = \frac{c_t^{1-\sigma_c}}{1-\sigma_c} - \chi_h \frac{h_t^{1+\sigma_h}}{1+\sigma_h} \label{eq:NewKeynesian.UtilityMomentary}
+U(C_{t}[h], L^{s}_{t}[h]) = \frac{{\left(C_{t}[h]\right)}^{1-\sigma^{C}}}{1-\sigma^{C}} - \chi^{L} \frac{{\left(L^{s}_{t}[h]\right)}^{1+\sigma^{L}}}{1+\sigma^{L}} \label{eq:NewKeynesian.UtilityMomentary}
 \end{align}
-We denote the marginal utilities with respect to consumption and labor as:
-
-{\footnotesize
-\begin{align}
-U^c_t \equiv \frac{\partial U(c_t,h_t)}{\partial c_t},
-\quad
-U^h_t \equiv \frac{\partial U(c_t,h_t)}{\partial h_t},
-\quad
-U^{cc}_t \equiv \frac{\partial^2 U(c_t,h_t)}{\partial^2 c_t},
-\quad
-U^{ch}_t \equiv \frac{\partial^2 U(c_t,h_t)}{\partial c_t \partial h_t},
-\quad
-U^{hh}_t \equiv \frac{\partial^2 U(c_t,h_t)}{\partial^2 h_t}
-\label{eq:NewKeynesian.UtilityMarginalNotation}
-\end{align}
-}%
 Note that the marginal utility of consumption is positive,
   whereas more labor reduces utility.
-Moreover, the chosen utility function \eqref{eq:NewKeynesian.UtilityMomentary} is concave.
+Moreover, the chosen utility function~\eqref{eq:NewKeynesian.UtilityMomentary} is concave.
 
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}
-\item Show that $1/\sigma_c$ is the intertemporal elasticity of substitution defined as $IES = -\frac{U_t^c}{U_t^{cc} c_t}$.  
-\end{enumerate}
-
-\paragraph{Households: Consumption Bundle}
-The consumption good is assumed to be a composite made of a continuum of differentiated goods $c_t(j)$
-  represented on the interval $j\in [0,1]$ via a constant elasticity of substitution (CES) aggregation technology as in \textcite{Dixit.Stiglitz_1977_MonopolisticCompetitionOptimum}:
+\paragraph{Capital accumulation}
+The household owns (end of period) capital stock \(K_{t}[h]\) which evolves according to
 \begin{align}
-	c_t = \left(\int_0^1 c_t(j)^{\frac{\epsilon-1}{\epsilon}} dj \right)^{\frac{\epsilon}{\epsilon-1}} \label{eq:NewKeynesian.ConsumptionAggregator}
+K_{t}[h] &= (1-\delta^{K}) K_{t-1}[h] + \Biggl( 1 - \frac{\phi^{I}}{2} {\left(\frac{I_{t}[h]}{I_{t-1}[h]} - 1 \right)}^2 \Biggr) I_{t}[h] \label{eq:NewKeynesian.CapitalAccumulation}
 \end{align}
-$\epsilon>1$ is the intratemporal elasticity of substitution across different varieties of consumption goods.
-The household decides how to allocate its consumption expenditures among the different goods by taking the price $P_t(j)$ of good $c_t(j)$ as given.
+where \(\delta \) is the depreciation rate and \(\phi^{I} \geq 0\) scales the quadratic investment-adjustment costs.
 
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-\item Show that cost minimization of consumption expenditures implies
+\paragraph{Nominal budget}
+Capital is rented to the intermediate firms at a nominal rate of \(R^{K}_{t}\) which the household takes as given when forming optimal plans.
+Similarly, in each period the household takes the nominal wage \(W_{t}\) as given
+  and supplies perfectly elastic labor service \(L^{s}_{t}[h]\) to the firm sector.
+In return they receive nominal labor income \(W_t L^{s}_{t}[h]\).
+Households own the firms, and thus, they equally receive nominal profits (dividends)
+  from each firm \(f\in[0,n]\) in the final goods sector, denoted as \(\mathcal{DIV}^{F}_{t}[f]\),
+  as well as from each firm \(m\in[0,n]\) in the intermediate goods sector, represented by \(\mathcal{DIV}^{M}_{t}[m]\).
+In the financial realm, households have access to a full set of state-contingent zero-coupon bonds.
+Specifically, define \(\mathcal{S}\) as the complete set of future states of the world,
+  then \(P^{\mathcal{B}}_{t}[\mathtt{s}']\) represents the price at time \(t\) of a bond that will pay one unit of money at time \(t+1\)
+  if the \emph{potential future state} \(\mathcal{\mathtt{s}' \in \mathcal{S}}\) materializes.
+The quantity of such bonds purchased by household \(h\) at time \(t\) is denoted by \(\mathcal{B}_{t}[\mathtt{s}',h]\),
+  whereas \(\mathcal{B}_{t-1}[\mathtt{s},h]\) indicates the value of the household's existing claims based on the realized state \(\mathtt{s}\).
+The gross return on the bond in \emph{realized state} \(\mathtt{s}\) is defined by:
 \begin{align}
-c_t(j) &= \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} c_t \label{eq:NewKeynesian.ConsumptionDemand}
+R_{t} = \frac{1}{P^{\mathcal{B}}_{t-1}[\mathtt{s}]} \label{eq:NewKeynesian.BondPriceInterestRate}
+\end{align}
+On the expenditure front, the household allocates resources to consumption \(C_{t}[h]\) and investment \(I_{t}[h]\),
+  all priced at the consumer price index \(P_{t}\),
+  and pays lump-sum tax obligations \(\mathcal{T}_{t}[h]\) to the fiscal authority.
+In total this defines the \emph{nominal} budget constraint of the household:
+\begin{multline}
+  \underbrace{R^{K}_{t} K_{t-1}[h]}_{\text{capital income}}
++ \underbrace{W_{t} L^{s}_{t}[h]}_{\text{labor income}}
++ \underbrace{%
+    \frac{1}{n} \int_{0}^{n} \mathcal{DIV}^{F}_{t}[f] df
+  + \frac{1}{n} \int_{0}^{n} \mathcal{DIV}^{M}_{t}[m] dm
+}_{\text{firm profits}}
 \\
-P_t &= \left(\int_0^1 P_t(j)^{1-\epsilon}dj\right)^{\frac{1}{1-\epsilon}} \label{eq:NewKeynesian.AggregatePriceIndex}
-\\
-P_t c_t &= \int_0^1 c_t(j) P_t(j) dj \label{eq:NewKeynesian.AggregateConsumptionExpenditures}
-\end{align}
-Interpret these equations.
-\end{enumerate} 
-
-\paragraph{Households: Capital Accumulation}
-The household owns the (end of period) capital stock $k_t$ which evolves according to
-\begin{align}
-k_t = (1-\delta)k_{t-1} + \Biggl( 1 - \underbrace{\frac{\phi_i}{2} \left(\frac{i_t}{i_{t-1}} - 1 \right)^2}_{S\left(\frac{i_t}{i_{t-1}}\right)} \Biggr) i_t \label{eq:NewKeynesian.CapitalAccumulation}
-\end{align}
-$\delta$ is the depreciation rate and $\phi_i \geq 0$.
-$i_t$ denotes gross investment and is assumed to be a composite good made with the same aggregation technology as in equation \eqref{eq:NewKeynesian.ConsumptionAggregator}.
-Therefore, bundling is isomorphic to equations \eqref{eq:NewKeynesian.ConsumptionDemand} and \eqref{eq:NewKeynesian.AggregateConsumptionExpenditures}:
-\begin{align}
-i_t(j) &= \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon} i_t \label{eq:NewKeynesian.InvestmentDemand}
-\\
-P_t i_t &= \int_0^1 i_t(j) P_t(j) dj \label{eq:NewKeynesian.AggregateInvestmentExpenditures}
-\end{align}
-
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-\item What does the introduction of the function $S\left(\frac{i_t}{i_{t-1}}\right)$ imply for the law of motion of capital?
-\end{enumerate}
-
-\paragraph{Households: Budget}
-Capital is rented to the intermediate firms at a nominal rate of $R^k_{t}$ which the household takes as given when forming optimal plans.
-Similarly, in each period the household takes the nominal wage $W_t$ as given and supplies perfectly elastic labor service $h_t$ to the firm sector.
-In return she receives nominal labor income $W_t h_t$.
-All firms are owned by the household so that nominal profits and dividends from firms in the final good sector, $ Div^{Fin}_t$,
-  as well as from each firm $f\in[0,1]$ in the intermediate goods sector, $\int_0^1 {Div}^{Int}_t(f)df$,
-  are received by the household.
-Lastly, the household purchases a quantity of one-period nominally risk-free bonds $B_t$ at price $P^B_t$.
-The bond matures the following period and pays one unit of money at maturity.
-Income and wealth are used to finance consumption expenditures.
-In total this defines the \emph{nominal} budget constraint of the household
-\begin{align}
-\int_0^1 P_t(j) c_t(j) dj + \int_0^1 P_t(j) i_t(j) dj + P^B_t B_t \leq B_{t-1} + W_t h_t + R^k_tk_{t-1} + Div^{Fin}_t + \int_0^1 Div^{Int}_t(f) df
+=
+\underbrace{%
+\sum_{s' \in \mathcal{S}} P^{\mathcal{B}}_{t}[s'] \mathcal{B}_{t}[s',h]
+- \mathcal{B}_{t-1}[s,h]
+}_{\text{state-contingent bonds}}
++ \underbrace{P_{t} C_{t}[h] + P_{t} I_{t}[h]}_{\text{good expenditures}}
++
+\underbrace{\mathcal{T}_{t}[h]}_{\text{taxes}}
 \label{eq:NewKeynesian.BudgetNominal}
-\end{align}
-In what follows, let lower case letters denote real variables, i.e.\
+\end{multline}
+
+\paragraph{Transversality and solvency conditions}
+It is assumed that the household is subject to the following transversality condition:
 \begin{align*}
-b_t=\frac{B_t}{P_t},~~ w_t=\frac{W_t}{P_t},~~ r^k_t = \frac{R^k_t}{P_t},~~ div^{Fin}_t = \frac{Div^{Fin}_t}{P_t},~~ div^{Int}_t = \frac{Div^{Int}_t}{P_t}
+\lim_{j \rightarrow \infty} \mathbb{E}_{t} \left \{\mathcal{M}_{t,t+j} K_{t+j}[h] \right \} = 0
 \end{align*}
+and solvency constraint that prevents it from engaging in Ponzi-type schemes:
+\begin{align*}
+\lim_{T \rightarrow \infty} &\mathbb{E}_{t} \left \{\mathcal{M}_{t,t+j} \frac{\mathcal{B}_{t+j}[h]}{P_{t+j}} \right \} \geq 0
+\end{align*}
+for all periods \(t\), where \(\mathcal{M}_{t,t+j}\) denotes the stochastic discount factor.
 
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-
-\item Explain the economic intuition behind the following relationships for the nominal interest rate $R_t$ and the real interest rate $r_t$:
-\begin{align}
-P^B_t &= \frac{1}{R_t} \label{eq:NewKeynesian.NominalInterestRate}
+\paragraph{Notation}
+In what follows, let lower case letters denote \emph{real} variables in \emph{per-capita} terms:
+\begin{gather*}
+c_{t} := \frac{1}{n}\int_{0}^{n} C_{t}[h] dh
+,\quad
+i_{t} := \frac{1}{n}\int_{0}^{n} I_{t}[h] dh
+,\quad
+k_{t} := \frac{1}{n}\int_{0}^{n} K_{t}[h] dh
+,\quad
+l^{s}_{t} := \frac{1}{n}\int_{0}^{n} L^{s}_{t}[h] dh
 \\
-R_t &= r_t E_t \Pi_{t+1} \label{eq:NewKeynesian.RealInterestRate}
+\mathtt{b}_{t} := \frac{1}{n}\int_{0}^{n} \frac{\mathcal{B}_{t}[h]}{P_{t}} dh
+,\quad
+\tau_{t} := \frac{1}{n}\int_{0}^{n} \frac{\mathcal{T}_{t}[h]}{P_{t}} dh
+\end{gather*}
+Similarly, lower case letters denote real factor prices:
+\begin{align*}
+w_{t} := \frac{W_{t}}{P_{t}},
+\quad
+r^{K}_{t} := \frac{R^{K}_{t}}{P_t},
+\end{align*}
+and consumer price inflation is given by \(\Pi_{t} = P_{t}/P_{t-1}\).
+We denote the marginal utilities with respect to consumption and labor as:
+\begin{gather*}
+U_{C,t} := \frac{\partial U(C_{t}[h],L^{s}_{t}[h])}{\partial C_{t}[h]},
+\quad
+U_{L,t} := \frac{\partial U(C_{t}[h],L^{s}_{t}[h])}{\partial L^{s}_{t}[h]},
+\\
+U_{CC,t} := \frac{\partial^2 U(C_{t}[h],L^{s}_{t}[h])}{\partial C_{t}[h] \partial C_{t}[h]},
+\quad
+U_{CL,t} := \frac{\partial^2 U(C_{t}[h],L^{s}_{t}[h])}{\partial C_{t}[h] \partial L^{s}_{t}[h]},
+\quad
+U_{LL,t} := \frac{\partial^2 U(C_{t}[h],L^{s}_{t}[h])}{\partial L^{s}_{t}[h] \partial L^{s}_{t}[h]}
+\end{gather*}
+
+\newpage
+\subsection{Households: exercises}
+\begin{enumerate}
+\item
+Set up the Lagrangian of the household's optimization problem,
+  where the Lagrange multiplier
+  \begin{itemize}
+  \item \(\beta^{j} \frac{\Lambda_{t+j}[h]}{P_{t+j}}\) corresponds to the \emph{nominal budget constraint}~\eqref{eq:NewKeynesian.BudgetNominal}
+  \item \(\beta^{j} \Lambda_{t+j}[h] Q^{K}_{t+j}[h]\) corresponds to the \emph{capital accumulation equation}~\eqref{eq:NewKeynesian.CapitalAccumulation}
+  \end{itemize}
+
+\item
+Derive the first-order conditions with respect to the choice of bond holdings \(\mathcal{B}_{t}[s,h]\).
+Define \(\lambda_{t}=1/n \int_{0}^{n} \Lambda_{t}[h] dh\) and show that:
+\begin{align}
+P^{\mathcal{B}}_{t}[\mathtt{s}] &= \frac{1}{R_{t}} = \underbrace{\beta \mathbb{E}_{t} \frac{\lambda_{t+1}}{\lambda_{t}} \frac{1}{\Pi_{t+1}}}_{:= \mathcal{M}_{t|t+1}}
+\label{eq:NewKeynesian.EulerBond}
 \end{align}
+Explain the economic intuition behind this equation and the role of the \emph{stochastic discount factor} \(\mathcal{M}_{t|t+1}\).
 
-\item Derive the intratemporal and intertemporal optimality conditions:
+\item
+Derive the first-order conditions with respect to \(C_{t}[h]\), \(L^{s}_{t}[h]\), \(K_{t}[h]\), and \(I_{t}[h]\)
+  and show that they can be expressed in \emph{per-capita} terms:
 \begin{align}
-\lambda_t &= \zeta_t c_t^{-\sigma_c} \label{eq:NewKeynesian.MarginalUtility}
+\lambda_t &= \mu_{t} {(c_{t})}^{-\sigma^{C}} \label{eq:NewKeynesian.MarginalUtility}
 \\
-w_t &= \chi_h h_t^{\sigma_h} c_t^{\sigma_c}
+w_{t} &= \chi^{L} {(l^{s}_{t})}^{\sigma^{L}} {(c_{t})}^{\sigma^{C}}
 \label{eq:NewKeynesian.LaborSupply}
 \\
-\lambda_t &= \beta E_t \left[\lambda_{t+1} r_t\right]
-\label{eq:NewKeynesian.EulerBond}
-\\
-1 &= q_t \left( 1 - \frac{\phi_i}{2} \left(\frac{i_t}{i_{t-1}}-1\right)^2 - \phi_i \left(\frac{i_t}{i_{t-1}}-1\right)\left(\frac{i_t}{i_{t-1}}\right) \right)
-  + \beta E_t \frac{\lambda_{t+1}}{\lambda_t} q_{t+1} \phi_i \left(\frac{i_{t+1}}{i_{t}}-1\right)\left(\frac{i_{t+1}}{i_{t}}\right)^2
-\label{eq:NewKeynesian.EulerInvestment}
-\\
-q_t &= \beta E_t \frac{\lambda_{t+1}}{\lambda_t} \left( r^k_{t+1} + q_{t+1}(1-\delta) \right)
+q^{K}_{t} &= \beta \mathbb{E}_{t} \frac{\lambda_{t+1}}{\lambda_t} \left( r^{K}_{t+1} + q^{K}_{t+1} (1-\delta^{K}) \right)
 \label{eq:NewKeynesian.EulerCapital}
-\end{align}
-where $\beta^s\lambda_{t+s}$ and $\beta^s \lambda_{t+s} q_{t+s}$ are the discounted Lagrange multipliers
-  corresponding to period $t+s$'s budget constraint \eqref{eq:NewKeynesian.BudgetNominal} in real terms
-   and capital accumulation equation \eqref{eq:NewKeynesian.CapitalAccumulation}, respectively.
-Interpret these equations.
-
-\item Show that $1/\sigma_h$ is the Frisch elasticity of labor.
-
-\end{enumerate}
-
-
-\paragraph{Households: Transversality And Solvency Conditions}
-It is assumed that the household is subject to a transversality condition
-\begin{align*}
-	\lim_{T \rightarrow \infty} E_t \left\{\Lambda_{t,T} k_T\right\} = 0
-\end{align*}
-and a solvency constraint that prevents it from engaging in Ponzi-type schemes:
-\begin{align*}
-	\lim_{T \rightarrow \infty} E_t \left\{\Lambda_{t,T} \frac{B_T}{P_T}\right\} \geq 0
-\end{align*}
-for all periods $t$, where
-\begin{align}
-\Lambda_{t,t+s} = \beta^{s} \frac{\lambda_{t+s}}{\lambda_t} \label{eq:NewKeynesian.StochasticDiscountFactor}
-\end{align}
-denotes the stochastic discount factor.
-
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-
-\item Is there debt in this model? In other words, explain why an optimal path implies
-\begin{align}
-B_t = 0 \label{eq:NewKeynesian.MarketClearing.Bonds}
-\end{align}
-
-\item Explain the difference between the solvency constraint
-  $\lim_{T \rightarrow \infty} E_t \left\{\Lambda_{t,T} \frac{B_T}{P_T}\right\} \geq 0$
-  and the transversality condition
-  $\lim_{T \rightarrow \infty} E_t \left\{\Lambda_{t,T} \frac{B_T}{P_T}\right\} = 0$.
-  which holds in the optimum allocation.
-
-\item Derive the following expression for the stochastic discount factor:
-\begin{align}
-\Lambda_{t,t+1+s} = \beta \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{-1} \Lambda_{t+1,t+1+s} \label{eq:NewKeynesian.StochasticDiscountFactorRecursive}
-\end{align}
-
-\end{enumerate}
-
-\paragraph{Final Good Firm (Retail Sector): Profit Maximization}
-The economy is populated by a continuum of firms indexed by $f \in [0,1]$ that produce differentiated goods $y_t(f)$ in monopolistic competition.
-The technology for transforming these intermediate goods into the final output good $y_t$ that can be used for consumption and investment
-  has the \textcite{Dixit.Stiglitz_1977_MonopolisticCompetitionOptimum} form:
-\begin{align}
-y_t = \left[\int\limits_0^1 y_t(f)^{\frac{\epsilon-1}{\epsilon}}df\right]^{\frac{\epsilon}{\epsilon-1}} \label{eq:NewKeynesian.Firms.Aggregator}
-\end{align}
-where $\epsilon>1$ is the same substitution elasticity as in \eqref{eq:NewKeynesian.ConsumptionAggregator}.
-
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-\item Show that profit maximization in the final goods sector implies:
-\begin{align}
-y_t(f) &= \left(\frac{P_t(f)}{P_t}\right)^{-\epsilon} y_t \label{eq:NewKeynesian.Firms.Demand}
 \\
-P_t y_t &= \int_{0}^{1} P_t(f) y_t(f) df \label{eq:NewKeynesian.Firms.ZeroProfit}
+1 &= q^{K}_{t} \left(
+  1 - \frac{\phi^{I}}{2} {\left(\frac{i_{t}}{i_{t-1}}-1\right)}^2
+  - \phi^{I} \left(\frac{i_{t}}{i_{t-1}}-1\right) \left(\frac{i_{t}}{i_{t-1}}\right)
+  \right)
+  + \beta \mathbb{E}_{t} \frac{\lambda_{t+1}}{\lambda_t} q^{K}_{t+1} \phi^{I} \left(\frac{i_{t+1}}{i_{t}}-1\right) {\left(\frac{i_{t+1}}{i_{t}}\right)}^2
+\label{eq:NewKeynesian.EulerInvestment}
 \end{align}
-Interpret the equation.
-What does this imply for real profits $div_t^{Fin}$ in the final goods sector?
+where \(q^{K}_{t} = 1/n \int_{0}^{n} Q^{K}_{t}[h]/P_{t} dh\).
+Interpret each equation in economic terms.
+
+\item
+What is the relationship between per-capita variables and individual choices of the household,
+  e.g.\ how much and why (or why not) do \(c_t\) and \(C_{t}[h]\) differ?
+
+\item
+Derive the law of motion for capital in per-capita terms:
+\begin{align}
+k_{t} &= (1-\delta^{K}) k_{t-1} + \Biggl( 1 - \frac{\phi^{I}}{2} {\left(\frac{i_{t}}{i_{t-1}} - 1 \right)}^2 \Biggr) i_{t} \label{eq:NewKeynesian.CapitalAccumulation.perCapita}
+\end{align}
+What does \(\phi^{I} \geq 0\) imply for the law of motion of capital?
+
+\item 
+Show that \(1/\sigma^{C}\) is the intertemporal elasticity of substitution defined as \(IES = -\frac{U_{C,t}}{U_{CC,t} C_{t}[h]}\).
+
+\item
+Show that \(1/\sigma_{l}\) is the Frisch elasticity of labor defined as \(FEL = \frac{\partial l^{s}_{t}}{\partial w_{t}} \frac{w_{t}}{l^{s}_{t}}\).
+
+\item
+Is there debt in this model? In other words, explain why an optimal path implies
+\begin{align}
+\mathcal{B}_{t} = 0 \label{eq:NewKeynesian.MarketClearing.Bonds}
+\end{align}
+
+\item
+Explain the difference between the solvency constraint and the transversality condition.
+
+\item
+Derive the following expression for the stochastic discount factor:
+\begin{align}
+\mathcal{M}_{t,t+1+j} = \beta \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{-1} \mathcal{M}_{t+1,t+1+j} \label{eq:NewKeynesian.StochasticDiscountFactorRecursive}
+\end{align}
+
 \end{enumerate}
 
-\paragraph{Intermediate Goods Firms (Wholesale Sector): Profit Maximization}
-Intermediate firm $f\in[0,1]$ uses the following production function to produce their differentiated good
+\newpage
+
+\subsection{Final goods firms: description}
+A firm \(f \in [0,n]\) synthesizes a continuum of differentiated intermediate wholesale goods \(Y_{t}[f,m]\) with \(m \in [0,n]\),
+  to compile the bundle of final goods \(Y_{t}[f]\) that can be used for consumption, investment and government spending.
+As these distinct varieties are blended into the final good,
+  the aggregation unfolds under conditions of perfect competition,
+  where the firm \(f\) acts as a \emph{price taker}.
+
+\paragraph{Aggregation technology}
+The following constant elasticity of substitute (CES) technology is available to firm \(f\) for aggregating differentiated varieties:
 \begin{align}
-y_t(f) = a_t (k_{t-1}(f))^\alpha (n_t(f))^{1-\alpha} \label{eq:NewKeynesian.IntermediateFirms.ProductionFunction}
+Y_{t}[f] = {\left({\left(\frac{1}{n}\right)}^{\frac{1}{\varepsilon^{P}}} \int_{0}^{n} {(Y_{t}[f,m])}^{\frac{\epsilon^{P}-1}{\epsilon^{P}}} dm\right)}^{\frac{\epsilon^{P}}{\epsilon^{P}-1}} \label{eq:NewKeynesian.Firms.Aggregator}
 \end{align}
-where $a_t$ denotes the common technology level available to all firms.
-Firms face perfectly competitive factor markets for renting capital $k_{t-1}(f)$ and hiring labor $n_t(f)$ with $\alpha$ being a productivity parameter.
-Nominal profits of firm $f$ are equal to revenues from selling its differentiated good at self-determined price $P_t(f)$
-  minus costs from hiring labor at real wage $w_t$ and real renting rate of capital $r^k_t$:
-\begin{align}
-{Div}^{Int}_t(f) = P_t(f) y_t(f) - P_t w_t n_t(f) - P_t r^k_t k_{t-1}(f) \label{eq:NewKeynesian.Firms.Profits}
-\end{align}
-The objective of the firm is to choose contingent plans for $P_t(f)$, $n_t(f)$ and $k_{t-1}(f)$
-  so as to maximize the present discounted value of nominal dividend payments given by
+where \(\epsilon^{P}>1\) is the intratemporal elasticity of substitution between differentiated varieties.
+
+\paragraph{Cost minimization}
+The aggregator \(f\) takes the listed price \(P_{t}[m]\) of intermediate good \(m\) as fixed input
+  while determining the optimal quantity of variety \(Y_{t}[f,m]\) to purchase.
+The firm minimizes its nominal expenditures in compliance with the technology constraint.
+
+\paragraph{Notation}
+In what follows, let lower case letters denote \emph{real} variables in \emph{per-capita} terms:
 \begin{align*}
-E_t \sum_{s=0}^{\infty} \Lambda_{t,t+s} Div^{Int}_{t+s}(f)
+y_{t} = \int_{0}^{1} Y_{t}[f] df
 \end{align*}
 
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-\item Why are future profits discounted by the household's stochastic discount factor $\Lambda_{t,t+s} = \beta^s \lambda_{t+s}/\lambda_{t}$?
-\end{enumerate}
+\subsection{Final goods firms: exercises}
 
-\paragraph{Intermediate Goods Firms (Wholesale Sector): Optimal Factor Inputs}
-
-~\\\noindent\emph{Exercises:}
 \begin{enumerate}[resume]
 
-\item Derive the optimal capital and labor demand schedules of intermediate good firm $f$:
+\item
+Show that cost minimization in the final goods sector implies:
 \begin{align}
-r^k_t  &= mc_t(f) \alpha a_t \left( \frac{n_t(f)}{k_{t-1}(f)}\right)^{1-\alpha}
-\label{eq:NewKeynesian.IntermediateFirms.CapitalDemand}
+Y_{t}[f,m] &= \frac{1}{n} {\left(\frac{P_{t}[m]}{P_{t}}\right)}^{-\epsilon^{P}} Y_{t}[f] \label{eq:NewKeynesian.Firms.Demand}
 \\
-w_t  &= mc_t(f) (1-\alpha) a_t \left(\frac{n_t(f)}{k_{t-1}(f)}\right)^{-\alpha}
-\label{eq:NewKeynesian.IntermediateFirms.LaborDemand}
+1 &= \frac{1}{n} \int_{0}^{n} {\left(\frac{P_{t}[m]}{P_{t}}\right)}^{1-\varepsilon^{P}} dm \label{eq:NewKeynesian.Firms.AggregatePriceIndex}
 \end{align}
-where $mc_t(f)$ is the Lagrange multiplier corresponding to constraint \eqref{eq:NewKeynesian.IntermediateFirms.ProductionFunction}.
-Interpret the equations and the explain why $mc_t(f)$ is a measure of real marginal costs.
+Interpret the equations.
 
-\item Show that all intermediate firms choose the same capital to labor ratio in production
+\item
+Show that total demand for variety \(m\) is given by:
 \begin{align}
-\left(\frac{k_{t-1}(f)}{n_t(f)}\right) = \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \label{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio}
+Y^{d}_{t}[m] &:= \int_{0}^{n} Y_{t}[f,m] df = {\left(\frac{P_{t}[m]}{P_{t}}\right)}^{-\epsilon^{P}} y_{t} \label{eq:NewKeynesian.Firms.TotalDemand}
 \end{align}
 
-\item Show that marginal costs are independent of $f$:
+\item
+Compute total nominal profits \(\int_{0}^{n} \mathcal{DIV}_{t}^{F}[f]df\) in the final goods sector
+  and show that:
 \begin{align}
-mc_t \equiv mc_t(f) = \frac{1}{a_t} \left(\frac{w_t}{1-\alpha}\right)^{1-\alpha} \left(\frac{r^k_t}{\alpha}\right)^{\alpha} \label{eq:NewKeynesian.RealMarginalCosts}
+\int_{0}^{n} P_{t}[m] Y_{t}[f,m] dm = P_{t} Y_{t}[f] \label{eq:NewKeynesian.Firms.ZeroProfit}
 \end{align}
+What is the name of this equation?
 
 \end{enumerate}
 
-\paragraph{Intermediate Goods Firms (Wholesale Sector): Price Setting}
+\newpage
+
+\subsection{Intermediate goods firms: description}
+The producers of differentiated products \(m \in [0,n]\) are called \emph{monopolists}
+  because they operate within a framework of monopolistic competition.
+This allows them some level of control over the pricing of their specific variety \(m\).
+It is assumed that firms are owned by the households and any profits are re-distributed among all households in a per-capita fashion.
+
+\paragraph{Production function}
+Each intermediate firm \(m\) manufactures its distinct variety by blending labor \(l^{d}_{t}[m]\) and capital \(k^{d}_{t-1}[m]\),
+  according to a Cobb-Douglas production function:
+\begin{align}
+Y^{s}_{t}[m] = A_{t} {(K^{d}_{t-1}[m])}^{\alpha^{K}} {(L^{d}_{t}[m])}^{1-\alpha^{K}} \label{eq:NewKeynesian.IntermediateFirms.ProductionFunction}
+\end{align}
+where \(\alpha^{K}\) is the elasticity towards capital in production.
+\(A_{t}\) denotes the common technology level available to all firms which evolves according to:
+\begin{align}
+\log{A_{t}} &= (1-\rho^{A}) \log{\overline{A}} + \rho^{A} \log{A_{t-1}} + \varepsilon^{A}_{t} \label{eq:NewKeynesian.LoM.TFP}
+\end{align}
+where \(\overline{A}\) is the baseline level of productivity,
+  \(\rho^{A}\) the persistence of the law of motion
+  and \(\varepsilon^{A}_{t}\) an exogenous deviation to the process.
+
+\paragraph{Profit maximization}
+Monopolists face perfectly competitive factor markets and
+  rent capital at nominal rate \(R^{K}_{t}\)
+  and hire labor services at nominal wage \(W_{t}\).
+They maximize profits subject to the production function
+  and to the constraint of producing enough to meet total demand for their specific variety:
+\begin{align*}
+Y^{s}_{t}[m] \geq Y^{d}_{t}[m]
+\end{align*}
+The objective of the firm is to choose contingent plans for \(P_{t}[m]\), \(L^{d}_{t}[m]\) and \(K^{d}_{t-1}[m]\)
+  so as to maximize the present discounted value of nominal profits.
+
+\paragraph{Price setting}
 
 Prices of intermediate goods are determined by nominal contracts as in \textcite{Calvo_1983_StaggeredPricesUtilitymaximizing} and \textcite{Yun_1996_NominalPriceRigidity}.
-In each period firm $f$ faces a constant probability $1-\theta, 0\leq \theta \leq 1$,
-  of being able to re-optimize the price $P_t(f)$ of its good $y_t(f)$.
+In each period monopolist \(m\) faces a constant probability \(1-\theta^{P}, 0\leq \theta^{P} \leq 1\),
+  of being able to re-set the price \(P_{t}(f)\) of its good \(m\).
 The probability is independent of the time it last reset its price.
 Formally:
 \begin{align}
-P_t(f) = \begin{cases}
-\widetilde{P}_t(f) & \text{with probability } 1-\theta\\
-P_{t-1}(f) & \text{with probability } \theta
+P_{t}[m] = \begin{cases}
+\widetilde{P}_{t}[m] & \text{with probability } 1-\theta^{P}\\
+P_{t-1}[m] & \text{with probability } \theta^{P}
 \end{cases}
 \label{eq:NewKeynesian.CalvoMechanism}
 \end{align}
-where $\widetilde{P}_t(f)$ is the reset price in period $t$.
-Accordingly, when a firm cannot adjust its price for $s$ periods,
-  its price in period $t+s$ is given by $\widetilde{P}_t(f)$ and stays there until the firm can re-optimize again.
-Hence, the firm's objective in $t$ is to set $\widetilde{P}_t(f)$ to maximize expected profits
-  until it can re-optimize the price again in some future period $t+s$.
-The probability to be stuck at the same price for $s$ periods is given by $\theta^s$.
+\(\widetilde{P}_{t}[m]\) is the optimal reset price, decided in period \(t\), of intermediate good \(m\).
+A firm granted the opportunity to adjust its price in period \(t\) strategically sets this price
+  to maximize the expected present value of its profits until the next opportunity for price adjustment arises.
+If the firm cannot change its price for \(j\) periods,
+  its price in period \(t+j\) is given by \(\widetilde{P}_{t}[m]\)
+  and stays there until the firm can re-optimize again.
+The probability of facing such a scenario is \({(\theta^{P})}^{j}\).
 
-\newpage
-~\\\noindent\emph{Exercises:}
+
+\paragraph{Notation}
+In what follows, let lower case letters denote \emph{real} variables in \emph{per-capita} terms:
+\begin{align*}
+k^{d}_{t} = \frac{1}{n} \int_{0}^{1} K^{d}_{t}[m] dm
+,\quad
+l^{d}_{t} = \frac{1}{n} \int_{0}^{1} L^{d}_{t}[m] dm
+,\quad
+{mc}_{t} = \frac{1}{n} \int_{0}^{1} {MC}_{t}[m] dm
+\end{align*}
+Similarly, lower case letters denote real factor prices and relative prices:
+\begin{align*}
+w_{t} := \frac{W_{t}}{P_{t}}
+,\quad
+r^{K}_{t} := \frac{R^{K}_{t}}{P_{t}}
+,\quad
+\widetilde{p}_{t} := \frac{\widetilde{P}_{t}[m]}{P_{t}}
+\end{align*}
+
+\subsection{Intermediate goods firms: exercises}
+
 \begin{enumerate}[resume]
 
-\item Denote the relative reset price as $\widetilde{p}_t := \frac{\widetilde{P}_t(f)}{P_t}$ and 
-  show that optimal price setting of intermediate firms must satisfy:
+\item
+Formulate the general forward-looking profit maximization problem as a Lagrangian,
+  where future profits are discounted by the household's stochastic discount factor
+  and \({MC}_{t}[m]\) is the Lagrange multiplier corresponding to constraint~\eqref{eq:NewKeynesian.IntermediateFirms.ProductionFunction}.
+Explain why \({MC}_{t}[m]\) is a measure of nominal marginal costs.
+
+\item Derive the following optimality conditions of intermediate good firm \(m\):
 \begin{align}
-\widetilde{p}_t \cdot s_{1,t} &= \frac{\epsilon}{\epsilon-1} \cdot s_{2,t} \label{eq:NewKeynesian.IntermediateFirms.PriceSetting}
+R^{K}_{t}  &= {MC}_{t}[m] \alpha^{K} A_{t} {\left( \frac{L^{d}_{t}[m]}{K^{d}_{t-1}[m]}\right)}^{1-\alpha^{K}}
+\label{eq:NewKeynesian.IntermediateFirms.CapitalDemand}
+\\
+W_{t}  &= {MC}_{t}[m] (1-\alpha^{K}) A_{t} {\left(\frac{L^{d}_{t}[m]}{K^{d}_{t-1}[m]}\right)}^{-\alpha^{K}}
+\label{eq:NewKeynesian.IntermediateFirms.LaborDemand}
+\end{align}
+Interpret the equations in economic terms.
+
+\item
+Show that all intermediate firms choose the same capital to labor ratio in production:
+\begin{align}
+\left(\frac{k^{d}_{t-1}}{l^{d}_{t}}\right) =
+\left(\frac{K^{d}_{t-1}[m]}{L^{d}_{t}[m]}\right) =
+\left(\frac{w_{t}}{1-\alpha^{K}}\right) \left(\frac{\alpha^{K}}{r^{K}_{t}}\right) \label{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio}
+\end{align}
+
+\item
+Show that real marginal costs are independent of \(m\):
+\begin{align}
+{mc}_{t} = {mc}_{t}[m] = \frac{1}{A_{t}} {\left(\frac{w_{t}}{1-\alpha^{K}}\right)}^{1-\alpha^{K}} {\left(\frac{r^k_{t}}{\alpha^{K}}\right)}^{\alpha^{K}} \label{eq:NewKeynesian.RealMarginalCosts}
+\end{align}
+
+\item
+Formulate the Lagrangian for the forward-looking profit maximization problem of a monopolist
+  undergoing price re-optimization in period \(t\).
+Focus only on the terms that are relevant for re-setting the price.
+
+\item
+Show that the optimal price setting of intermediate firms must satisfy:
+\begin{align}
+\widetilde{p}_t := \frac{\widetilde{P}_{t}[m]}{P_{t}} &= \left(\frac{\epsilon^{P}}{\epsilon^{P}-1}\right) \frac{S^{1_{P}}_{t}}{S^{2_{P}}_{t}}
+\label{eq:NewKeynesian.IntermediateFirms.PriceSetting}
 \end{align}
 where
 \begin{align*}
-s_{1,t} &= E_t\sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} \left(\frac{P_{t+s}}{P_t}\right)^{\epsilon} y_{t+s}
+S^{1_{P}}_{t} &= 
+\mathbb{E}_{t} \sum_{j=0}^{\infty} {(\theta^{P})}^{j} \mathcal{M}_{t,t+j} {\left(\frac{P_{t+j}}{P_{t}}\right)}^{\epsilon^{P}+1} y_{t+j} {mc}_{t+j}
 \\
-s_{2,t} &= E_t \sum_{s=0}^{\infty}\theta^s \Lambda_{t,t+s} \left(\frac{P_{t+s}}{P_t}\right)^{\epsilon+1} y_{t+s} mc_{t+s}
+S^{2_{P}}_{t} &= \mathbb{E}_{t} \sum_{j=0}^{\infty} {(\theta^{P})}^{j} \mathcal{M}_{t,t+j} {\left(\frac{P_{t+j}}{P_{t}}\right)}^{\epsilon^{P}} y_{t+j}
 \end{align*}
-Why can we drop the $f$ in the definition of $\widetilde{p}_t$?
+Why can we drop the \(m\) in \(\widetilde{p}_{t}:=\widetilde{P}_{t}[m]/P_{t}\)?
 
-\item Show that the infinite sums $s_{1,t}$ and $s_{2,t}$ can be written recursively:
+\item
+Show that the infinite sums \(S^{1_{P}}_{t}\) and \(S^{2_{P}}_{t}\) can be written recursively:
 \begin{align}
-s_{1,t} &= y_t             + \beta \theta E_t \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{\epsilon-1}s_{1,t+1}
+S^{1_{P}}_{t} &= {mc}_{t} y_{t} + \theta^{P} \beta \mathbb{E}_{t} \frac{\lambda_{t+1}}{\lambda_{t}} {\left(\Pi_{t+1}\right)}^{\varepsilon^{P}} S^{1_{P}}_{t+1}  
 \label{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1}
 \\
-s_{2,t} &=  mc_t y_{t}  + \beta \theta E_t \frac{\lambda_{t+1}}{\lambda_t} \Pi_{t+1}^{\epsilon} s_{2,t+1}
+S^{2_{P}}_{t} &= y_{t} + \theta^{P} \beta \mathbb{E}_{t} \frac{\lambda_{t+1}}{\lambda_{t}} {\left(\Pi_{t+1}\right)}^{\varepsilon^{P}-1} S^{2_{P}}_{t+1}
 \label{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2}
 \end{align}
 
-\item Show that according to the Calvo mechanism the law of motion for the optimal reset price $\widetilde{p}_t = \widetilde{P}_t(f) / P_t$ is given by:
+\item
+Show that according to the Calvo mechanism
+  the law of motion for the optimal reset price
+  \(\widetilde{p}_{t} = \widetilde{P}_{t}[m] / P_{t}\) is given by:
 \begin{align}
-1&=\theta \Pi_{t}^{\epsilon-1}+\left(1-\theta\right) \widetilde{p}_t^{1-\epsilon}
+1 &= \left(1-\theta^{P}\right) {(\widetilde{p}_{t})}^{1-\epsilon^{P}} + \theta^{P} {(\Pi_{t})}^{\epsilon^{P}-1}
 \label{eq:NewKeynesian.ResetPriceLoM}
 \end{align}
+
 \end{enumerate}
 
-\paragraph{Aggregation and Market Clearing}
-Note that the capital and labor resource constraints imply that aggregated demands by the intermediate firms need to be equal to the supplies provided by the households:
-\begin{align}
-h_t = \int_0^1 n_t(f) df \label{eq:NewKeynesian.LaborMarketClearing}
-\\
-k_{t} = \int_0^1 k_t(f) df \label{eq:NewKeynesian.CapitalMarketClearing}
-\end{align}
+\newpage
 
-~\\\noindent\emph{Exercises:}
+\subsection{Government: description}
+
+\paragraph{Monetary policy}
+The central bank adjusts the nominal interest rate \(R_t\) according to an interest rate rule
+  in response to deviations of (i) gross inflation \(\Pi_{t}\) from a target \(\overline{\Pi}\)
+  and (ii) per-capita output \(y_t\) from its steady-state value \(y\):
+\begin{align}
+\frac{R_{t}}{R} = {\left(\frac{R_{t-1}}{R}\right)}^{\rho^{R}} {\left({\left(\frac{\Pi_{t}}{\overline{\Pi}}\right)}^{\psi^{R_\Pi}} {\left(\frac{y_t}{y}\right)}^{\psi^{R_Y}}\right)}^{1-\rho^{R}} e^{\varepsilon^{R}_{t}} \label{eq:NewKeynesian.MonetaryPolicyRule}
+\end{align}
+where \(R\) denotes the nominal interest rate in steady-state,
+  \(\rho^{R}\) is a persistence parameter,
+  \(\psi^{R_\Pi}\) the sensitivity parameter to inflation deviations,
+  and \(\psi^{R_Y}\) the feedback parameter of the output gap.
+\(\varepsilon^{R}_{t}\) is an exogenous deviation to the rule.
+
+\paragraph{Fiscal policy}
+The fiscal authority levies lump-sum taxes \(\mathcal{T}_{t}[h]\) on households
+  to finance government spending \(G_{t}\).
+The nominal fiscal budget is given by:
+\begin{align}
+\int_{0}^{n} \mathcal{T}_{t}[h] dh = G_{t} \label{eq:NewKeynesian.FiscalBudgetNominal}
+\end{align}
+Real per-capita government spending, \(g_{t} = (1/n) G_{t}/P_{t}\) is determined by a fiscal rule
+  in relation to steady-state output \(y\):
+\begin{align}
+\left(\frac{g_{t}}{y}\right) &= (1-\rho^{G}) \left(\overline{G_Y}\right) + \rho^{G} \left(\frac{g_{t-1}}{y}\right) + \varepsilon^{G}_{t} \label{eq:NewKeynesian.FiscalPolicyRule.spending}
+\end{align}
+where \(\overline{G_Y}\) is the target ratio of government spending to output,
+\(\rho^{G}\) a persistence parameter
+and \(\varepsilon^{G}_{t}\) is an exogenous deviation to the rule.
+
+\subsection{Government: exercises}
+
 \begin{enumerate}[resume]
 
-\item Show that the aggregated capital to labor ratio becomes:
-\begin{align}
-\left(\frac{k_{t-1}}{h_t}\right) = \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \label{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatioAggregated}
-\end{align}
-Explain the difference between $h_t$ and $n_t(f)$ as well as the difference between $k_t$ and $k_t(f)$.
+\item
+Why is the feedback rule~\eqref{eq:NewKeynesian.MonetaryPolicyRule} often called a Taylor rule?
 
-\item Show that aggregate real profits of the intermediate firms are given by
+\item
+Derive the \emph{real} fiscal budget in per-capita terms:
 \begin{align}
-div^{Int}_t \equiv \int_{0}^{1} div_t(f) df = y_t - w_t h_t - r^k_t k_{t-1}\label{eq:NewKeynesian.IntermediateFirms.AggregateProfits}
+\tau_{t} = g_{t} \label{eq:NewKeynesian.FiscalBudget}
 \end{align}
-Why is $div^{Int}_t>0$ in this model?
+\end{enumerate}
 
-\item Show that aggregation and market clearing implies:
+\newpage
+
+\subsection{Aggregation and market clearing: description}
+
+\paragraph{Bond market}
+State-contingent bonds are in zero net-supply in equilibrium:
 \begin{align}
-y_t = c_t + i_t \label{eq:NewKeynesian.AggregateDemand}
+\int_{0}^{n} \mathcal{B}_{t}[h] dh = 0 \label{eq:NewKeynesian.BondMarketClearing}
 \end{align}
+
+\paragraph{Capital market}
+Total capital demand from the intermediate goods sector must equal total capital supply from the households,
+  or in per-capita terms:
+\begin{align}
+k_{t} := \frac{1}{n}\int_{0}^{n} K_{t}[h] dh = \frac{1}{n}\int_{0}^{n} K^{d}_{t}[m] dm =: k^{d}_{t} \label{eq:NewKeynesian.CapitalMarketClearing}
+\end{align}
+
+\paragraph{Labor market}
+The supply of labor by the households must equal the demand for labor by the intermediate goods sector,
+  or in per-capita terms:
+\begin{align}
+l^{s}_{t} = \frac{1}{n}\int_{0}^{n} L^{s}_{t}[h] dh = \frac{1}{n}\int_{0}^{n} L^{d}_{t}[m] dm = l^{d}_{t} \label{eq:NewKeynesian.LaborMarketClearing}
+\end{align}
+
+\paragraph{Goods market}
+The final good (in per-capita) is used for consumption, investment and government spending,
+  yielding the following resource constraint:
+\begin{gather}
+\underbrace{\frac{1}{n} \int_{0}^{n} Y_{t}[f] df}_{y_{t}}
+= \underbrace{\frac{1}{n} \int_{0}^{n} C_{t}[h] dh}_{c_{t}}
++ \underbrace{\frac{1}{n} \int_{0}^{n} I_{t}[h] dh}_{i_{t}}
++ \underbrace{\frac{1}{n} \frac{G_{t}}{P_{t}}}_{g_{t}}
+\nonumber
+\\
+y_{t} = c_{t} + i_{t} + g_{t} \label{eq:NewKeynesian.ResourceConstraint}
+\end{gather}
+Total demand for intermediate goods~\eqref{eq:NewKeynesian.Firms.TotalDemand}
+  must equal its aggregated supply~\eqref{eq:NewKeynesian.IntermediateFirms.ProductionFunction}:
+\begin{align}
+\int_{0}^{1} Y^{d}_{t}[m] dm = \int_{0}^{1} Y^{s}_{t}[m] dm \label{eq:NewKeynesian.AggregateSupplyDemand}
+\end{align}
+
+\paragraph{Price distortion}
+The price distortion \(p_{t}^*\) is defined as the weighted average of the relative price of intermediate goods:
+\begin{align}
+p_{t}^{*} = \frac{1}{n} \int_{0}^{n} {\left(\frac{P_{t}[m]}{P_{t}}\right)}^{-\epsilon^{P}} dm \label{eq:NewKeynesian.PriceDistortionDefinition}
+\end{align}
+
+\subsection{Aggregation and market clearing: exercises}
+
+\begin{enumerate}[resume]
+
+\item
+Why do we specify all prices relative to the consumer price index and/or the inflation rate?
+  
+\item
+Show that aggregated real profits of the intermediate firms are given by
+\begin{align}
+div^{M}_{t} := \frac{1}{n} \int_{0}^{n} \frac{\mathcal{DIV}^{M}_{t}[m]}{P_{t}} dm = y_t - w_t l^{d}_{t} - r^{K}_{t} k^{d}_{t-1} \label{eq:NewKeynesian.IntermediateFirms.AggregateProfits}
+\end{align}
+Why is \(div^{M}_{t}>0\) in this model?
+
+\item
+Show that the resource constraint~\eqref{eq:NewKeynesian.ResourceConstraint} can be derived
+  from the aggregated nominal budget constraint~\eqref{eq:NewKeynesian.BudgetNominal}.
 Interpret the equation.
 
-\item Show that aggregation of equations \eqref{eq:NewKeynesian.Firms.Demand} and \eqref{eq:NewKeynesian.IntermediateFirms.ProductionFunction} implies:
+\item
+Show that~\eqref{eq:NewKeynesian.AggregateSupplyDemand} implies
 \begin{align}
-p_t^* y_t = a_t k_{t-1}^\alpha h_t^{1-\alpha} \label{eq:NewKeynesian.AggregateSupply}
+p_{t}^{*} y_t = A_t {(k_{t-1})}^{\alpha^{K}} {(l^{s}_{t})}^{1-\alpha^{K}} \label{eq:NewKeynesian.AggregateSupply}
 \end{align}
-where
-\begin{align}
-p_t^* &= \int_{0}^1 \left(\frac{P_t(f)}{P_t}\right)^{-\epsilon} df \label{eq:NewKeynesian.PriceDistortionDefinition}
-\end{align}
-Interpret the equation and explain why $p_t^*$ is called the \emph{price efficiency distortion}.
+Interpret the equation and explain why \(p_{t}^{*}\) is called the \emph{price efficiency distortion}.
 
-\item Using the Calvo mechanism, derive the law of motion for the price efficiency distortion:
+\item
+Using the Calvo mechanism, derive the law of motion for the price efficiency distortion:
 \begin{align}
-p_{t}^*=\left(1-\theta\right) \widetilde{p}_t^{-\epsilon}+\theta \Pi_{t}^{\epsilon} p_{t-1}^* \label{eq:NewKeynesian.PriceDistortionLoM}
+p_{t}^{*} = \left(1-\theta^{P}\right) {(\widetilde{p}_{t})}^{-\epsilon^{P}} + \theta^{P} {(\Pi_{t})}^{\epsilon^{P}} p_{t-1}^{*} \label{eq:NewKeynesian.PriceDistortionLoM}
 \end{align}
 
 \end{enumerate}
-
-\paragraph{Monetary Policy}
-The central bank adjusts the nominal interest rate $R_t$ according to an interest rate rule
-  in response to deviations of (i) gross inflation $\Pi_t$ from a target $\Pi^*$
-  and (ii) output $y_t$ from steady-state output $y$:
-\begin{align}
-R_t = R \left(\frac{\Pi_t}{\Pi^*}\right)^{\psi_\pi} \left(\frac{y_t}{y}\right)^{\psi_y} e^{\nu_t} \label{eq:NewKeynesian.MonetaryPolicyRule}
-\end{align}
-where $R$ denotes the nominal interest rate in steady-state,
-  $\psi_\pi$ the sensitivity parameter to inflation deviations,
-  $\psi_y$ the feedback parameter of the output gap
-  and $\nu_t$ an exogenous deviation to the rule.
-
-~\\\noindent\emph{Exercises:}
-\begin{enumerate}[resume]
-\item Why is such a feedback rule often called a Taylor rule?
-\end{enumerate}
-
-\paragraph{Exogenous variables and stochastic shocks}
-The exogenous preference shifter $\zeta_t$, the level of technology $a_t$
-  and the exogenous deviations $\nu_t$ from the monetary rule evolve according to
-\begin{align}
-\log{\zeta_t} &= \rho_\zeta \log{\zeta_{t-1}} + \varepsilon_{\zeta,t} \label{eq:NewKeynesian.LoM.PreferenceShifter}\\
-\log{a_t} &= \rho_a \log{a_{t-1}} + \varepsilon_{a,t} \label{eq:NewKeynesian.LoM.TFP}\\
-\nu_t &= \rho_\nu \nu_{t-1} + \varepsilon_{\nu,t} \label{eq:NewKeynesian.LoM.MonPol}
-\end{align}
-with persistence parameters $\rho_\zeta$, $\rho_a$ and $\rho_\nu$.
-The preference shock $\varepsilon_{\zeta,t}$, the productivity shock $\varepsilon_{a,t}$
-  and the monetary policy shock $\varepsilon_{\nu,t}$ are iid Gaussian:
-\begin{align*}
-\begin{pmatrix}
-\varepsilon_{\zeta,t}\\\varepsilon_{a,t}\\\varepsilon_{\nu,t}
-\end{pmatrix}
-\sim N\left(\begin{pmatrix} 0\\0\\0\end{pmatrix}, \begin{pmatrix} \sigma_\zeta^2 & 0& 0\\0 & \sigma_{a}^2& 0\\0 & 0 & \sigma_{\nu}^2\end{pmatrix}\right)
-\end{align*}
 
 \paragraph{Readings}
 \begin{itemize}
@@ -393,7 +548,7 @@ The preference shock $\varepsilon_{\zeta,t}$, the productivity shock $\varepsilo
 \end{itemize}
 
 \begin{solution}\textbf{Solution to \nameref{ex:AlgebraNewKeynesianModels}}
-\ifDisplaySolutions
+\ifDisplaySolutions%
 \input{exercises/nk_model_algebra_solution.tex}
 \fi
 \newpage

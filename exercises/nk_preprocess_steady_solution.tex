@@ -1,81 +1,131 @@
 \paragraph{Analytical steady-state} The steady-state can be computed analytically for all model variables.
 
-In the non-stochastic steady-state $\varepsilon_{\zeta,t}=\varepsilon_{a,t}=\varepsilon_{\nu,t}=0$.
-Accordingly, equations \eqref{eq:NewKeynesian.LoM.PreferenceShifter}, \eqref{eq:NewKeynesian.LoM.TFP} and \eqref{eq:NewKeynesian.LoM.MonPol} become:
+In the non-stochastic steady-state we impose that all exogenous variables are equal to zero:
 \begin{align*}
-\zeta = 1, \qquad a=1, \qquad \nu = 0
+\varepsilon^{\mu}=0
+,\quad
+\varepsilon^{A}=0
+,\quad
+\varepsilon^{R}=0
+,\quad
+\varepsilon^{G}=0
 \end{align*}
-From equation \eqref{eq:NewKeynesian.MonetaryPolicyRule} we can infer
+Accordingly, equations {\eqref{eq:NewKeynesian.LoM.PreferenceShifter}}
+and {\eqref{eq:NewKeynesian.LoM.TFP}} become:
 \begin{align*}
-\Pi = \Pi^*
+\mu = 1
+,\quad
+A = \overline{A}
 \end{align*}
-The Euler equations for bonds \eqref{eq:NewKeynesian.EulerBond}, investment \eqref{eq:NewKeynesian.EulerInvestment} and capital \eqref{eq:NewKeynesian.EulerCapital} become:
+From equation~\eqref{eq:NewKeynesian.MonetaryPolicyRule} we can infer
 \begin{align*}
-q = 1, \qquad r=\frac{1}{\beta}, \qquad r^k = \frac{1}{\beta} - q(1-\delta)
+\Pi = \overline{\Pi}
 \end{align*}
-such that the steady-state of the nominal interest rate \eqref{eq:NewKeynesian.NominalInterestRate} is given by
+The Euler equations for bonds~\eqref{eq:NewKeynesian.EulerBond},
+  investment~\eqref{eq:NewKeynesian.EulerInvestment}
+  and capital~\eqref{eq:NewKeynesian.EulerCapital} become in steady-state:
 \begin{align*}
-R = r \pi
+R = \frac{\Pi}{\beta}
+,\qquad
+q^{K} = 1
+,\qquad
+r^{K} = \frac{q^{K}}{\beta} - q^{K}(1-\delta^{K})
 \end{align*}
-From \eqref{eq:NewKeynesian.ResetPriceLoM} we get:
+From~\eqref{eq:NewKeynesian.ResetPriceLoM} we get:
 \begin{align*}
-{\widetilde{p}} = \left(\frac{1-{{\theta}}\, {{\Pi}}^{{{\epsilon}}-1}}{1-{{\theta}}}\right)^{\frac{1}{1-{{\epsilon}}}}
+\widetilde{p} = {\left(\frac{1 - \theta^{P} {(\Pi)}^{\epsilon^{P}-1}}{1 - \theta^{P}}\right)}^{\frac{1}{1-\epsilon^{P}}}
 \end{align*}
-Now we are able to evaluate \eqref{eq:NewKeynesian.PriceDistortionLoM} in steady-state, which becomes:
+Now we are able to evaluate~\eqref{eq:NewKeynesian.PriceDistortionLoM} in steady-state:
 \begin{align*}
-{p^*} = ({{\widetilde{p}}})^{-{{\epsilon}}} \,\frac{1-{{\theta}}}{1-{{\theta}}\, {{\Pi}}^{{{\epsilon}}}}
+p^{*} = \left(\frac{1 - \theta^{P}}{1 - \theta^{P} {(\Pi)}^{\epsilon^{P}}}\right) {(\widetilde{p})}^{-\epsilon^{P}}
 \end{align*}
-The recursive price setting equation \eqref{eq:NewKeynesian.IntermediateFirms.PriceSetting} in steady-state yields the relationship:
+The recursive price setting equation~\eqref{eq:NewKeynesian.IntermediateFirms.PriceSetting} in steady-state yields the auxiliary relationship:
 \begin{align*}
-\left(\frac{s_2}{s_1}\right) = \frac{\epsilon-1}{\epsilon} \widetilde{p}
+\left(\frac{S^{1_{P}}}{S^{2_P}}\right) = \left(\frac{\epsilon^{P}-1}{\epsilon^{P}}\right) \widetilde{p}
 \end{align*}
 which is useful for computing the steady-state marginal costs.
-To this end, evaluate \eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1} and \eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2} in steady-state
-  and take the ratio:\footnote{
-Note that if we abstract from trend-inflation, i.e.\ assume price stability in steady-state, $\Pi^*=1$,
-  then the expressions simplify immensely: $\widetilde{p} = 1$, $p^*=1$, and $mc = (\epsilon-1)/\epsilon$.
-These are common choices for providing initial values in more difficult models.
+To this end, evaluate~\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1}
+  and~\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2} in steady-state
+  and take the ratio:\footnote{%
+Note that if we abstract from trend-inflation, i.e.\ assume price stability in steady-state, \(\overline{\Pi}=1\),
+  then the expressions simplify immensely: \(\widetilde{p} = 1\), \(p^{*}=1\), and \(mc = (\epsilon^{P}-1)/\epsilon^{P}<1\).
+These are useful choices for providing initial values in more difficult models.
 }
 \begin{align*}
-{mc} = \frac{\left(1-{{\theta}}\, {{\beta}}\, {{\Pi}}^{{{\epsilon}}}\right)}{ \left( 1-{{\theta}}\, {{\beta}}\, {{\Pi}}^{{{\epsilon}}-1} \right)} \left(\frac{s_2}{s_1}\right)
+{mc} &= \frac{\left(1 - \theta^{P} \beta {(\Pi)}^{\epsilon^{P}}\right)}{\left(1 - \theta^{P} \beta {(\Pi)}^{\epsilon^{P}-1}\right)} \left(\frac{S^{1_{P}}}{S^{2_{P}}}\right)
+= \frac{\left(1 - \theta^{P} \beta {(\Pi)}^{\epsilon^{P}}\right)}{\left(1 - \theta^{P} \beta {(\Pi)}^{\epsilon^{P}-1}\right)} \left(\frac{\epsilon^{P}-1}{\epsilon^{P}}\right) \widetilde{p}
 \end{align*}
-As we have steady-state values for $r^k$ and $mc$ we can evaluate equation \eqref{eq:NewKeynesian.RealMarginalCosts} in steady-state to get the steady-state real wage:
+As we have already computed steady-state values for \(r^{K}\) and \({mc}\)
+  we can evaluate equation~\eqref{eq:NewKeynesian.RealMarginalCosts} in steady-state to get the steady-state real wage:
 \begin{align*}
-w = (1-\alpha) \left(mc \cdot a \cdot \left(\frac{\alpha}{r^k}\right)^\alpha \right)^{\frac{1}{1-\alpha}}
+w = (1-\alpha^{K}) {\left(mc \cdot A \cdot {\left(\frac{\alpha^{K}}{r^{K}}\right)}^{\alpha^{K}} \right)}^{\frac{1}{1-\alpha^{K}}}
 \end{align*}
-Next we proceed just as in the RBC model and re-express steady-state capital \eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatioAggregated},
-  investment \eqref{eq:NewKeynesian.CapitalAccumulation}, output \eqref{eq:NewKeynesian.AggregateSupply} and consumption \eqref{eq:NewKeynesian.AggregateDemand}
+Next we proceed just as in the RBC model
+  and re-express steady-state
+  capital~\eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio},
+  investment~\eqref{eq:NewKeynesian.CapitalAccumulation.perCapita},
+  output~\eqref{eq:NewKeynesian.AggregateSupply},
+  government spending~\eqref{eq:NewKeynesian.FiscalPolicyRule.spending},
+  and consumption~\eqref{eq:NewKeynesian.ResourceConstraint}
   in terms of steady-state labor:
 \begin{align*}
-\left(\frac{k}{h}\right) &= \left(\frac{w}{1-\alpha}\right) \left(\frac{\alpha}{r^k}\right)
+\left(\frac{k}{l^{s}}\right) &= \left(\frac{w}{1-\alpha^{K}}\right) \left(\frac{\alpha^{K}}{r^{K}}\right)
 \\
-\left(\frac{i}{h}\right) &= \delta \left(\frac{k}{h}\right)
+\left(\frac{i}{l^{s}}\right) &= \delta^{K} \left(\frac{k}{l^{s}}\right)
 \\
-\left(\frac{y}{h}\right) &= (p^*)^{-1} a \left(\frac{k}{h}\right)^\alpha
+\left(\frac{y}{l^{s}}\right) &= {(p^{*})}^{-1} A {\left(\frac{k}{l^{s}}\right)}^{\alpha^{K}}
 \\
-\left(\frac{c}{h}\right) &= \left(\frac{y}{h}\right) - \left(\frac{i}{h}\right)
+\left(\frac{g}{l^{s}}\right) &= \overline{G_{Y}} \left(\frac{y}{l^{s}}\right)
+\\  
+\left(\frac{c}{l^{s}}\right) &= \left(\frac{y}{l^{s}}\right) - \left(\frac{i}{l^{s}}\right) - \left(\frac{g}{l^{s}}\right)
 \end{align*}
-Now we can manipulate the labor supply condition to get steady-state labor in terms of previously computed wage and consumption to labor ratio:
+where we made use of the fact that capital and labor market clearing implies:
+\(k^{d} = k\) and \(l^{d} = l^{s}\).
+Now we can manipulate the labor supply condition~\eqref{eq:NewKeynesian.LaborSupply}
+  to get steady-state labor in terms of previously computed wage and consumption to labor ratio:
 \begin{align*}
-h = \left( \frac{w}{\chi_h \left(\frac{c}{h}\right)^{\sigma_c}} \right)^{\frac{1}{\sigma_h+\sigma_c}}
+l^{s} = {\left( \left(\frac{w}{\chi^{L}}\right) {\left(\frac{c}{l^{s}}\right)}^{-\sigma^{C}} \right)}^{\frac{1}{\sigma^{L}+\sigma^{C}}}
 \end{align*}
-As we now have $h$, we can recover from the ratios:
+As we now have \(l^{s}\), we can recover all other variables from the auxiliary expressions above:
 \begin{align*}
-k = \left(\frac{k}{h}\right) h, \qquad i = \left(\frac{i}{h}\right) i, \qquad c = \left(\frac{c}{h}\right) h, \qquad y = \left(\frac{y}{h}\right) y
+k = \left(\frac{k}{l^{s}}\right) l^{s}
+,\quad
+i = \left(\frac{i}{l^{s}}\right) l^{s}
+,\quad
+c = \left(\frac{c}{l^{s}}\right) l^{s}
+,\quad
+y = \left(\frac{y}{l^{s}}\right) l^{s}
+,\quad
+g = \left(\frac{g}{l^{s}}\right) l^{s}
+,\quad
+l^{d} = l^{s}
+,\quad
+k^{d} = k
 \end{align*}
-The remaining variables follow by evaluating equations \eqref{eq:NewKeynesian.IntermediateFirms.AggregateProfits},
-  \eqref{eq:NewKeynesian.MarginalUtility}, \eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1} and \eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2}
-  in steady-state:
+The remaining variables follow by evaluating equations {\eqref{eq:NewKeynesian.IntermediateFirms.AggregateProfits}},
+{\eqref{eq:NewKeynesian.MarginalUtility}},
+{\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1}}
+{\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2}}
+and {\eqref{eq:NewKeynesian.FiscalBudget}} in steady-state:
 \begin{align*}
-div^{Int} &= y - w h - r^k h
+div^{M} &= y - w l^{s} - r^{K} k
 \\
-\lambda &= \zeta c^{-\sigma_c}
+\lambda &= \mu c^{-\sigma^{C}}
 \\
-s_1 &= \frac{y}{1- \theta \beta \Pi^{\epsilon-1}}
+S^{2_{P}} &= \frac{y}{1- \theta^{P} \beta \Pi^{\epsilon^{P}-1}}
 \\
-s_2 &= \frac{mc \cdot y}{1- \theta \beta \Pi^{\epsilon}}
+S^{1_{P}} &= \frac{{mc} \cdot y}{1- \theta^{P} \beta \Pi^{\epsilon^{P}}}
+\\
+\tau &= g
 \end{align*}
 Lastly, all hat variables have a steady-state of 0 by definition.
 
-\paragraph{MOD file} Note that the following mod file contains both an \texttt{initval} as well as a \texttt{steady\_state\_model} block:
+\paragraph{MOD file} The following mod file contains two ways to compute the steady-state:
+\begin{itemize}
+  \item analytical derivation in a \texttt{steady\_state\_model} block (\texttt{USE{\_}INITVAL=false})
+  \item uses numerical optimization given initial values in an \texttt{initval} block (\texttt{USE{\_}INITVAL=true})
+\end{itemize}
+You can use Dynare's preprocessor to choose between the two (as you cannot have both in a MOD file)
+  by setting the \emph{macro variable} \texttt{USE{\_}INITVAL} appropriately.
+Note that this variable is only an instruction to the preprocessor and not a variable in the model.
 \lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/dynare/nk.mod}

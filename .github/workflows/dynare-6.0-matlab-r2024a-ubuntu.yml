@@ -107,3 +107,11 @@ jobs:
             matrixAlgebraCholesky;
             matrixAlgebraCompareLyapunovSolvers;
             preprocessingComparisonRBC;
+
+      - name: Run week 4 codes
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath("dynare/matlab");
+            cd("progs/dynare");
+            dynare nk

@@ -1,84 +1,91 @@
 \section[New Keynesian Model: preprocessing and steady-state in Dynare]{New Keynesian Model: preprocessing and steady-state in Dynare\label{ex:NewKeynesianModelPreprocessSteady}}
-Consider the New Keynesian (NK) model of exercise \ref{ex:AlgebraNewKeynesianModels}.
+Consider the New Keynesian (NK) model of exercise~\ref{ex:AlgebraNewKeynesianModels}.
 Assume that the parameters have the following values:
-    \begin{longtable}{cc}
-      \caption{Parameter Values}\\%
-      \toprule%
-      \multicolumn{1}{c}{\textbf{Parameter}} &
-      \multicolumn{1}{c}{\textbf{Value}} \\%
-      \midrule%
-      \endfirsthead
-      \multicolumn{2}{c}{{\tablename} \thetable{} -- Continued}\\%
-      \midrule%
-      \multicolumn{1}{c}{\textbf{Parameter}} &
-      \multicolumn{1}{c}{\textbf{Value}} \\%
-      \midrule%
-      \endhead
-      ${\beta}$ 	 & 	 0.990\\
-      ${\delta}$   &   0.025\\
-      ${\phi_i}$   &   4.250 \\
-      ${\alpha}$   &   0.330\\
-      ${\sigma_c}$ 	 & 	 2.000\\
-      ${\sigma_h}$ 	 & 	 2.000\\
-      $\chi_h$       & 5.000\\
-      ${\theta}$ 	 & 	 0.750\\
-      ${\epsilon}$ 	 & 	 6.000\\
-      ${\psi_{\pi}}$ 	 & 	 1.500\\
-      ${\psi_{y}}$ 	 & 	 0.125\\
-      ${\Pi^*}$ 	 & 	 1.005\\
-      ${\rho_a}$ 	 & 	 0.900\\
-      ${\rho_\zeta}$ 	 & 	 0.500\\
-      ${\rho_{\nu}}$ 	 & 	 0.500\\
-      \bottomrule%
-      \end{longtable}
+\begin{longtable}{cc}
+\caption{Parameter Values}\\%
+\toprule%
+\multicolumn{1}{c}{\textbf{Parameter}} &
+\multicolumn{1}{c}{\textbf{Value}} \\%
+\midrule%
+\endfirsthead%
+\multicolumn{2}{c}{{\tablename} \thetable{} {--} Continued}\\%
+\midrule%
+\multicolumn{1}{c}{\textbf{Parameter}} &
+\multicolumn{1}{c}{\textbf{Value}} \\%
+\midrule%
+\endhead%
+\({\beta}\) 	       & 0.990\\
+\({\sigma^{C}}\) 	   & 2.000\\
+\({\sigma^{L}}\) 	   & 2.000\\
+\({\chi^{L}}\)       & 5.000\\
+\({\delta^{K}}\)     & 0.025\\
+\({\phi^{I}}\)       & 4.250 \\
+\({\alpha^{K}}\)     & 0.330\\
+\({\epsilon^{P}}\)   & 6.000\\
+\({\theta^{P}}\) 	   & 0.750\\
+\({\psi^{R_{\Pi}}}\) & 1.500\\
+\({\psi^{R_{Y}}}\)   & 0.125\\
+\({\rho^{\mu}}\) 	   & 0.500\\
+\({\rho^{A}}\) 	     & 0.900\\
+\({\rho_{R}}\)       & 0.500\\
+\({\rho_{G}}\)       & 0.500\\
+\({\overline{A}}\)   & 1.000\\
+\({\overline{\Pi}}\) & 1.005\\
+\({\overline{G_Y}}\) & 0.200\\
+\bottomrule%
+\end{longtable}
 
 \noindent
 Write a Dynare mod file for this model and compute the steady-state of the model either analytically using a \texttt{steady\_state\_model} block
   or numerically using an \texttt{initval} block.
-\noindent Additionally, for reporting purposes, add the following equations:
+\noindent Additionally, for reporting purposes, define the real interest rate \(r_{t}\) as:
 \begin{align*}
-\widehat{y}_t &= \log\left(y_{t}\right) - \log\left(y\right), \qquad
-\widehat{c}_t = \log\left(c_{t}\right) - \log\left(c\right), \qquad
-\widehat{w}_t =\log\left(w_t\right) - \log\left(w\right) , \qquad
+R_{t} = r_{t} \mathbb{E}_{t} \Pi_{t+1}
+\end{align*}
+and the following equations for the reporting variables:
+\begin{gather*}
+\widehat{y}_t = \log\left(y_{t}\right) - \log\left(y\right), \quad
+\widehat{c}_t = \log\left(c_{t}\right) - \log\left(c\right), \quad
+\widehat{w}_t =\log\left(w_t\right) - \log\left(w\right) , \quad
 \widehat{h}_t = \log\left(h_{t}\right) - \log\left(h\right) \\
-\widehat{k}_t &= \log\left(k_{t}\right) - \log\left(k\right), \qquad
+\widehat{k}_t = \log\left(k_{t}\right) - \log\left(k\right), \qquad
 \widehat{i}_t = \log\left(i_{t}\right) - \log\left(i\right), \qquad
 \widehat{\Pi}^{an}_{t}=4 \left( \log\left(\Pi_{t}\right) - \log\left(\Pi\right) \right),\\
-\widehat{R}^{an}_{t} &=4 \left( \log\left(R_{t}\right) - \log\left(R\right)\right), \qquad
+\widehat{R}^{an}_{t} =4 \left( \log\left(R_{t}\right) - \log\left(R\right)\right), \qquad
 \widehat{r}^{an}_{t} =4 \left( \log\left(r_{t}\right) - \log\left(r\right) \right), \qquad
 \widehat{r}^{k}_{t} =4 \left( \log\left(r^k_{t}\right) - \log\left(r^k\right) \right), \\
-\widehat{mc}_t &= \log\left(mc_{t}\right) - \log\left(mc\right), \qquad
+\widehat{mc}_t = \log\left(mc_{t}\right) - \log\left(mc\right), \qquad
 \widehat{a}_t = \log\left(a_{t}\right) - \log\left(a\right), \qquad
-\widehat{z}_t = \log\left(z_{t}\right) - \log\left(z\right)
-\end{align*}
+\widehat{z}_t = \log\left(z_{t}\right) - \log\left(z\right)\\
+\widehat{g}_t = \left(\frac{g_{t}}{y} - \overline{G_{Y}}\right)
+\end{gather*}
 where variables without a time subscript denote steady-state values.
 
-\noindent\emph{Hint: The model equations are
-\eqref{eq:NewKeynesian.CapitalAccumulation},
-\eqref{eq:NewKeynesian.RealInterestRate}, 
-\eqref{eq:NewKeynesian.MarginalUtility},
-\eqref{eq:NewKeynesian.LaborSupply},
-\eqref{eq:NewKeynesian.EulerBond},
-\eqref{eq:NewKeynesian.EulerInvestment},
-\eqref{eq:NewKeynesian.EulerCapital},
-\eqref{eq:NewKeynesian.RealMarginalCosts},
-\eqref{eq:NewKeynesian.IntermediateFirms.PriceSetting},
-\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1},
-\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2},
-\eqref{eq:NewKeynesian.ResetPriceLoM},
-\eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatioAggregated},
-\eqref{eq:NewKeynesian.IntermediateFirms.AggregateProfits},
-\eqref{eq:NewKeynesian.AggregateDemand},
-\eqref{eq:NewKeynesian.AggregateSupply},
-\eqref{eq:NewKeynesian.PriceDistortionLoM},
-\eqref{eq:NewKeynesian.MonetaryPolicyRule},
-\eqref{eq:NewKeynesian.LoM.PreferenceShifter},
-\eqref{eq:NewKeynesian.LoM.TFP},
-\eqref{eq:NewKeynesian.LoM.MonPol}.
-}
+\paragraph{Hint} The model equations are:
+{\eqref{eq:NewKeynesian.LoM.PreferenceShifter}},
+{\eqref{eq:NewKeynesian.EulerBond}},
+{\eqref{eq:NewKeynesian.MarginalUtility}},
+{\eqref{eq:NewKeynesian.LaborSupply}},
+{\eqref{eq:NewKeynesian.EulerCapital}},
+{\eqref{eq:NewKeynesian.EulerInvestment}},
+{\eqref{eq:NewKeynesian.CapitalAccumulation.perCapita}},
+{\eqref{eq:NewKeynesian.LoM.TFP}},
+{\eqref{eq:NewKeynesian.IntermediateFirms.CapitalLaborRatio}},
+{\eqref{eq:NewKeynesian.RealMarginalCosts}},
+{\eqref{eq:NewKeynesian.IntermediateFirms.PriceSetting}},
+{\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum1}},
+{\eqref{eq:NewKeynesian.IntermediateFirms.PriceSettingSum2}},
+{\eqref{eq:NewKeynesian.ResetPriceLoM}},
+{\eqref{eq:NewKeynesian.MonetaryPolicyRule}},
+{\eqref{eq:NewKeynesian.FiscalPolicyRule.spending}},
+{\eqref{eq:NewKeynesian.FiscalBudget}},
+{\eqref{eq:NewKeynesian.ResourceConstraint}},
+{\eqref{eq:NewKeynesian.IntermediateFirms.AggregateProfits}},
+{\eqref{eq:NewKeynesian.AggregateSupply}},
+{\eqref{eq:NewKeynesian.PriceDistortionLoM}}.
 
 \begin{solution}\textbf{Solution to \nameref{ex:NewKeynesianModelPreprocessSteady}}
-\ifDisplaySolutions
+\ifDisplaySolutions%
 \input{exercises/nk_preprocess_steady_solution.tex}
 \fi
 \newpage
