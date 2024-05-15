@@ -115,3 +115,12 @@ jobs:
             addpath("dynare/matlab");
             cd("progs/dynare");
             dynare nk
+
+      - name: Run week 5 codes
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath("dynare/matlab");
+            cd("progs/matlab");
+            numericalOptimizationExamples;
+            steadystateRBC;

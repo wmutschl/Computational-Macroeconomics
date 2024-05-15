@@ -1,58 +1,78 @@
 \begin{enumerate}
-\item The goal of numerical optimization is to choose inputs to a function in a way that provides the best possible output.
-Typically, we want to maximize a function, e.g. utility, or minimize a function, e.g. costs, by adjusting the inputs to get the best function value.
-Of course, often we are faced with limits, constraints, or boundaries on the variables.
-From high-school this corresponds to choosing $x$ to get the best $y=f(x)$.
-From calculus we know that we should take the derivative and set it to 0.
+
+\item
+The goal of numerical optimization is to choose inputs to a function in a way that provides the best possible output.
+Typically, we want to maximize a function, e.g.\ utility,
+  or minimize a function, e.g.\ costs,
+  by adjusting the inputs to get the best function value.
+Of course, we are faced with limits, constraints, or boundaries on the variables.
+In other words, this corresponds to choosing a specific \(x\) to get the best \(y=f(x)\).
+From calculus we know that we should take the derivative and set it to zero.
 For more complicated functions, however, doing this is not feasible or even impossible,
   so we need to rely on numerical optimization techniques.
 
-\item The objective function is the value you are trying to optimize, e.g. a utility or cost function.
-The goal of optimization is to improve the value of the objective function, either maximize or minimize it, or bring it to a certain value.
+\item
+The objective function is the value you are trying to optimize,
+  e.g.\ a utility or cost function.
+The goal of optimization is to improve the value of the objective function,
+  either maximize or minimize it, or bring it to a certain value.
 Typically, the objective function is a scalar or a vector-valued function.
 
-The decision or design variables are the inputs to the objective function; these are the values the optimizer is allowed to change
+The decision or design variables are the inputs to the objective function;
+  these are the values the optimizer is allowed to change
   in order to improve the objective function.
 You can have either one or more decision variables.
 The more variables, the harder it is to find the best values for these variables.
 
-Gradients and derivatives describe the slope of a function, i.e. whether it decreases or increases in a certain direction.
+Gradients and derivatives describe the slope of a function,
+  i.e.\ whether it decreases or increases in a certain direction.
 Computing gradients can be achieved with analytic, numerical or automatic differentiation techniques.
 
-Constraints form an area in the parameter space, where the optimizer is not allowed to go to.
+Constraints form an area in the parameter space,
+  where the optimizer is not allowed to go to.
 There might be equality constraints or inequality constraints.
 
-\item Gradient-based optimizers use derivatives to find the optimal value of an objective function.
-There are three steps: first the gradient defines the search direction of the next iteration,
+\item
+Gradient-based optimizers use derivatives to find the optimal value of an objective function.
+There are three steps:
+  first the gradient defines the search direction of the next iteration,
   second a step size is chosen,
   and third the convergence is checked.
 Gradient-based optimizers tend to be widely used and scale quite well.
 However, they require smooth functions and the computation of derivatives might become difficult and time-consuming.
 Gradient-based optimizers typically find local optima and heavily depend on the initial value.
 
-\item Gradient-free algorithms belong to a broad class of numerical optimization methods
+\item
+Gradient-free algorithms belong to a broad class of numerical optimization methods
   that do not require the computation of derivatives or gradients to optimize objective functions.
 Such algorithms are often employed as many objective functions do not allow to compute the gradients correctly or it is very time-consuming.
     
 Some examples of Gradient-free algorithms:
 \begin{itemize}
-    \item Exhaustive search: try out every possible solution and pick the best answer.
-    \item Genetic algorithms: don't use just one candidate draw, but generate a population of possible solutions.
-    Provide a score to the candidate solutions and based on this generate a new population and repeat.
-    \item Particle swarm: don't use just one candidate draw, but create a swarm of particles.
-    Each particle gets a direction based on the directions of the current swarm and the overall performance.
-    The swarm then moves towards the optimum.
-    \item Simulated annealing: an initial guess is taken and then we randomly draw new candidates
-      and see whether they improve the function value. Initially we accept many bad solutions in order to visit the parameter space.
-    As time goes on, we reduce the temperature and only accept better solutions.
-    This works like a ball bouncing on an uneven surface.
-    \item Nelder Mead simplex: a simplex has a triangular shape and contains values.
-    At each iteration the simplex flips and flops, grows and shrinks, towards its goal to focus on the optimum.
-\end{itemize}  
+  \item
+  Exhaustive search: try out every possible solution and pick the best answer.
+  \item
+  Genetic algorithms: don't use just one candidate draw, but generate a population of possible solutions.
+  Provide a score to the candidate solutions and based on this generate a new population and repeat.
+  \item
+  Particle swarm: don't use just one candidate draw, but create a swarm of particles.
+  Each particle gets a direction based on the directions of the current swarm and the overall performance.
+  The swarm then moves towards the optimum.
+  \item
+  Simulated annealing: an initial guess is taken and then we randomly draw new candidates
+    and see whether they improve the function value.
+  Initially we accept many bad solutions in order to visit the parameter space.
+  As time goes on, we reduce the temperature and only accept better solutions.
+  This works like a ball bouncing on an uneven surface.
+  \item
+  Nelder Mead simplex: a simplex has a triangular shape and contains values.
+  At each iteration the simplex flips and flops, grows and shrinks, towards its goal to focus on the optimum.
+\end{itemize}
 Gradient-free algorithms are generally much slower than gradient-based ones.
 However, they are usually easy to implement as no derivatives are required.
-Gradient-free algorithms often contain a stochastic part and often there is no guarantee that we actually arrive at the optimal solution.
+Gradient-free algorithms often contain a stochastic part
+  and often there is no guarantee that we actually arrive at the optimal solution.
 \end{enumerate}
 
 \item[5./6.]
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/numerical_optimization_examples.m}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/matlab/numericalOptimizationExamples.m}

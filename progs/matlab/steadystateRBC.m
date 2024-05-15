@@ -1,11 +1,10 @@
-% =========================================================================
 % comparison of computing steady-state in Dynare or in MATLAB of basic RBC model
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: May 5, 2023
-% =========================================================================
+% Version: May 15, 2024
+% -------------------------------------------------------------------------
 
-clear all;
+clearvars;
 
 %% analytical steady-state and residuals from Dynare
 oldfolder = cd('../dynare'); % go to folder of rbc.mod
@@ -19,7 +18,7 @@ cd(oldfolder)
 clearvars -except stst_dynare resid_dynare ssq_dynare params param_names
 
 %% preprocess model in MATLAB
-MODEL = preprocessing_matlab_rbc;
+MODEL = preprocessingRBC;
 
 %% calibration (use same as in Dynare)
 % create params field in MODEL structure with numerical vales, make sure to have same ordering as in MODEL.param_names
@@ -48,39 +47,45 @@ xparam0(MODEL.endo_names=="iv",1) = 0.35;
 LB = zeros(MODEL.endo_nbr,1);     % lower bound
 UB = repmat(20,MODEL.endo_nbr,1); % upper bound
 
-randomize_initial_values = 1; % set to 1 to randomize initial values
+randomize_initial_values = false; % set to true to randomize initial values
 if randomize_initial_values
     no_good = 1;
     while no_good
-        xparam0 = LB + (UB-LB).*rand(length(xparam0),1);    
+        xparam0 = LB + (UB-LB).*rand(length(xparam0),1);
         if all(~isnan(obj(xparam0)))
             no_good = 0;
         end
     end
 end
 
-% find steady-state with fsolve
+%% find steady-state with fsolve
 [stst_fsolve,resid_fsolve] = fsolve(obj, xparam0, optimset('Display','iter','TolX',1e-7,'TolFun',1e-7));
 ssq_fsolve = sum(resid_fsolve.^2);
-% find steady-state with lsqnonlin
+
+%% find steady-state with lsqnonlin
 [stst_lsqnonlin,ssq_lsqnonlin,resid_lsqnonlin] = lsqnonlin(obj,xparam0,LB,UB,optimset('Display','iter','TolX',1e-7,'TolFun',1e-7));
-% find steady-state with fminunc
+
+%% find steady-state with fminunc
 [stst_fminunc,ssq_fminunc] = fminunc(obj_ssq, xparam0, optimset('Display','iter','TolX',1e-7,'TolFun',1e-7));
 resid_fminunc = rbc_static_resid(stst_fminunc,exo_stst,MODEL.params);
-% find steady-state with fminsearch
+
+%% find steady-state with fminsearch
 [stst_fminsearch,ssq_fminsearch] = fminsearch(obj_ssq, xparam0, optimset('Display','iter','TolX',1e-7,'TolFun',1e-7,'MaxFunEvals',10000));
 resid_fminsearch = rbc_static_resid(stst_fminsearch,exo_stst,MODEL.params);
-% find steady-state with fmincon
+
+%% find steady-state with fmincon
 [stst_fmincon,ssq_fmincon] = fmincon(obj_ssq, xparam0, [],[],[],[],LB,UB,[],optimset('Display','iter','TolX',1e-7,'TolFun',1e-7,'MaxFunEvals',10000));
 resid_fmincon = rbc_static_resid(stst_fmincon,exo_stst,MODEL.params);
-% find steady-state with simulannealbnd
+
+%% find steady-state with simulannealbnd
 [stst_simulannealbnd,ssq_simulannealbnd] = simulannealbnd(obj_ssq, xparam0, LB,UB,optimset('Display','iter','TolX',1e-7,'TolFun',1e-7));
 resid_simulannealbnd = rbc_static_resid(stst_simulannealbnd,exo_stst,MODEL.params);
-% find steady-state with patternsearch
+
+%% find steady-state with patternsearch
 [stst_patternsearch,ssq_patternsearch] = patternsearch(obj_ssq, xparam0, [],[],[],[],LB,UB,[],optimset('Display','iter','TolX',1e-7,'TolFun',1e-7,'MaxIter',200000,'MaxFunEvals',300000));
 resid_patternsearch = rbc_static_resid(stst_patternsearch,exo_stst,MODEL.params);
 
-%% Comparison
+%% comparison
 fprintf('Compare steady-states:\n')
 disp(array2table([stst_dynare stst_fsolve stst_lsqnonlin stst_fminunc stst_fminsearch stst_fmincon stst_simulannealbnd stst_patternsearch],...
                  'VariableNames',{'Dynare analytical','fsolve','lsqnonlin','fminunc','fminsearch','fmincon','simulannealbnd','patternsearch'},...

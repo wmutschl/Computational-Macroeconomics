@@ -1,18 +1,19 @@
-% =========================================================================
 % illustration and comparison of different numerical optimizers
 % on the Rosenbrock and Rastrigin functions
-% =========================================================================
+% -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: May 5, 2023
-% =========================================================================
+% Version: May 15, 2024
+% -------------------------------------------------------------------------
 
 % plot Rosenbrock function
+figure('Name','Rosenbrock function');
 fsurf(@(x,y) ((1-x).^2)+(100*((y-(x.^2)).^2)),[-3 3 -2 5],'ShowContours','on')
 title('Rosenbrock function')
 xlabel('x')
 ylabel('y')
 
 % plot Rastrigin function
+figure('Name','Rastrigin function');
 fsurf(@(x,y) 20 + x.^2 + y.^2 - 10*(cos(2*pi*x)+cos(2*pi*y)),'ShowContours','on')
 title('Rastrigin function')
 xlabel('x')
@@ -59,7 +60,7 @@ fval_rosenbrock = nan(7,1);  fval_rastrigin = nan(7,1); % storage for function v
 [xopt_rosenbrock(:,7),fval_rosenbrock(7)] = particleswarm(obj_rosenbrock,2,[],[],optim_options_swarm);
 [xopt_rastrigin(:,7),fval_rastrigin(7)] = particleswarm(obj_rastrigin,2,[],[],optim_options_swarm);
 
-%% Sort and display results
+%% sort and display results
 optim_names = ["fsolve","fminunc","fminsearch","fmincon","simulannealbnd","patternsearch","particleswarm"];
 [~,idx_best_rosenbrock] = sort(fval_rosenbrock);  [~,idx_best_rastrigin] = sort(fval_rastrigin);
 

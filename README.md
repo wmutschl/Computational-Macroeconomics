@@ -108,18 +108,14 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
 
 <details>
-  <summary>Week 5: Numerical optimization, Deterministic simulations and perfect-foresight algorithm</summary>
+  <summary>Week 5: Numerical optimization</summary>
 
 ### Goals
 
-* understand and replicate preprocessing and steady-state computations in MATLAB
 * understand and start using numerical optimizers
-* understand Dynare's commands to do deterministic simulations
-* understand the Newton algorithm used by Dynare to solve perfect foresight problems
-* re-implement deterministic simulations in MATLAB
+* understand numerical steady-state computations
 
 ### To Do
 * [x] watch the (very short) videos:
@@ -130,23 +126,21 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [Introduction To Optimization: Gradient Free Algorithms (1/2) - Genetic - Particle Swarm](https://youtu.be/3QJjfeVrut8)
   * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
   * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)  
-* [x] do exercises 1-3 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
-* [x] watch the videos
-  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
-  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
-  * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
-  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
-* [x] do exercise 1 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
-* [x] we will do a case study together in class
+* [x] do exercises 1-2 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
+<!---
 
 <details>
-  <summary>Week 6: Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR</summary>
+  <summary>Week 6: Deterministic simulations and perfect-foresight algorithm, Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR</summary>
 
 ### Goals
+
+* understand Dynare's commands to do deterministic simulations
+* understand the Newton algorithm used by Dynare to solve perfect foresight problems
+* re-implement deterministic simulations in MATLAB
 
 * understand the SIR (Susceptible, Infected, Recovered) epidemiology model
 * understand and get used to Dynare's macro preprocessing directives
@@ -158,6 +152,12 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 * prepare exercise 1 of [week 6's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf)
+* [x] we will do a case study together in class
+* [x] watch the videos
+  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
+  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
+  * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
+  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
   * [x] read the case-study paper carefully
   * [x] download all files
   * [x] read all the exercises
