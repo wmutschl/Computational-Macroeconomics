@@ -44,7 +44,7 @@ walras_test
 ;
 
 varexo
-eps_mu    // innovation to discount factor shifter (enters with a negative sign)
+eps_mu    // innovation to discount factor shifter
 eps_a     // innovation to total factor productivity
 eps_r     // innovation to monetary policy rule
 eps_g     // innovation to government spending rule
@@ -80,7 +80,7 @@ model;
 % households %
 %%%%%%%%%%%%%%
 [name='discount factor shifter process']
-log(mu) = RHOMU * log(mu(-1)) - eps_mu; // note the minus sign!
+log(mu) = RHOMU * log(mu(-1)) + eps_mu;
 [name='optimal bond holding, Euler equation for bonds']
 1/rnom = BETA * (lam(+1)/lam) / pie(+1);
 [name='marginal utility']

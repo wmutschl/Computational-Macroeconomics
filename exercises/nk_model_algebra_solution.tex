@@ -5,7 +5,7 @@ The optimization problem is framed by the following Lagrangian:
 \begin{align*}
 \mathcal{L} &= \mathbb{E}_{t} \sum_{j=0}^{\infty} \beta^{j} \mu_{t+j} \Bigg \{
   \frac{1}{1-\sigma^{C}} {(C_{t+j}[h])}^{1-\sigma^{C}}
-  +\chi^{L} \frac{1}{1+\sigma^{L}} {(L^{s}_{t+j}[h])}^{1+\sigma^{L}}
+  - \chi^{L} \frac{1}{1+\sigma^{L}} {(L^{s}_{t+j}[h])}^{1+\sigma^{L}}
   \Bigg \}
 \\
 &+ \mathbb{E}_{t} \sum_{j=0}^{\infty} \beta^{j} \frac{\Lambda_{t+j}[h]}{P_{t+j}} \Bigg \{
