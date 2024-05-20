@@ -187,17 +187,6 @@ y = \frac{y}{n} n
 \end{align*}
 
 \item
-The transversality condition for an infinite horizon dynamic optimization problem is the boundary condition
-  determining a solution to the problem's first-order conditions together with the initial condition.
-The transversality condition requires the present value of the state variables (here \(k_t\) and \(a_t\))
-  to converge to zero as the planning horizon recedes towards infinity.
-The first-order and transversality conditions are sufficient to identify an optimum in a concave optimization problem.
-Given an optimal path, the necessity of the transversality condition reflects the impossibility of finding an alternative feasible path
-  for which each state variable deviates from the optimum at each time and increases discounted utility.
-These conditions are implicit only, we don't enter them in a computer program.
-But implicitly we do consider them when we focus on unique and stable solutions or when we pick certain steady-state values.
-	
-\item
 General hints: construct and parameterize the model such, that it corresponds to certain properties of the true economy.
 One often uses steady-state characteristics for choosing the parameters in accordance with observed data.
 For instance, long-run averages (wages, hours worked, interest rates, inflation, consumption-shares, government-spending-ratios, etc.) are used 
@@ -254,6 +243,17 @@ Often you can calibrate these by e.g.\ estimating the Cobb-Douglas production fu
 Typically we find that \(\rho_A\) is mostly set around 0.9 to reflect persistence of the technological process
   and \(\sigma_A\) around \(0.6\) in the simple RBC model.
 \end{itemize}
+
+\item
+The transversality condition for an infinite horizon dynamic optimization problem is the boundary condition
+  determining a solution to the problem's first-order conditions together with the initial condition.
+The transversality condition requires the present value of the state variables (here \(k_t\) and \(a_t\))
+  to converge to zero as the planning horizon recedes towards infinity.
+The first-order and transversality conditions are sufficient to identify an optimum in a concave optimization problem.
+Given an optimal path, the necessity of the transversality condition reflects the impossibility of finding an alternative feasible path
+  for which each state variable deviates from the optimum at each time and increases discounted utility.
+These conditions are implicit only, we don't enter them in a computer program.
+But implicitly we do consider them when we focus on unique and stable solutions or when we pick certain steady-state values.
 
 \item
 The function might look like this:
