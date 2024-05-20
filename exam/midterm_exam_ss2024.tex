@@ -1,0 +1,406 @@
+% !TEX root = midterm_exam_ss2024.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass[a4paper]{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[bottom=2.5cm,top=2.0cm,left=2.0cm,right=2.0cm]{geometry}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+%\parindent0mm
+%\parskip1.5ex plus0.5ex minus0.5ex
+\usepackage[numbered,framed]{matlab-prettifier}
+
+\begin{document}
+	
+\title{Computational Macroeconomics\\Midterm Exam}
+\author{Willi Mutschler}
+\date{Summer 2024\\~\\Version 1.0}
+\maketitle
+
+\section*{General information}
+
+\begin{itemize}
+\item
+Answer \textbf{all} of the following \textbf{three} exercises in English.
+\item
+All assignments will be given the same weight in the final grade.
+\item
+Hand in your solutions before Monday June, 03 2024 at 4pm.
+\item
+The solution files should contain your executable (and commented) Dynare files, MATLAB functions and script files
+  as well as all additional documentation as \texttt{pdf}, not \texttt{doc} or \texttt{docx}.
+Your \texttt{pdf} files may also include scans or pictures of handwritten notes.
+\item
+Please e-mail ALL the solution files to \url{willi.mutschler@uni-tuebingen.de}.
+\item
+I will confirm the receipt of your work also by email (typically within the hour). If not, please resend it to me.
+\item
+All students must work on their own, please also give your student ID number.
+\item
+It is advised to regularly check Ilias and your emails in case of urgent updates.
+\item
+If there are any questions, do not hesitate to contact Willi Mutschler.
+\end{itemize}
+
+%\section*{Changelog}
+
+\newpage
+
+\section[An and Schorfheide (2007) Model]{An and Schorfheide (2007) Model\label{ex:AnScho}}
+Consider the New Keynesian model of An and Schorfheide (2007, Econometric Reviews).
+The model equations are given by 
+\begin{align}
+1 &= \beta \mathbb{E}_t\left[{\left(\frac{c_{t+1}}{c_t}\right)}^{-\tau} \frac{1}{\gamma z_{t+1}} \frac{R_t}{\pi_{t+1}}\right] \label{eq:AS_B1}
+\\
+1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] - \phi \beta \mathbb{E}_t \left[{\left(\frac{c_{t+1}}{c_t}\right)}^{-\tau} \frac{y_{t+1}}{y_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-c_t^{\tau}\right]
+\\
+y_t &= c_t + \frac{g_t-1}{g_t} y_t + \frac{\phi}{2} {\left({\pi_t - \pi}\right)}^2 y_t
+\\
+R_t &= {R_t^{*}}^{1-\rho_R} R_{t-1}^{\rho_R} e^{\sigma_r\epsilon_{R,t}}
+\\
+\ln(z_t) &= \rho_z \ln(z_{t-1}) + \sigma_z\epsilon_{z,t}
+\\
+\ln(g_t) &= (1-\rho_g)\ln(\bar{g}) + \rho_g \ln(g_{t-1}) + \sigma_g\epsilon_{g,t}
+\\
+y_t^* &= {(1-\nu)}^{\frac{1}{\tau}} g_t
+\end{align}
+where \(\epsilon_{R,t}\), \(\epsilon_{g,t}\) and \(\epsilon_{z,t}\) are the exogenous variables.
+Moreover, we have the following auxiliary parameter relationships:
+\begin{align*}
+\gamma = 1+\frac{\gamma^{Q}}{100}, \qquad
+\beta = \frac{1}{1+r^{A}/400}, \qquad
+\bar{\pi} = 1+\frac{\pi^{A}}{400}, \qquad
+\phi = \tau \frac{1-\nu}{\nu \bar{\pi}^{2}\kappa}
+\end{align*}
+and one auxiliary variable \(R_t^*\):
+\begin{align*}
+R_t^* &= R {\left(\frac{\pi_t}{\bar{\pi}}\right)}^{\psi_1} {\left(\frac{y_t}{y_t^*}\right)}^{\psi_2}
+\end{align*}
+Note that \(y_t^*\) is an endogenous model variable, whereas \(\bar{\pi}\) and \(\bar{g}\) are parameters and \(R\) denotes the steady-state of \(R_t\).
+
+\paragraph{Parametrization}
+Use the following parameter values for the exercises:
+\begin{align*}
+&\tau=2,\quad
+\kappa=0.33,\quad
+\nu=0.1,\quad
+\rho_g=0.95,\quad
+\rho_z=0.9,\quad	
+r^{A}=1,\quad
+\\
+&\pi^{A}=3.2,\quad
+\gamma^{Q}=0.5,\quad
+\bar{g}=1/0.85,\quad
+\sigma_z = \sqrt{0.9},\quad
+\sigma_g=\sqrt{0.36}
+\\
+&\psi_1=1.5,\quad \psi_2=0.125,\quad \rho_R = 0.75,\quad \sigma_r = \sqrt{0.4}
+\end{align*}
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+
+\item
+Provide intuition behind each equation of the model. How are nominal price rigidities modelled?\\\emph{Hint: Have a look at the relevant parts of the underlying paper.}
+
+\item
+Preprocess the model using the symbolic toolbox in MATLAB.
+
+\item
+Derive the steady-state analytically and write a function that computes it in {MATLAB}.
+
+\item
+Write a script that numerically finds the steady-state of the model in {MATLAB} using an optimizer of your choice.
+
+\item
+Calibrate such that the ratio of steady-state consumption to steady-state output is equal to 90\%.
+
+\end{enumerate}
+
+\newpage
+
+\section[Monopolistic competition and irreversible investments]{Monopolistic competition and irreversible investments\label{ex:RBCModelMonCompIrrInvest}}
+
+\begin{center} \Large \textbf{Model Description} \end{center}
+
+\paragraph{Households: Utility}
+The economy is assumed to be inhabited by a representative family with identical members.
+The household's preferences are defined over consumption \(c_t\) and labor effort \(h_t\).
+The representative household maximizes present as well as expected future utility
+\begin{align}
+\max E_t \sum_{s=0}^{\infty} \beta^{s} \left( \frac{c_{t+s}^{1-\sigma_c}}{1-\sigma_c} - \chi_h \frac{h_{t+s}^{1+\sigma_h}}{1+\sigma_h} \right)\label{eq:RBCMonopIrrInv.UtilityLifetime}
+\end{align}
+where \(E_t\) is the expectation operator conditional on information at time \(t\),
+  \(\beta <1\) denotes the discount factor,
+  \(\sigma_c\) and \(\sigma_h\) are elasticities and \(\chi_h\) the consumption weight.
+
+\paragraph{Households: Capital Accumulation}
+The household owns the (end of period) capital stock \(k_t\) which evolves according to
+\begin{align}
+k_t = (1-\delta)k_{t-1} + i_t \label{eq:RBCMonopIrrInv.CapitalAccumulation}
+\end{align}
+where \(\delta \) is the depreciation rate.
+
+\paragraph{Households: Irreversible Investment}
+An occasionally binding constraint is imposed that prevents investment \(i_t\) from falling below a fraction \(\omega \)
+  of its value in the non-stochastic steady-state (denoted by \(i\)):
+\begin{align}
+i_t \geq \omega \cdot i \label{eq:RBCMonopIrrInv.IrrInvest}
+\end{align}
+
+\paragraph{Households: Budget}
+Capital is rented to the intermediate firms at a nominal rate of \(R^k_{t}\) which the household takes as given when forming optimal plans.
+Similarly, in each period the household takes the nominal wage \(W_t\) as given and supplies perfectly elastic labor service \(h_t\) to the firm sector.
+In return they receive nominal labor income \(W_t h_t\).
+All firms are owned by the household so that nominal profits and dividends from firms in the final good sector, \( Div^{Fin}_t\),
+  as well as from each firm \(f\in[0,1]\) in the intermediate goods sector, \(\int_0^1 {Div}^{Int}_t(f)df\),
+  are received by the household.
+Income and wealth are used to finance consumption and investment expenditures, both are quoted at price level \(P_t\).
+In total this defines the \emph{nominal} budget constraint of the household
+\begin{align}
+P_t c_t + P_t i_t =  W_t h_t + R^k_t k_{t-1} + Div^{Fin}_t + \int_0^1 Div^{Int}_t(f) df \label{eq:RBCMonopIrrInv.BudgetNominal}
+\end{align}
+In what follows, let lower case letters denote real variables, i.e.\
+\begin{align*}
+w_t = \frac{W_t}{P_t},\quad
+r^k_t = \frac{R^k_t}{P_t},\quad
+div^{Fin}_t = \frac{Div^{Fin}_t}{P_t},\quad
+div^{Int}_t = \frac{Div^{Int}_t}{P_t}
+\end{align*}
+
+\paragraph{Final Good Firm (Retail Sector): Profit Maximization}
+The economy is populated by a continuum of firms indexed by \(f \in [0,1]\) that produce differentiated goods \(y_t(f)\) in monopolistic competition.
+The technology for transforming these intermediate goods into the final output good \(y_t\) that can be used for consumption and investment is given by:
+\begin{align}
+y_t = {\left[\int\limits_0^1 {(y_t(f))}^{\frac{\nu_t-1}{\nu_t}}df\right]}^{\frac{\nu_t}{\nu_t-1}} \label{eq:RBCMonopIrrInv.Firms.Aggregator}
+\end{align}
+where \(\nu_t\) is the time-varying elasticity of substitution between differentiated goods.
+
+\paragraph{Intermediate Goods Firms (Wholesale Sector): Profit Maximization}
+Intermediate firm \(f\in[0,1]\) uses the following production function to produce their differentiated good
+\begin{align}
+y_t(f) = a_t {(k_{t-1}(f))}^\alpha {(n_t(f))}^{1-\alpha} \label{eq:RBCMonopIrrInv.IntermediateFirms.ProductionFunction}
+\end{align}
+where \(a_t\) denotes the common technology level available to all firms.
+Firms face perfectly competitive factor markets for renting capital \(k_{t-1}(f)\) and hiring labor \(n_t(f)\) with \(\alpha \) being a productivity parameter.
+Nominal profits of firm \(f\) are equal to revenues from selling its differentiated good at self-determined price \(P_t(f)\)
+  minus costs from hiring labor at real wage \(w_t\) and real renting rate of capital \(r^k_t\):
+\begin{align}
+{Div}^{Int}_t(f) = P_t(f) y_t(f) - P_t w_t n_t(f) - P_t r^k_t k_{t-1}(f) \label{eq:RBCMonopIrrInv.Firms.Profits}
+\end{align}
+The objective of the firm is to choose contingent plans for \(P_t(f)\), \(n_t(f)\) and \(k_{t-1}(f)\)
+  so as to maximize the present discounted value of nominal dividend payments given by
+\begin{align*}
+E_t \sum_{s=0}^{\infty} \beta^s \frac{\lambda_{t+s+1}}{\lambda_{t+s}} Div^{Int}_{t+s}(f)
+\end{align*}
+
+\paragraph{Exogenous Variables}
+The level of technology \(a_t\) and the elasticity \(\nu_t\) evolve according to
+\begin{align}
+\log{a_t} &= \rho_a \log{a_{t-1}} + \varepsilon_{a,t} \label{eq:RBCMonopIrrInv.LoM.TFP}
+\\
+\nu_t &= \bar{\nu} + \varepsilon_{\nu,t} \label{eq:RBCMonopIrrInv.LoM.Elast}
+\end{align}
+with persistence parameter \(\rho_a\) and target value \(\bar{\nu}>1\).
+\(\varepsilon_{a,t}\) and \(\varepsilon_{\nu,t}\) are the exogenous variables.
+
+\paragraph{Calibration}
+Use the following values for the model parameters:
+\begin{align*}
+\beta = 0.96,
+\sigma_c = 2,
+\sigma_h = 2,
+\delta = 0.1,
+\chi_h = 1.6, 
+\alpha = 0.35,
+\rho_a = 0.9,
+\bar{\nu} = 5,
+\omega = 0.975
+\end{align*}
+
+\paragraph{Hints}
+
+\begin{itemize}
+\item
+A version of the model consists of 11 model equations which are given in
+{\eqref{eq:RBCMonopIrrInv.CapitalAccumulation}},
+{\eqref{eq:RBCMonopIrrInv.LoM.TFP}},
+{\eqref{eq:RBCMonopIrrInv.LoM.Elast}},
+{\eqref{eq:RBCMonopIrrInv.LaborSupply}},
+{\eqref{eq:RBCMonopIrrInv.EulerCapital}},
+{\eqref{eq:RBCMonopIrrInv.KuhnTuckerInvestment}},
+{\eqref{eq:RBCMonopIrrInv.RealMarginalCosts}},
+{\eqref{eq:RBCMonopIrrInv.MarginalCostsAggregated}},
+{\eqref{eq:RBCMonopIrrInv.IntermediateFirms.CapitalLaborRatioAggregated}},
+{\eqref{eq:RBCMonopIrrInv.AggregateDemand}}, and
+{\eqref{eq:RBCMonopIrrInv.AggregateSupply}}.
+
+\item
+Whenever creating plots, use a \emph{reasonable} time horizon
+and scale to plot \(3 \times 3=9\) model variables (of your choice).
+
+\item
+In Dynare you can write the greater operand \(>\) and the less-or-equal operand \(<=\) just as you do in MATLAB:\\
+\texttt{(i > OMEGA*steady{\_}state{(i)})} or \texttt{(i <= OMEGA*steady{\_}state{(i)})}.
+\end{itemize}
+
+\bigskip
+
+\begin{center} \Large \textbf{Exercises} \end{center}
+
+\begin{enumerate}
+
+\item
+Explain the economic intuition behind including irreversible investments in a DSGE model.
+
+\item
+Derive the intratemporal and intertemporal optimality conditions:
+\begin{align}
+w_t &= \chi_h h_t^{\sigma_h} c_t^{\sigma_c} \label{eq:RBCMonopIrrInv.LaborSupply}
+\\
+c_t^{-\sigma_c} - \mu_t &= \beta E_t \left[ c_{t+1}^{-\sigma_c} \left( r^k_{t+1} + 1-\delta \right) - (1-\delta) \mu_{t+1}\right]
+\label{eq:RBCMonopIrrInv.EulerCapital}
+\end{align}
+where \(\beta^s \mu_{t+s}\) is the Lagrange multiplier on the occasionally binding constraint~\eqref{eq:RBCMonopIrrInv.IrrInvest} in period \(t+s\).
+Note that the complementary slackness condition
+\begin{align*}
+\mu_t (i_t - \omega \cdot i) &= 0
+\end{align*}
+can be equivalently written as
+\begin{align}
+(i_t > \omega \cdot i) \cdot (\mu_t) &+ (i_t \leq \omega \cdot i) \cdot (i_t - \omega \cdot i) = 0  \label{eq:RBCMonopIrrInv.KuhnTuckerInvestment}
+\end{align}
+Interpret these equations.
+
+\item
+Show that profit maximization in the final goods sector implies:
+\begin{align}
+y_t(f) &= {\left(\frac{P_t(f)}{P_t}\right)}^{-\nu_t} y_t \label{eq:RBCMonopIrrInv.Firms.Demand}
+\\
+P_t y_t &= \int_{0}^{1} P_t(f) y_t(f) df \label{eq:RBCMonopIrrInv.Firms.ZeroProfit}
+\end{align}
+Interpret the equation.
+What does this imply for real profits \(div_t^{Fin}\) in the final goods sector?
+
+\item
+Show that profit maximization in the intermediate good sector implies:
+\begin{align}
+r^k_t &= mc_t(f) \alpha a_t {\left( \frac{n_t(f)}{k_{t-1}(f)}\right)}^{1-\alpha}
+\label{eq:RBCMonopIrrInv.IntermediateFirms.CapitalDemand}
+\\
+w_t &= mc_t(f) (1-\alpha) a_t {\left(\frac{n_t(f)}{k_{t-1}(f)}\right)}^{-\alpha}
+\label{eq:RBCMonopIrrInv.IntermediateFirms.LaborDemand}
+\\
+P_t(f) &= \frac{\nu_t}{\nu_t - 1} P_t mc_t(f) \label{eq:RBCMonopIrrInv.IntermediateFirms.Price}
+\end{align}
+where \(mc_t(f)\) is the Lagrange multiplier corresponding to constraint~\eqref{eq:RBCMonopIrrInv.IntermediateFirms.ProductionFunction}.
+Interpret the equations.
+
+\item
+Show that all intermediate firms choose the same capital to labor ratio in production and marginal costs are the same across firms:
+\begin{align}
+\left(\frac{k_{t-1}(f)}{n_t(f)}\right) &= \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \label{eq:RBCMonopIrrInv.IntermediateFirms.CapitalLaborRatio}
+\\
+mc_t \equiv mc_t(f) &= \frac{1}{a_t} {\left(\frac{w_t}{1-\alpha}\right)}^{1-\alpha} {\left(\frac{r^k_t}{\alpha}\right)}^{\alpha} \label{eq:RBCMonopIrrInv.RealMarginalCosts}
+\end{align}
+
+\item
+Show that aggregation and market clearing implies:
+\begin{align}
+mc_t = \frac{\nu_t-1}{\nu_t} \label{eq:RBCMonopIrrInv.MarginalCostsAggregated}
+\\
+\left(\frac{k_{t-1}}{h_t}\right) &= \left(\frac{w_t}{1-\alpha}\right) \left(\frac{\alpha}{r^k_t}\right) \label{eq:RBCMonopIrrInv.IntermediateFirms.CapitalLaborRatioAggregated}
+\\
+\int_{0}^{1} div_t(f) df &= y_t - w_t h_t - r^k_t k_{t-1}\label{eq:RBCMonopIrrInv.IntermediateFirms.AggregateProfits}
+\\
+y_t &= c_t + i_t \label{eq:RBCMonopIrrInv.AggregateDemand}
+\\
+y_t &= a_t k_{t-1}^\alpha h_t^{1-\alpha} \label{eq:RBCMonopIrrInv.AggregateSupply}
+\end{align}
+Interpret the equations.
+
+\item
+Derive with pen and paper the steady-state of the model,
+  in the sense that there is a set of values for the endogenous variables that in equilibrium remain constant over time.
+
+\item Write a Dynare mod file that computes the steady-state of this model using an \texttt{initval} block.
+
+\item
+Use a perfect foresight simulation for computing the transition path
+  for a permanent increase in the elasticity \(\nu_t\) from \(\bar{\nu}\) to \((\bar{\nu}+3)\).
+Interpret the economic mechanisms.
+
+\item
+Use a perfect foresight simulation for computing the impulse response function of the endogenous variables
+  to a \emph{negative} TFP shock on impact of size 0.04.
+Interpret the economic mechanisms.
+
+\end{enumerate}
+
+\newpage
+
+\section{Simulating a war shock in a New Keynesian model}
+Read the paper by Auray and Eyquem (2019, JEDC): \emph{Episodes of war and peace in an estimated open economy model}.
+Particularly, focus on section 3 (The model) and section 6.3 (The macroeconomic consequences of a simulated war episode).
+
+\paragraph{Hints}
+
+\begin{itemize}
+\item
+A mod file with the model equations and a calibration for France is given in Appendix~\ref{app:AurayEyquem2019.modfile}.
+
+\item
+Appendix~\ref{app:AurayEyquem2019.plotfile} contains a helper function for creating plots similar to Figures 3 and 4.
+
+\item
+The war shock is in the 9th column of \texttt{oo\_.exo\_simul}.
+
+\item
+Set the \texttt{periods} option to 500.
+\end{itemize}
+
+\paragraph{Exercises}
+
+\begin{enumerate}
+
+\item
+Explain the modelling approach for adding a war into a New Keynesian model.
+List all the channels a war affects the economy.
+Do you find these convincing or not?
+
+\item
+Replicate Figures 3 and 4 of the paper using a deterministic simulation under perfect foresight
+To this end, use Dynare's \texttt{perfect\_foresight\_setup} and \texttt{perfect\_foresight\_solver} commands
+  to simulate an unanticipated war which, as soon as it occurs, is known to last for 5 years.
+
+\item
+The authors claim that they are doing a \emph{MIT} shock.
+Research and explain the concept of a MIT shock in the context of deterministic simulations in DSGE models.
+
+\item
+Dynare 6.0 introduced new commands \texttt{perfect\_foresight\_with\_expectation\_errors\_setup} and \texttt{perfect\_foresight\_with\_expectation\_errors\_solver}.
+Consult the Dynare manual for their syntax and use.
+Then redo the simulation with a sequence of 5 consecutive war shocks, ensuring that the agents are continually surprised by both the onset and continuation of war.
+Create the plots using the helper function.
+    
+\end{enumerate}
+
+\newpage
+
+\appendix
+
+\section{Auray and Eyquem (2019) mod file\label{app:AurayEyquem2019.modfile}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{../progs/replications/Auray_Eyquem_2019/Auray_Eyquem_2019.mod}
+
+\section{Auray and Eyquem (2019) helper function for plots\label{app:AurayEyquem2019.plotfile}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{../progs/replications/Auray_Eyquem_2019/Auray_Eyquem_2019_plots.m}
+
+\end{document}

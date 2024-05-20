@@ -131,6 +131,26 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
+<details>
+  <summary>Week 6: Midterm Exam: Rotemberg Adjustment Costs, Monopolistic Competition, Irreversible Investment, War Shock</summary>
+
+### Goals
+
+* understand quadratic price adjustment costs
+* understand monopolistic competition and the Dixit Stiglitz elasticity parameter
+* understand irreversible investments as an occasionally binding constraint
+* understand the modeling of a war in a New Keynesian model
+* get a good grade
+
+### To Do
+* [x] read the instructions and do all exercises from the [summer 2024 midterm exam](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/midterm_exam_ss2024.pdf)
+* [x] read the papers carefully
+* [x] hand in your solutions via email
+* [x] for immediate help: contact me [via email](mailto:willi@mutschler.eu) or [schedule a meeting](https://schedule.mutschler.eu)
+
+
+</details>
+
 <!---
 
 <details>
@@ -167,24 +187,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 </details>
 
 
-<details>
-  <summary>Week 7: Midterm Exam: Monopolistic Competition, Irreversible Investment, War Shock</summary>
 
-### Goals
-
-* understand monopolistic competition and the Dixit Stiglitz elasticity parameter
-* understand irreversible investments as an occasionally binding constraint
-* understand the modeling of a war in a New Keynesian model
-* get a good grade
-
-### To Do
-* [x] read the instructions and do both exercises from the [summer 2023 midterm exam](https://github.com/wmutschl/Computational-Macroeconomics/releases/download/exam_midterm_2023_v1.0.1/midterm_exam_ss2023.pdf)
-* [x] read the case-study paper carefully
-* [x] hand in your solutions via email
-* [x] for immediate help: contact me [via email](mailto:willi@mutschler.eu) or [schedule a meeting](https://schedule.mutschler.eu)
-
-
-</details>
 
 
 <details>
