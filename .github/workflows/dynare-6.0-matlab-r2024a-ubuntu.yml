@@ -55,6 +55,7 @@ jobs:
 
       - name: Compile Dynare
         run: |
+          export GIT_CLONE_PROTECTION_ACTIVE=false
           git clone --depth 1 --branch 6.0 --recurse-submodules https://git.dynare.org/dynare/dynare.git
           cd dynare
           pip3 install meson==1.3.1
