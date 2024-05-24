@@ -1,0 +1,29 @@
+% !TEX root = week_7.tex
+\input{exercises/_common_header.tex}
+\Newassociation{solution}{Solution}{week_7_solution}
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
+
+\begin{document}
+\title{Computational Macroeconomics\\~\\Summer 2024\\~\\Week 7}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: 1.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_7.pdf}{GitHub}}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{week_7_solution}[week_7_solution]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/simulations_deterministic_vs_stochastic.tex}\newpage
+
+\printbibliography%
+\newpage
+
+\Closesolutionfile{week_7_solution}
+\ifDisplaySolutions%
+\newpage
+\appendix
+\section{Solutions}
+\input{week_7_solution}
+\fi
+\end{document}

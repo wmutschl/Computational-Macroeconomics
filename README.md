@@ -148,13 +148,11 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * [x] hand in your solutions via email
 * [x] for immediate help: contact me [via email](mailto:willi@mutschler.eu) or [schedule a meeting](https://schedule.mutschler.eu)
 
-
 </details>
 
-<!---
 
 <details>
-  <summary>Week 6: Deterministic simulations and perfect-foresight algorithm, Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR</summary>
+  <summary>Week 7: Deterministic simulations and perfect-foresight algorithm</summary>
 
 ### Goals
 
@@ -162,6 +160,23 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * understand the Newton algorithm used by Dynare to solve perfect foresight problems
 * re-implement deterministic simulations in MATLAB
 
+### To Do
+* [x] watch the videos
+  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
+  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
+  * [Optional: Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
+* [x] bring all your questions and concerns to the Q&A sessions
+* we do exercise 1 of [week 7's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf) together in class
+
+</details>
+
+<!---
+
+
+<details>
+  <summary>Week 8: , Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR, First-order perturbation, Identification, Sensitivity, Log-Linearization</summary>
+
+### Goals
 * understand the SIR (Susceptible, Infected, Recovered) epidemiology model
 * understand and get used to Dynare's macro preprocessing directives
 * understand timing conventions of predetermined variables
@@ -170,30 +185,6 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * understand homotopy in the context of perfect foresight simulations
 * simulate a New-Keynesian SIR model
 
-### To Do
-* prepare exercise 1 of [week 6's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf)
-* [x] we will do a case study together in class
-* [x] watch the videos
-  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
-  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
-  * [Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
-  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
-  * [x] read the case-study paper carefully
-  * [x] download all files
-  * [x] read all the exercises
-  * [x] try to prepare the exercises (this will be hard, so we will go through this together in class)
-* [x] bring all your questions and concerns to the Q&A sessions
-
-</details>
-
-
-
-
-
-<details>
-  <summary>Week 8: First-order perturbation, Identification, Sensitivity, Log-Linearization</summary>
-
-### Goals
 * understand the concept of a policy function
 * understand the general idea of first-order perturbation approximation
 * understand certainty equivalence
@@ -202,9 +193,16 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 ### To Do
+* [x] we will do a case study together in class
+  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
+
 * [x] watch [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
 * [x] [optional] [Solving rational expectation models with first order perturbation: what Dynare does (Part 2 of 2)]() on YouTube
 * [x] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
+* [ ] * [x] read the case-study paper carefully
+  * [x] download all files
+  * [x] read all the exercises
+  * [x] try to prepare the exercises (this will be hard, so we will go through this together in class)
 * [x] read section 2 of An and Schorfheide (2007)
 * [x] [optional] read Rupert and Šustek (2019)
 * [x] bring all your questions and concerns to the Q&A sessions
