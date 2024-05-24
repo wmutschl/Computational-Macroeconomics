@@ -162,8 +162,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 * [x] watch the videos
-  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
   * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
+  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
   * [Optional: Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
 * [x] bring all your questions and concerns to the Q&A sessions
 * we do exercise 1 of [week 7's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_6.pdf) together in class
