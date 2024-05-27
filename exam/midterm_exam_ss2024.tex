@@ -21,7 +21,7 @@
 	
 \title{Computational Macroeconomics\\Midterm Exam}
 \author{Willi Mutschler}
-\date{Summer 2024\\~\\Version 1.0}
+\date{Summer 2024\\~\\Version 1.1}
 \maketitle
 
 \section*{General information}
@@ -49,7 +49,10 @@ It is advised to regularly check Ilias and your emails in case of urgent updates
 If there are any questions, do not hesitate to contact Willi Mutschler.
 \end{itemize}
 
-%\section*{Changelog}
+\section*{Changelog}
+\begin{itemize}
+\item Version 1.1: Added instruction to third exercise to replicate figures only for France.
+\end{itemize}
 
 \newpage
 
@@ -377,7 +380,7 @@ List all the channels a war affects the economy.
 Do you find these convincing or not?
 
 \item
-Replicate Figures 3 and 4 of the paper using a deterministic simulation under perfect foresight
+Replicate Figures 3 and 4 of the paper using a deterministic simulation under perfect foresight \textbf{for France only}.
 To this end, use Dynare's \texttt{perfect\_foresight\_setup} and \texttt{perfect\_foresight\_solver} commands
   to simulate an unanticipated war which, as soon as it occurs, is known to last for 5 years.
 
@@ -388,7 +391,7 @@ Research and explain the concept of a MIT shock in the context of deterministic 
 \item
 Dynare 6.0 introduced new commands \texttt{perfect\_foresight\_with\_expectation\_errors\_setup} and \texttt{perfect\_foresight\_with\_expectation\_errors\_solver}.
 Consult the Dynare manual for their syntax and use.
-Then redo the simulation with a sequence of 5 consecutive war shocks, ensuring that the agents are continually surprised by both the onset and continuation of war.
+Then redo the simulation (for France only) with a sequence of 5 consecutive war shocks, ensuring that the agents are continually surprised by both the onset and continuation of war.
 Create the plots using the helper function.
     
 \end{enumerate}
