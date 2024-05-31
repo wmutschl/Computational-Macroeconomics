@@ -43,7 +43,7 @@ jobs:
             cd("progs/matlab");
             quickTourMatlab;
             cd("../dynare");
-            dynare arma11;
+            dynare arma11 console
             cd("../matlab");
             arma11CompareMATLABWithDynare;
 
@@ -55,15 +55,15 @@ jobs:
             cd("progs/matlab");
             rbcLogutilSteadyStateTest;
             cd("../dynare");
-            dynare rbcLogutil
+            dynare rbcLogutil console
             cd("../matlab");
             rbcCRRASteadyStateTest;
             cd("../dynare");
-            dynare rbcCRRA
-            dynare BaxterKingSteadyState
-            dynare BaxterKingGrowthSteadyState
+            dynare rbcCRRA console
+            dynare BaxterKingSteadyState console
+            dynare BaxterKingGrowthSteadyState console
             cd("../replications/Baxter_King_1993");
-            dynare Baxter_King_1993_figure_2
+            dynare Baxter_King_1993_figure_2 console
 
       - name: Run week 3 codes
         uses: matlab-actions/run-command@v2
@@ -71,7 +71,7 @@ jobs:
           command: |
             addpath("Dynare-6.0-arm64/matlab");
             cd("progs/replications/Baxter_King_1993");
-            dynare Baxter_King_1993_figure_3
+            dynare Baxter_King_1993_figure_3 console
             cd("../../matlab")
             symbolicToolboxIllustation;
             matrixAlgebraEigenvalues;
@@ -86,7 +86,7 @@ jobs:
           command: |
             addpath("Dynare-6.0-arm64/matlab");
             cd("progs/dynare");
-            dynare nk
+            dynare nk console
 
       - name: Run week 5 codes
         uses: matlab-actions/run-command@v2
@@ -103,12 +103,12 @@ jobs:
           command: |
             addpath("Dynare-6.0-arm64/matlab");
             cd("progs/dynare");
-            dynare nk2co_common
-            dynare nk2co_temp_monpol_surprise
-            dynare nk2co_temp_monpol_announced
-            dynare nk2co_perm_infltarget_surprise
-            dynare nk2co_perm_tax_announced
-            nk2co_understand_perfect_foresight
+            dynare nk2co_common console
+            dynare nk2co_temp_monpol_surprise console
+            dynare nk2co_temp_monpol_announced console
+            dynare nk2co_perm_infltarget_surprise console
+            dynare nk2co_perm_tax_announced console
+            nk2co_understand_perfect_foresight;
 
       - name: Run week 8 codes
         uses: matlab-actions/run-command@v2
@@ -116,11 +116,11 @@ jobs:
           command: |
             addpath("Dynare-6.0-arm64/matlab");
             cd("progs/replications/Eichenbaum_Rebelo_Trabandt_2022");
-            dynare ert_model_sticky_steady
-            dynare ert_model_initval
-            dynare ert_model_histval
-            dynare ert_model_no_homotopy
-            dynare ert_model_homotopy
-            dynare ert_model_figures_demand
-            dynare ert_model_figures_supply
-            dynare ert_model_figures_both
+            dynare ert_model_sticky_steady console
+            dynare ert_model_initval console
+            dynare ert_model_histval console
+            dynare ert_model_no_homotopy console
+            dynare ert_model_homotopy console
+            dynare ert_model_figures_demand console
+            dynare ert_model_figures_supply console
+            dynare ert_model_figures_both console
