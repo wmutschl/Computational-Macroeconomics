@@ -138,3 +138,18 @@ jobs:
             dynare nk2co_perm_infltarget_surprise
             dynare nk2co_perm_tax_announced
             nk2co_understand_perfect_foresight
+
+      - name: Run week 8 codes
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath("dynare/matlab");
+            cd("progs/replications/Eichenbaum_Rebelo_Trabandt_2022");
+            dynare ert_model_sticky_steady
+            dynare ert_model_initval
+            dynare ert_model_histval
+            dynare ert_model_no_homotopy
+            dynare ert_model_homotopy
+            dynare ert_model_figures_demand
+            dynare ert_model_figures_supply
+            dynare ert_model_figures_both

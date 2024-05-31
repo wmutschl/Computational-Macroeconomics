@@ -170,11 +170,9 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
-
 
 <details>
-  <summary>Week 8: , Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR, First-order perturbation, Identification, Sensitivity, Log-Linearization</summary>
+  <summary>Week 8: Practicing deterministic simulations using a New-Keynesian SIR model: Deal with numerical issues and use homotopy</summary>
 
 ### Goals
 * understand the SIR (Susceptible, Infected, Recovered) epidemiology model
@@ -185,41 +183,41 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * understand homotopy in the context of perfect foresight simulations
 * simulate a New-Keynesian SIR model
 
+### To Do
+* [x] read the case-study paper carefully
+* [x] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
+  * [x] download all files
+  * [x] read all the exercises
+  * [x] we will go through this together in class
+* [x] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
+<!---
+
+
+<details>
+  <summary>Week 9: , Practicing preprocessing and deterministic simulations, Deal with numerical issues, Homotopy, New-Keynesian SIR, First-order perturbation, Identification, Sensitivity, Log-Linearization; Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy, Trend Inflation in the New Keynesian model.</summary>
+
+### Goals
 * understand the concept of a policy function
 * understand the general idea of first-order perturbation approximation
 * understand certainty equivalence
 * understand the algorithm to compute the perturbation matrices using the Linear Rational Expectation model framework
 * [optional] understand Dynare's first-order perturbation solver
 
-
-### To Do
-* [x] we will do a case study together in class
-  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
-
-* [x] watch [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
-* [x] [optional] [Solving rational expectation models with first order perturbation: what Dynare does (Part 2 of 2)]() on YouTube
-* [x] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
-* [ ] * [x] read the case-study paper carefully
-  * [x] download all files
-  * [x] read all the exercises
-  * [x] try to prepare the exercises (this will be hard, so we will go through this together in class)
-* [x] read section 2 of An and Schorfheide (2007)
-* [x] [optional] read Rupert and Šustek (2019)
-* [x] bring all your questions and concerns to the Q&A sessions
-
-</details>
-
-
-<details>
-  <summary>Week 9: Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy, Trend Inflation in the New Keynesian model.</summary>
-
-### Goals
 * understand and get used to Dynare's *stoch_simul* command
 * understand Dynare's sensitivity toolbox
 * study the modeling approach and effects of different environmental policies in a New Keynesian model
 * study the macroeconomics of trend inflation in a New Keynesian model
 
 ### To Do
+  * [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
+* [x] watch [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
+* [x] [optional] [Solving rational expectation models with first order perturbation: what Dynare does (Part 2 of 2)]() on YouTube
+* [x] read section 2 of An and Schorfheide (2007)
+* [x] [optional] read Rupert and Šustek (2019)
+
 * prepare [week 9's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_9.pdf)
   * [x] read the case-study papers on environmental policy and trend inflation carefully
   * [x] download all files

@@ -16,4 +16,4 @@ set_param_value('pi2',1.593556989906377e-04);
 set_param_value('pi3',0.499739472034583);
 
 % run perfect foresight simulation (feel free to abort it using CTRL+C)
-perfect_foresight_solver(maxit=100);
+perfect_foresight_solver(maxit=20); % higher maxit does not help
