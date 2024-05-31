@@ -87,3 +87,16 @@ jobs:
             cd("progs/matlab");
             numericalOptimizationExamples;
             steadystateRBC;
+
+      - name: Run week 7 codes
+        uses: matlab-actions/run-command@v2
+        with:
+          command: |
+            addpath("D:\hostedtoolcache\windows\dynare-6.0\matlab");
+            cd("progs/dynare");
+            dynare nk2co_common
+            dynare nk2co_temp_monpol_surprise
+            dynare nk2co_temp_monpol_announced
+            dynare nk2co_perm_infltarget_surprise
+            dynare nk2co_perm_tax_announced
+            nk2co_understand_perfect_foresight
