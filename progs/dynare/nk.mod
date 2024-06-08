@@ -2,7 +2,7 @@
 % capital, investment adjustment costs, nonzero inflation target, and fiscal policy
 % -------------------------------------------------------------------------
 % Willi Mutschler (willi@mutschler.eu)
-% Version: May 1, 2024
+% Version: June 8, 2024
 % -------------------------------------------------------------------------
 
 %-------------------------------------------------------------------------%
@@ -117,7 +117,7 @@ s2p = y + THETAP * BETA * lam(+1) / lam*pie(+1)^(EPSILONP-1) * s2p(+1);
 % government %
 %%%%%%%%%%%%%%
 [name='monetary policy rule']
-rnom/steady_state(rnom) = (rnom/steady_state(rnom))^(RHOR) * ( (pie/TARGET_PI)^PSIRPI * (y/steady_state(y))^PSIRY )^(1-RHOR) * exp(eps_r);
+rnom/steady_state(rnom) = (rnom(-1)/steady_state(rnom))^(RHOR) * ( (pie/TARGET_PI)^PSIRPI * (y/steady_state(y))^PSIRY )^(1-RHOR) * exp(eps_r);
 [name='government spending rule']
 g/steady_state(y) = (1-RHOG) * TARGET_G_Y + RHOG * g(-1)/steady_state(y) + eps_g;
 [name='fiscal budget constraint']
