@@ -1,4 +1,4 @@
-\section{Log-Linearization vs. first-order perturbation\label{ex:LogLinearization}}
+\section{Log-Linearization vs first-order perturbation\label{ex:LogLinearization}}
 
 \subsection*{Model variants}
 Let us consider the small scale New Keynesian model from \textcite{An.Schorfheide_2007_BayesianAnalysisDSGE},
@@ -21,19 +21,21 @@ r^A  &= 1.00, \quad
 \bar{g} = 1/0.85.
 \end{align*}
 
-\paragraph{Model A: original nonlinear model}
+\paragraph{Model A:\ original nonlinear model}
 \begin{align}
-1 &= \beta \mathbb{E}_t\left[\left(\frac{C_{t+1}/A_{t+1}}{C_t/A_t}\right)^{-\tau} \frac{A_t}{A_{t+1}} \frac{R_t}{\pi_{t+1}}\right]
+1 &= \beta \mathbb{E}_t\left[{\left(\frac{C_{t+1}/A_{t+1}}{C_t/A_t}\right)}^{-\tau} \frac{A_t}{A_{t+1}} \frac{R_t}{\pi_{t+1}}\right]
 \\
-1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] - \phi \beta \mathbb{E}_t \left[\left(\frac{C_{t+1}/A_{t+1}}{C_t/A_t}\right)^{-\tau} \frac{Y_{t+1}/A_{t+1}}{Y_t/A_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-\left({\frac{C_t}{A_t}}\right)^{\tau}\right]
+1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] \nonumber
+\\&\qquad\qquad\qquad
+- \phi \beta \mathbb{E}_t \left[{\left(\frac{C_{t+1}/A_{t+1}}{C_t/A_t}\right)}^{-\tau} \frac{Y_{t+1}/A_{t+1}}{Y_t/A_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-{\left({\frac{C_t}{A_t}}\right)}^{\tau}\right]
 \\
-Y_t &= C_t + G_t + \frac{\phi}{2} \left({\pi_t - \pi}\right)^2 Y_t
+Y_t &= C_t + G_t + \frac{\phi}{2} {\left({\pi_t - \pi}\right)}^2 Y_t
 \\
 G_t &= \frac{g_t-1}{g_t} Y_t
 \\
 R_t &= {R_t^{*}}^{1-\rho_R} R_{t-1}^{\rho_R} e^{\epsilon_{R,t}}
 \\
-R_t^* & = R \left(\frac{\pi_t}{\bar{\pi}}\right)^{\psi_1} \left(\frac{Y_t}{Y_t^*}\right)^{\psi_2}
+R_t^* & = R {\left(\frac{\pi_t}{\bar{\pi}}\right)}^{\psi_1} {\left(\frac{Y_t}{Y_t^*}\right)}^{\psi_2}
 \\
 \ln(A_t) &= \ln(\gamma) + \ln(A_{t-1}) + \ln(z_t)
 \\
@@ -41,9 +43,10 @@ R_t^* & = R \left(\frac{\pi_t}{\bar{\pi}}\right)^{\psi_1} \left(\frac{Y_t}{Y_t^*
 \\
 \ln(g_t) &= (1-\rho_g)\ln(\bar{g}) + \rho_g \ln(g_{t-1}) + \epsilon_{g,t}
 \\
-Y_t^* &= (1-\nu)^{\frac{1}{\tau}} A_t g_t
+Y_t^* &= {(1-\nu)}^{\frac{1}{\tau}} A_t g_t
 \end{align}
-The productivity shock $\varepsilon_{z,t}$, the government spending shock $\varepsilon_{g,t}$ and the monetary policy shock $\varepsilon_{R,t}$ are iid Gaussian:
+The productivity shock \(\varepsilon_{z,t}\), the government spending shock \(\varepsilon_{g,t}\)
+  and the monetary policy shock \(\varepsilon_{R,t}\) are iid Gaussian:
 \begin{align*}
 \begin{pmatrix}
 \varepsilon_{z,t}\\\varepsilon_{g,t}\\\varepsilon_{R,t}
@@ -59,24 +62,25 @@ Moreover, we have the following auxiliary parameter relationships:
 \phi=\tau\frac{1-\nu}{\nu\bar{\pi}^2\kappa}
 \end{align*}
 
-\paragraph{Model B: stationary nonlinear model}
-Let's denote: $c_t= C_t/A_t$, $y_t= Y_t/A_t$ and $y_t= Y_t/A_t$, then Model A can be equivalently represented as:
+\paragraph{Model B:\ stationary nonlinear model}
+Let's denote: \(c_t= C_t/A_t\), \(y_t= Y_t/A_t\) and \(y^*_t= Y^*_t/A_t\), then Model A can be equivalently represented as:
 \begin{align}
-1 &= \beta \mathbb{E}_t\left[\left(\frac{c_{t+1}}{c_t}\right)^{-\tau} \frac{1}{\gamma z_{t+1}} \frac{R_t}{\pi_{t+1}}\right] \label{eq:AS_B1}
+1 &= \beta \mathbb{E}_t\left[{\left(\frac{c_{t+1}}{c_t}\right)}^{-\tau} \frac{1}{\gamma z_{t+1}} \frac{R_t}{\pi_{t+1}}\right] \label{eq:AS_B1}
 \\
-1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right] - \phi \beta \mathbb{E}_t \left[\left(\frac{c_{t+1}}{c_t}\right)^{-\tau} \frac{y_{t+1}}{y_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-c_t^{\tau}\right]
+1 &= \phi \left(\pi_t - \pi\right) \left[\left(1-\frac{1}{2\nu}\right)\pi_t + \frac{\pi}{2\nu}\right]
+- \phi \beta \mathbb{E}_t \left[{\left(\frac{c_{t+1}}{c_t}\right)}^{-\tau} \frac{y_{t+1}}{y_t} \left(\pi_{t+1} - \pi \right) \pi_{t+1}\right] + \frac{1}{\nu}\left[1-c_t^{\tau}\right]
 \\
-y_t &= c_t + \frac{g_t-1}{g_t} y_t + \frac{\phi}{2} \left({\pi_t - \pi}\right)^2 y_t
+y_t &= c_t + \frac{g_t-1}{g_t} y_t + \frac{\phi}{2} {\left({\pi_t - \pi}\right)}^2 y_t
 \\
 R_t &= {R_t^{*}}^{1-\rho_R} R_{t-1}^{\rho_R} e^{\epsilon_{R,t}}
 \\
-R_t^* & = R \left(\frac{\pi_t}{\bar{\pi}}\right)^{\psi_1} \left(\frac{y_t}{y_t^*}\right)^{\psi_2}
+R_t^* & = R {\left(\frac{\pi_t}{\bar{\pi}}\right)}^{\psi_1} {\left(\frac{y_t}{y_t^*}\right)}^{\psi_2}
 \\
 \ln(z_t) &= \rho_z \ln(z_{t-1}) + \epsilon_{z,t}
 \\
 \ln(g_t) &= (1-\rho_g)\ln(\bar{g}) + \rho_g \ln(g_{t-1}) + \epsilon_{g,t}
 \\
-y_t^* &= (1-\nu)^{\frac{1}{\tau}} g_t
+y_t^* &= {(1-\nu)}^{\frac{1}{\tau}} g_t
 \end{align}
 with the following auxiliary parameters:
 \begin{align*}
@@ -87,17 +91,19 @@ with the following auxiliary parameters:
 \end{align*}
 The steady-state is given by:
 \begin{align*}
-z=1, \qquad\pi = \bar{\pi}, \qquad g=\bar{g}, \qquad R=\frac{\gamma}{\beta}\pi, \qquad R^* = R, \qquad c = (1-\nu)^{\frac{1}{\tau}}, \qquad y = gc , \qquad y^*=y
+z=1, \qquad\pi = \bar{\pi}, \qquad g=\bar{g}, \qquad R=\frac{\gamma}{\beta}\pi, \qquad R^* = R, \qquad c = {(1-\nu)}^{\frac{1}{\tau}}, \qquad y = gc , \qquad y^*=y
 \end{align*}
 
-\paragraph{Model C: Exponential transform}
-Let's denote hat variables as log deviations from steady-state: $\hat{x}_t = \ln\left(\frac{X_t}{X}\right)$, then Model B can be equivalently represented as:
+\paragraph{Model C:\ Exponential transform}
+Let's denote hat variables as log deviations from steady-state: \(\hat{x}_t = \ln\left(\frac{X_t}{X}\right)\), then Model B can be equivalently represented as:
 \begin{align}
 1 &= \mathbb{E}_t \left[e^{-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{R}_{t} - \hat{z}_{t+1} - \hat{\pi}_{t+1} }\right]\label{eq:AS_C1}
 \\
-0 &= \left(e^{\hat{\pi}_{t}}-1\right) \left[\left(1-\frac{1}{2\nu}\right)e^{\hat{\pi}_{t}} + \frac{1}{2\nu}\right] - \beta \mathbb{E}_t \left[\left(e^{\hat{\pi}_{t+1}}-1 \right) e^{-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{y}_{t+1} - \hat{y}_{t} + \hat{\pi}_{t+1}}\right] + \frac{1-\nu}{\nu\pi^2\phi}\left(1-e^{\tau\hat{c}_{t}}\right)
+0 &= \left(e^{\hat{\pi}_{t}}-1\right) \left[\left(1-\frac{1}{2\nu}\right)e^{\hat{\pi}_{t}} + \frac{1}{2\nu}\right] \nonumber
+\\&\qquad\qquad\qquad
+- \beta \mathbb{E}_t \left[\left(e^{\hat{\pi}_{t+1}}-1 \right) e^{-\tau \hat{c}_{t+1} + \tau \hat{c}_{t} + \hat{y}_{t+1} - \hat{y}_{t} + \hat{\pi}_{t+1}}\right] + \frac{1-\nu}{\nu\pi^2\phi}\left(1-e^{\tau\hat{c}_{t}}\right)
 \\
-e^{\hat{c}_{t}-\hat{y}_{t}} &= e^{-\hat{g}_{t}} - \frac{\phi \pi^2 g}{2} \left(e^{\hat{\pi}_{t}}-1\right)^2\label{eq:AS_C3}
+e^{\hat{c}_{t}-\hat{y}_{t}} &= e^{-\hat{g}_{t}} - \frac{\phi \pi^2 g}{2} {\left(e^{\hat{\pi}_{t}}-1\right)}^2\label{eq:AS_C3}
 \\
 \hat{R}_{t} &= \rho_R \hat{R}_{t-1} + (1-\rho_R) \psi_1 \hat{\pi}_{t} + (1-\rho_R)\psi_2(\hat{y}_{t}-\hat{g}_{t}) + \epsilon_{R,t}
 \\
@@ -106,8 +112,8 @@ e^{\hat{c}_{t}-\hat{y}_{t}} &= e^{-\hat{g}_{t}} - \frac{\phi \pi^2 g}{2} \left(e
 \hat{g}_{t} &= \rho_g \hat{g}_{t-1} + \epsilon_{g,t}
 \end{align}
 
-\paragraph{Model D: Log-linearization}
-Taking the first-order Taylor approximation in logged variables (aka hat variables) yields:
+\paragraph{Model D:\ Log-linearization}
+Taking the first-order Taylor approximation in logged variables (also known as hat variables) yields:
 \begin{align}
 \hat{y}_{t} &= \mathbb{E}_t \hat{y}_{t+1} + \hat{g}_{t} - E_t\hat{g}_{t+1} - \frac{1}{\tau} \left(\hat{R}_{t}- \mathbb{E}_t \hat{\pi}_{t+1} - \mathbb{E}_t \hat{z}_{t+1}\right) \label{eq:AS_D1}
 \\
@@ -121,16 +127,16 @@ Taking the first-order Taylor approximation in logged variables (aka hat variabl
 \\
 \hat{z}_{t} &= \rho_z \hat{z}_{t-1} + \epsilon_{z,t}
 \end{align}
-where $\beta = \frac{1}{1+R^{A}/400}$ and $\kappa=\tau\frac{1-\nu}{\nu\bar{\pi}^2\phi}$.
+where \(\beta = \frac{1}{1+R^{A}/400}\) and \(\kappa=\tau\frac{1-\nu}{\nu\bar{\pi}^2\phi}\).
 
 \paragraph{Measurement Equations}
 The measurement equations are given by:
 \begin{align}
-YGR_t &= \gamma^{(Q)} + 100(\hat{y}_t-\hat{y}_{t-1} + \hat{z}_t)
+{YGR}_t &= \gamma^{(Q)} + 100(\hat{y}_t-\hat{y}_{t-1} + \hat{z}_t)
 \\
-INFL_t &= \pi^{(A)} + 400 \hat{\pi}_t
+{INFL}_t &= \pi^{(A)} + 400 \hat{\pi}_t
 \\
-INT_t &= \pi^{(A)} + r^{(A)} + 4 \gamma^{(Q)} 400 \hat{R}_t
+{INT}_t &= \pi^{(A)} + r^{(A)} + 4 \gamma^{(Q)} 400 \hat{R}_t
 \end{align}
 
 \subsection*{Exercises}
@@ -143,25 +149,25 @@ INT_t &= \pi^{(A)} + r^{(A)} + 4 \gamma^{(Q)} 400 \hat{R}_t
   
 \item Derive (on paper)
 \begin{itemize}
-    \item equation \eqref{eq:AS_C1} from equation \eqref{eq:AS_B1}
-    \item equation \eqref{eq:AS_D1} by combining the first-order Taylor expansion of equations \eqref{eq:AS_C1} and \eqref{eq:AS_C3}
+    \item equation~\eqref{eq:AS_C1} from equation~\eqref{eq:AS_B1}
+    \item equation~\eqref{eq:AS_D1} by combining the first-order Taylor expansion of equations~\eqref{eq:AS_C1} and~\eqref{eq:AS_C3}
 \end{itemize}
 
 \item Write a mod file for Model B (including the measurement equations) in Dynare
   and solve it using a first-order perturbation approximation of the policy function.
 Make note of the impulse response functions and of the theoretical moments.
 
-\item Write a mod file for Model C (including the measurement equations)in Dynare
+\item Write a mod file for Model C (including the measurement equations) in Dynare
   and solve it using a first-order perturbation approximation of the policy function.
 Make note of the impulse response functions and of the theoretical moments.
 Compare the theoretical moments and explain the differences or equivalences to Model B.
   
-\item Write a mod file for Model D (including the measurement equations)in Dynare,
+\item Write a mod file for Model D (including the measurement equations) in Dynare,
   and solve it using a first-order perturbation approximation of the policy function.
 Make note of the impulse response functions and of the theoretical moments
 Compare the theoretical moments and explain the differences or equivalences with Model C.
   
-\item What are the advantages and disadvantages of (log-)linearizing model equations by hand
+\item What are the advantages and disadvantages of log-linearizing model equations by hand
   or by using first-order perturbation on the nonlinear model equations?
   
 \end{enumerate}
@@ -172,7 +178,7 @@ Compare the theoretical moments and explain the differences or equivalences with
 \end{itemize}
 
 \begin{solution}\textbf{Solution to \nameref{ex:LogLinearization}}
-\ifDisplaySolutions
+\ifDisplaySolutions%
 \input{exercises/log_linearization_solution.tex}
 \fi
 \newpage

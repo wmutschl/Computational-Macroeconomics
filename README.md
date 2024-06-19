@@ -195,7 +195,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 
 <details>
-  <summary>Week 9: First-order perturbation, Identification, Sensitivity</summary>
+  <summary>Week 9: First-order perturbation, Shock transmission channels</summary>
 
 ### Goals
 * understand the concept of a policy function
@@ -215,36 +215,36 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
 
 <details>
-  <summary>Week 10: Log-Linearization; Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy, Trend Inflation in the New Keynesian model. OccBin, Introduction to Higher-Order Approximation</summary>
+  <summary>Week 10: Identification, Sensitivity, Log-Linearization, Trend Inflation in the New Keynesian model.</summary>
 
 ### Goals
-* 
 * understand and get used to Dynare's *stoch_simul* command
 * understand Dynare's sensitivity toolbox
-* study the modeling approach and effects of different environmental policies in a New Keynesian model
 * study the macroeconomics of trend inflation in a New Keynesian model
 
 ### To Do
-* prepare [week 9's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_9.pdf)
-  * [x] read the case-study papers on environmental policy and trend inflation carefully
+* prepare [week 10's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_10.pdf)
+  * [x] we will work through exercise 1 and 2 together in class, exercise 3 is for you to do on your own in class
+  * [x] read the case-study paper on trend inflation carefully
   * [x] download all files
   * [x] read all the exercises
-  * [x] try to prepare the replications
+  * [x] try to prepare the replication
 
 </details>
 
+<!---
 
 <details>
-  <summary>Week 11: Recursive Preferences and Equity Risk Premium and Stochastic Volatility</summary>
+  <summary>Week 11: ; Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy,OccBin, Introduction to Higher-Order Approximation Recursive Preferences and Equity Risk Premium and Stochastic Volatility</summary>
 
 ### Goals
-* 
+* study the modeling approach and effects of different environmental policies in a New Keynesian model
 
 ### To Do
 * [ ]
+  * [x] read the case-study paper on environmental policy
 
 </details>
 
