@@ -8,7 +8,7 @@ on:
 
 jobs:
   dynare_6_0_matlab_r2024a_macos:
-    runs-on: macos-14
+    runs-on: flyci-macos-14-m2
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
