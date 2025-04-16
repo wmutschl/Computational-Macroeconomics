@@ -1,7 +1,7 @@
 % !TEX root = week_9.tex
 \input{exercises/_common_header.tex}
 \Newassociation{solution}{Solution}{week_9_solution}
-\newif\ifDisplaySolutions%\DisplaySolutionstrue%
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
 
 \begin{document}
 \title{Computational Macroeconomics\\~\\Summer 2024\\~\\Week 9}

@@ -1,19 +1,16 @@
-[![Build LaTeX](../../actions/workflows/latex.yml/badge.svg)](../../actions/workflows/latex.yml)
-[![Dynare 6.0 MATLAB R2024a Windows](../../actions/workflows/dynare-6.0-matlab-r2024a-windows.yml/badge.svg)](../../actions/workflows/dynare-6.0-matlab-r2024a-windows.yml)
-[![Dynare 6.0 MATLAB R2024a MacOS](../../actions/workflows/dynare-6.0-matlab-r2024a-macos.yml/badge.svg)](../../actions/workflows/dynare-6.0-matlab-r2024a-macos.yml)
-[![Dynare 6.0 MATLAB R2024a Ubuntu](../../actions/workflows/dynare-6.0-matlab-r2024a-ubuntu.yml/badge.svg)](../../actions/workflows/dynare-6.0-matlab-r2024a-ubuntu.yml)
+![Build LaTeX](../../actions/workflows/latex.yml/badge.svg)![Dynare 6.0 MATLAB R2024a Windows](../../actions/workflows/dynare-6.0-matlab-r2024a-windows.yml/badge.svg)![Dynare 6.0 MATLAB R2024a MacOS](../../actions/workflows/dynare-6.0-matlab-r2024a-macos.yml/badge.svg)![Dynare 6.0 MATLAB R2024a Ubuntu](../../actions/workflows/dynare-6.0-matlab-r2024a-ubuntu.yml/badge.svg)
 
 # Computational Macroeconomics
 
 These are my course materials for a graduate course on Computational Macroeconomics taught at the University of Tübingen.
-The compiled PDF materials are available under [Releases](https://github.com/wmutschl/Computational-Macroeconomics/releases).
+The compiled PDF materials are available under [Releases](https://github.com/wmutschl/Computational-Macroeconomics/releases) (make sure to click *Show all assets*).
 
 Please feel free to use this for teaching or learning purposes; however, taking into account the [GPL 3.0 license](https://choosealicense.com/licenses/gpl-3.0/).
 
 ## Schedule with To-Do Lists
 
 <details>
-  <summary>Week 1: Introductions</summary>
+<summary>Week 1: Introductions</summary>
 
 ### Goals
 
@@ -25,30 +22,32 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 
-* [x] read the general course information on [Ilias](https://ovidius.uni-tuebingen.de)
+* [x] find course information and the schedule on [https://macroeconomics.chat](https://macroeconomics.chat/cm2025), but you need to sign up first by following the link provided in [Ilias](https://ovidius.uni-tuebingen.de/ilias3/ilias.php?baseClass=ilrepositorygui&ref_id=5076472) (for University of Tübingen students only)
+* [x] read the general course information, the schedule and tips on using Mattermost in the Town Square channel of [https://macroeconomics.chat](https://macroeconomics.chat/cm2025)
+* [x] join the [literature](https://macroeconomics.chat/cm2025/channels/literature) channel, which will contain the readings (papers and books) as pdfs
+* [x] join the [recordings](https://macroeconomics.chat/cm2025/channels/recordings) channel, which will contain the recordings of all our classes
+* [x] briefly introduce yourself (what are you studying, which semester, where did you do your undergraduate studies) in the [town square](https://macroeconomics.chat/cm2025/channels/town-square) channel and whether you have previous experience with programming and are already somewhat familiar with the RBC or New Keynesian models (this is not mandatory for the course, but it is useful to know)
 * [x] watch the introductory videos (on YouTube)
-  * [x] [Introduction to Computational Macroeconomics](https://youtu.be/vZfX5U5xyws)
+  * [x] [Introduction to Computational Macroeconomics](https://youtu.be/zIcEVggOwTI)
   * [x] [Introduction to MATLAB](https://youtu.be/_CbLr11aeQ4)
   * [x] [Quick Tour Dynare (focus on solution methods and simulations)](https://youtu.be/NDFSUx46FvM)
 * [x] prepare your computer: MATLAB/Octave and Dynare
-  * [x] install MATLAB R2024a following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clientdienste/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
-  * [x] install Dynare 6.0 following [this guide](https://www.dynare.org/resources/quick_start/)
+  * [x] install MATLAB R2024b following [this guide](https://uni-tuebingen.de/einrichtungen/zentrum-fuer-datenverarbeitung/dienstleistungen/clients/software/matlab-einzelplatzlizenz/) if you are a student of the University of Tübingen. Please also install the following toolboxes: Econometrics Toolbox, Global Optimization Toolbox, Optimization Toolbox, Parallel Computing Toolbox, Statistics and Machine Learning Toolbox, Symbolic Math Toolbox. As an alternative to MATLAB you can also install Octave following [this guide](https://octave.org/download).
+  * [x] install Dynare 6.3 following [this guide](https://www.dynare.org/resources/quick_start/)
   * [x] (optionally) create an account on [GitHub.com](https://github.com/signup)
   * [x] (optionally) sign up for the [GitHub Students Developer Pack](https://education.github.com/pack) to get a free Pro license for GitKraken (among other things)
-  * [x] (optionally) install the [GitKraken Client](https://gitkraken.com/download)  
+  * [x] (optionally) install the [GitKraken Client](https://gitkraken.com/download)
 * [x] do [exercises for week 1](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf)
 * [x] write down all your questions
-* [x] [schedule an online meeting](https://schedule.mutschler.eu) with me
-  * [x] put *"I am interested in this course"* under *"What is the meeting about?"*
-  * [x] check your emails and cancel the meeting again using the link in the email
-  * [x] now you know how easy it is to schedule a meeting with me :-)
-* [x] participate in the Q&A sessions
+* [x] check out how to [schedule an online meeting](https://schedule.mutschler.eu) with me
+  * put *"I am interested in this course"* under *"What is the meeting about?"*
+  * check your emails and cancel the meeting again using the link in the email
+  * now you know how easy it is to schedule a meeting with me :-)
 
 </details>
 
-
 <details>
-  <summary>Week 2: RBC Model, Calibration and Steady-State</summary>
+<summary>Week 2: RBC Model, Calibration and Steady-State</summary>
 
 ### Goals
 
@@ -62,18 +61,17 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 * [x] watch the following videos (on YouTube)
   * [x] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
-  * [x] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)
-](https://youtu.be/4xeoLh3edpo)
-  * [x] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types
-](https://youtu.be/HRpynlbZBzM)
+  * [x] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)](https://youtu.be/4xeoLh3edpo)
+  * [x] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types](https://youtu.be/HRpynlbZBzM)
 * [x] do exercises 1 and 2 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do the case study together
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
+<!---
 
 <details>
-  <summary>Week 3: Practicing DYNARE, Symbolic Preprocessing in MATLAB</summary>
+<summary>Week 3: Practicing DYNARE, Symbolic Preprocessing in MATLAB</summary>
 
 ### Goals
 
@@ -90,9 +88,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-
 <details>
-  <summary>Week 4: New Keynesian Model</summary>
+<summary>Week 4: New Keynesian Model</summary>
 
 ### Goals
 
@@ -108,9 +105,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-
 <details>
-  <summary>Week 5: Numerical optimization</summary>
+<summary>Week 5: Numerical optimization</summary>
 
 ### Goals
 
@@ -118,6 +114,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * understand numerical steady-state computations
 
 ### To Do
+
 * [x] watch the (very short) videos:
   * [Introduction to Optimization: What is Optimization](https://youtu.be/Q2dewZweAtU)
   * [Introduction To Optimization: Objective Functions and Decision Variables](https://youtu.be/AoJQS10Ewn4)
@@ -125,14 +122,14 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [Introduction To Optimization: Gradient Based Algorithms](https://youtu.be/n-Y0SDSOfUI)
   * [Introduction To Optimization: Gradient Free Algorithms (1/2) - Genetic - Particle Swarm](https://youtu.be/3QJjfeVrut8)
   * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
-  * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)  
+  * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)
 * [x] do exercises 1-2 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
 <details>
-  <summary>Week 6: Midterm Exam: Rotemberg Adjustment Costs, Monopolistic Competition, Irreversible Investment, War Shock</summary>
+<summary>Week 6: Midterm Exam: Rotemberg Adjustment Costs, Monopolistic Competition, Irreversible Investment, War Shock</summary>
 
 ### Goals
 
@@ -143,6 +140,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * get a good grade
 
 ### To Do
+
 * [x] read the instructions and do all exercises from the [summer 2024 midterm exam](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/midterm_exam_ss2024.pdf)
 * [x] read the papers carefully
 * [x] hand in your solutions via email
@@ -150,9 +148,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-
 <details>
-  <summary>Week 7: Deterministic simulations and perfect-foresight algorithm</summary>
+<summary>Week 7: Deterministic simulations and perfect-foresight algorithm</summary>
 
 ### Goals
 
@@ -161,20 +158,22 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * re-implement deterministic simulations in MATLAB
 
 ### To Do
+
 * [x] watch the videos
   * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
   * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
   * [Optional: Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
 * [x] bring all your questions and concerns to the Q&A sessions
+
 * we do exercise 1 of [week 7's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_7.pdf) together in class
 
 </details>
 
-
 <details>
-  <summary>Week 8: Practicing deterministic simulations using a New-Keynesian SIR model: Deal with numerical issues and use homotopy</summary>
+<summary>Week 8: Practicing deterministic simulations using a New-Keynesian SIR model: Deal with numerical issues and use homotopy</summary>
 
 ### Goals
+
 * understand the SIR (Susceptible, Infected, Recovered) epidemiology model
 * understand and get used to Dynare's macro preprocessing directives
 * understand timing conventions of predetermined variables
@@ -184,6 +183,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * simulate a New-Keynesian SIR model
 
 ### To Do
+
 * [x] read the case-study paper carefully
 * [x] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
   * [x] download all files
@@ -193,11 +193,11 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-
 <details>
-  <summary>Week 9: First-order perturbation, Shock transmission channels</summary>
+<summary>Week 9: First-order perturbation, Shock transmission channels</summary>
 
 ### Goals
+
 * understand the concept of a policy function
 * understand the general idea of first-order perturbation approximation
 * understand certainty equivalence
@@ -205,6 +205,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * [optional] understand Dynare's first-order perturbation solver
 
 ### To Do
+
 * [x] watch
   * [x] [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
   * [x] [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
@@ -212,19 +213,19 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * [x] [optional] read Rupert and Šustek (2019)
 * [x] bring all your questions and concerns to the Q&A sessions
 
-
 </details>
 
-
 <details>
-  <summary>Week 10: Identification, Sensitivity, Log-Linearization, Trend Inflation in the New Keynesian model.</summary>
+<summary>Week 10: Identification, Sensitivity, Log-Linearization, Trend Inflation in the New Keynesian model.</summary>
 
 ### Goals
+
 * understand and get used to Dynare's *stoch_simul* command
 * understand Dynare's sensitivity toolbox
 * study the macroeconomics of trend inflation in a New Keynesian model
 
 ### To Do
+
 * prepare [week 10's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_10.pdf)
   * [x] we will work through exercise 1 and 2 together in class, exercise 3 is for you to do on your own in class
   * [x] read the case-study paper on trend inflation carefully
@@ -237,64 +238,70 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 <!---
 
 <details>
-  <summary>Week 11: ; Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy,OccBin, Introduction to Higher-Order Approximation Recursive Preferences and Equity Risk Premium and Stochastic Volatility</summary>
+<summary>Week 11: ; Practicing Stochastic Simulations, Impulse Response Functions, Perturbation. Environmental Policy,OccBin, Introduction to Higher-Order Approximation Recursive Preferences and Equity Risk Premium and Stochastic Volatility</summary>
 
 ### Goals
+
 * study the modeling approach and effects of different environmental policies in a New Keynesian model
 
 ### To Do
+
 * [ ]
   * [x] read the case-study paper on environmental policy
 
 </details>
 
-
 <details>
-  <summary>Week 12: Optimal Policy and Welfare assessment</summary>
+<summary>Week 12: Optimal Policy and Welfare assessment</summary>
 
 ### Goals
+
 * 
 
 ### To Do
+
 * [ ]
 
 </details>
 
-
 <details>
-  <summary>Week 13: Projection</summary>
+<summary>Week 13: Projection</summary>
 
 ### Goals
+
 * 
 
 ### To Do
+
 * [ ]
 
 </details>
 
-
 <details>
-  <summary>Week 14: Projection</summary>
+<summary>Week 14: Projection</summary>
 
 ### Goals
+
 * 
 
 ### To Do
+
 * [ ]
 
 </details>
 
--->
+\-->
 
 ## Content
 
 We cover modern theoretical macroeconomics (the study of aggregated variables such as economic growth, unemployment and inflation by means of structural macroeconomic models) and combine it with numerical methods to study abstract macroeconomic concepts such as optimal monetary, fiscal and environmental policy,  occasionally binding constraints (zero-lower-bound, irreversible investment), quantitative easing and rare disasters. To this end, we use the Dynamic Stochastic General Equilibrium (DSGE) model paradigm, particularly focusing on different variants of the New-Keynesian model, and develop the numerical procedures and algorithms required to solve and simulate such models. Using several case studies from the literature the theoretical and methodological foundations of computational macroeconomics are taught.
 
 ## Topics
+
 - Algebra of RBC and New-Keynesian models
 - Steady-state
 - Preprocessing of DSGE models
-- Simulation and solution methods
+- Simulation and solution methods 
   - perfect foresight
   - 1st-order perturbation (log-linearization)
   - k-order perturbation
@@ -306,9 +313,8 @@ We cover modern theoretical macroeconomics (the study of aggregated variables su
 - Occasionally binding constraints
 - Optimal policy
 
-
-
 ## Case Studies and Replications (Preliminary)
+
 - [x] Fiscal policy (Baxter and King, 1993, American Economic Review)
 - [x] Epidemics (Eichenbaum, Rebelo and Trabandt, 2022, Journal of Economic Dynamics and Control)
 - [x] Wars (Auray and Eyquem, 2019, Journal of Economic Dynamics and Control)
@@ -329,8 +335,8 @@ Students acquire knowledge of advanced numerical methods in the field of computa
 
 Students get familiar with a variety of algorithms, examples and situations in which computational thinking is useful in approximating and evaluating abstract macroeconomic phenomena. They recognize and appreciate the connections between theory and computational methods and use their training to find possible avenues of research. While constructing abstract algorithms, they identify appropriate computational tools and evaluate their strengths and weaknesses in the context of problem solving. They utilize computers and software effectively as tools for solving and simulating macroeconomic models. In addition, because students work on the problem sets as a team, students' coordination, organization, and communication skills are enhanced.
 
-
 ## Requirements
+
 Basic undergraduate knowledge of macroeconomics as well as econometrics are required, programming skills in a scripting language are advantageous, but not necessary.
 
 ## Software used
@@ -338,8 +344,8 @@ Basic undergraduate knowledge of macroeconomics as well as econometrics are requ
 * [MATLAB](https://mathworks.com) or [Octave](https://octave.org)
 * [Dynare](https://www.dynare.org)
 
-
 ## Getting Involved
+
 If you spot mistakes, let me know by opening an issue or write me an email to [willi@mutschler.eu](mailto:willi@mutschler.eu).
 Moreover, solutions to the exercises in other computer languages (e.g. Julia, Python or R) are highly appreciated.
 Please sent me those either [via email](mailto:willi@mutschler.eu) or (better) open a pull request.
