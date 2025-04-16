@@ -1,8 +1,8 @@
 \begin{enumerate}
 
 \item
-General purpose: C/C++, Fortran, Python, Excel.
-Domain-specific: MATLAB, Julia, R, Mathematica, EViews.
+General purpose: C/C++, Python, Excel.
+Domain-specific: MATLAB, Julia, R, Fortran, Mathematica, EViews.
 
 \item
 Every program is a set of instructions, say to add two numbers.
@@ -24,12 +24,15 @@ Interpreted languages tend to be very similar in the syntax,
 
 Interpreted languages were once significantly slower than compiled languages.
 But, with the development of just-in-time (JiT) compilation, that gap is shrinking.
-MATLAB and Julia are two very prominent examples that make use of JiT compilation,
+MATLAB and Julia (and to some extent also Python and R) are very prominent examples that make use of JiT compilation,
   that is they combine both worlds.
 
+While interpreted languages like Python or R are slower, they benefit from large libraries (e.g., NumPy, Pandas)
+  that are implemented in highly optimized compiled languages like C/C++ or Fortran, mitigating the performance gap for many tasks.
 You can also make use of e.g. Fortran or C++ code in MATLAB, R, Python or Julia;
   that is, write very CPU-intensive tasks in a compiled language
   and use them in an interpreted language.
+
 
 \item
 Learning a programming language is a huge investment;
@@ -55,8 +58,8 @@ However, the main determining factor is by looking at legacy code of the last 20
   we see that most was and still is conducted in MATLAB,
   whereas highly intensive tasks were programmed in Fortran.
 So keep in mind, that you need to understand this legacy codebase.
-In the last couple of years, researchers in Macroeconomics are really pushing Julia.
-New developments like Machine Learning require you to invest in Python.
+In the last couple of years, Julia has gained traction in Macroeconomics,
+  but new developments like Machine Learning require you to invest in Python.
 For writing scientific reports and papers you should get familiar with Latex and Markdown.
 
 Another issue to consider is the license, cost and support of the language maintainers.
@@ -74,10 +77,11 @@ Which code editor do you prefer?
 How good are the debugging capabilities of your chosen environment.
 Things like syntax highlighting, smart indentation, code linting, comparison tools,
   handling of workspace, etc.\ are very important.
-Some languages like MATLAB bring their own IDE in one big package and it works very well.
+Some languages like MATLAB bring their own IDE in one big package and it works very well,
 Others like Julia, Python or C++ can be neatly integrated in a variety of environments;
   in fact Visual Studio Code has become the leading editor and environment for many languages,
   but of course there are many other great choices depending on your needs and preferences.
+  (e.g.\ there is PyCharm for Python or RStudio for R).
 
 So which computer languages should you devote your time into,
   if you are interested in computational or quantitative macroeconomics?
