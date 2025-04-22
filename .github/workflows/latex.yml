@@ -35,7 +35,7 @@ jobs:
           work_in_root_file_dir: true
 
       - name: Create Release
-        if: startsWith(github.ref, 'refs/tags/2024-week-')
+        if: startsWith(github.ref, 'refs/tags/2025-week-')
         uses: ncipollo/release-action@v1
         with:
           artifacts: "week*.pdf, exam/*_exam_*.pdf, slides/slides_*.pdf"
