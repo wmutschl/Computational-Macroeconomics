@@ -68,8 +68,6 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
-
 <details>
 <summary>Week 3: Practicing DYNARE, Symbolic Preprocessing in MATLAB</summary>
 
@@ -82,8 +80,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 ### To Do
 
 * [x] finish and re-visit last week's exercises, particularly understand how to add deterministic growth to the RBC model
-* [x] do exercises 1, 2 and 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [x] we will do exercise 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class, but you should already have a look
+* [x] do exercise 2 and 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
+* [x] we will do exercises 1 and 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class, but you should already have a look
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
@@ -100,10 +98,12 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 * [x] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
 * [x] work carefully and thoroughly through the very long exercise 1 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
-* [x] practice Dynare with the New Keynesian model by doing exercise 2 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
+* [x] we will practice Dynare with the New Keynesian model by doing exercise 2 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf) together in class
 * [x] schedule a meeting for all your questions and concerns (or write me an email)
 
 </details>
+
+<!---
 
 <details>
 <summary>Week 5: Numerical optimization</summary>
