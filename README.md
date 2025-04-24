@@ -63,7 +63,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [x] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
   * [x] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)](https://youtu.be/4xeoLh3edpo)
   * [x] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types](https://youtu.be/HRpynlbZBzM)
-* [x] do exercises 1 and 2 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do the case study together
+* [x] do exercise 1 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do exercise 2 and 3 (the case study) together
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
@@ -81,7 +81,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 * [x] finish and re-visit last week's exercises, particularly understand how to add deterministic growth to the RBC model
 * [x] do exercise 2 and 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [x] we will do exercises 1 and 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class, but you should already have a look
+* [x] we will do exercises 1 and 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class, but you should already have a look at the exercise sheet
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
