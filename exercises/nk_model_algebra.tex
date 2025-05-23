@@ -133,7 +133,7 @@ Set up the Lagrangian of the household's optimization problem,
   where the Lagrange multiplier
   \begin{itemize}
   \item \(\beta^{j} \frac{\Lambda_{t+j}[h]}{P_{t+j}}\) corresponds to the \emph{nominal budget constraint}~\eqref{eq:NewKeynesian.BudgetNominal}
-  \item \(\beta^{j} \Lambda_{t+j}[h] Q^{K}_{t+j}[h]\) corresponds to the \emph{capital accumulation equation}~\eqref{eq:NewKeynesian.CapitalAccumulation}
+  \item \(\beta^{j} \frac{\Lambda_{t+j}[h] Q^{K}_{t+j}[h]}{P_{t+j}}\) corresponds to the \emph{capital accumulation equation}~\eqref{eq:NewKeynesian.CapitalAccumulation}
   \end{itemize}
 
 \item
@@ -225,7 +225,7 @@ The firm minimizes its nominal expenditures in compliance with the technology co
 \paragraph{Notation}
 In what follows, let lower case letters denote \emph{real} variables in \emph{per-capita} terms:
 \begin{align*}
-y_{t} = \int_{0}^{1} Y_{t}[f] df
+y_{t} = \frac{1}{n} \int_{0}^{n} Y_{t}[f] df
 \end{align*}
 
 \subsection{Final goods firms: exercises}

@@ -23,7 +23,7 @@ The optimization problem is framed by the following Lagrangian:
 + \frac{1}{n} \int_{0}^{n} \mathcal{DIV}^{M}_{t+j}[m] dm
 \Bigg \}
 \\
-&+ \mathbb{E}_{t} \sum_{j=0}^{\infty} \beta^{j} \Lambda_{t+j}[h] Q^{K}_{t+j}[h] \Bigg \{
+&+ \mathbb{E}_{t} \sum_{j=0}^{\infty} \beta^{j} \frac{\Lambda_{t+j}[h] Q^{K}_{t+j}[h]}{P_{t+j}} \Bigg \{
 (1-\delta^{K}) K_{t+j-1}[h]  - K_{t+j}[h] + I_{t+j}[h] 
 \\
 &\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
@@ -399,7 +399,7 @@ Revisit the Lagrangian of the intermediate firm~\eqref{eq:IntermediateFirms.Lagr
   and focus only on the relevant terms for price optimization:
 \begin{align*}
 \mathcal{L} &= \mathbb{E}_{t} \sum_{j=0}^{\infty} \mathcal{M}_{t,t+j} \Bigg \{
-P_{t+j}[m] Y^{d}_{t+j}[m] - 
+P_{t+j}[m] Y^{d}_{t+j}[m] - \cdots
 + {MC}_{t+j} \left(
   \cdots - Y^{d}_{t+j}[m]\right)
 \Bigg \}
@@ -630,7 +630,7 @@ Impose state-contingent bond market clearing~\eqref{eq:NewKeynesian.BondMarketCl
 + w_{t} L^{s}_{t}[h]
 + {div}^{M}_{t}
 =
-+ C_{t}[h] + I_{t}[h]
+C_{t}[h] + I_{t}[h]
 + \frac{\mathcal{T}_{t}[h]}{P_{t}}
 \end{align*}
 Integrating over \(h\):
