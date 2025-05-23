@@ -64,7 +64,7 @@ jobs:
           meson compile -C build-matlab
           cd ..
 
-      - name: Run week 1 codes
+      - name: Run exercises 1 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -76,7 +76,7 @@ jobs:
             cd("../matlab");
             arma11CompareMATLABWithDynare;
 
-      - name: Run week 2 codes
+      - name: Run exercises 2 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -94,7 +94,7 @@ jobs:
             cd("../replications/Baxter_King_1993");
             dynare Baxter_King_1993_figure_2 console
 
-      - name: Run week 3 codes
+      - name: Run exercises 3 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -109,7 +109,7 @@ jobs:
             matrixAlgebraCompareLyapunovSolvers;
             preprocessingComparisonRBC;
 
-      - name: Run week 4 codes
+      - name: Run exercises 4 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -117,7 +117,7 @@ jobs:
             cd("progs/dynare");
             dynare nk console
 
-      - name: Run week 5 codes
+      - name: Run exercises 5 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -126,7 +126,7 @@ jobs:
             numericalOptimizationExamples;
             steadystateRBC;
 
-      - name: Run week 7 codes
+      - name: Run exercises 6 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |
@@ -139,7 +139,7 @@ jobs:
             dynare nk2co_perm_tax_announced console
             nk2co_understand_perfect_foresight;
 
-      - name: Run week 8 codes
+      - name: Run exercises 7 codes
         uses: matlab-actions/run-command@v2
         with:
           command: |

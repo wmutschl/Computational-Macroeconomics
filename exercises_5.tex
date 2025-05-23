@@ -1,0 +1,31 @@
+% !TEX root = exercises_5.tex
+\input{exercises/_common_header.tex}
+\Newassociation{solution}{Solution}{exercises_5_solution}
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
+
+\begin{document}
+\title{Computational Macroeconomics\\~\\Summer 2025\\~\\Exercise Sheet 5}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: 1.1\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_5.pdf}{GitHub}}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{exercises_5_solution}[exercises_5_solution]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/numerical_optimization.tex}\newpage
+\input{exercises/rbc_steady_matlab.tex}\newpage
+\input{exercises/simulations_deterministic_vs_stochastic.tex}\newpage
+
+%\printbibliography%
+\newpage
+
+\Closesolutionfile{exercises_5_solution}
+\ifDisplaySolutions%
+\newpage
+\appendix
+\section{Solutions}
+\input{exercises_5_solution}
+\fi
+\end{document}

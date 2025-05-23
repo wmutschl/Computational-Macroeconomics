@@ -37,7 +37,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [x] (optionally) create an account on [GitHub.com](https://github.com/signup)
   * [x] (optionally) sign up for the [GitHub Students Developer Pack](https://education.github.com/pack) to get a free Pro license for GitKraken (among other things)
   * [x] (optionally) install the [GitKraken Client](https://gitkraken.com/download)
-* [x] do [exercises for week 1](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_1.pdf)
+* [x] do [exercise sheet 1](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_1.pdf)
 * [x] write down all your questions
 * [x] check out how to [schedule an online meeting](https://schedule.mutschler.eu) with me
   * put *"I am interested in this course"* under *"What is the meeting about?"*
@@ -63,7 +63,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [x] [RBC Baseline Model Equations and Introduction to preprocessing with Dynare](https://youtu.be/ZfsKGzR84hQ)
   * [x] [RBC Baseline Model: steady-state derivations and implementation in Dynare (with preprocessing tips)](https://youtu.be/4xeoLh3edpo)
   * [x] [RBC Baseline Model in Dynare: Simple vs Advanced Calibration using Modularization and Changing Types](https://youtu.be/HRpynlbZBzM)
-* [x] do exercise 1 of [week 2's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_2.pdf), we will do exercise 2 and 3 (the case study) together
+* [x] do exercise 1 of [exercise sheet 2](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_2.pdf), we will do exercise 2 and 3 (the case study) together
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
@@ -75,19 +75,34 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 * practice DYNARE: permanent changes in fiscal policy
 * practice MATLAB: symbolic toolbox, matrix algebra, loops, Kronecker products, functions
-* understand preprocessing and steady-state computations in MATLAB
 
 ### To Do
 
-* [x] finish and re-visit last week's exercises, particularly understand how to add deterministic growth to the RBC model
-* [x] do exercise 2 and 3 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf)
-* [x] we will do exercises 1 and 4 of [week 3's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_3.pdf) together in class, but you should already have a look at the exercise sheet
+* [x] do exercise 2 and 3 of [exercise sheet 3](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_3.pdf)
+* [x] we will do exercise 1 of [exercise sheet 3](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_3.pdf) together in class, but you should already have a look at the exercise sheet
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
 <details>
-<summary>Week 4: New Keynesian Model</summary>
+<summary>Week 4-5: Catch-up with exercises, Preprocessing and Steady-State in MATLAB</summary>
+
+### Goals
+
+* catch-up with exercises
+* understand preprocessing and steady-state computations in MATLAB
+
+### To Do
+
+* [x] finish and re-visit last week's exercises
+* [x] understand how to add deterministic growth to the RBC model
+* [x] we will do exercise 4 of [exercise sheet 4](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_4.pdf) together in class, but you should already have a look at the exercise sheet
+* [x] bring all your questions and concerns to the Q&A sessions
+
+</details>
+
+<details>
+<summary>Week 5: New Keynesian Model</summary>
 
 ### Goals
 
@@ -97,21 +112,22 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 ### To Do
 
 * [x] watch [Algebra of New Keynesian Models with Calvo price rigidities](https://youtu.be/oEf9bc9_qxw) on YouTube
-* [x] work carefully and thoroughly through the very long exercise 1 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf)
-* [x] we will practice Dynare with the New Keynesian model by doing exercise 2 of [week 4's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_4.pdf) together in class
+* [x] work carefully and thoroughly through the very long exercise 1 of [exercise sheet 4](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_4.pdf)
+* [x] we will practice Dynare with the New Keynesian model by doing exercise 2 of [exercise sheet 4](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_4.pdf) together in class
 * [x] schedule a meeting for all your questions and concerns (or write me an email)
 
 </details>
 
-<!---
-
 <details>
-<summary>Week 5: Numerical optimization</summary>
+<summary>Week 6: Numerical optimization, deterministic simulations and perfect-foresight algorithm</summary>
 
 ### Goals
 
 * understand and start using numerical optimizers
 * understand numerical steady-state computations
+* understand Dynare's commands to do deterministic simulations
+* understand the Newton algorithm used by Dynare to solve perfect foresight problems
+* re-implement deterministic simulations in MATLAB
 
 ### To Do
 
@@ -123,13 +139,18 @@ Please feel free to use this for teaching or learning purposes; however, taking 
   * [Introduction To Optimization: Gradient Free Algorithms (1/2) - Genetic - Particle Swarm](https://youtu.be/3QJjfeVrut8)
   * [Introduction To Optimization: Gradient Free Algorithms (2/2) Simulated Annealing, Nelder-Mead](https://youtu.be/NI3WllrvWoc)
   * [Introduction to Optimization: Calculating Derivatives](https://youtu.be/QGo31GQjEvE)
-* [x] do exercises 1-2 of [week 5's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_5.pdf)
+* [x] do exercises 1-2 of [exercise sheet 5](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_5.pdf)
+* [x] watch the videos
+  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
+  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
+  * [Optional: Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
 
 <details>
-<summary>Week 6: Midterm Exam: Rotemberg Adjustment Costs, Monopolistic Competition, Irreversible Investment, War Shock</summary>
+
+<summary>Week 7: Midterm Exam: Rotemberg Adjustment Costs, Monopolistic Competition, Irreversible Investment, War Shock</summary>
 
 ### Goals
 
@@ -141,35 +162,20 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 ### To Do
 
-* [x] read the instructions and do all exercises from the [summer 2024 midterm exam](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/midterm_exam_ss2024.pdf)
+* [x] read the instructions and do all exercises from the [summer 2025 midterm exam](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/midterm_exam_ss2025.pdf)
 * [x] read the papers carefully
 * [x] hand in your solutions via email
 * [x] for immediate help: contact me [via email](mailto:willi@mutschler.eu) or [schedule a meeting](https://schedule.mutschler.eu)
 
 </details>
 
-<details>
-<summary>Week 7: Deterministic simulations and perfect-foresight algorithm</summary>
+<!---
 
-### Goals
-
-* understand Dynare's commands to do deterministic simulations
-* understand the Newton algorithm used by Dynare to solve perfect foresight problems
-* re-implement deterministic simulations in MATLAB
 
 ### To Do
 
-* [x] watch the videos
-  * [Visually Explained: Newton's Method in Optimization](https://youtu.be/W7S94pq5Xuo)
-  * [Understanding Deterministic (Perfect Foresight) Simulations in Dynare](https://youtu.be/I6CgzoOfoS0)
-  * [Optional: Newton's Fractal (which Newton knew nothing about) (Time: 5:55 - 11:16)](https://youtu.be/-RdOwhmqP5s?t=355)
-* [x] bring all your questions and concerns to the Q&A sessions
-
-* we do exercise 1 of [week 7's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_7.pdf) together in class
-
-</details>
-
 <details>
+
 <summary>Week 8: Practicing deterministic simulations using a New-Keynesian SIR model: Deal with numerical issues and use homotopy</summary>
 
 ### Goals
