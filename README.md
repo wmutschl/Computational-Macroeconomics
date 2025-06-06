@@ -169,11 +169,6 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
-
-
-### To Do
-
 <details>
 
 <summary>Week 8: Practicing deterministic simulations using a New-Keynesian SIR model: Deal with numerical issues and use homotopy</summary>
@@ -191,7 +186,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 ### To Do
 
 * [x] read the case-study paper carefully
-* [x] prepare [week 8's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_8.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
+* [x] prepare [exercise sheet 6](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_6.pdf): exercise 1 and 2 for the first meeting and exercises 3 and 4 for the second meeting
   * [x] download all files
   * [x] read all the exercises
   * [x] we will go through this together in class
@@ -200,7 +195,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 </details>
 
 <details>
-<summary>Week 9: First-order perturbation, Shock transmission channels</summary>
+<summary>Week 10: First-order perturbation, Shock transmission channels</summary>
 
 ### Goals
 
@@ -215,11 +210,13 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * [x] watch
   * [x] [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
   * [x] [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
-* [x] we will do [week 9's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_9.pdf) together in class
+* [x] we will do [exercise sheet 7](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_7.pdf) together in class
 * [x] [optional] read Rupert and Šustek (2019)
 * [x] bring all your questions and concerns to the Q&A sessions
 
 </details>
+
+<!---
 
 <details>
 <summary>Week 10: Identification, Sensitivity, Log-Linearization, Trend Inflation in the New Keynesian model.</summary>
