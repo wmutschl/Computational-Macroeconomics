@@ -1,0 +1,31 @@
+% !TEX root = exercises_7.tex
+\input{exercises/_common_header.tex}
+\Newassociation{solution}{Solution}{exercises_7_solution}
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
+
+\begin{document}
+\title{Computational Macroeconomics\\~\\Summer 2025\\~\\Exercises 7}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: 1.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_7.pdf}{GitHub}}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{exercises_7_solution}[exercises_7_solution]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/brock_mirman_policy_function.tex}\newpage
+\input{exercises/nk_simulations.tex}\newpage
+
+\printbibliography%
+
+\newpage
+
+\Closesolutionfile{exercises_7_solution}
+\ifDisplaySolutions%
+\newpage
+\appendix
+\section{Solutions}
+\input{exercises_7_solution}
+\fi
+\end{document}
