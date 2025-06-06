@@ -173,10 +173,10 @@ rx         = 0.5/52;      % Taylor rule coefficient output gap
 eta        = 0.19;        % government consumption share of output
 n_target   = 28;          % hours worked target
 inc_target = 58000/52;    % income target
-betta      = 0.98^(1/52); % depreciation rate
+betta      = 0.98^(1/52); % discount factor
 varepsilon = 0.001;       % initial seed of infection (varepsilon)
 RplusD_target = 0.60;     % total share of people infected and then either
-                          % recovered or dead after epidemic
+                          % recovered or dead after epidemic (Merkel scenario)
 
 %-------------------------------------------------------------------------%
 % PRE-INFECTION STEADY-STATE
@@ -190,8 +190,8 @@ r_ss = 0;   % no infections
 dd_ss = 0;  % no infections
 y_ss = inc_target; % calibration target
 n_ss = n_target;   % calibration target
-pie_ss = 1; % calibration target
-pbreve_ss = 1; % law of motion price dispersion
+pie_ss = 1; % calibration target: no inflation
+pbreve_ss = 1; % law of motion price dispersion with no inflation steady-state
 mc_ss = 1/gam; % recursive price setting, combined with no inflation steady-state
 w_ss  = mc_ss*alfa*y_ss/n_ss; % optimal labor demand
 rk_ss = 1/betta-1+delta; % first-order condition wrt capital
@@ -231,7 +231,7 @@ F_ss   = 1/(1-betta*xi)*lambtilde_ss*y_ss;
 fprintf('CALIBRATION TARGETS, RATIOS, STEADY-STATE\n');
 fprintf('  - value of life = %.2f\n', 1/(1-betta)*(log(c_ss)-theta/2*n_ss^2)*c_ss);
 fprintf('  - steady-state real wage = %.2f\n', w_ss);
-fprintf('  - value of utility weight of labor = %.2f\n', theta);
+fprintf('  - value of utility weight of labor = %.3f\n', theta);
 fprintf('  - value of common productivtiy level = %.3f\n', A);
 fprintf('  - annualized capital to output ratio = %.2f%%\n', k_ss/(52*y_ss));
 fprintf('  - share of investment as a fraction of y = %.2f%%\n',100*x_ss/y_ss);
