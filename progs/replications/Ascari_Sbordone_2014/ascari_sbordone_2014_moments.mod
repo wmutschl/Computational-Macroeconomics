@@ -21,9 +21,11 @@ set_param_value('TREND_INFLATION',0);
 stoch_simul(irf=0,order=1,nograph,noprint) log_y log_pi;
 output_var_low_target = oo_.var(strmatch('log_y',var_list_,'exact'),strmatch('log_y',var_list_,'exact'));
 inflation_var_low_target = oo_.var(strmatch('log_pi',var_list_,'exact'),strmatch('log_pi',var_list_,'exact'));
+
 set_param_value('TREND_INFLATION',4);
 stoch_simul(irf=0,order=1,nograph,noprint) log_y log_pi; 
 output_var_high_target=oo_.var(strmatch('log_y',var_list_,'exact'),strmatch('log_y',var_list_,'exact'));
 inflation_var_high_target=oo_.var(strmatch('log_pi',var_list_,'exact'),strmatch('log_pi',var_list_,'exact'));
+
 fprintf('Output Standard Deviation: \t %4.3f \t %4.3f\n',sqrt(output_var_low_target),sqrt(output_var_high_target));
 fprintf('Inflation Standard Deviation: \t %4.3f \t %4.3f\n',sqrt(inflation_var_low_target),sqrt(inflation_var_high_target))

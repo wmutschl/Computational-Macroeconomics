@@ -11,6 +11,7 @@ PHI_Y = 0.5/4;
 RHO_I = 0.8;
 
 verbatim;
+
 figure('Name','Trend Inflation and Steady-State Variables');
 trend_inflation_vector = 0:0.5:8;
 utility = NaN(length(trend_inflation_vector),1);
@@ -42,4 +43,5 @@ subplot(1,3,3)
     plot(trend_inflation_vector,(utility-utility(1,1))./abs(utility(1,1))*100);
     xlabel('Annualized Trend Inflation');
     ylabel('Steady-state welfare');
+
 end;
