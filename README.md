@@ -210,9 +210,8 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 * [x] watch
   * [x] [RBC Baseline Model in Dynare: Deterministic vs Stochastic Simulations](https://youtu.be/KHTEZiw9ukU)
   * [x] [Solving rational expectation models with first order perturbation: what Dynare does (Part 1 of 2)](https://youtu.be/hmVxasBgbqM) on YouTube
-* [x] we will do [exercise sheet 7](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_7.pdf) together in class
-* [x] [optional] read Rupert and Šustek (2019)
-* [x] bring all your questions and concerns to the Q&A sessions
+* [x] do [exercise sheet 7](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_7.pdf) on your own
+* [x] read Rupert and Šustek (2019)
 
 </details>
 
