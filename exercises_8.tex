@@ -1,0 +1,58 @@
+% !TEX root = exercises_8.tex
+\input{exercises/_common_header.tex}
+\Newassociation{solution}{Solution}{exercises_8_solution}
+\newif\ifDisplaySolutions\DisplaySolutionstrue%
+
+\begin{document}
+\title{Computational Macroeconomics\\~\\Summer 2025\\~\\Exercises 8}
+\author{Willi Mutschler\\willi@mutschler.eu}
+\date{Version: 1.0\\Latest version available on: \href{https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/exercises_8.pdf}{GitHub}}
+\maketitle\thispagestyle{empty}
+
+\newpage
+\Opensolutionfile{exercises_8_solution}[exercises_8_solution]
+\tableofcontents\thispagestyle{empty}\newpage
+
+\setcounter{page}{1}
+\input{exercises/case_study_ascari_sbordone_2014.tex}\newpage
+\input{exercises/case_study_annicchiarico_DiDio_2015.tex}\newpage
+
+\printbibliography%
+
+\newpage
+
+\appendix
+
+\section{Helper functions for New Keynesian Trend Inflation model}
+
+\subsection{ascari\_sbordone\_2014\_common.mod\label{app:ascari_sbordone_2014_common}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_common.mod}
+
+\subsection{ascari\_sbordone\_2014\_calib\_common.mod\label{app:ascari_sbordone_2014_calib_common}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Ascari_Sbordone_2014/ascari_sbordone_2014_calib_common.inc}
+
+\section{Helper functions for New Keynesian Environmental model}
+
+\subsection{ann\_dio\_2015\_symdecls.inc\label{app:ann_dio_2015_symdecls}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_symdecls.inc}
+
+\subsection{ann\_dio\_2015\_modeleqs.inc\label{app:ann_dio_2015_modeleqs}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_modeleqs.inc}
+
+\subsection{ann\_dio\_2015\_tbl1\_tbl2\_no\_policy.mod\label{app:ann_dio_2015_tbl1_tbl2_no_policy}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_tbl1_tbl2_no_policy.mod}
+
+\subsection{ann\_dio\_2015\_tbl2\_environmental\_policy.mod\label{app:ann_dio_2015_tbl2_environmental_policy}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_tbl2_environmental_policy.mod}
+
+\subsection{ann\_dio\_2015\_steadystate\_helper.m\label{app:ann_dio_2015_steadystate_helper}}
+\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_steadystate_helper.m}
+
+\Closesolutionfile{exercises_8_solution}
+\ifDisplaySolutions%
+\newpage
+\appendix
+\section{Solutions}
+\input{exercises_8_solution}
+\fi
+\end{document}

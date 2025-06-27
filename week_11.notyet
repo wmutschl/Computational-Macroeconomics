@@ -14,7 +14,7 @@
 \tableofcontents\thispagestyle{empty}\newpage
 
 \setcounter{page}{1}
-\input{exercises/case_study_annicchiarico_DiDio_2015.tex}\newpage
+\input{exercises/an_schorfheide_identif_bk.tex}\newpage
 
 \printbibliography
 
@@ -22,22 +22,6 @@
 
 \appendix
 
-\section{Helper functions for New Keynesian Environmental model}
-
-\subsection{ann\_dio\_2015\_symdecls.inc\label{app:ann_dio_2015_symdecls}}
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_symdecls.inc}
-
-\subsection{ann\_dio\_2015\_modeleqs.inc\label{app:ann_dio_2015_modeleqs}}
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_modeleqs.inc}
-
-\subsection{ann\_dio\_2015\_tbl1\_tbl2\_no\_policy.mod\label{app:ann_dio_2015_tbl1_tbl2_no_policy}}
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_tbl1_tbl2_no_policy.mod}
-
-\subsection{ann\_dio\_2015\_tbl2\_environmental\_policy.mod\label{app:ann_dio_2015_tbl2_environmental_policy}}
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_tbl2_environmental_policy.mod}
-
-\subsection{ann\_dio\_2015\_steadystate\_helper.m\label{app:ann_dio_2015_steadystate_helper}}
-\lstinputlisting[style=Matlab-editor,basicstyle=\mlttfamily\scriptsize,title=\lstname]{progs/replications/Annicchiarico_DiDio_2015/ann_dio_2015_steadystate_helper.m}
 
 \Closesolutionfile{week_11_solution}
 \ifDisplaySolutions
