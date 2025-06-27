@@ -195,7 +195,7 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 </details>
 
 <details>
-<summary>Week 10: First-order perturbation, Shock transmission channels</summary>
+<summary>Week 9 and 10: First-order perturbation, Shock transmission channels, Log-Linearization</summary>
 
 ### Goals
 
@@ -215,25 +215,22 @@ Please feel free to use this for teaching or learning purposes; however, taking 
 
 </details>
 
-<!---
-
 <details>
-<summary>Week 10: Identification, Sensitivity, Log-Linearization, Trend Inflation in the New Keynesian model.</summary>
+<summary>Week 11: Trend Inflation and Environmental Policy in the New Keynesian model.</summary>
 
 ### Goals
 
 * understand and get used to Dynare's *stoch_simul* command
 * understand Dynare's sensitivity toolbox
 * study the macroeconomics of trend inflation in a New Keynesian model
+* study the macroeconomics of different environmental policies in a New Keynesian model
 
 ### To Do
 
-* prepare [week 10's exercise sheet](https://github.com/wmutschl/Computational-Macroeconomics/releases/latest/download/week_10.pdf)
-  * [x] we will work through exercise 1 and 2 together in class, exercise 3 is for you to do on your own in class
-  * [x] read the case-study paper on trend inflation carefully
-  * [x] download all files
-  * [x] read all the exercises
-  * [x] try to prepare the replication
+* [x] read the case-study paper on trend inflation carefully (Ascari and Sbordone, 2014)
+* [x] read the case-study paper on environmental policy carefully (Annicchiarico and Di Dio, 2015)
+* [x] download all files
+* [x] try to prepare the replications
 
 </details>
 
