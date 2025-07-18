@@ -1,0 +1,486 @@
+% !TEX root = endterm_exam_ss2025.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage[english]{babel}
+\usepackage[a4paper]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs,longtable}
+\usepackage{xcolor}
+%\parindent0mm
+%\parskip1.5ex plus0.5ex minus0.5ex
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\begin{document}
+
+\title{Computational Macroeconomics}
+\author{Endterm Exam}
+\date{Summer 2025}
+\maketitle
+
+
+\begin{itemize}
+\item
+Answer \textbf{all} of the following \textbf{three} exercises in English.
+\item
+All assignments will be given the same weight in the final grade.
+\item
+Hand in your solutions before Sunday August, 08 2025 at 20:00 (8pm).
+\item
+The solution files should contain your executable (and commented) Dynare and MATLAB files
+  as well as all additional documentation as \texttt{pdf}, not \texttt{doc} or \texttt{docx}.
+Your \texttt{pdf} files may also include scans or pictures of handwritten notes.
+\item
+Please e-mail ALL the solution files to \url{willi.mutschler@uni-tuebingen.de}.
+\item
+All students must work on their own, please also give your student ID number.
+\item
+It is advised to regularly check Mattermost and your emails in case of urgent updates.
+\item
+All papers and technical appendices are available on Mattermost.
+All codes are available on GitHub.
+\item Use of Large Language Models (LLMs): The use of AI-based language models (e.g., ChatGPT, Claude, Copilot, Grok, Mistral, etc.) is permitted for this exam under the following conditions:
+  \begin{itemize}
+    \item You must properly cite any LLM used for each question,
+      including: (i) the specific model and version and (ii) a clear but concise description of how it was used and what tasks it assited with.
+    Example of proper citation: ``ChatGPT o4-mini-high was used to verify LaTeX syntax for equation formatting and to proofread the English language.''\footnote{%
+    Hint: You can prompt your LLM at the end of a chat session to provide a concise summary of the specific tasks.}
+    Failure to properly cite LLM usage or using LLMs to generate substantive content will be considered academic misconduct.
+    
+    \item Acceptable uses include:
+      \begin{itemize}
+        \item Language correction and proofreading
+        \item LaTeX, Markdown, MATLAB, Dynare, etc.\ syntax and coding assistance
+        \item Clarification of mathematical notation and derivations
+        \item Verification of standard concepts and definitions
+      \end{itemize}
+    \item The following uses are \textbf{not permitted}:
+      \begin{itemize}
+        \item Having the LLM solve the problems for you
+        \item Copying explanations or derivations without understanding
+        \item Using LLM-generated economic interpretations without critical evaluation
+      \end{itemize}
+    \item All mathematical derivations, economic interpretations, and problem solutions must be your own work and demonstrate your understanding of the material
+    
+  \end{itemize}
+\item
+If there are any questions, do not hesitate to contact Willi Mutschler.
+\end{itemize}
+
+\section*{Changelog}
+\begin{itemize}
+\item Version 1.0: First version of the exam.
+\end{itemize}
+
+\newpage
+
+\section[Technology shocks with non-symmetric innovations]{Technology shocks with non-symmetric innovations\label{ex:Andreasen_2012}}
+The goal of this exercise is to look into the third-order perturbation approach and replicate columns (2) and (3) of Table 2 in Andreasen (2012):
+  \emph{On the effects of rare disasters and uncertainty shocks for risk premia in non-linear DSGE models},
+  published in Review of Economic Dynamics (15).
+For the following exercise, we will focus on the sections about rare disasters only.
+
+\begin{enumerate}
+\item
+What is the main research question of the paper?
+Why is the proposed third-order perturbation solution method appropriate to tackle this research question?
+
+\item
+Compared to the standard New Keynesian DSGE model we learned about in the lecture,
+  what features are added in the paper and why? Do you find the modelling approach of a rare disaster convincing?
+
+\item
+The third-order perturbation solution in Dynare's model framework is given by:
+\begin{align*}
+y_t &= \bar{y}\\
+&
+\colorbox{gray!10}{\(%
++g_x (x_{t-1} - \bar{x}) + g_u u_{t}
+\)}
+\\
+&
+\qquad
+\colorbox{gray!10}{\(%
++ g_{\sigma}
+\)}
+\\
+&
+\colorbox{gray!25}{\(%
++ \frac{1}{2} g_{xx} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x})\right)
+  +           g_{xu} \left((x_{t-1} - \bar{x}) \otimes u_t\right)
++ \frac{1}{2} g_{uu} \left(u_t \otimes u_t\right)
+\)}
+\\
+&
+\qquad
+\colorbox{gray!25}{\(%
++ g_{x\sigma} (x_{t-1} - \bar{x})
++ g_{u\sigma} u_t
+\)}
+\\
+&
+\qquad\qquad
+\colorbox{gray!25}{\(%
++ \frac{1}{2} g_{\sigma\sigma}
+\)}
+\\
+&
+\colorbox{gray!50}{\(%
+  + \frac{1}{6} g_{xxx} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x})\right)
+  + \frac{1}{6} g_{uuu} \left(u_t \otimes u_t \otimes u_t\right)
+\)}
+\\
+&
+\qquad
+\colorbox{gray!50}{\(%
++ \frac{3}{6} g_{xxu} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x}) \otimes u_t \right)
++ \frac{3}{6} g_{xuu} \left((x_{t-1} - \bar{x}) \otimes u_t \otimes u_t \right)
+\)}
+\\
+&
+\qquad\qquad
+\colorbox{gray!50}{\(%
+  + \frac{3}{6} g_{xx\sigma} \left((x_{t-1} - \bar{x}) \otimes (x_{t-1} - \bar{x}) \right)
+  +             g_{xu\sigma} \left((x_{t-1} - \bar{x}) \otimes u_t \right)
++ \frac{3}{6} g_{uu\sigma} \left(u_t \otimes u_t \right)
+\)}
+\\
+&
+\qquad\qquad\qquad
+\colorbox{gray!50}{\(%
+  + \frac{3}{6} g_{x\sigma\sigma} (x_{t-1} - \bar{x})
+  + \frac{3}{6} g_{u\sigma\sigma} u_t
+\)}
+\\
+&
+\qquad\qquad\qquad\qquad
+\colorbox{gray!50}{\(
+  + \frac{1}{6} g_{\sigma\sigma\sigma}
+\)}
+\end{align*}
+where after running \texttt{stoch\_simul{(order=3)}}
+
+\begin{itemize}
+\item
+\(x_t\) are the state variables and \(y_t\) are the variables that we focus our analysis on (i.e.\ reported or observed variables)
+
+\item
+the steady-states \(\bar{x}\) and \(\bar{y}\) can be accessed from the rows of\\
+\texttt{oo\_.dr.ys{(oo\_.dr.order\_var)}}
+
+\item
+the \colorbox{gray!10}{first-order terms} can be accessed from the rows of\\
+\texttt{oo\_.dr.ghx} and \texttt{oo\_.dr.ghu}
+
+\item
+the \colorbox{gray!25}{second-order terms} can be accessed from the rows of\\
+\texttt{oo\_.dr.ghxx}, \texttt{oo\_.dr.ghxu}, \texttt{oo\_.dr.ghuu}, and \texttt{oo\_.dr.ghs2}
+
+\item
+the \colorbox{gray!25}{third-order terms} can be accessed from  the rows of \texttt{oo\_.dr.ghxxx},\\
+\texttt{oo\_.dr.ghxxu}, \texttt{oo\_.dr.ghxuu}, \texttt{oo\_.dr.ghxss}, \texttt{oo\_.dr.ghuuu} and \texttt{oo\_.dr.ghuss}
+
+\end{itemize}
+
+Note that there is no \texttt{oo\_.dr.ghs}, \texttt{oo\_.dr.ghxxs}, \texttt{oo\_.dr.ghxus}, \texttt{oo\_.dr.ghuus}, and \texttt{oo\_.dr.ghs3}.
+
+Why does Dynare not compute \(g_{\sigma}\), \(g_{xx\sigma}\), \(g_{xu\sigma}\), \(g_{uu\sigma}\), and \(g_{\sigma\sigma\sigma}\)?
+\end{enumerate}
+
+Now consider Table (2) of the paper.
+
+\begin{enumerate}[resume]
+\item
+Replicate column (2) labeled \emph{Benchmark}. Note that this requires to run a simulation of length 2000000 for a third-order approximation to the model with Gaussian shocks.
+In the hints below you will find out how to get the same shock series to replicate the numbers in the column.
+
+\item
+Replicate column (3) labeled \emph{Case I}. Note that this requires to run a simulation of length 2000000 for a third-order approximation to the model with non-symmetric shocks.
+In the hints below you will find out how to get the same shock series to replicate the numbers in the column.
+
+\item
+Comment on the different results obtained in columns (2) and (3) of the table.
+\end{enumerate}
+
+\newpage
+
+\subsection*{Codes and hints}
+
+\begin{itemize}
+
+\item
+The mod file \texttt{Andreasen\_2012\_rare\_disasters.mod} contains a Dynare version of the DSGE model used to study rare disasters.
+This mod file simulates data and computes empirical moments from a simulated time series of length 2000000 for a first-order approximation to the model.
+Note that your task is to adapt the codes that do the simulation for a third-order approximation.
+The mod file also contains some further hints and explanations.
+
+\item
+The function \texttt{Andreasen\_2012\_get\_shocks.m} produces both the Gaussian and non-symmetric shock series used to replicate columns (2) and (3) in Table 2 of the paper.
+It also creates \(\Sigma^{(3)}\) for both cases which is an input argument of \texttt{get\_ghs3.m}.
+
+\item
+The function \texttt{get\_ghs3.m} computes \(g_{\sigma\sigma\sigma}\) from
+\begin{align*}
+(A+B) g_{\sigma\sigma\sigma} = -\left( f_{y^{**}_{+}} g^{**}_{uuu} + f_{y^{**}_{+}y^{**}_{+}} (g^{**}_u \otimes g^{**}_{uu})P^3_{u\_uu} + f_{y^{**}_{+}y^{**}_{+}y^{**}_{+}} (g^{**}_u \otimes g^{**}_u \otimes g^{**}_u)\right)\Sigma^{(3)}
+\end{align*}
+where \(f_{y^{**}_{+}}\), \(f_{y^{**}_{+}y^{**}_{+}}\), and \(f_{y^{**}_{+}y^{**}_{+}y^{**}_{+}}\) are the first, second, and third-order derivatives of the dynamic model equations with respect to forward jumper variables \(y_{t+1}^{**}\).
+\(g^{**}_u\), \(g^{**}_{uu}\), and \(g^{**}_{uuu}\) are the partial derivatives of the jumper variables with respect to shocks.
+\(P^3_{u\_uu}\) is a permutation matrix.
+\(\Sigma^{(3)} = E[u_t \otimes u_t \otimes u_t]\) are the vectorized unconditional third-order product moments.
+\(A\) and \(B\) are the auxiliary perturbation matrices:
+\begin{align*}
+A & = f_{y_0} + \begin{pmatrix} \underbrace{0}_{n\times n_{static}} &\vdots& \underbrace{f_{y^{**}_{+}} \cdot g^{**}_{x}}_{n \times n_{spred}} &\vdots& \underbrace{0}_{n\times n_{frwd}}  \end{pmatrix}\\
+B & = \begin{pmatrix} \underbrace{0}_{n \times n_{static}}&\vdots & \underbrace{0}_{n \times n_{pred}} & \vdots & \underbrace{f_{y^{**}_{+}}}_{n \times n_{sfwrd}} \end{pmatrix}
+\end{align*}
+where \(f_{y_{0}}\) are the first derivatives of the dynamic model equations with respect to all current endogenous variables \(y_{t}^{}\)
+and \(g^{**}_{x}\) are the first partial derivatives of the jumper variables with respect to previous state variables.
+
+\item
+In MATLAB, the Kronecker product \(\mathcal{A} \otimes \mathcal{B} \otimes \mathcal{C}\) of arbitrary matrices \(\mathcal{A}\), \(\mathcal{B}\), and \(\mathcal{C}\)
+  can be computed using \texttt{kron{(\(\mathcal{A}\),kron{(\(\mathcal{B}\),\(\mathcal{C}\))})}}.
+
+\item
+If your computer struggles with the simulation, reduce the length of the simulation to 200000 or lower.
+\end{itemize}
+
+\newpage
+
+
+\section[Calvo vs. Rotemberg]{Calvo vs. Rotemberg\label{ex:CalvoRotemberg}}
+Consider a New Keynesian model, where the representative household maximizes lifetime utility
+\begin{align*} 
+E_t \sum_{j=0}^\infty \beta^j\left( \frac{c_{t+j}^{1-\sigma}}{1-\sigma} - \gamma \frac{n_{t+j}^{1+\phi}}{1+\phi} \right)
+\end{align*}
+subject to the period-by-period budget constraint
+\begin{align*}
+P_t c_t + \frac{1}{R_t} B_t = W_t n_t + Div_t + B_{t-1}
+\end{align*}
+where the notation of variables and parameters follows the lecture.
+The following first-order conditions hold
+\begin{align}
+c_t^{-\sigma} &= \beta E_t \left[ \frac{R_t}{\pi_{t+1}} c_{t+1}^{-\sigma}  \right] \label{eq:CalvoRotemberg:Euler}
+\\
+w_t &= \gamma n_t^\phi c_t^\sigma \label{eq:CalvoRotemberg:LaborSupply}
+\end{align}
+where \(\pi_t = P_t/P_{t-1}\) and \(w_t = W_t/P_t\).
+The final good market is competitive and the production function is given by the Dixit-Stiglitz aggregator
+\begin{align*}
+y_t = {\left(\int_0^1 {(y_t(f))}^{\frac{\epsilon-1}{\epsilon}}df\right)}^{\frac{\epsilon}{\epsilon-1}}
+\end{align*}
+Final good producers' demand for intermediate inputs is therefore equal to
+\begin{align*}
+y_t(f) = {\left(\frac{P_t(f)}{P_t}\right)}^{-\epsilon} y_t
+\end{align*} 
+Intermediate inputs \(y_t(f)\) are produced by a continuum of firms indexed by \(f\in[0,1]\) with the following linear technology:
+\begin{align*}
+y_t(f) = a_t n_t(f)
+\end{align*}
+where labor is the only input and the technology process \(a_t\) follows
+\begin{align}
+\ln(a_t) = \rho_a \ln(a_{t-1}) + \varepsilon_{a,t}, \qquad \varepsilon_{a,t} \sim N(0,\sigma_a^2) \label{eq:CalvoRotemberg:Technology}
+\end{align}
+Note that given the linear production function, real marginal costs \(mc_t(f)\) are the same across firms and equal to the productivity-adjusted real wage:
+\begin{align}
+mc_t(f) = mc_t = \frac{w_t}{a_t} \label{eq:CalvoRotemberg:MarginalCosts}
+\end{align}
+The intermediate-good sector is monopolistically competitive.
+The price setting behavior follows either the Rotemberg (1982) or the Calvo (1983) specification as detailed below.
+
+\paragraph{Rotemberg model}
+The monopolistic firm faces a quadratic cost of adjusting nominal prices, which can be measured in terms of the final good:
+\begin{align*}
+\frac{\varphi}{2} {\left(\frac{P_t(f)}{P_{t-1}(f)}-1\right)}^2 y_t
+\end{align*}
+where \(\varphi>0\) determines the degree of nominal price rigidity.
+Firms can change their price in each period subject to the payment of adjustment cost;
+  hence, all firms face the same problem and will choose the same price and produce the same quantity:
+  \(P_t(f) = P_t\) and \(y_t(f) = y_t\) for all \(f\).
+Therefore, from the first-order condition, after imposing the symmetric equilibrium, we get:
+\begin{align}
+1- \varphi(\pi_t - 1) \pi_t + \varphi \beta E_t {\left(\frac{c_{t+1}}{c_t}\right)}^{-\sigma} \left[(\pi_{t+1}-1)\pi_{t+1} \frac{y_{t+1}}{y_t}\right]
+  = (1-mc_t)\epsilon \label{eq:Rotemberg:PriceSetting}
+\end{align}
+As all the firms employ the same amount of labor, the aggregate production function is given by
+\begin{align}
+y_t = a_t n_t \label{eq:Rotemberg:AggregateSupply}
+\end{align}
+and the aggregate resource constraint takes the adjustment cost into account
+\begin{align}
+y_t = c_t + \frac{\varphi}{2} {\left(\pi_t-1\right)}^2 y_t \label{eq:Rotemberg:ResourceConstraint}
+\end{align}
+
+
+\paragraph{The Calvo model}
+For each period there is a fixed probability \(1-\theta \) that a firm can re-optimize its nominal price \(P_t^*(f)\).
+The joint dynamics of the optimal reset price \(p_t^* = P_t^*(f)/P_t\) are given by
+\begin{align}
+p_t^* &= \frac{\epsilon}{\epsilon-1} \frac{q^1_t}{q^2_t} \label{eq:Calvo:OptimalPrice}
+\\
+q^1_t &= mc_t y_t^{1-\sigma} + \theta \beta E_t \left[\pi_{t+1}^\epsilon q^1_{t+1}\right] \label{eq:Calvo:OptimalPriceAux1}
+\\
+q^2_t &= y_t^{1-\sigma} + \theta \beta E_t \left[\pi_{t+1}^{\epsilon-1} q^2_{t+1}\right] \label{eq:Calvo:OptimalPriceAux2}
+\end{align}
+where we used the resource constraint:
+\begin{align}
+y_t = c_t \label{eq:Calvo:ResourceConstraint}
+\end{align}
+The evolution of the aggregate price index implies
+\begin{align}
+p_t^* &= {\left(\frac{1-\theta \pi_t^{\epsilon-1}}{1-\theta}\right)}^{\frac{1}{1-\epsilon}} \label{eq:Calvo:AggregatePriceIndex}
+\end{align}
+Aggregate output can be expressed as
+\begin{align}
+y_t = \frac{a_t}{s_t} n_t \label{eq:Calvo:AggregateSupply}
+\end{align}
+where \(s_t\) denotes a measure of price dispersion and evolves according to
+\begin{align}
+s_t = \int_0^1 {\left(\frac{P_t(f)}{P_t}\right)}^{-\epsilon}df = (1-\theta){(p_t^*)}^{-\epsilon} + \theta \pi_t^\epsilon s_{t-1} \label{eq:Calvo:PriceDispersion}
+\end{align}
+
+\paragraph{Monetary Policy}
+Monetary policy follows a Taylor rule:
+\begin{align}
+\ln\left(\frac{R_t}{R}\right) = \alpha_\pi \left( \ln(\pi_t) - \ln\left({\left(1+\frac{\bar{\pi}^{A}}{100}\right)}^{1/4}\right) \right) + \alpha_y \ln\left(\frac{y_t}{y}\right) \label{eq:CalvoRotemberg:TaylorRule}
+\end{align}
+where \(R\) and \(y\) are steady-state values and \(\bar{\pi}^{A}\) the annual inflation target of the central bank.
+
+\paragraph{Parametrization}
+If not otherwise stated, use the following parameter values for the exercises:
+\begin{align*}
+\beta &= 0.99,\quad \sigma=1 \quad \phi=1, \quad \epsilon = 10, \quad \rho_a = 0.9, \quad \sigma_a = 0.01, \quad \alpha_\pi = 1.5
+\\
+\alpha_y &= 0.125,\quad \theta = 0.75, \quad \varphi = \frac{(\epsilon-1)\theta}{(1-\theta)(1-\beta\theta)}, \quad \gamma = 8.1, \quad \bar{\pi}^{A} = 0 
+\end{align*}
+
+\subsection*{Hints}
+\begin{itemize}
+\item The Rotemberg model is given by equations%
+~\eqref{eq:CalvoRotemberg:Euler},~\eqref{eq:CalvoRotemberg:LaborSupply},~\eqref{eq:CalvoRotemberg:Technology},~\eqref{eq:CalvoRotemberg:MarginalCosts},%
+~\eqref{eq:Rotemberg:PriceSetting},~\eqref{eq:Rotemberg:AggregateSupply},~\eqref{eq:Rotemberg:ResourceConstraint}, and~\eqref{eq:CalvoRotemberg:TaylorRule}.
+A Dynare implementation is given in the file \texttt{Rotemberg.mod}.
+\item The Calvo model is given by equations%
+~\eqref{eq:CalvoRotemberg:Euler},~\eqref{eq:CalvoRotemberg:LaborSupply},~\eqref{eq:CalvoRotemberg:Technology},~\eqref{eq:CalvoRotemberg:MarginalCosts},%
+~\eqref{eq:Calvo:OptimalPrice},~\eqref{eq:Calvo:OptimalPriceAux1},~\eqref{eq:Calvo:OptimalPriceAux2},~\eqref{eq:Calvo:ResourceConstraint},%
+~\eqref{eq:Calvo:AggregatePriceIndex},~\eqref{eq:Calvo:AggregateSupply},~\eqref{eq:Calvo:PriceDispersion}, and~\eqref{eq:CalvoRotemberg:TaylorRule}.
+A Dynare implementation is given in the file \texttt{Calvo.mod}.
+\item Hat variables are defined as log-deviations from the steady state, e.g.
+\(\hat{y}_t = \ln(y_t) - \ln(y)\).
+\end{itemize}
+
+\newpage
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+
+\item Assume a zero inflation target, \(\bar{\pi}^{A}=0\), such that steady-state inflation is one, \(\pi = 1\).
+Log-linearize the labor supply equation (\ref{eq:CalvoRotemberg:LaborSupply}),
+  the marginal costs equation (\ref{eq:CalvoRotemberg:MarginalCosts}),
+  the Rotemberg aggregate supply equation (\ref{eq:Rotemberg:AggregateSupply}),
+  and the Rotemberg resource constraint (\ref{eq:Rotemberg:ResourceConstraint}).
+Combine these to get the following log-linearized equation for marginal costs:
+\begin{align}
+\hat{mc}_t = (\phi+\sigma) \hat{y}_t - (1+\phi) \hat{a}_t \label{eq:LogLinearization.MarginalCosts}
+\end{align}
+
+\item Assume a zero inflation target, \(\bar{\pi}^{A}=0\), such that steady-state inflation is one, \(\pi = 1\).
+Derive the New Keynesian IS curve
+\begin{align*}
+\hat{y}_t = E_{t} \hat{y}_{t+1} - \frac{1}{\sigma} \left( \hat{R}_t - E_{t} \hat{\pi}_{t+1} \right)
+\end{align*}
+by log-linearizing the Euler equation~\eqref{eq:CalvoRotemberg:Euler}
+and the Rotemberg resource constraint~\eqref{eq:Rotemberg:ResourceConstraint}.
+
+\item Assume a zero inflation target, \(\bar{\pi}^{A}=0\), such that steady-state inflation is one, \(\pi = 1\).
+Derive the New Keynesian Phillips curve:
+\begin{align*}
+\hat{\pi}_t = \beta E_{t} \hat{\pi}_{t+1} + \frac{\varepsilon-1}{\varphi} \hat{mc}_t
+\end{align*}
+by log-linearizing the Rotemberg price setting equation~\eqref{eq:Rotemberg:PriceSetting}.
+
+\item Use Dynare to show that a zero inflation target \((\bar{\pi}^{A}=0)\) implies observational equivalence between the Rotemberg and Calvo model.
+
+\item Investigate the steady-state properties of the two models when the targeted inflation rate of the central bank goes up, \(\bar{\pi}^{A} = \{1, 2, 3, 4, 5\} \).
+
+\begin{enumerate}
+  \item What happens to the steady-state values in both models when compared to the zero-inflation steady-state values?
+  Are the models still observational equivalent with respect to the steady-state?
+  \item What can you say about the slope of the long-run Phillips Curve, i.e.\ what happens to steady-state output if the inflation target goes up?
+\end{enumerate}
+
+\item Now compare the impulse-response functions of output and inflation to a one standard deviation TFP shock of the two price-setting models
+  when the inflation target of the central bank changes \(\bar{\pi}^{A} = \{1, 2, 3, 4, 5\} \).
+Are the models still observational equivalent?
+Provide intuition for the results.
+
+\item Now compute the determinacy region for \(\phi_\pi \in [0,6]\) and \(\phi_y \in [-1,6]\) for both model variants
+  when the inflation target goes up \(\bar{\pi}^{A} = \{1, 3, 5\} \).
+What does this imply for the ability of monetary policy to \emph{anchor inflation expectations}.
+Hint: Use Dynare's sensitivity toolbox.
+
+\item On July 8, 2021 the ECB Governing Council announced a new monetary policy strategy
+  that adopts a symmetric 2\% inflation target over the medium term instead of previously aiming at ``below but close to 2\%'' target.
+Given the insights you gained in this exercise:
+Would it be desirable for policymakers to target a higher long-run rate of inflation?
+How does the zero-lower-bound (ZLB) affect this decision?
+
+\end{enumerate}
+
+\newpage
+
+\section[Disaster Risk and Preference Shifts]{Disaster Risk and Preference Shifts in a New Keynesian Model\label{ex:DisasterRisk}}
+Read the paper by \emph{Isoré and Szczerbowicz (2017, JEDC)} on ``Disaster risk and preference shifts in a New Keynesian model''.
+
+\subsection*{Exercises}
+
+\begin{enumerate}
+\item What is the main research question addressed in this paper?
+How does it relate to the existing literature on disaster risk, particularly Gourio (2012)?
+
+\item Describe the model framework used by the authors.
+What are the key departures from a standard New Keynesian model?
+What is the ``puzzle'' that the authors identify in RBC models with disaster risk?
+How does their New Keynesian framework resolve this puzzle?
+Discuss the role of:
+\begin{itemize}
+\item The elasticity of intertemporal substitution (EIS)
+\item Price stickiness
+\end{itemize}
+
+\item According to the paper, what constitutes a ``rare disaster''?
+Provide the formal definition using the indicator variable \(x_{t+1}\) and probability \(\theta_t\).
+Explain the crucial distinction between (i) an actual disaster occuring and (ii) a change in disaster probability.
+
+\item Gourio's stationarization trick is a key technical innovation of the paper
+  to eliminate the binary disaster variable \(x_{t+1}\) from the equilibrium system.
+Illustrate this with the capital accumulation equation:
+\begin{equation*}
+K_{t+1} = \left[(1-\delta_t)K_t + S\left(\frac{I_t}{K_t}\right)K_t\right]e^{x_{t+1}\ln(1-\Delta)}
+\end{equation*}
+Show how to transform this equation using detrended capital \(k_t \equiv K_t/z_t\)
+  and investment \(i_t \equiv I_t/z_t\) to eliminate \(x_{t+1}\)
+  such that the large disaster event variable is no longer present in the equilibrium system,
+  but only the small disaster risk shock remains.
+Why is it crucial that both capital destruction and productivity growth slowdown are affected by the same destruction rate \(\Delta \)?
+
+\item The paper argues that despite disasters being large events (with destruction rate \(\Delta \approx 0.22\)),
+  third-order perturbation methods remain valid.
+Comment on the following:
+  \begin{itemize}
+  \item Why would one typically expect perturbation methods to fail for large shocks?
+  \item How does the paper's approach circumvent this problem? (Hint: What is actually being perturbed?)
+  \item Why is a third-order approximation necessary for the analysis?
+  In other words, what would be missing with only first- or second-order approximations?
+  \end{itemize}
+
+\end{enumerate}
+
+\end{document}
