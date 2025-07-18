@@ -13,8 +13,8 @@ RHO_I = 0;
 
 %% using sensitivity toolbox
 estimated_params;
-PHI_PI,uniform_pdf,(0+6)/2,sqrt(12)^(-1)*(6-0);
-PHI_Y,uniform_pdf,((-1)+6)/2,sqrt(12)^(-1)*(6-(-1));      
+PHI_PI, uniform_pdf, , ,  0, 6;
+PHI_Y,  uniform_pdf, , , -1, 6;
 end;
  
 varobs log_y log_pi; //some observables must be specified for sensitivity command, inessential for results
