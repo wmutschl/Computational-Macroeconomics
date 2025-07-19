@@ -87,7 +87,7 @@ ALPHAY     = 0.5/4;
 THETA      = 0.75;
 VARPHI     = ( (EPSILON-1)*THETA )/( (1-THETA)*(1-BETA*THETA) );
 GAMMA      = 8.1;
-PIEA       = 1;
+PIEA       = 0;
 
 shocks;
 var eps_a = 0.01;
